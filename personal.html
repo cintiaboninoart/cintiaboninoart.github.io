@@ -73,10 +73,12 @@
 
     /* GRID */
     .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  grid-auto-rows: min-content;
+  grid-auto-flow: dense;
+}
 
     .item {
       position: relative;
