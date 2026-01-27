@@ -87,9 +87,12 @@
   line-height: 0;
   align-self: start;
 }
+.item {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
 
-.item video {
-  vertical-align: top;
+.item:hover {
+  transform: scale(1.01);
 }
 
 .item video,
