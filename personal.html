@@ -248,12 +248,14 @@ const projects = [
     cover: "IDEAS.mp4",
     images: ["IDEAS.mp4"]
   },
-  {
-    title: "Amanecen Ocasos",
-    description: "Proyecto personal en formato animación para videoclip.",
-    cover: "https://vimeo.com/1158888775?share=copy&fl=sv&fe=ci",
-    images: ["https://vimeo.com/1158888775?share=copy&fl=sv&fe=ci"]
-  },
+ {
+  title: "Amanecen Ocasos",
+  description: "Proyecto personal en formato animación para videoclip.",
+  cover: "AMANECEN OCASOS.mp4",  
+  images: [
+    { type: "vimeo", id: "1158888775" }
+  ]
+}
   {
     title: "Cartel para Fiesta Mayor del Raval",
     description: "Cartel Fiesta Mayor del Raval — Proyecto ganador Concurso público · Barcelona Cartel oficial para la Fiesta Mayor del Raval 2025. Proyecto seleccionado en convocatoria pública. Me inspiré en la diversidad del vecindario e incluí algunos de sus símbolos, como la escultura del Gato del MACBA y Botero, y como figura destacada a La Mónica del Raval, a quien conocí años atrás gracias a un documental. Su mirada sobre la vida, su audacia y su sentido de pertenencia al barrio me marcaron profundamente. Meses después de su fallecimiento, quise rendirle homenaje a través de este cartel.",
@@ -317,6 +319,17 @@ function openProject(index) {
   `;
 
   project.images.forEach(src => {
+    if (typeof src === "object" && src.type === "vimeo") {
+  const iframe = document.createElement("iframe");
+  iframe.src = `https://player.vimeo.com/video/${src.id}?autoplay=1&loop=1&muted=1`;
+  iframe.width = "100%";
+  iframe.height = "450";
+  iframe.frameBorder = "0";
+  iframe.allow = "autoplay; fullscreen";
+  iframe.allowFullscreen = true;
+  content.appendChild(iframe);
+  return;
+}
 
     // ----- VIDEO -----
     if (src.endsWith(".mp4") || src.endsWith(".mov")) {
