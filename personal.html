@@ -1,410 +1,431 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Cintia Bonino — Personal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Cintia Bonino — Personal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
+<style>
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #111111;
-    }
-
-    /* NAV */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #ffffff;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    .nav-inner a {
-      text-decoration: none;
-      color: #111;
-      font-size: 15px;
-    }
-
-    /* HEADER */
-    header {
-      max-width: 1100px;
-      margin: auto;
-      padding: 120px 24px 40px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-
-    header h1 {
-      font-size: 36px;
-      margin: 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 900;
-    }
-
-    header p {
-      font-size: 16px;
-      margin-top: 12px;
-      color: #666;
-    }
-
-    /* SECTION */
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 24px 80px;
-    }
-
-    /* GRID */
-    .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  grid-auto-flow: row dense;
-}
-    
- .item {
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  line-height: 0;
-  align-self: start;
-}
-.item {
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#ffffff;
+color:#111;
 }
 
-.item:hover {
-  transform: scale(1.01);
+/* NAV */
+
+.nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+border-bottom:1px solid #ddd;
+z-index:1000;
+}
+
+.nav-inner{
+max-width:1100px;
+margin:auto;
+padding:20px;
+display:flex;
+justify-content:center;
+gap:28px;
+flex-wrap:wrap;
+}
+
+.nav-inner a{
+text-decoration:none;
+color:#111;
+font-size:15px;
+}
+
+/* HEADER */
+
+header{
+max-width:1100px;
+margin:auto;
+padding:120px 24px 40px;
+text-align:center;
+border-bottom:1px solid #ddd;
+}
+
+header h1{
+font-size:36px;
+margin:0;
+letter-spacing:2px;
+text-transform:uppercase;
+font-weight:900;
+}
+
+header p{
+font-size:16px;
+margin-top:12px;
+color:#666;
+}
+
+/* SECTION */
+
+section{
+max-width:1100px;
+margin:auto;
+padding:40px 24px 80px;
+}
+
+/* ===================== */
+/* MASONRY LAYOUT */
+/* ===================== */
+
+.grid{
+column-count:3;
+column-gap:24px;
+}
+
+.item{
+position:relative;
+cursor:pointer;
+overflow:hidden;
+line-height:0;
+break-inside:avoid;
+margin-bottom:24px;
+transition:box-shadow .25s ease, transform .25s ease;
+}
+
+.item:hover{
+transform:scale(1.01);
+box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
 .item video,
-.item img {
-  width: 100%;
-  height: auto;
-  display: block;
+.item img{
+width:100%;
+height:auto;
+display:block;
 }
 
-    .item:hover {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
+/* OVERLAY */
 
-    /* OVERLAY */
-    .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-
-}
-    .overlay span {
-  color: #ffffff;
-  font-size: 18px;
-  text-align: center;
-  padding: 20px;
-}
-    .item:hover .overlay {
-      opacity: 1;
-    }
-    .item.featured {
-  grid-column: span 2;
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.55);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+transition:opacity .3s ease;
+pointer-events:none;
 }
 
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      z-index: 2000;
-      overflow-y: auto;
-    }
-
-    .modal-content {
-      max-width: 800px;
-      margin: 80px auto;
-      padding: 20px;
-      color: white;
-    }
-
-    .modal-content img,
-    .modal-content video {
-      width: 100%;
-      margin-bottom: 30px;
-    }
-
-    .project-title {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .project-description {
-      max-width: 700px;
-      margin: 0 auto 50px;
-      text-align: center;
-      line-height: 1.7;
-    }
-
-    .close {
-      position: fixed;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 40px;
-      cursor: pointer;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      header { padding-top: 170px; }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .overlay {
-        position: static;
-        background: none;
-        opacity: 1;
-      }
-
-      .modal-content {
-        margin: 70px auto 50px;
-        padding: 16px;
-      }
-
-      .project-title {
-        font-size: 22px;
-      }
-
-      .project-description {
-        font-size: 14px;
-      }
-      .item.featured {
-  grid-column: span 1;
-  grid-row: span 1;
+.overlay span{
+color:#fff;
+font-size:18px;
+text-align:center;
+padding:20px;
 }
-    }
 
-  </style>
+.item:hover .overlay{
+opacity:1;
+}
+
+/* FEATURED (visual only) */
+
+.item.featured{
+transform:scale(1.04);
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+z-index:2000;
+overflow-y:auto;
+}
+
+.modal-content{
+max-width:800px;
+margin:80px auto;
+padding:20px;
+color:white;
+}
+
+.modal-content img,
+.modal-content video,
+.modal-content iframe{
+width:100%;
+margin-bottom:30px;
+}
+
+.project-title{
+text-align:center;
+font-size:28px;
+margin-bottom:12px;
+}
+
+.project-description{
+max-width:700px;
+margin:0 auto 50px;
+text-align:center;
+line-height:1.7;
+}
+
+.close{
+position:fixed;
+top:20px;
+right:30px;
+color:white;
+font-size:40px;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{padding-top:170px;}
+
+.grid{
+column-count:1;
+}
+
+.overlay{
+position:static;
+background:none;
+opacity:1;
+}
+
+.modal-content{
+margin:70px auto 50px;
+padding:16px;
+}
+
+.project-title{font-size:22px;}
+.project-description{font-size:14px;}
+
+.item.featured{
+transform:none;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html">Selección</a>
-    <a href="personal.html">Personal</a>
-    <a href="about.html">Sobre mí</a>
-    <a href="contact.html">Contacto</a>
-  </div>
+<div class="nav-inner">
+<a href="index.html">Selección</a>
+<a href="personal.html">Personal</a>
+<a href="about.html">Sobre mí</a>
+<a href="contact.html">Contacto</a>
+</div>
 </nav>
 
 <header>
-  <h1>Cintia Bonino</h1>
-  <p>Proyectos culturales, concursos y exploraciones</p>
+<h1>Cintia Bonino</h1>
+<p>Proyectos culturales, concursos y exploraciones</p>
 </header>
 
 <section>
-  <div class="grid" id="grid"></div>
+<div class="grid" id="grid"></div>
 </section>
 
 <!-- MODAL -->
+
 <div id="modal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <div class="modal-content" id="modal-content"></div>
+<span class="close" onclick="closeModal()">&times;</span>
+<div class="modal-content" id="modal-content"></div>
 </div>
 
 <script>
 
-/* ---------- PROYECTOS PERSONAL ---------- */
+/* ---------- PROJECTS ---------- */
 
-const projects = [
-  
-  {
-    title: "Mudanza",
-    description: "Proyecto personal en formato animación.",
-    cover: "mudanza.mp4",
-    images: ["mudanza.mp4"]
-  },
-  {
-    title: "Ideas",
-    description: "Proyecto personal en formato animación.",
-    cover: "IDEAS.mp4",
-    images: ["IDEAS.mp4"]
-  },
- {
-  title: "Amanecen Ocasos",
-  description: "Proyecto personal en formato animación para videoclip.",
-  cover: "AMANECEN OCASOS.mp4",  
-  images: [
-    { type: "vimeo", id: "1158888775" }
-  ],
-featured: true
+const projects=[
+
+{
+title:"Mudanza",
+description:"Proyecto personal en formato animación.",
+cover:"mudanza.mp4",
+images:["mudanza.mp4"]
 },
-  {
-  title: "Breve historia de una colonización",
-  description: "Proyecto personal en formato animación para videoclip.",
-  cover: "LA PREGUNTA SEMIFINAL.png",  
-  images: [
-    { type: "vimeo", id: "1161767177" }
+
+{
+title:"Ideas",
+description:"Proyecto personal en formato animación.",
+cover:"IDEAS.mp4",
+images:["IDEAS.mp4"]
 },
-  {
-    title: "La realidad es un videojuego",
-    description: "Proyecto personal en formato animación.",
-    cover: "videojuego.mp4",
-    images: ["videojuego.mp4"]
-  },
-  {
-    title: "Cartel para Fiesta Mayor del Raval",
-    description: "Cartel Fiesta Mayor del Raval — Proyecto ganador Concurso público · Barcelona Cartel oficial para la Fiesta Mayor del Raval 2025. Proyecto seleccionado en convocatoria pública. Me inspiré en la diversidad del vecindario e incluí algunos de sus símbolos, como la escultura del Gato del MACBA y Botero, y como figura destacada a La Mónica del Raval, a quien conocí años atrás gracias a un documental. Su mirada sobre la vida, su audacia y su sentido de pertenencia al barrio me marcaron profundamente. Meses después de su fallecimiento, quise rendirle homenaje a través de este cartel.",
-    cover: "CARTELL FESTA MAJOR DEL RAVAL 2025.png",
-    images: [
-      "CARTELL FESTA MAJOR DEL RAVAL 2025.png",
-      "CARTELL FESTA MAJOR RAVAL MOCK.png",
-      "CARTELL RAVAL CALLE.jpeg",
-      "CARTELL RAVAL MERCH.jpeg",
-      "CARTELL RAVALL ALFOMBRA.jpeg"
-    ]
-  }
+
+{
+title:"Amanecen Ocasos",
+description:"Proyecto personal en formato animación para videoclip.",
+cover:"AMANECEN OCASOS.mp4",
+images:[
+{type:"vimeo",id:"1158888775"}
+],
+featured:true
+},
+
+{
+title:"Breve historia de una colonización",
+description:"Proyecto personal en formato animación para videoclip.",
+cover:"LA PREGUNTA SEMIFINAL.png",
+images:[
+{type:"vimeo",id:"1161767177"}
+]
+},
+
+{
+title:"La realidad es un videojuego",
+description:"Proyecto personal en formato animación.",
+cover:"videojuego.mp4",
+images:["videojuego.mp4"]
+},
+
+{
+title:"Cartel para Fiesta Mayor del Raval",
+description:"Cartel Fiesta Mayor del Raval — Proyecto ganador Concurso público · Barcelona Cartel oficial para la Fiesta Mayor del Raval 2025. Proyecto seleccionado en convocatoria pública. Me inspiré en la diversidad del vecindario e incluí algunos de sus símbolos, como la escultura del Gato del MACBA y Botero, y como figura destacada a La Mónica del Raval, a quien conocí años atrás gracias a un documental. Su mirada sobre la vida, su audacia y su sentido de pertenencia al barrio me marcaron profundamente. Meses después de su fallecimiento, quise rendirle homenaje a través de este cartel.",
+cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",
+images:[
+"CARTELL FESTA MAJOR DEL RAVAL 2025.png",
+"CARTELL FESTA MAJOR RAVAL MOCK.png",
+"CARTELL RAVAL CALLE.jpeg",
+"CARTELL RAVAL MERCH.jpeg",
+"CARTELL RAVALL ALFOMBRA.jpeg"
+]
+}
+
 ];
 
-/* ---------- GENERAR GRID ---------- */
+/* ---------- GRID ---------- */
 
-function createGrid() {
-  const grid = document.getElementById("grid");
-  grid.innerHTML = "";
+function createGrid(){
 
-  projects.forEach((project, index) => {
-    const item = document.createElement("div");
-item.className = "item";
+const grid=document.getElementById("grid");
+grid.innerHTML="";
 
-if (project.featured) {
-  item.classList.add("featured");
+projects.forEach((project,index)=>{
+
+const item=document.createElement("div");
+item.className="item";
+
+if(project.featured){
+item.classList.add("featured");
 }
 
-    item.onclick = () => openProject(index);
+item.onclick=()=>openProject(index);
 
-    if (project.cover.endsWith(".mp4")) {
-      const video = document.createElement("video");
-      video.src = project.cover;
-      video.autoplay = true;
-      video.loop = true;
-      video.muted = true;
-      video.playsInline = true;
-      video.preload = "auto";
-      item.appendChild(video);
-    } else {
-      const img = document.createElement("img");
-      img.src = project.cover;
-      item.appendChild(img);
-    }
+/* COVER */
 
-    const overlay = document.createElement("div");
-    overlay.className = "overlay";
-    overlay.innerHTML = `<span>${project.title}</span>`;
-    item.appendChild(overlay);
-
-    grid.appendChild(item);
-  });
+if(project.cover.endsWith(".mp4")){
+const video=document.createElement("video");
+video.src=project.cover;
+video.autoplay=true;
+video.loop=true;
+video.muted=true;
+video.playsInline=true;
+video.preload="auto";
+item.appendChild(video);
+}
+else{
+const img=document.createElement("img");
+img.src=project.cover;
+item.appendChild(img);
 }
 
+/* OVERLAY */
+
+const overlay=document.createElement("div");
+overlay.className="overlay";
+overlay.innerHTML=`<span>${project.title}</span>`;
+item.appendChild(overlay);
+
+grid.appendChild(item);
+
+});
+
+}
 
 /* ---------- MODAL ---------- */
 
-function openProject(index) {
-  const modal = document.getElementById("modal");
-  const content = document.getElementById("modal-content");
-  const project = projects[index];
+function openProject(index){
 
-  content.innerHTML = `
-    <h2 class="project-title">${project.title}</h2>
-    <p class="project-description">${project.description}</p>
-  `;
+const modal=document.getElementById("modal");
+const content=document.getElementById("modal-content");
+const project=projects[index];
 
-  project.images.forEach(src => {
-    if (typeof src === "object" && src.type === "vimeo") {
-  const iframe = document.createElement("iframe");
-  iframe.src = `https://player.vimeo.com/video/${src.id}?autoplay=1&loop=1&muted=1`;
-  iframe.width = "100%";
-  iframe.height = "450";
-  iframe.frameBorder = "0";
-  iframe.allow = "autoplay; fullscreen";
-  iframe.allowFullscreen = true;
-  content.appendChild(iframe);
-  return;
+content.innerHTML=`
+<h2 class="project-title">${project.title}</h2>
+<p class="project-description">${project.description}</p>
+`;
+
+project.images.forEach(src=>{
+
+if(typeof src==="object" && src.type==="vimeo"){
+
+const iframe=document.createElement("iframe");
+iframe.src=`https://player.vimeo.com/video/${src.id}?autoplay=1&loop=1&muted=1`;
+iframe.frameBorder="0";
+iframe.allow="autoplay; fullscreen";
+iframe.allowFullscreen=true;
+content.appendChild(iframe);
+return;
+
 }
 
-    // ----- VIDEO -----
-    if (src.endsWith(".mp4") || src.endsWith(".mov")) {
-      const video = document.createElement("video");
-      video.src = src;
+/* VIDEO */
 
-      video.autoplay = true;
-      video.loop = true;
-      video.muted = true;
-      video.playsInline = true;
-      video.controls = true;
-      video.preload = "auto";
+if(src.endsWith(".mp4") || src.endsWith(".mov")){
 
-      // Necesario para iOS
-      video.setAttribute("muted", "");
-      video.setAttribute("playsinline", "");
-
-      content.appendChild(video);
-
-      // Forzar reproducción
-      video.play().catch(() => {});
-    }
-
-    // ----- IMAGEN -----
-    else {
-      const img = document.createElement("img");
-      img.src = src;
-      img.loading = "lazy";
-      content.appendChild(img);
-    }
-
-  });
-
-  modal.style.display = "block";
+const video=document.createElement("video");
+video.src=src;
+video.autoplay=true;
+video.loop=true;
+video.muted=true;
+video.playsInline=true;
+video.controls=true;
+video.preload="auto";
+video.setAttribute("muted","");
+video.setAttribute("playsinline","");
+content.appendChild(video);
+video.play().catch(()=>{});
 }
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
+/* IMAGE */
+
+else{
+
+const img=document.createElement("img");
+img.src=src;
+img.loading="lazy";
+content.appendChild(img);
+
 }
 
+});
 
-/* ---------- INIT ---------- */
+modal.style.display="block";
 
-window.addEventListener("load", createGrid);
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+/* INIT */
+
+window.addEventListener("load",createGrid);
 
 </script>
 
 </body>
 </html>
+
 
