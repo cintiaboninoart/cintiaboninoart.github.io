@@ -2,17 +2,14 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Cintia Bonino — Ilustradora y animadora en Barcelona | Portfolio</title>
+<title>Cintia Bonino — Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfolio de Cintia Bonino, ilustradora y animadora en Barcelona.">
-
-<link rel="preload" as="image" href="1.png">
 
 <style>
 body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#fff;color:#111;}
 
 .nav{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #ddd;z-index:1000;}
-.nav-inner{max-width:1100px;margin:auto;padding:20px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;}
+.nav-inner{max-width:1100px;margin:auto;padding:20px;display:flex;justify-content:center;gap:28px;}
 .nav-inner a{text-decoration:none;color:#111;font-size:15px;}
 
 header{max-width:1100px;margin:auto;padding:120px 24px 40px;text-align:center;border-bottom:1px solid #ddd;}
@@ -21,34 +18,50 @@ header p{font-size:16px;margin-top:12px;color:#666;}
 
 .hero{max-width:1100px;margin:40px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .hero-item{position:relative;cursor:pointer;overflow:hidden;}
-.hero-item img,.hero-item video{width:100%;height:auto;display:block;}
+.hero-item img,.hero-item video{width:100%;display:block;}
 
 .hero-title{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);color:#fff;font-size:28px;opacity:0;transition:.3s;}
 .hero-item:hover .hero-title{opacity:1;}
 
 section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;grid-auto-rows:10px;grid-auto-flow:dense;}
-.item{position:relative;cursor:pointer;overflow:hidden;height:auto;}
-.item img,.item video{width:100%;height:auto;display:block;}
-.item.large{grid-column:span 2;}
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+align-items:start;
+}
+
+.item{
+position:relative;
+cursor:pointer;
+overflow:hidden;
+}
+
+.item img,.item video{
+width:100%;
+display:block;
+}
+
+/* grandes */
+.item.large{
+grid-column:span 2;
+}
+
+/* verticales */
+.item.tall img,
+.item.tall video{
+aspect-ratio:3/4;
+object-fit:cover;
+}
 
 .overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;}
 .overlay span{color:#fff;font-size:18px;}
 .item:hover .overlay{opacity:1;}
 
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;overflow-y:auto;}
-.modal-content{max-width:900px;margin:80px auto;padding:20px;color:white;}
-.modal-content img,.modal-content video,.modal-content iframe{width:100%;margin-bottom:30px;}
-.modal-content iframe{aspect-ratio:16/9;}
-.project-title{text-align:center;font-size:28px;margin-bottom:12px;}
-.project-description{text-align:center;margin-bottom:40px;}
-.close{position:fixed;top:20px;right:30px;color:white;font-size:40px;cursor:pointer;}
-
 @media(max-width:768px){
-.hero{grid-template-columns:1fr;}
 .grid{grid-template-columns:1fr;}
-.hero-title{font-size:22px;}
+.hero{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -68,87 +81,48 @@ section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 <p>Ilustradora y animadora en Barcelona — ilustración editorial y animación</p>
 </header>
 
-<div class="hero">
-<div class="hero-item" onclick="openProject(0)">
-<img src="1.png" alt="Lunática">
-<div class="hero-title">Lunática</div>
-</div>
-
-<div class="hero-item" onclick="openProject(15)">
-<video src="soporte.mp4" autoplay loop muted playsinline></video>
-<div class="hero-title">Soporte</div>
-</div>
-</div>
-
 <section>
 <div class="grid" id="grid"></div>
 </section>
 
-<div id="modal" class="modal">
-<span class="close" onclick="closeModal()">&times;</span>
-<div class="modal-content" id="modal-content"></div>
-</div>
-
 <script>
 const projects=[
-
-{title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
-
-{title:"Does anyone really know you?",description:"Ilustración editorial.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
-
-{title:"Amanecen Ocasos",description:"Videoclip animado.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
-
-{title:"Café para uno",description:"Ilustración editorial.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
-
-{title:"Breve historia de una colonización",description:"Videoclip animado.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
-
-{title:"Cartel Fiesta Mayor del Raval",description:"Proyecto ganador concurso público Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
-
-{title:"Los mundos de Anna",description:"Libro ilustrado.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
-
-{title:"Should you just give up?",description:"Ilustración editorial.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
-
-{title:"What animals understand about death?",description:"Ilustración editorial.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
-
-{title:"María Antonieta",description:"Campaña conceptual Converse.",cover:"converse total.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
-
-{title:"El cambio es movimiento",description:"Campaña conceptual Adidas Pride.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
-
-{title:"Cities",description:"Campaña conceptual Coca-Cola.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]},
-
-{title:"La realidad es un videojuego",description:"Animación.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
-
-{title:"Mudanza",description:"Animación.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
-
-{title:"Soporte",description:"Animación.",cover:"soporte.mp4",images:["soporte.mp4"]},
-
-{title:"Ideas",description:"Animación.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]}
+{title:"Vértigo",cover:"VERTIGO TAPA.png"},
+{title:"Does anyone really know you?",cover:"ho know you photo.png"},
+{title:"Amanecen Ocasos",cover:"AMANECEN OCASOS.mp4"},
+{title:"Café para uno",cover:"cafe para uno.png"},
+{title:"Breve historia de una colonización",cover:"RECORTE BREVE HISTORIA.mp4"},
+{title:"Cartel Fiesta Mayor del Raval",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png"},
+{title:"Los mundos de Anna",cover:"anna.png"},
+{title:"Should you just give up?",cover:"NEW YORKER PESO photo.png"},
+{title:"What animals understand about death?",cover:"rata photo.png"},
+{title:"María Antonieta",cover:"converse total.png"},
+{title:"El cambio es movimiento",cover:"ADIDAS PRIDE SENORA.png"},
+{title:"Cities",cover:"coca chicas sin fondo ph.png"},
+{title:"La realidad es un videojuego",cover:"videojuego.mp4"},
+{title:"Mudanza",cover:"mudanza.mp4"},
+{title:"Soporte",cover:"soporte.mp4"},
+{title:"Ideas",cover:"IDEAS.mp4"}
 ];
-
-
-const heroIndexes=[0,15];
 
 function createGrid(){
 const grid=document.getElementById("grid");
 
-projects.forEach((project,index)=>{
-if(heroIndexes.includes(index)) return;
-
+projects.forEach(project=>{
 const item=document.createElement("div");
 item.className="item";
 
+/* grandes */
 if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una colonización"){
 item.classList.add("large");
 }
 
+/* verticales */
 if(project.title==="Café para uno" || project.title==="Does anyone really know you?"){
 item.classList.add("tall");
 }
 
-item.onclick=()=>openProject(index);
-
 let media;
-
 if(project.cover.endsWith(".mp4")){
 media=document.createElement("video");
 media.src=project.cover;
@@ -156,13 +130,9 @@ media.autoplay=true;
 media.loop=true;
 media.muted=true;
 media.playsInline=true;
-media.onloadedmetadata=()=>requestAnimationFrame(resizeGridItems);
 }else{
 media=document.createElement("img");
 media.src=project.cover;
-media.alt=project.title;
-media.loading="lazy";
-media.onload=()=>requestAnimationFrame(resizeGridItems);
 }
 
 item.appendChild(media);
@@ -176,74 +146,12 @@ grid.appendChild(item);
 });
 }
 
-function resizeGridItems(){
-const grid=document.querySelector(".grid");
-const rowHeight=parseInt(getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
-const gap=parseInt(getComputedStyle(grid).getPropertyValue("row-gap"));
-
-document.querySelectorAll(".item").forEach(item=>{
-const height=item.scrollHeight;
-if(!height) return;
-
-let span=Math.ceil((height+gap)/(rowHeight+gap));
-
-if(item.classList.contains("tall")){
-span=Math.ceil(span*1.25);
-}
-
-item.style.gridRowEnd="span "+span;
-});
-}
-
-function openProject(index){
-const modal=document.getElementById("modal");
-const content=document.getElementById("modal-content");
-const project=projects[index];
-
-content.innerHTML=`<h2 class="project-title">${project.title}</h2>
-<p class="project-description">${project.description}</p>`;
-
-project.images.forEach(src=>{
-if(typeof src==="object"){
-const iframe=document.createElement("iframe");
-iframe.src=`https://player.vimeo.com/video/${src.id}`;
-content.appendChild(iframe);
-}else if(src.endsWith(".mp4")){
-const video=document.createElement("video");
-video.src=src;
-video.controls=true;
-video.playsInline=true;
-content.appendChild(video);
-}else{
-const img=document.createElement("img");
-img.src=src;
-img.alt=project.title;
-img.loading="lazy";
-content.appendChild(img);
-}
-});
-
-modal.style.display="block";
-}
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
-document.getElementById("modal").addEventListener("click",e=>{
-if(e.target.id==="modal") closeModal();
-});
-
-window.addEventListener("load",()=>{
-createGrid();
-setTimeout(resizeGridItems,100);
-});
-
-window.addEventListener("resize",()=>requestAnimationFrame(resizeGridItems));
+window.addEventListener("load",createGrid);
 </script>
 
 </body>
 </html>
+
 
 
 
