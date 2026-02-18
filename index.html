@@ -52,6 +52,10 @@ width:calc(100% + 60%);
 margin-left:-30%;
 margin-right:-30%;
 }
+.item.wide{
+margin-top:12px;
+margin-bottom:36px;
+}
 
 
 
@@ -96,6 +100,11 @@ padding:20px;
 header{padding-top:170px;}
 .grid{grid-template-columns:1fr;}
 .item.wide{grid-column:span 1;}
+.item.wide{
+width:100%;
+margin-left:0;
+margin-right:0;
+}
 .overlay{position:static;background:none;opacity:1;}
 .modal-content{margin:70px auto 50px;padding:16px;}
 .project-title{font-size:22px;}
@@ -127,6 +136,7 @@ header{padding-top:170px;}
 <span class="close" onclick="closeModal()">&times;</span>
 <div class="modal-content" id="modal-content"></div>
 </div>
+
 
 <script>
 
