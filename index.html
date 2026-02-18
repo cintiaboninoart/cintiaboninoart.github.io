@@ -6,84 +6,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#fff;color:#111;}
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#fff;
+color:#111;
+}
 
-.nav{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #ddd;z-index:1000;}
-.nav-inner{max-width:1100px;margin:auto;padding:20px;display:flex;justify-content:center;gap:28px;}
-.nav-inner a{text-decoration:none;color:#111;font-size:15px;}
+header{
+max-width:1100px;
+margin:auto;
+padding:60px 24px 20px;
+text-align:center;
+border-bottom:1px solid #ddd;
+}
 
-header{max-width:1100px;margin:auto;padding:120px 24px 40px;text-align:center;border-bottom:1px solid #ddd;}
-header h1{font-size:36px;margin:0;letter-spacing:2px;text-transform:uppercase;font-weight:900;}
-header p{font-size:16px;margin-top:12px;color:#666;}
+header h1{
+margin:0;
+font-size:36px;
+letter-spacing:2px;
+text-transform:uppercase;
+}
 
-.hero{max-width:1100px;margin:40px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-.hero-item{position:relative;cursor:pointer;overflow:hidden;}
-.hero-item img,.hero-item video{width:100%;display:block;}
+header p{
+margin-top:10px;
+color:#666;
+}
 
-.hero-title{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);color:#fff;font-size:28px;opacity:0;transition:.3s;}
-.hero-item:hover .hero-title{opacity:1;}
-
-section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
-
+/* GRID LIMPIO */
 .grid{
+max-width:1100px;
+margin:40px auto 80px;
+padding:0 24px;
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:18px;
+gap:24px;
 align-items:start;
 }
 
 .item{
 position:relative;
 cursor:pointer;
-overflow:hidden;
 }
 
-.item img,.item video{
+/* imágenes SIEMPRE completas */
+.item img,
+.item video{
 width:100%;
+height:auto;
 display:block;
+object-fit:contain;
 }
 
-/* grandes */
+/* jerarquía */
 .item.large{
 grid-column:span 2;
 }
 
-/* verticales */
-.item.tall img,
-.item.tall video{
-aspect-ratio:3/4;
-object-fit:cover;
+/* overlay */
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.5);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+transition:.3s;
 }
 
-.overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;}
-.overlay span{color:#fff;font-size:18px;}
-.item:hover .overlay{opacity:1;}
+.overlay span{
+color:white;
+font-size:18px;
+}
 
-@media(max-width:768px){
+.item:hover .overlay{
+opacity:1;
+}
+
+@media(max-width:900px){
+.grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:600px){
 .grid{grid-template-columns:1fr;}
-.hero{grid-template-columns:1fr;}
 }
 </style>
 </head>
 
 <body>
 
-<nav class="nav">
-<div class="nav-inner">
-<a href="#">Selección</a>
-<a href="#">Sobre mí</a>
-<a href="#">Contacto</a>
-</div>
-</nav>
-
 <header>
 <h1>Cintia Bonino</h1>
-<p>Ilustradora y animadora en Barcelona — ilustración editorial y animación</p>
+<p>Ilustradora y animadora</p>
 </header>
 
-<section>
 <div class="grid" id="grid"></div>
-</section>
 
 <script>
 const projects=[
@@ -117,12 +135,8 @@ if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una c
 item.classList.add("large");
 }
 
-/* verticales */
-if(project.title==="Café para uno" || project.title==="Does anyone really know you?"){
-item.classList.add("tall");
-}
-
 let media;
+
 if(project.cover.endsWith(".mp4")){
 media=document.createElement("video");
 media.src=project.cover;
@@ -133,6 +147,7 @@ media.playsInline=true;
 }else{
 media=document.createElement("img");
 media.src=project.cover;
+media.alt=project.title;
 }
 
 item.appendChild(media);
@@ -151,6 +166,7 @@ window.addEventListener("load",createGrid);
 
 </body>
 </html>
+
 
 
 
