@@ -26,6 +26,7 @@ grid-template-columns:repeat(3,1fr);
 gap:24px;
 grid-auto-rows:10px;
 grid-auto-flow:dense;
+align-items:start;
 }
 
 .item{
@@ -117,7 +118,6 @@ header{padding-top:170px;}
 </div>
 
 <script>
-
 const projects = [
   {title:"Amanecen Ocasos",description:"Videoclip animado.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
   {title:"Soporte",description:"Animación.",cover:"soporte.mp4",images:["soporte.mp4"]},
@@ -145,8 +145,6 @@ const projects = [
   {title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
 ];
 
-
-
 function createGrid(){
 const grid=document.getElementById("grid");
 grid.innerHTML="";
@@ -158,12 +156,13 @@ item.onclick=()=>openProject(index);
 
 let media;
 
-if(project.cover.endsWith(".mp4")){
+if(project.cover.endsWith(".mp4") || project.cover.endsWith(".mov")){
 media=document.createElement("video");
 media.src=project.cover;
 media.autoplay=true;
 media.loop=true;
 media.muted=true;
+media.setAttribute("muted","");
 media.playsInline=true;
 media.preload="auto";
 }else{
@@ -180,7 +179,6 @@ item.appendChild(overlay);
 
 grid.appendChild(item);
 
-/* detectar orientación y aplicar span */
 function applyOrientation(){
 const w = media.videoWidth || media.naturalWidth;
 const h = media.videoHeight || media.naturalHeight;
@@ -189,7 +187,7 @@ if(w && h && (w/h) > 1.2){
 item.classList.add("wide");
 }
 
-resizeGridItems();
+requestAnimationFrame(resizeGridItems);
 }
 
 media.addEventListener("loadedmetadata",applyOrientation);
@@ -197,17 +195,18 @@ media.addEventListener("load",applyOrientation);
 });
 }
 
-/* calcular altura masonry */
 function resizeGridItems(){
 const grid=document.querySelector(".grid");
 const rowHeight=parseInt(window.getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
-const gap=parseInt(window.getComputedStyle(grid).getPropertyValue("gap"));
+const gap=parseInt(window.getComputedStyle(grid).getPropertyValue("row-gap"));
 
 document.querySelectorAll(".item").forEach(item=>{
 const media=item.querySelector("img, video");
 if(!media) return;
 
 const height=media.getBoundingClientRect().height;
+if(!height) return;
+
 const span=Math.ceil((height+gap)/(rowHeight+gap));
 item.style.gridRowEnd="span "+span;
 });
@@ -240,6 +239,7 @@ video.src=src;
 video.autoplay=true;
 video.loop=true;
 video.muted=true;
+video.setAttribute("muted","");
 video.playsInline=true;
 video.controls=true;
 video.preload="auto";
@@ -261,27 +261,7 @@ document.getElementById("modal").style.display="none";
 
 window.addEventListener("load",createGrid);
 window.addEventListener("resize",resizeGridItems);
-
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
