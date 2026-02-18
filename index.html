@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Cintia Bonino — Animación y proyectos premiados</title>
-<meta name="description" content="Portfolio de Cintia Bonino. Ilustración, animación y proyectos culturales premiados.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -19,7 +18,7 @@ header p{font-size:16px;margin-top:12px;color:#666;}
 
 section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
-/* MASONRY PROPORCIONAL */
+/* COLUMN MASONRY */
 
 .grid{
 column-count:3;
@@ -31,7 +30,6 @@ position:relative;
 margin-bottom:24px;
 break-inside:avoid;
 cursor:pointer;
-transition:transform .25s ease, box-shadow .25s ease;
 }
 
 .item img,
@@ -41,15 +39,14 @@ height:auto;
 display:block;
 }
 
-/* horizontales más grandes sin romper masonry */
+/* horizontales grandes */
 .item.wide{
+-webkit-column-span:all;
 column-span:all;
 margin:36px 0;
 }
 
-
 /* overlay */
-
 .overlay{
 position:absolute;
 inset:0;
@@ -72,7 +69,6 @@ padding:20px;
 .item:hover .overlay{opacity:1;}
 
 /* modal */
-
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;overflow-y:auto;}
 .modal-content{max-width:900px;margin:80px auto;padding:20px;color:white;}
 .modal-content img,
@@ -93,7 +89,6 @@ header{padding-top:170px;}
 .project-title{font-size:22px;}
 .project-description{font-size:14px;}
 }
-
 </style>
 </head>
 
@@ -121,177 +116,27 @@ header{padding-top:170px;}
 <div class="modal-content" id="modal-content"></div>
 </div>
 
-
 <script>
 
 const projects=[
 
-{
-title:"Amanecen Ocasos",
-description:"Videoclip animado.",
-cover:"AMANECEN OCASOS.mp4",
-images:[{type:"vimeo",id:"1158888775"}],
-wide:true
-},
-
-{
-title:"Breve historia de una colonización",
-description:"Videoclip animado.",
-cover:"RECORTE BREVE HISTORIA.mp4",
-images:[{type:"vimeo",id:"1161767177"}],
-wide:true
-},
-
-{
-title:"Cartel Fiesta Mayor del Raval",
-description:"Proyecto ganador concurso público Barcelona.",
-cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",
-images:[
-"CARTELL FESTA MAJOR DEL RAVAL 2025.png",
-"CARTELL FESTA MAJOR RAVAL MOCK.png",
-"CARTELL RAVAL CALLE.jpeg",
-"CARTELL RAVAL MERCH.jpeg",
-"CARTELL RAVALL ALFOMBRA.jpeg"
-],
-wide:true
-},
-
-{
-title:"Soporte",
-description:"Animación.",
-cover:"soporte.mp4",
-images:["soporte.mp4"]
-},
-
-{
-title:"Ideas",
-description:"Animación.",
-cover:"IDEAS.mp4",
-images:["IDEAS.mp4"]
-},
-
-{
-title:"Mudanza",
-description:"Animación.",
-cover:"mudanza.mp4",
-images:["mudanza.mp4"]
-},
-
-{
-title:"La realidad es un videojuego",
-description:"Animación.",
-cover:"videojuego.mp4",
-images:["videojuego.mp4"]
-},
-
-{
-title:"Cities",
-description:"Campaña conceptual Coca-Cola.",
-cover:"coca chicas sin fondo ph.png",
-images:[
-"coca chicas sin fondo ph.png",
-"coca barcelona ph.png",
-"coca bs as ph.png",
-"coca cola mock libreta bcn.png"
-]
-},
-
-{
-title:"El cambio es movimiento",
-description:"Campaña conceptual Adidas Pride.",
-cover:"ADIDAS PRIDE SENORA.png",
-images:[
-"ADIDAS PRIDE FINAL.png",
-"ADIDAS PRIDE PERSONAJES.png",
-"ADIDAS PRIDE ABSTRACCION.png",
-"ADIDAS PRIDE ABSTRACCION MOCK.png"
-]
-},
-
-{
-title:"María Antonieta",
-description:"Campaña conceptual Converse.",
-cover:"converse total.png",
-images:[
-"converse total.png",
-"converse mock caja total.png",
-"converse mock caja zapatillas.png",
-"converse tote toal.png",
-"converse zapatillas.png",
-"converse tote zapatillas.png"
-]
-},
-
-{
-title:"Should you just give up?",
-description:"Ilustración editorial.",
-cover:"NEW YORKER PESO photo.png",
-images:[
-"NEW YORKER PESO photo.png",
-"new yorker peso mock.png"
-]
-},
-
-{
-title:"Café para uno",
-description:"Ilustración editorial.",
-cover:"cafe para uno.png",
-images:[
-"cafe para uno mock.png"
-]
-},
-
-{
-title:"Does anyone really know you?",
-description:"Ilustración editorial.",
-cover:"ho know you photo.png",
-images:[
-"ho know you photo.png",
-"ho know you photo mock.png"
-]
-},
-
-{
-title:"What animals understand about death?",
-description:"Ilustración editorial.",
-cover:"rata photo.png",
-images:[
-"rata photo.png",
-"rata new yorker.png"
-]
-},
-
-{
-title:"Lunática",
-description:"Libro ilustrado.",
-cover:"1.png",
-images:[
-"1.png",
-"luna llena mock.png",
-"desayuno mock.png"
-]
-},
-
-{
-title:"Vértigo",
-description:"Diseño e ilustración editorial.",
-cover:"VERTIGO TAPA.png",
-images:[
-"VERTIGO MOCK TAPA.png",
-"VERTIGO GUARDA.png",
-"VERTIGO MOCK INTERIOR.png"
-]
-},
-
-{
-title:"Los mundos de Anna",
-description:"Libro ilustrado.",
-cover:"anna.png",
-images:[
-"libro anna.png",
-"ANNA MOCK INTERN.png"
-]
-}
+{title:"Amanecen Ocasos",description:"Videoclip animado.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
+{title:"Breve historia de una colonización",description:"Videoclip animado.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
+{title:"Cartel Fiesta Mayor del Raval",description:"Proyecto ganador concurso público Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
+{title:"Soporte",description:"Animación.",cover:"soporte.mp4",images:["soporte.mp4"]},
+{title:"Ideas",description:"Animación.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
+{title:"Mudanza",description:"Animación.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
+{title:"La realidad es un videojuego",description:"Animación.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
+{title:"Cities",description:"Campaña conceptual Coca-Cola.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]},
+{title:"El cambio es movimiento",description:"Campaña conceptual Adidas Pride.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
+{title:"María Antonieta",description:"Campaña conceptual Converse.",cover:"converse total.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
+{title:"Should you just give up?",description:"Ilustración editorial.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
+{title:"Café para uno",description:"Ilustración editorial.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
+{title:"Does anyone really know you?",description:"Ilustración editorial.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
+{title:"What animals understand about death?",description:"Ilustración editorial.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
+{title:"Lunática",description:"Libro ilustrado.",cover:"1.png",images:["1.png","luna llena mock.png","desayuno mock.png"]},
+{title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
+{title:"Los mundos de Anna",description:"Libro ilustrado.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]}
 
 ];
 
@@ -302,8 +147,6 @@ grid.innerHTML="";
 projects.forEach((project,index)=>{
 const item=document.createElement("div");
 item.className="item";
-if(project.wide) item.classList.add("wide");
-
 item.onclick=()=>openProject(index);
 
 let media;
@@ -330,28 +173,22 @@ item.appendChild(overlay);
 
 grid.appendChild(item);
 
-media.addEventListener("loadedmetadata",resizeGridItems);
-media.addEventListener("load",resizeGridItems);
-});
+/* detectar orientación */
+function applyOrientation(){
+const w = media.videoWidth || media.naturalWidth;
+const h = media.videoHeight || media.naturalHeight;
+if(w && h && w>h){
+item.classList.add("wide");
+}
 }
 
-function resizeGridItems(){
-const grid=document.querySelector(".grid");
-const rowHeight=parseInt(window.getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
-const gap=parseInt(window.getComputedStyle(grid).getPropertyValue("gap"));
+media.addEventListener("loadedmetadata",applyOrientation);
+media.addEventListener("load",applyOrientation);
 
-document.querySelectorAll(".item").forEach(item=>{
-const media=item.querySelector("img, video");
-if(!media) return;
-
-const height=media.getBoundingClientRect().height;
-const span=Math.ceil((height+gap)/(rowHeight+gap));
-item.style.gridRowEnd="span "+span;
 });
 }
 
 function openProject(index){
-
 const modal=document.getElementById("modal");
 const content=document.getElementById("modal-content");
 const project=projects[index];
@@ -362,7 +199,6 @@ content.innerHTML=`
 `;
 
 project.images.forEach(src=>{
-
 if(typeof src==="object" && src.type==="vimeo"){
 const iframe=document.createElement("iframe");
 iframe.src=`https://player.vimeo.com/video/${src.id}?autoplay=1&loop=1&muted=1`;
@@ -389,7 +225,6 @@ img.src=src;
 img.loading="lazy";
 content.appendChild(img);
 }
-
 });
 
 modal.style.display="block";
@@ -400,12 +235,12 @@ document.getElementById("modal").style.display="none";
 }
 
 window.addEventListener("load",createGrid);
-window.addEventListener("resize",resizeGridItems);
 
 </script>
 
 </body>
 </html>
+
 
 
 
