@@ -133,9 +133,6 @@ display:block;
 .item.large{
 grid-column:span 2;
 }
-.item.tall{
-grid-row:span 35;
-}
 
 .overlay{
 position:absolute;
@@ -388,10 +385,12 @@ document.querySelectorAll(".item").forEach(item=>{
 const height=item.scrollHeight;
 if(!height) return;
 
-const span=Math.ceil((height+gap)/(rowHeight+gap));
-item.style.gridRowEnd="span "+span;
-});
+let span=Math.ceil((height+gap)/(rowHeight+gap));
+
+if(item.classList.contains("tall")){
+span=Math.ceil(span*1.25); // 25% más alto
 }
+
 
 function openProject(index){
 const modal=document.getElementById("modal");
