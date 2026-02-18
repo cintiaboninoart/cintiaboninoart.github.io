@@ -128,9 +128,8 @@ font-size:18px;
 <p>Ilustración, animación y proyectos premiados</p>
 </header>
 
-<!-- HERO DOBLE -->
+<!-- HERO -->
 <div class="hero">
-
 <div class="hero-item" onclick="openProject(0)">
 <img src="1.png">
 <div class="hero-title">Lunática</div>
@@ -140,7 +139,6 @@ font-size:18px;
 <video src="soporte.mp4" autoplay loop muted playsinline></video>
 <div class="hero-title">Soporte</div>
 </div>
-
 </div>
 
 <section>
@@ -226,7 +224,7 @@ function createGrid(){
 const grid=document.getElementById("grid");
 
 projects.forEach((project,index)=>{
-if(index===0 || index===15) return; // skip heroes
+if(index===0 || index===15) return;
 
 const item=document.createElement("div");
 item.className="item";
@@ -254,16 +252,10 @@ overlay.innerHTML=`<span>${project.title}</span>`;
 item.appendChild(overlay);
 
 grid.appendChild(item);
-
-function applyOrientation(){
-requestAnimationFrame(resizeGridItems);
-}
-
-media.addEventListener("loadedmetadata",applyOrientation);
-media.addEventListener("load",applyOrientation);
 });
 }
 
+/* recalculo seguro cuando TODO cargó */
 function resizeGridItems(){
 const grid=document.querySelector(".grid");
 const rowHeight=parseInt(window.getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
@@ -310,13 +302,19 @@ function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
-window.addEventListener("load",createGrid);
+window.addEventListener("load",()=>{
+createGrid();
+
+/* esperar carga de media */
+setTimeout(resizeGridItems,300);
+});
+
 window.addEventListener("resize",resizeGridItems);
-window.addEventListener("load",()=>setTimeout(resizeGridItems,200));
 </script>
 
 </body>
 </html>
+
 
 
 
