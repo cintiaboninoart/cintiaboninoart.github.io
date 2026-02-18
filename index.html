@@ -18,8 +18,6 @@ header p{font-size:16px;margin-top:12px;color:#666;}
 
 section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
-/* GRID MASONRY */
-
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -33,6 +31,7 @@ align-items:start;
 position:relative;
 cursor:pointer;
 overflow:hidden;
+transition:transform .25s ease;
 }
 
 .item img,
@@ -42,17 +41,16 @@ height:auto;
 display:block;
 }
 
-/* horizontales */
 .item.wide{
 grid-column:span 2;
 }
 
-/* destacados manuales */
+/* destacados: solo un poco más grandes */
 .item.featured{
-grid-column:span 2;
+transform:scale(1.06);
+z-index:2;
 }
 
-/* overlay */
 .overlay{
 position:absolute;
 inset:0;
@@ -74,7 +72,6 @@ padding:20px;
 
 .item:hover .overlay{opacity:1;}
 
-/* modal */
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;overflow-y:auto;}
 .modal-content{max-width:900px;margin:80px auto;padding:20px;color:white;}
 .modal-content img,
@@ -125,28 +122,23 @@ header{padding-top:170px;}
 <script>
 const projects = [
 
-  // 🔴 AUTORAL DESTACADOS
   {title:"Lunática",description:"Libro ilustrado.",cover:"1.png",images:["1.png","luna llena mock.png","desayuno mock.png"],featured:true},
   {title:"Café para uno",description:"Ilustración editorial.",cover:"cafe para uno.png",images:["cafe para uno mock.png"],featured:true},
   {title:"La realidad es un videojuego",description:"Animación.",cover:"videojuego.mp4",images:["videojuego.mp4"],featured:true},
   {title:"Soporte",description:"Animación.",cover:"soporte.mp4",images:["soporte.mp4"],featured:true},
 
-  // 🔴 AUTORAL
   {title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
   {title:"Does anyone really know you?",description:"Ilustración editorial.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
   {title:"Should you just give up?",description:"Ilustración editorial.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
   {title:"What animals understand about death?",description:"Ilustración editorial.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
 
-  // 🟠 EDITORIAL / CONCEPTUAL
   {title:"Los mundos de Anna",description:"Libro ilustrado.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
   {title:"María Antonieta",description:"Campaña conceptual Converse.",cover:"converse total.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
   {title:"El cambio es movimiento",description:"Campaña conceptual Adidas Pride.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
   {title:"Cities",description:"Campaña conceptual Coca-Cola.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]},
 
-  // 🟡 CARTEL
   {title:"Cartel Fiesta Mayor del Raval",description:"Proyecto ganador concurso público Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
 
-  // 🔵 ANIMACIÓN
   {title:"Amanecen Ocasos",description:"Videoclip animado.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
   {title:"Breve historia de una colonización",description:"Videoclip animado.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
   {title:"Mudanza",description:"Animación.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
@@ -274,6 +266,10 @@ document.getElementById("modal").style.display="none";
 window.addEventListener("load",createGrid);
 window.addEventListener("resize",resizeGridItems);
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
