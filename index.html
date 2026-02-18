@@ -18,18 +18,19 @@ header p{font-size:16px;margin-top:12px;color:#666;}
 
 section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
-/* COLUMN MASONRY */
+/* GRID MASONRY */
 
 .grid{
-column-count:3;
-column-gap:24px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+grid-auto-rows:10px;
 }
 
 .item{
 position:relative;
-margin-bottom:24px;
-break-inside:avoid;
 cursor:pointer;
+overflow:hidden;
 }
 
 .item img,
@@ -39,11 +40,9 @@ height:auto;
 display:block;
 }
 
-/* horizontales grandes */
+/* horizontales → 2 columnas */
 .item.wide{
--webkit-column-span:all;
-column-span:all;
-margin:36px 0;
+grid-column:span 2;
 }
 
 /* overlay */
@@ -83,7 +82,7 @@ padding:20px;
 
 @media(max-width:768px){
 header{padding-top:170px;}
-.grid{column-count:1;}
+.grid{grid-template-columns:1fr;}
 .overlay{position:static;background:none;opacity:1;}
 .modal-content{margin:70px auto 50px;padding:16px;}
 .project-title{font-size:22px;}
@@ -119,7 +118,6 @@ header{padding-top:170px;}
 <script>
 
 const projects=[
-
 {title:"Amanecen Ocasos",description:"Videoclip animado.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
 {title:"Breve historia de una colonización",description:"Videoclip animado.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
 {title:"Cartel Fiesta Mayor del Raval",description:"Proyecto ganador concurso público Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
@@ -137,7 +135,6 @@ const projects=[
 {title:"Lunática",description:"Libro ilustrado.",cover:"1.png",images:["1.png","luna llena mock.png","desayuno mock.png"]},
 {title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
 {title:"Los mundos de Anna",description:"Libro ilustrado.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]}
-
 ];
 
 function createGrid(){
@@ -173,18 +170,36 @@ item.appendChild(overlay);
 
 grid.appendChild(item);
 
-/* detectar orientación */
+/* detectar orientación y aplicar span */
 function applyOrientation(){
 const w = media.videoWidth || media.naturalWidth;
 const h = media.videoHeight || media.naturalHeight;
-if(w && h && w>h){
+
+if(w && h && (w/h) > 1.2){
 item.classList.add("wide");
 }
+
+resizeGridItems();
 }
 
 media.addEventListener("loadedmetadata",applyOrientation);
 media.addEventListener("load",applyOrientation);
+});
+}
 
+/* calcular altura masonry */
+function resizeGridItems(){
+const grid=document.querySelector(".grid");
+const rowHeight=parseInt(window.getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
+const gap=parseInt(window.getComputedStyle(grid).getPropertyValue("gap"));
+
+document.querySelectorAll(".item").forEach(item=>{
+const media=item.querySelector("img, video");
+if(!media) return;
+
+const height=media.getBoundingClientRect().height;
+const span=Math.ceil((height+gap)/(rowHeight+gap));
+item.style.gridRowEnd="span "+span;
 });
 }
 
@@ -235,11 +250,13 @@ document.getElementById("modal").style.display="none";
 }
 
 window.addEventListener("load",createGrid);
+window.addEventListener("resize",resizeGridItems);
 
 </script>
 
 </body>
 </html>
+
 
 
 
