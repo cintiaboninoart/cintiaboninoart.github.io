@@ -16,21 +16,24 @@ header{max-width:1100px;margin:auto;padding:120px 24px 40px;text-align:center;bo
 header h1{font-size:36px;margin:0;letter-spacing:2px;text-transform:uppercase;font-weight:900;}
 header p{font-size:16px;margin-top:12px;color:#666;}
 
-section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
-
-/* HERO */
+/* HERO DOBLE */
 .hero{
 max-width:1100px;
 margin:40px auto 0;
 padding:0 24px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
 }
 
 .hero-item{
 position:relative;
 cursor:pointer;
+overflow:hidden;
 }
 
-.hero-item img{
+.hero-item img,
+.hero-item video{
 width:100%;
 display:block;
 }
@@ -41,17 +44,17 @@ inset:0;
 display:flex;
 align-items:center;
 justify-content:center;
-background:rgba(0,0,0,.4);
+background:rgba(0,0,0,.35);
 color:#fff;
-font-size:32px;
-letter-spacing:1px;
+font-size:28px;
 opacity:0;
 transition:.3s;
 }
 
 .hero-item:hover .hero-title{opacity:1;}
 
-/* GRID */
+section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
+
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -103,6 +106,7 @@ font-size:18px;
 .close{position:fixed;top:20px;right:30px;color:white;font-size:40px;cursor:pointer;}
 
 @media(max-width:768px){
+.hero{grid-template-columns:1fr;}
 .grid{grid-template-columns:1fr;}
 .hero-title{font-size:22px;}
 }
@@ -124,12 +128,19 @@ font-size:18px;
 <p>Ilustración, animación y proyectos premiados</p>
 </header>
 
-<!-- HERO -->
+<!-- HERO DOBLE -->
 <div class="hero">
+
 <div class="hero-item" onclick="openProject(0)">
 <img src="1.png">
 <div class="hero-title">Lunática</div>
 </div>
+
+<div class="hero-item" onclick="openProject(15)">
+<video src="soporte.mp4" autoplay loop muted playsinline></video>
+<div class="hero-title">Soporte</div>
+</div>
+
 </div>
 
 <section>
@@ -214,10 +225,12 @@ images:["IDEAS.mp4"]}
 function createGrid(){
 const grid=document.getElementById("grid");
 
-projects.slice(1).forEach((project,index)=>{
+projects.forEach((project,index)=>{
+if(index===0 || index===15) return; // skip heroes
+
 const item=document.createElement("div");
 item.className="item";
-item.onclick=()=>openProject(index+1);
+item.onclick=()=>openProject(index);
 
 let media;
 
@@ -241,6 +254,27 @@ overlay.innerHTML=`<span>${project.title}</span>`;
 item.appendChild(overlay);
 
 grid.appendChild(item);
+
+function applyOrientation(){
+requestAnimationFrame(resizeGridItems);
+}
+
+media.addEventListener("loadedmetadata",applyOrientation);
+media.addEventListener("load",applyOrientation);
+});
+}
+
+function resizeGridItems(){
+const grid=document.querySelector(".grid");
+const rowHeight=parseInt(window.getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
+const gap=parseInt(window.getComputedStyle(grid).getPropertyValue("row-gap"));
+
+document.querySelectorAll(".item").forEach(item=>{
+const height=item.getBoundingClientRect().height;
+if(!height) return;
+
+const span=Math.ceil((height+gap)/(rowHeight+gap));
+item.style.gridRowEnd="span "+span;
 });
 }
 
@@ -249,10 +283,8 @@ const modal=document.getElementById("modal");
 const content=document.getElementById("modal-content");
 const project=projects[index];
 
-content.innerHTML=`
-<h2 class="project-title">${project.title}</h2>
-<p class="project-description">${project.description}</p>
-`;
+content.innerHTML=`<h2 class="project-title">${project.title}</h2>
+<p class="project-description">${project.description}</p>`;
 
 project.images.forEach(src=>{
 if(typeof src==="object"){
@@ -279,10 +311,13 @@ document.getElementById("modal").style.display="none";
 }
 
 window.addEventListener("load",createGrid);
+window.addEventListener("resize",resizeGridItems);
+window.addEventListener("load",()=>setTimeout(resizeGridItems,200));
 </script>
 
 </body>
 </html>
+
 
 
 
