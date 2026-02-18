@@ -133,6 +133,9 @@ display:block;
 .item.large{
 grid-column:span 2;
 }
+.item.tall{
+transform:scale(1.04);
+}
 .overlay{
 position:absolute;
 inset:0;
@@ -326,7 +329,13 @@ if(heroIndexes.includes(index)) return;
 
 const item=document.createElement("div");
 item.className="item";
+if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una colonización"){
+item.classList.add("large");
+}
 
+if(project.title==="Café para uno"){
+item.classList.add("tall");
+}
 if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una colonización"){
 item.classList.add("large");
 }
