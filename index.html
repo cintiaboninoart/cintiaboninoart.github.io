@@ -1,233 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Cintia Bonino — Animación y proyectos premiados</title>
-  <meta name="description" content="Portfolio de Cintia Bonino. Ilustración, animación y proyectos culturales premiados.">
-  <meta name="keywords" content="ilustración, animación, dirección de arte, portfolio, Cintia Bonino">
-  <meta name="author" content="Cintia Bonino">
+<meta charset="UTF-8">
+<title>Cintia Bonino — Animación y proyectos premiados</title>
+<meta name="description" content="Portfolio de Cintia Bonino. Ilustración, animación y proyectos culturales premiados.">
+<meta name="keywords" content="ilustración, animación, dirección de arte, portfolio, Cintia Bonino">
+<meta name="author" content="Cintia Bonino">
 
-  <meta property="og:title" content="Cintia Bonino — Animación y proyectos premiados">
-  <meta property="og:description" content="Portfolio de ilustración, animación y proyectos culturales.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cintiaboninoart.github.io">
-  <meta property="og:image" content="https://cintiaboninoart.github.io/preview.jpg">
+<meta property="og:title" content="Cintia Bonino — Animación y proyectos premiados">
+<meta property="og:description" content="Portfolio de ilustración, animación y proyectos culturales.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cintiaboninoart.github.io">
+<meta property="og:image" content="https://cintiaboninoart.github.io/preview.jpg">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#ffffff;
-color:#111;
-}
+body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#fff;color:#111;}
 
-/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #ddd;z-index:1000;}
+.nav-inner{max-width:1100px;margin:auto;padding:20px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;}
+.nav-inner a{text-decoration:none;color:#111;font-size:15px;}
 
-.nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#fff;
-border-bottom:1px solid #ddd;
-z-index:1000;
-}
+header{max-width:1100px;margin:auto;padding:120px 24px 40px;text-align:center;border-bottom:1px solid #ddd;}
+header h1{font-size:36px;margin:0;letter-spacing:2px;text-transform:uppercase;font-weight:900;}
+header p{font-size:16px;margin-top:12px;color:#666;}
 
-.nav-inner{
-max-width:1100px;
-margin:auto;
-padding:20px;
-display:flex;
-justify-content:center;
-gap:28px;
-flex-wrap:wrap;
-}
+section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
-.nav-inner a{
-text-decoration:none;
-color:#111;
-font-size:15px;
-}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;grid-auto-flow:dense;}
 
-/* HEADER */
-
-header{
-max-width:1100px;
-margin:auto;
-padding:120px 24px 40px;
-text-align:center;
-border-bottom:1px solid #ddd;
-}
-
-header h1{
-font-size:36px;
-margin:0;
-letter-spacing:2px;
-text-transform:uppercase;
-font-weight:900;
-}
-
-header p{
-font-size:16px;
-margin-top:12px;
-color:#666;
-}
-
-/* SECTION */
-
-section{
-max-width:1100px;
-margin:auto;
-padding:40px 24px 80px;
-}
-
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:24px;
-grid-auto-flow:dense;
-}
-
-.item{
-position:relative;
-cursor:pointer;
-overflow:hidden;
-line-height:0;
-transition:box-shadow .25s ease, transform .25s ease;
-}
-
-.item:hover{
-transform:scale(1.01);
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-}
+.item{position:relative;cursor:pointer;overflow:hidden;line-height:0;transition:box-shadow .25s ease, transform .25s ease;}
+.item:hover{transform:scale(1.01);box-shadow:0 10px 30px rgba(0,0,0,.15);}
 
 .item video,
-.item img{
-width:100%;
-height:100%;
-display:block;
-object-fit:cover;
-}
+.item img{width:100%;height:100%;display:block;object-fit:cover;}
+
 .item.contain video,
-.item.contain img{
-object-fit:contain;
-background:#fff;
-}
+.item.contain img{object-fit:contain;background:#fff;}
 
-.item.wide{
-grid-column:1 / span 2;
-}
+.item.wide{grid-column:1 / span 2;}
 
-/* OVERLAY */
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease;pointer-events:none;}
+.overlay span{color:#fff;font-size:18px;text-align:center;padding:20px;}
+.item:hover .overlay{opacity:1;}
 
-.overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.55);
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:0;
-transition:opacity .3s ease;
-pointer-events:none;
-}
-
-.overlay span{
-color:#fff;
-font-size:18px;
-text-align:center;
-padding:20px;
-}
-
-.item:hover .overlay{
-opacity:1;
-}
-
-/* MODAL */
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.9);
-z-index:2000;
-overflow-y:auto;
-}
-
-.modal-content{
-max-width:900px;
-margin:80px auto;
-padding:20px;
-color:white;
-}
-
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;overflow-y:auto;}
+.modal-content{max-width:900px;margin:80px auto;padding:20px;color:white;}
 .modal-content img,
 .modal-content video,
-.modal-content iframe{
-width:100%;
-margin-bottom:30px;
-}
+.modal-content iframe{width:100%;margin-bottom:30px;}
+.modal-content iframe{aspect-ratio:16/9;height:auto;}
 
-.modal-content iframe{
-aspect-ratio:16 / 9;
-height:auto;
-}
+.project-title{text-align:center;font-size:28px;margin-bottom:12px;}
+.project-description{max-width:700px;margin:0 auto 50px;text-align:center;line-height:1.7;}
 
-.project-title{
-text-align:center;
-font-size:28px;
-margin-bottom:12px;
-}
-
-.project-description{
-max-width:700px;
-margin:0 auto 50px;
-text-align:center;
-line-height:1.7;
-}
-
-.close{
-position:fixed;
-top:20px;
-right:30px;
-color:white;
-font-size:40px;
-cursor:pointer;
-}
-
-/* MOBILE */
+.close{position:fixed;top:20px;right:30px;color:white;font-size:40px;cursor:pointer;}
 
 @media(max-width:768px){
-
 header{padding-top:170px;}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-.item.wide{
-grid-column:span 1;
-}
-
-.overlay{
-position:static;
-background:none;
-opacity:1;
-}
-
-.modal-content{
-margin:70px auto 50px;
-padding:16px;
-}
-
+.grid{grid-template-columns:1fr;}
+.item.wide{grid-column:span 1;}
+.overlay{position:static;background:none;opacity:1;}
+.modal-content{margin:70px auto 50px;padding:16px;}
 .project-title{font-size:22px;}
 .project-description{font-size:14px;}
-
 }
 
 </style>
@@ -309,7 +147,8 @@ images:["IDEAS.mp4"]
 title:"Mudanza",
 description:"Animación.",
 cover:"mudanza.mp4",
-images:["mudanza.mp4"]
+images:["mudanza.mp4"],
+contain:true
 },
 
 {
@@ -415,7 +254,7 @@ images:[
 "VERTIGO MOCK TAPA.png",
 "VERTIGO GUARDA.png",
 "VERTIGO MOCK INTERIOR.png"
-],
+]
 },
 
 {
@@ -425,20 +264,11 @@ cover:"anna.png",
 images:[
 "libro anna.png",
 "ANNA MOCK INTERN.png"
-],
-wide:true
+]
 }
 
 ];
-{
-title:"Mudanza",
-description:"Animación.",
-cover:"mudanza.mp4",
-images:["mudanza.mp4"],
-contain:true
-},
-]
-  
+
 function createGrid(){
 const grid=document.getElementById("grid");
 grid.innerHTML="";
@@ -449,7 +279,6 @@ const item=document.createElement("div");
 item.className="item";
 if(project.wide) item.classList.add("wide");
 if(project.contain) item.classList.add("contain");
-
 
 item.onclick=()=>openProject(index);
 
@@ -533,6 +362,7 @@ window.addEventListener("load",createGrid);
 
 </body>
 </html>
+
 
 
 
