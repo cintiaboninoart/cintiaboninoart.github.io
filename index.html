@@ -9,198 +9,41 @@
 <link rel="preload" as="image" href="1.png">
 
 <style>
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#fff;
-color:#111;
-}
+body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#fff;color:#111;}
 
-.nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#fff;
-border-bottom:1px solid #ddd;
-z-index:1000;
-}
+.nav{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #ddd;z-index:1000;}
+.nav-inner{max-width:1100px;margin:auto;padding:20px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;}
+.nav-inner a{text-decoration:none;color:#111;font-size:15px;}
 
-.nav-inner{
-max-width:1100px;
-margin:auto;
-padding:20px;
-display:flex;
-justify-content:center;
-gap:28px;
-flex-wrap:wrap;
-}
+header{max-width:1100px;margin:auto;padding:120px 24px 40px;text-align:center;border-bottom:1px solid #ddd;}
+header h1{font-size:36px;margin:0;letter-spacing:2px;text-transform:uppercase;font-weight:900;}
+header p{font-size:16px;margin-top:12px;color:#666;}
 
-.nav-inner a{
-text-decoration:none;
-color:#111;
-font-size:15px;
-}
+.hero{max-width:1100px;margin:40px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.hero-item{position:relative;cursor:pointer;overflow:hidden;}
+.hero-item img,.hero-item video{width:100%;height:auto;display:block;}
 
-header{
-max-width:1100px;
-margin:auto;
-padding:120px 24px 40px;
-text-align:center;
-border-bottom:1px solid #ddd;
-}
+.hero-title{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);color:#fff;font-size:28px;opacity:0;transition:.3s;}
+.hero-item:hover .hero-title{opacity:1;}
 
-header h1{
-font-size:36px;
-margin:0;
-letter-spacing:2px;
-text-transform:uppercase;
-font-weight:900;
-}
+section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
-header p{
-font-size:16px;
-margin-top:12px;
-color:#666;
-}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;grid-auto-rows:10px;grid-auto-flow:dense;}
+.item{position:relative;cursor:pointer;overflow:hidden;height:auto;}
+.item img,.item video{width:100%;height:auto;display:block;}
+.item.large{grid-column:span 2;}
 
-.hero{
-max-width:1100px;
-margin:40px auto 0;
-padding:0 24px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
-}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;}
+.overlay span{color:#fff;font-size:18px;}
+.item:hover .overlay{opacity:1;}
 
-.hero-item{
-position:relative;
-cursor:pointer;
-overflow:hidden;
-}
-
-.hero-item img,
-.hero-item video{
-width:100%;
-height:auto;
-display:block;
-}
-
-.hero-title{
-position:absolute;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-background:rgba(0,0,0,.35);
-color:#fff;
-font-size:28px;
-opacity:0;
-transition:.3s;
-}
-
-.hero-item:hover .hero-title{
-opacity:1;
-}
-
-section{
-max-width:1100px;
-margin:auto;
-padding:40px 24px 80px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
-grid-auto-rows:10px;
-grid-auto-flow:dense;
-}
-
-.item{
-position:relative;
-cursor:pointer;
-overflow:hidden;
-height:auto;
-}
-
-.item img,
-.item video{
-width:100%;
-height:auto;
-display:block;
-}
-
-.item.large{
-grid-column:span 2;
-}
-
-.overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.55);
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:0;
-transition:.3s;
-}
-
-.overlay span{
-color:#fff;
-font-size:18px;
-}
-
-.item:hover .overlay{
-opacity:1;
-}
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.9);
-z-index:2000;
-overflow-y:auto;
-}
-
-.modal-content{
-max-width:900px;
-margin:80px auto;
-padding:20px;
-color:white;
-}
-
-.modal-content img,
-.modal-content video,
-.modal-content iframe{
-width:100%;
-margin-bottom:30px;
-}
-
-.modal-content iframe{
-aspect-ratio:16/9;
-}
-
-.project-title{
-text-align:center;
-font-size:28px;
-margin-bottom:12px;
-}
-
-.project-description{
-text-align:center;
-margin-bottom:40px;
-}
-
-.close{
-position:fixed;
-top:20px;
-right:30px;
-color:white;
-font-size:40px;
-cursor:pointer;
-}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;overflow-y:auto;}
+.modal-content{max-width:900px;margin:80px auto;padding:20px;color:white;}
+.modal-content img,.modal-content video,.modal-content iframe{width:100%;margin-bottom:30px;}
+.modal-content iframe{aspect-ratio:16/9;}
+.project-title{text-align:center;font-size:28px;margin-bottom:12px;}
+.project-description{text-align:center;margin-bottom:40px;}
+.close{position:fixed;top:20px;right:30px;color:white;font-size:40px;cursor:pointer;}
 
 @media(max-width:768px){
 .hero{grid-template-columns:1fr;}
@@ -247,7 +90,26 @@ cursor:pointer;
 </div>
 
 <script>
-const projects=[ /* … tu array sin cambios … */ ];
+const projects=[
+
+{title:"Lunática",description:"Libro ilustrado.",cover:"1.png",images:["1.png","luna llena mock.png","desayuno mock.png"]},
+{title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
+{title:"Does anyone really know you?",description:"Ilustración editorial.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
+{title:"Should you just give up?",description:"Ilustración editorial.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
+{title:"Café para uno",description:"Ilustración editorial.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
+{title:"What animals understand about death?",description:"Ilustración editorial.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
+{title:"Los mundos de Anna",description:"Libro ilustrado.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
+{title:"María Antonieta",description:"Campaña conceptual Converse.",cover:"converse total.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
+{title:"El cambio es movimiento",description:"Campaña conceptual Adidas Pride.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
+{title:"Cities",description:"Campaña conceptual Coca-Cola.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]},
+{title:"Cartel Fiesta Mayor del Raval",description:"Proyecto ganador concurso público Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
+{title:"Amanecen Ocasos",description:"Videoclip animado.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
+{title:"Breve historia de una colonización",description:"Videoclip animado.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
+{title:"La realidad es un videojuego",description:"Animación.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
+{title:"Mudanza",description:"Animación.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
+{title:"Soporte",description:"Animación.",cover:"soporte.mp4",images:["soporte.mp4"]},
+{title:"Ideas",description:"Animación.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]}
+];
 
 const heroIndexes=[0,15];
 
@@ -260,12 +122,10 @@ if(heroIndexes.includes(index)) return;
 const item=document.createElement("div");
 item.className="item";
 
-/* grandes (2 columnas) */
 if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una colonización"){
 item.classList.add("large");
 }
 
-/* más altos */
 if(project.title==="Café para uno" || project.title==="Does anyone really know you?"){
 item.classList.add("tall");
 }
@@ -287,12 +147,7 @@ media=document.createElement("img");
 media.src=project.cover;
 media.alt=project.title;
 media.loading="lazy";
-
-if(media.complete){
-requestAnimationFrame(resizeGridItems);
-}else{
 media.onload=()=>requestAnimationFrame(resizeGridItems);
-}
 }
 
 item.appendChild(media);
@@ -303,7 +158,6 @@ overlay.innerHTML=`<span>${project.title}</span>`;
 item.appendChild(overlay);
 
 grid.appendChild(item);
-requestAnimationFrame(resizeGridItems);
 });
 }
 
@@ -318,7 +172,6 @@ if(!height) return;
 
 let span=Math.ceil((height+gap)/(rowHeight+gap));
 
-/* más alto para tall */
 if(item.classList.contains("tall")){
 span=Math.ceil(span*1.25);
 }
@@ -366,12 +219,17 @@ document.getElementById("modal").addEventListener("click",e=>{
 if(e.target.id==="modal") closeModal();
 });
 
-window.addEventListener("load",createGrid);
+window.addEventListener("load",()=>{
+createGrid();
+setTimeout(resizeGridItems,100);
+});
+
 window.addEventListener("resize",()=>requestAnimationFrame(resizeGridItems));
 </script>
 
 </body>
 </html>
+
 
 
 
