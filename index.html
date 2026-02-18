@@ -48,6 +48,13 @@ grid-column:span 2;
 margin-top:8px;
 }
 
+/* ⭐ PROYECTOS LIGERAMENTE MÁS GRANDES */
+.item.big img,
+.item.big video{
+transform:scaleY(1.12);
+transform-origin:top;
+}
+
 .overlay{
 position:absolute;
 inset:0;
@@ -253,14 +260,8 @@ const rowHeight=parseInt(window.getComputedStyle(grid).getPropertyValue("grid-au
 const gap=parseInt(window.getComputedStyle(grid).getPropertyValue("row-gap"));
 
 document.querySelectorAll(".item").forEach(item=>{
-let height=item.getBoundingClientRect().height;
+const height=item.getBoundingClientRect().height;
 if(!height) return;
-
-if(item.classList.contains("big")){
-height*=1.22;
-}else if(item.classList.contains("featured")){
-height*=1.15;
-}
 
 const span=Math.ceil((height+gap)/(rowHeight+gap));
 item.style.gridRowEnd="span "+span;
@@ -316,15 +317,12 @@ document.getElementById("modal").style.display="none";
 
 window.addEventListener("load",createGrid);
 window.addEventListener("resize",resizeGridItems);
-
-/* recalculo final seguro */
-window.addEventListener("load",()=>{
-setTimeout(resizeGridItems,200);
-});
+window.addEventListener("load",()=>setTimeout(resizeGridItems,200));
 </script>
 
 </body>
 </html>
+
 
 
 
