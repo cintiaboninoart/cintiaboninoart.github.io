@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Cintia Bonino — Ilustradora y animadora en Barcelona | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfolio de Cintia Bonino, ilustradora y animadora en Barcelona. Ilustración, animación y proyectos premiados.">
+<meta name="description" content="Portfolio de Cintia Bonino, ilustradora y animadora en Barcelona.">
 
 <link rel="preload" as="image" href="1.png">
 
@@ -28,7 +28,14 @@ header p{font-size:16px;margin-top:12px;color:#666;}
 
 section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;grid-auto-rows:10px;grid-auto-flow:dense;}
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+grid-auto-rows:10px;
+grid-auto-flow:dense;
+}
+
 .item{position:relative;cursor:pointer;overflow:hidden;}
 .item img,.item video{width:100%;height:auto;display:block;}
 
@@ -66,12 +73,12 @@ section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
 <header>
 <h1>Cintia Bonino</h1>
-<p>Ilustradora y animadora en Barcelona — ilustración, animación y proyectos premiados</p>
+<p>Ilustradora y animadora en Barcelona — ilustración editorial y animación</p>
 </header>
 
 <div class="hero">
 <div class="hero-item" onclick="openProject(0)">
-<img src="1.png" alt="Lunática — libro ilustrado">
+<img src="1.png" alt="Lunática">
 <div class="hero-title">Lunática</div>
 </div>
 
@@ -181,14 +188,19 @@ media.autoplay=true;
 media.loop=true;
 media.muted=true;
 media.playsInline=true;
-media.addEventListener("loadedmetadata",resizeGridItems);
+
+media.addEventListener("loadedmetadata",()=>requestAnimationFrame(resizeGridItems));
 }else{
 media=document.createElement("img");
 media.src=project.cover;
 media.alt=project.title;
 media.loading="lazy";
-if(media.complete) resizeGridItems();
-else media.onload=resizeGridItems;
+
+if(media.complete){
+requestAnimationFrame(resizeGridItems);
+}else{
+media.onload=()=>requestAnimationFrame(resizeGridItems);
+}
 }
 
 item.appendChild(media);
@@ -199,6 +211,9 @@ overlay.innerHTML=`<span>${project.title}</span>`;
 item.appendChild(overlay);
 
 grid.appendChild(item);
+
+// recalculo tras insertar
+requestAnimationFrame(resizeGridItems);
 });
 }
 
@@ -208,8 +223,12 @@ const rowHeight=parseInt(getComputedStyle(grid).getPropertyValue("grid-auto-rows
 const gap=parseInt(getComputedStyle(grid).getPropertyValue("row-gap"));
 
 document.querySelectorAll(".item").forEach(item=>{
-const height=item.getBoundingClientRect().height;
+const media=item.querySelector("img,video");
+if(!media) return;
+
+const height=media.getBoundingClientRect().height;
 if(!height) return;
+
 const span=Math.ceil((height+gap)/(rowHeight+gap));
 item.style.gridRowEnd="span "+span;
 });
@@ -255,11 +274,12 @@ if(e.target.id==="modal") closeModal();
 });
 
 window.addEventListener("load",createGrid);
-window.addEventListener("resize",resizeGridItems);
+window.addEventListener("resize",()=>requestAnimationFrame(resizeGridItems));
 </script>
 
 </body>
 </html>
+
 
 
 
