@@ -22,17 +22,16 @@ section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 /* MASONRY PROPORCIONAL */
 
 .grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:24px;
-grid-auto-rows:12px;
+column-count:3;
+column-gap:24px;
 }
 
 .item{
 position:relative;
+margin-bottom:24px;
+break-inside:avoid;
 cursor:pointer;
-overflow:hidden;
-transition:box-shadow .25s ease, transform .25s ease;
+transition:transform .25s ease, box-shadow .25s ease;
 }
 
 .item:hover{
@@ -47,11 +46,11 @@ height:auto;
 display:block;
 }
 
-/* horizontales grandes */
-
+/* horizontales más grandes sin romper masonry */
 .item.wide{
-grid-column:span 2;
+transform:scale(1.05);
 }
+
 
 /* overlay */
 
