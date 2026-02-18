@@ -89,13 +89,18 @@ align-items:start;
 .item{
 position:relative;
 cursor:pointer;
+display:flex;
+align-items:center;   /* centra vertical */
+justify-content:center; /* centra horizontal si sobra */
 }
+
 .item img,
 .item video{
 width:100%;
 height:auto;
 display:block;
 }
+
 .item.large{
 grid-column:span 2;
 }
