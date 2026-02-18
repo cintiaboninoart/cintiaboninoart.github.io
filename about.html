@@ -2,17 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Cintia Bonino — Sobre mí</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cintia Bonino — Sobre mí</title>
 
   <style>
-      .name-title {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -21,134 +14,11 @@
       line-height: 1.6;
     }
 
-    /* HEADER */
-    header {
-      max-width: 1100px;
-      margin: auto;
-      padding: 120px 24px 40px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-
-   header h1 {
-  font-size: 36px;
-  margin: 0;
-}
-
-    header p {
-      font-size: 16px;
-      margin-top: 12px;
-      color: #666;
-    }
-
-    /* MENÚ */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #ffffff;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px 32px;
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .nav-inner a {
-      text-decoration: none;
-      color: #111;
-      font-size: 15px;
-      font-weight: 500;
-      padding-bottom: 4px;
-    }
-
-    .nav-inner a:hover {
-      border-bottom: 2px solid #9CFF2E;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 80px 32px 80px;
-    }
-
-  .about-container {
-  display: flex;
-  gap: 80px;
-  align-items: center;
-  justify-content: center;
-  max-width: 1100px;   /* mismo ancho que la web */
-  margin: auto;
-  flex-wrap: wrap;
-}
-
-    .about-container img {
-      max-width: 320px;
-      width: 100%;
-      border-radius: 6px;
-    }
-
-    .about-text {
-  max-width: 520px;   /* más ancho */
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-}
-
-    .about-text {
-  max-width: 90%;
-  text-align: center;
-}
-
-    .subtitle {
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 80px 20px 60px;
-      }
-
-      .about-container {
-        flex-direction: column;
-        gap: 30px;
-      }
-
-      .about-text {
-        max-width: 320px;
-        text-align: center;
-      }
-
-      .nav-inner {
-        gap: 16px;
-      }
-    }
-  </style>
-</head>
-
-
-  <style>
-      .name-title {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #111111;
-      line-height: 1.6;
+    .name-title {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     /* HEADER */
@@ -162,14 +32,14 @@
 
     header h1 {
       font-size: 36px;
-      font-weight: 700;
       margin: 0;
     }
 
-    header p {
+    .subtitle {
       font-size: 16px;
       margin-top: 12px;
       color: #666;
+      text-align: center;
     }
 
     /* MENÚ */
@@ -206,11 +76,11 @@
     }
 
     /* CONTENIDO */
-  section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 32px 80px;
-}
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 32px;
+    }
 
     /* ABOUT */
     .about-container {
@@ -218,8 +88,6 @@
       gap: 60px;
       align-items: center;
       justify-content: center;
-      max-width: 900px;
-      margin: auto;
       flex-wrap: wrap;
     }
 
@@ -230,39 +98,31 @@
     }
 
     .about-text {
-      max-width: 420px;
-      font-size: 16px;
+      max-width: 520px;
     }
-    .about-text {
-  display: flex;
-  justify-content: center;
-}
-.about-text p {
-  text-align: justify;
-  line-height: 1.8;
-  max-width: 700px;
-  hyphens: auto;
-}
-.subtitle {
-  text-align: center;
-}
-@media (max-width: 768px) {
 
-  .about-container {
-    flex-direction: column;
-    gap: 30px;
-  }
+    .about-text p {
+      text-align: justify;
+      line-height: 1.8;
+      hyphens: auto;
+    }
 
-  .about-text {
-    max-width: 320px;   /* mismo ancho que la foto */
-    text-align: center;
-  }
-}
     /* RESPONSIVE */
     @media (max-width: 768px) {
       section {
-  padding: 80px 20px 60px;
-}
+        padding: 80px 20px 60px;
+      }
+
+      .about-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .about-text {
+        max-width: 320px;
+        text-align: center;
+      }
+
       .nav-inner {
         gap: 16px;
       }
@@ -272,37 +132,34 @@
 
 <body>
 
-<header>
-<h1 class="name-title">Cintia Bonino</h1>
-  <p class="subtitle">
-  Ilustración editorial y comercial · Dirección de arte · Animación
-</p>
-
-</header>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html">Selección</a>
-    <a href="about.html">Sobre mí</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contacto</a>
   </div>
 </nav>
 
+<header>
+  <h1 class="name-title">Cintia Bonino</h1>
+  <p class="subtitle">
+    Ilustración editorial y comercial · Dirección de arte · Animación
+  </p>
+</header>
+
 <section>
   <div class="about-container">
-
     <img src="IMG_4364.jpeg" alt="Cintia Bonino">
 
     <div class="about-text">
       <p>
         Soy artista visual e ilustradora. Trabajo desde Barcelona con proyectos editoriales,
-        culturales, comerciales y experimentales. Mi trabajo está impulsado por la narración y la emoción, con un fuerte enfoque en las relaciones humanas, las mujeres, el amor, la libertad y la cultura contemporánea. Desarrollo ilustraciones narrativas y conceptuales con un enfoque poético y expresivo, combinando estética pictórica texturizada con colores audaces y atmósferas fuertes.
-Inspirado en la cultura visual de los años 90 y 2000, la música, la cultura pop y lo absurdo, mi trabajo explora la identidad, la intimidad y los paisajes emocionales de la vida moderna.
+        culturales, comerciales y experimentales. Mi trabajo está impulsado por la narración y la emoción, con un fuerte enfoque en las relaciones humanas, las mujeres, el amor, la libertad y la cultura contemporánea. Desarrollo ilustraciones narrativas y conceptuales con un enfoque poético y expresivo, combinando estética pictórica texturizada con colores audaces y atmósferas fuertes. Inspirado en la cultura visual de los años 90 y 2000, la música, la cultura pop y lo absurdo, mi trabajo explora la identidad, la intimidad y los paisajes emocionales de la vida moderna.
       </p>
     </div>
-
   </div>
 </section>
 
 </body>
 </html>
+
