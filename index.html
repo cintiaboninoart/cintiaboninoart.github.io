@@ -4,19 +4,9 @@
 <meta charset="UTF-8">
 <title>Cintia Bonino — Animación y proyectos premiados</title>
 <meta name="description" content="Portfolio de Cintia Bonino. Ilustración, animación y proyectos culturales premiados.">
-<meta name="keywords" content="ilustración, animación, dirección de arte, portfolio, Cintia Bonino">
-<meta name="author" content="Cintia Bonino">
-
-<meta property="og:title" content="Cintia Bonino — Animación y proyectos premiados">
-<meta property="og:description" content="Portfolio de ilustración, animación y proyectos culturales.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://cintiaboninoart.github.io">
-<meta property="og:image" content="https://cintiaboninoart.github.io/preview.jpg">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
 body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#fff;color:#111;}
 
 .nav{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #ddd;z-index:1000;}
@@ -29,7 +19,7 @@ header p{font-size:16px;margin-top:12px;color:#666;}
 
 section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
-/* MASONRY REAL SIN CORTES */
+/* MASONRY PROPORCIONAL */
 
 .grid{
 display:grid;
@@ -55,6 +45,12 @@ box-shadow:0 10px 30px rgba(0,0,0,.15);
 width:100%;
 height:auto;
 display:block;
+}
+
+/* horizontales grandes */
+
+.item.wide{
+grid-column:span 2;
 }
 
 /* overlay */
@@ -97,12 +93,12 @@ padding:20px;
 @media(max-width:768px){
 header{padding-top:170px;}
 .grid{grid-template-columns:1fr;}
+.item.wide{grid-column:span 1;}
 .overlay{position:static;background:none;opacity:1;}
 .modal-content{margin:70px auto 50px;padding:16px;}
 .project-title{font-size:22px;}
 .project-description{font-size:14px;}
 }
-
 </style>
 </head>
 
@@ -138,14 +134,16 @@ const projects=[
 title:"Amanecen Ocasos",
 description:"Videoclip animado.",
 cover:"AMANECEN OCASOS.mp4",
-images:[{type:"vimeo",id:"1158888775"}]
+images:[{type:"vimeo",id:"1158888775"}],
+wide:true
 },
 
 {
 title:"Breve historia de una colonización",
 description:"Videoclip animado.",
 cover:"RECORTE BREVE HISTORIA.mp4",
-images:[{type:"vimeo",id:"1161767177"}]
+images:[{type:"vimeo",id:"1161767177"}],
+wide:true
 },
 
 {
@@ -158,7 +156,8 @@ images:[
 "CARTELL RAVAL CALLE.jpeg",
 "CARTELL RAVAL MERCH.jpeg",
 "CARTELL RAVALL ALFOMBRA.jpeg"
-]
+],
+wide:true
 },
 
 {
@@ -307,6 +306,8 @@ grid.innerHTML="";
 projects.forEach((project,index)=>{
 const item=document.createElement("div");
 item.className="item";
+if(project.wide) item.classList.add("wide");
+
 item.onclick=()=>openProject(index);
 
 let media;
@@ -336,7 +337,6 @@ grid.appendChild(item);
 media.addEventListener("loadedmetadata",resizeGridItems);
 media.addEventListener("load",resizeGridItems);
 });
-
 }
 
 function resizeGridItems(){
@@ -410,6 +410,7 @@ window.addEventListener("resize",resizeGridItems);
 
 </body>
 </html>
+
 
 
 
