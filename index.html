@@ -31,6 +31,7 @@ align-items:start;
 position:relative;
 cursor:pointer;
 overflow:hidden;
+transition:transform .2s ease;
 }
 
 .item img,
@@ -39,24 +40,20 @@ width:100%;
 height:auto;
 display:block;
 }
-.item.big img,
-.item.big video{
-transform:scale(1.08);
-transform-origin:center;
-}
+
 .item.wide{
 grid-column:span 2;
 }
 
-.item.spaced{
-margin-top:8px;
+/* ⭐ PROYECTOS LIGERAMENTE MÁS GRANDES */
+.item.big{
+transform:scale(1.08);
+transform-origin:center;
+z-index:2;
 }
 
-/* ⭐ PROYECTOS LIGERAMENTE MÁS GRANDES */
-.item.big img,
-.item.big video{
-transform:scaleY(1.12);
-transform-origin:top;
+.item.spaced{
+margin-top:8px;
 }
 
 .overlay{
@@ -130,7 +127,6 @@ header{padding-top:170px;}
 <script>
 const projects = [
 
-  // 🔴 AUTORAL
   {title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
 
   {title:"Lunática",description:"Libro ilustrado.",cover:"1.png",
@@ -154,7 +150,6 @@ const projects = [
    cover:"rata photo.png",
    images:["rata photo.png","rata new yorker.png"]},
 
-  // 🟠 EDITORIAL
   {title:"Los mundos de Anna",description:"Libro ilustrado.",
    cover:"anna.png",
    images:["libro anna.png","ANNA MOCK INTERN.png"]},
@@ -171,12 +166,10 @@ const projects = [
    cover:"coca chicas sin fondo ph.png",
    images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]},
 
-  // 🟡 CARTEL
   {title:"Cartel Fiesta Mayor del Raval",description:"Proyecto ganador concurso público Barcelona.",
    cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",
    images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
 
-  // 🔵 ANIMACIÓN
   {title:"Amanecen Ocasos",description:"Videoclip animado.",
    cover:"AMANECEN OCASOS.mp4",
    images:[{type:"vimeo",id:"1158888775"}]},
@@ -225,7 +218,6 @@ media.src=project.cover;
 media.autoplay=true;
 media.loop=true;
 media.muted=true;
-media.setAttribute("muted","");
 media.playsInline=true;
 media.preload="auto";
 }else{
@@ -299,8 +291,6 @@ video.src=src;
 video.autoplay=true;
 video.loop=true;
 video.muted=true;
-video.setAttribute("muted","");
-video.playsInline=true;
 video.controls=true;
 video.preload="auto";
 content.appendChild(video);
@@ -326,6 +316,7 @@ window.addEventListener("load",()=>setTimeout(resizeGridItems,200));
 
 </body>
 </html>
+
 
 
 
