@@ -2,68 +2,109 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Cintia Bonino — Portfolio</title>
+<title>Cintia Bonino — Ilustración y animación</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:#fff;
 color:#111;
+background:#fff;
 }
 
+/* MENU */
+.nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+border-bottom:1px solid #ddd;
+z-index:1000;
+}
+.nav-inner{
+max-width:1100px;
+margin:auto;
+padding:18px 24px;
+display:flex;
+justify-content:center;
+gap:28px;
+}
+.nav-inner a{
+text-decoration:none;
+color:#111;
+font-size:14px;
+}
+
+/* HEADER */
 header{
 max-width:1100px;
 margin:auto;
-padding:60px 24px 20px;
+padding:110px 24px 30px;
 text-align:center;
 border-bottom:1px solid #ddd;
 }
-
 header h1{
 margin:0;
-font-size:36px;
+font-size:34px;
 letter-spacing:2px;
 text-transform:uppercase;
 }
-
 header p{
 margin-top:10px;
 color:#666;
 }
 
-/* GRID LIMPIO */
+/* HERO */
+.hero{
+max-width:1100px;
+margin:40px auto 0;
+padding:0 24px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+.hero-item{
+position:relative;
+cursor:pointer;
+}
+.hero-item img,
+.hero-item video{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* GRID NORMAL (sin masonry) */
 .grid{
 max-width:1100px;
 margin:40px auto 80px;
 padding:0 24px;
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:24px;
+gap:20px;
 align-items:start;
 }
 
+/* ITEM */
 .item{
 position:relative;
 cursor:pointer;
 }
-
-/* imágenes SIEMPRE completas */
 .item img,
 .item video{
 width:100%;
 height:auto;
 display:block;
-object-fit:contain;
 }
 
-/* jerarquía */
+/* GRANDES */
 .item.large{
 grid-column:span 2;
 }
 
-/* overlay */
+/* OVERLAY */
 .overlay{
 position:absolute;
 inset:0;
@@ -74,20 +115,49 @@ justify-content:center;
 opacity:0;
 transition:.3s;
 }
-
 .overlay span{
 color:white;
 font-size:18px;
 }
-
 .item:hover .overlay{
 opacity:1;
 }
 
-@media(max-width:900px){
-.grid{grid-template-columns:repeat(2,1fr);}
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+z-index:2000;
+overflow:auto;
+}
+.modal-content{
+max-width:900px;
+margin:80px auto;
+padding:20px;
+color:white;
+}
+.modal-content img,
+.modal-content video,
+.modal-content iframe{
+width:100%;
+margin-bottom:30px;
+}
+.close{
+position:fixed;
+top:20px;
+right:30px;
+color:white;
+font-size:40px;
+cursor:pointer;
 }
 
+/* RESPONSIVE */
+@media(max-width:900px){
+.grid{grid-template-columns:repeat(2,1fr);}
+.hero{grid-template-columns:1fr;}
+}
 @media(max-width:600px){
 .grid{grid-template-columns:1fr;}
 }
@@ -96,12 +166,34 @@ opacity:1;
 
 <body>
 
+<nav class="nav">
+<div class="nav-inner">
+<a href="#">Selección</a>
+<a href="#">Sobre mí</a>
+<a href="#">Contacto</a>
+</div>
+</nav>
+
 <header>
 <h1>Cintia Bonino</h1>
-<p>Ilustradora y animadora</p>
+<p>Ilustradora y animadora en Barcelona</p>
 </header>
 
+<div class="hero">
+<div class="hero-item" onclick="openProject(0)">
+<img src="1.png">
+</div>
+<div class="hero-item" onclick="openProject(15)">
+<video src="soporte.mp4" autoplay loop muted playsinline></video>
+</div>
+</div>
+
 <div class="grid" id="grid"></div>
+
+<div id="modal" class="modal">
+<span class="close" onclick="closeModal()">&times;</span>
+<div class="modal-content" id="modal-content"></div>
+</div>
 
 <script>
 const projects=[
@@ -126,7 +218,7 @@ const projects=[
 function createGrid(){
 const grid=document.getElementById("grid");
 
-projects.forEach(project=>{
+projects.forEach((project,index)=>{
 const item=document.createElement("div");
 item.className="item";
 
@@ -135,8 +227,9 @@ if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una c
 item.classList.add("large");
 }
 
-let media;
+item.onclick=()=>openProject(index);
 
+let media;
 if(project.cover.endsWith(".mp4")){
 media=document.createElement("video");
 media.src=project.cover;
@@ -161,11 +254,26 @@ grid.appendChild(item);
 });
 }
 
+function openProject(index){
+const modal=document.getElementById("modal");
+const content=document.getElementById("modal-content");
+const project=projects[index];
+
+content.innerHTML=`<h2>${project.title}</h2>`;
+
+modal.style.display="block";
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
 window.addEventListener("load",createGrid);
 </script>
 
 </body>
 </html>
+
 
 
 
