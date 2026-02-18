@@ -75,12 +75,14 @@ padding:40px 24px 80px;
 }
 
 /* ===================== */
-/* MASONRY LAYOUT */
+/* GRID MASONRY REAL */
 /* ===================== */
 
 .grid{
-column-count:3;
-column-gap:24px;
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:24px;
+grid-auto-flow:dense;
 }
 
 .item{
@@ -88,8 +90,6 @@ position:relative;
 cursor:pointer;
 overflow:hidden;
 line-height:0;
-break-inside:avoid;
-margin-bottom:24px;
 transition:box-shadow .25s ease, transform .25s ease;
 }
 
@@ -103,6 +103,12 @@ box-shadow:0 10px 30px rgba(0,0,0,.15);
 width:100%;
 height:auto;
 display:block;
+}
+
+/* horizontales grandes */
+
+.item.wide{
+grid-column:span 2;
 }
 
 /* OVERLAY */
@@ -130,12 +136,6 @@ padding:20px;
 opacity:1;
 }
 
-/* FEATURED (visual only) */
-
-.item.featured{
-transform:scale(1.04);
-}
-
 /* MODAL */
 
 .modal{
@@ -148,7 +148,7 @@ overflow-y:auto;
 }
 
 .modal-content{
-max-width:800px;
+max-width:900px;
 margin:80px auto;
 padding:20px;
 color:white;
@@ -160,10 +160,10 @@ color:white;
 width:100%;
 margin-bottom:30px;
 }
-  .modal-content iframe{
-  width:100%;
-  aspect-ratio:16 / 9;
-  height:auto;
+
+.modal-content iframe{
+aspect-ratio:16 / 9;
+height:auto;
 }
 
 .project-title{
@@ -195,7 +195,11 @@ cursor:pointer;
 header{padding-top:170px;}
 
 .grid{
-column-count:1;
+grid-template-columns:1fr;
+}
+
+.item.wide{
+grid-column:span 1;
 }
 
 .overlay{
@@ -211,10 +215,6 @@ padding:16px;
 
 .project-title{font-size:22px;}
 .project-description{font-size:14px;}
-
-.item.featured{
-transform:none;
-}
 
 }
 
@@ -250,8 +250,6 @@ transform:none;
 
 <script>
 
-/* ---------- PROJECTS ---------- */
-
 const projects=[
 
 {
@@ -275,7 +273,7 @@ cover:"AMANECEN OCASOS.mp4",
 images:[
 {type:"vimeo",id:"1158888775"}
 ],
-featured:true
+wide:true
 },
 
 {
@@ -284,7 +282,8 @@ description:"Proyecto personal en formato animación para videoclip.",
 cover:"RECORTE BREVE HISTORIA.mp4",
 images:[
 {type:"vimeo",id:"1161767177"}
-]
+],
+wide:true
 },
 
 {
@@ -296,7 +295,7 @@ images:["videojuego.mp4"]
 
 {
 title:"Cartel para Fiesta Mayor del Raval",
-description:"Cartel Fiesta Mayor del Raval — Proyecto ganador Concurso público · Barcelona Cartel oficial para la Fiesta Mayor del Raval 2025. Proyecto seleccionado en convocatoria pública. Me inspiré en la diversidad del vecindario e incluí algunos de sus símbolos, como la escultura del Gato del MACBA y Botero, y como figura destacada a La Mónica del Raval, a quien conocí años atrás gracias a un documental. Su mirada sobre la vida, su audacia y su sentido de pertenencia al barrio me marcaron profundamente. Meses después de su fallecimiento, quise rendirle homenaje a través de este cartel.",
+description:"Cartel Fiesta Mayor del Raval — Proyecto ganador Concurso público · Barcelona Cartel oficial para la Fiesta Mayor del Raval 2025...",
 cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",
 images:[
 "CARTELL FESTA MAJOR DEL RAVAL 2025.png",
@@ -309,8 +308,6 @@ images:[
 
 ];
 
-/* ---------- GRID ---------- */
-
 function createGrid(){
 
 const grid=document.getElementById("grid");
@@ -321,8 +318,8 @@ projects.forEach((project,index)=>{
 const item=document.createElement("div");
 item.className="item";
 
-if(project.featured){
-item.classList.add("featured");
+if(project.wide){
+item.classList.add("wide");
 }
 
 item.onclick=()=>openProject(index);
@@ -358,8 +355,6 @@ grid.appendChild(item);
 
 }
 
-/* ---------- MODAL ---------- */
-
 function openProject(index){
 
 const modal=document.getElementById("modal");
@@ -382,10 +377,7 @@ iframe.allow="autoplay; fullscreen";
 iframe.allowFullscreen=true;
 content.appendChild(iframe);
 return;
-
 }
-
-/* VIDEO */
 
 if(src.endsWith(".mp4") || src.endsWith(".mov")){
 
@@ -397,13 +389,8 @@ video.muted=true;
 video.playsInline=true;
 video.controls=true;
 video.preload="auto";
-video.setAttribute("muted","");
-video.setAttribute("playsinline","");
 content.appendChild(video);
-video.play().catch(()=>{});
 }
-
-/* IMAGE */
 
 else{
 
@@ -423,8 +410,6 @@ modal.style.display="block";
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
-
-/* INIT */
 
 window.addEventListener("load",createGrid);
 
