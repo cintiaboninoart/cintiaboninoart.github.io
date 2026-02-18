@@ -13,7 +13,7 @@ color:#111;
 background:#fff;
 }
 
-/* MENU */
+/* NAV */
 .nav{
 position:fixed;
 top:0;
@@ -76,7 +76,7 @@ height:auto;
 display:block;
 }
 
-/* GRID NORMAL (sin masonry) */
+/* GRID */
 .grid{
 max-width:1100px;
 margin:40px auto 80px;
@@ -86,8 +86,6 @@ grid-template-columns:repeat(3,1fr);
 gap:20px;
 align-items:start;
 }
-
-/* ITEM */
 .item{
 position:relative;
 cursor:pointer;
@@ -98,8 +96,6 @@ width:100%;
 height:auto;
 display:block;
 }
-
-/* GRANDES */
 .item.large{
 grid-column:span 2;
 }
@@ -144,6 +140,19 @@ color:white;
 width:100%;
 margin-bottom:30px;
 }
+.modal-content iframe{
+aspect-ratio:16/9;
+border:0;
+}
+.project-title{
+font-size:28px;
+margin-bottom:10px;
+text-align:center;
+}
+.project-description{
+margin-bottom:30px;
+text-align:center;
+}
 .close{
 position:fixed;
 top:20px;
@@ -183,7 +192,7 @@ cursor:pointer;
 <div class="hero-item" onclick="openProject(0)">
 <img src="1.png">
 </div>
-<div class="hero-item" onclick="openProject(15)">
+<div class="hero-item" onclick="openProject(9)">
 <video src="soporte.mp4" autoplay loop muted playsinline></video>
 </div>
 </div>
@@ -271,7 +280,6 @@ images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.pn
 
 ];
 
-
 function createGrid(){
 const grid=document.getElementById("grid");
 
@@ -279,7 +287,6 @@ projects.forEach((project,index)=>{
 const item=document.createElement("div");
 item.className="item";
 
-/* grandes */
 if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una colonización"){
 item.classList.add("large");
 }
@@ -316,7 +323,29 @@ const modal=document.getElementById("modal");
 const content=document.getElementById("modal-content");
 const project=projects[index];
 
-content.innerHTML=`<h2>${project.title}</h2>`;
+content.innerHTML=`
+<h2 class="project-title">${project.title}</h2>
+<p class="project-description">${project.description}</p>
+`;
+
+project.images.forEach(src=>{
+if(typeof src==="object"){
+const iframe=document.createElement("iframe");
+iframe.src=`https://player.vimeo.com/video/${src.id}`;
+content.appendChild(iframe);
+}else if(src.endsWith(".mp4")){
+const video=document.createElement("video");
+video.src=src;
+video.controls=true;
+video.playsInline=true;
+content.appendChild(video);
+}else{
+const img=document.createElement("img");
+img.src=src;
+img.alt=project.title;
+content.appendChild(img);
+}
+});
 
 modal.style.display="block";
 }
@@ -330,6 +359,7 @@ window.addEventListener("load",createGrid);
 
 </body>
 </html>
+
 
 
 
