@@ -130,7 +130,9 @@ width:100%;
 height:auto;
 display:block;
 }
-
+.item.large{
+grid-column:span 2;
+}
 .overlay{
 position:absolute;
 inset:0;
@@ -324,6 +326,13 @@ if(heroIndexes.includes(index)) return;
 
 const item=document.createElement("div");
 item.className="item";
+
+if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una colonización"){
+item.classList.add("large");
+}
+if(index===11 || index===12){
+item.classList.add("large");
+}
 item.onclick=()=>openProject(index);
 
 let media;
