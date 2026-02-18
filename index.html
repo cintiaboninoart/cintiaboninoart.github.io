@@ -253,16 +253,13 @@ const rowHeight=parseInt(window.getComputedStyle(grid).getPropertyValue("grid-au
 const gap=parseInt(window.getComputedStyle(grid).getPropertyValue("row-gap"));
 
 document.querySelectorAll(".item").forEach(item=>{
-const media=item.querySelector("img, video");
-if(!media) return;
-
-let height=media.getBoundingClientRect().height;
+let height=item.getBoundingClientRect().height;
 if(!height) return;
 
 if(item.classList.contains("big")){
-height = height * 1.22;
+height*=1.22;
 }else if(item.classList.contains("featured")){
-height = height * 1.15;
+height*=1.15;
 }
 
 const span=Math.ceil((height+gap)/(rowHeight+gap));
@@ -319,11 +316,15 @@ document.getElementById("modal").style.display="none";
 
 window.addEventListener("load",createGrid);
 window.addEventListener("resize",resizeGridItems);
+
+/* recalculo final seguro */
+window.addEventListener("load",()=>{
+setTimeout(resizeGridItems,200);
+});
 </script>
 
 </body>
 </html>
 
-</html>
 
 
