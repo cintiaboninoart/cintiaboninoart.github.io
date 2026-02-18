@@ -48,7 +48,18 @@ display:block;
 
 /* horizontales más grandes sin romper masonry */
 .item.wide{
-transform:scale(1.05);
+transform:scale(1.18);
+transform-origin:center;
+margin:18px 0;
+z-index:2;
+  
+}
+.item.wide + .item{
+margin-top:28px;
+}
+.item.wide video,
+.item.wide img{
+border-radius:2px;
 }
 
 
