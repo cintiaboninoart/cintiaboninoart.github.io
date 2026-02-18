@@ -134,8 +134,9 @@ display:block;
 grid-column:span 2;
 }
 .item.tall{
-transform:scale(1.04);
+grid-row:span 35;
 }
+
 .overlay{
 position:absolute;
 inset:0;
@@ -337,9 +338,6 @@ if(project.title==="Café para uno" || project.title==="Does anyone really know 
 item.classList.add("tall");
 }
 
-if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una colonización"){
-item.classList.add("large");
-}
 if(index===11 || index===12){
 item.classList.add("large");
 }
