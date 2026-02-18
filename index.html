@@ -113,6 +113,11 @@ height:100%;
 display:block;
 object-fit:cover;
 }
+.item.contain video,
+.item.contain img{
+object-fit:contain;
+background:#fff;
+}
 
 .item.wide{
 grid-column:1 / span 2;
@@ -425,7 +430,15 @@ wide:true
 }
 
 ];
-
+{
+title:"Mudanza",
+description:"Animación.",
+cover:"mudanza.mp4",
+images:["mudanza.mp4"],
+contain:true
+},
+]
+  
 function createGrid(){
 const grid=document.getElementById("grid");
 grid.innerHTML="";
@@ -435,6 +448,8 @@ projects.forEach((project,index)=>{
 const item=document.createElement("div");
 item.className="item";
 if(project.wide) item.classList.add("wide");
+if(project.contain) item.classList.add("contain");
+
 
 item.onclick=()=>openProject(index);
 
