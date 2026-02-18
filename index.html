@@ -29,22 +29,58 @@ header p{font-size:16px;margin-top:12px;color:#666;}
 
 section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;grid-auto-flow:dense;}
+/* MASONRY REAL SIN CORTES */
 
-.item{position:relative;cursor:pointer;overflow:hidden;line-height:0;transition:box-shadow .25s ease, transform .25s ease;}
-.item:hover{transform:scale(1.01);box-shadow:0 10px 30px rgba(0,0,0,.15);}
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+grid-auto-rows:12px;
+}
 
-.item video,
-.item img{width:100%;height:100%;display:block;object-fit:cover;}
+.item{
+position:relative;
+cursor:pointer;
+overflow:hidden;
+transition:box-shadow .25s ease, transform .25s ease;
+}
 
-.item.contain video,
-.item.contain img{object-fit:contain;background:#fff;}
+.item:hover{
+transform:scale(1.01);
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
 
-.item.wide{grid-column:1 / span 2;}
+.item img,
+.item video{
+width:100%;
+height:auto;
+display:block;
+}
 
-.overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease;pointer-events:none;}
-.overlay span{color:#fff;font-size:18px;text-align:center;padding:20px;}
+/* overlay */
+
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.55);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+transition:opacity .3s ease;
+pointer-events:none;
+}
+
+.overlay span{
+color:#fff;
+font-size:18px;
+text-align:center;
+padding:20px;
+}
+
 .item:hover .overlay{opacity:1;}
+
+/* modal */
 
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;overflow-y:auto;}
 .modal-content{max-width:900px;margin:80px auto;padding:20px;color:white;}
@@ -61,7 +97,6 @@ section{max-width:1100px;margin:auto;padding:40px 24px 80px;}
 @media(max-width:768px){
 header{padding-top:170px;}
 .grid{grid-template-columns:1fr;}
-.item.wide{grid-column:span 1;}
 .overlay{position:static;background:none;opacity:1;}
 .modal-content{margin:70px auto 50px;padding:16px;}
 .project-title{font-size:22px;}
@@ -103,16 +138,14 @@ const projects=[
 title:"Amanecen Ocasos",
 description:"Videoclip animado.",
 cover:"AMANECEN OCASOS.mp4",
-images:[{type:"vimeo",id:"1158888775"}],
-wide:true
+images:[{type:"vimeo",id:"1158888775"}]
 },
 
 {
 title:"Breve historia de una colonización",
 description:"Videoclip animado.",
 cover:"RECORTE BREVE HISTORIA.mp4",
-images:[{type:"vimeo",id:"1161767177"}],
-wide:true
+images:[{type:"vimeo",id:"1161767177"}]
 },
 
 {
@@ -125,8 +158,7 @@ images:[
 "CARTELL RAVAL CALLE.jpeg",
 "CARTELL RAVAL MERCH.jpeg",
 "CARTELL RAVALL ALFOMBRA.jpeg"
-],
-wide:true
+]
 },
 
 {
@@ -147,8 +179,7 @@ images:["IDEAS.mp4"]
 title:"Mudanza",
 description:"Animación.",
 cover:"mudanza.mp4",
-images:["mudanza.mp4"],
-contain:true
+images:["mudanza.mp4"]
 },
 
 {
@@ -274,28 +305,26 @@ const grid=document.getElementById("grid");
 grid.innerHTML="";
 
 projects.forEach((project,index)=>{
-
 const item=document.createElement("div");
 item.className="item";
-if(project.wide) item.classList.add("wide");
-if(project.contain) item.classList.add("contain");
-
 item.onclick=()=>openProject(index);
 
+let media;
+
 if(project.cover.endsWith(".mp4")){
-const video=document.createElement("video");
-video.src=project.cover;
-video.autoplay=true;
-video.loop=true;
-video.muted=true;
-video.playsInline=true;
-video.preload="auto";
-item.appendChild(video);
+media=document.createElement("video");
+media.src=project.cover;
+media.autoplay=true;
+media.loop=true;
+media.muted=true;
+media.playsInline=true;
+media.preload="auto";
 }else{
-const img=document.createElement("img");
-img.src=project.cover;
-item.appendChild(img);
+media=document.createElement("img");
+media.src=project.cover;
 }
+
+item.appendChild(media);
 
 const overlay=document.createElement("div");
 overlay.className="overlay";
@@ -304,6 +333,24 @@ item.appendChild(overlay);
 
 grid.appendChild(item);
 
+media.addEventListener("loadedmetadata",resizeGridItems);
+media.addEventListener("load",resizeGridItems);
+});
+
+}
+
+function resizeGridItems(){
+const grid=document.querySelector(".grid");
+const rowHeight=parseInt(window.getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
+const gap=parseInt(window.getComputedStyle(grid).getPropertyValue("gap"));
+
+document.querySelectorAll(".item").forEach(item=>{
+const media=item.querySelector("img, video");
+if(!media) return;
+
+const height=media.getBoundingClientRect().height;
+const span=Math.ceil((height+gap)/(rowHeight+gap));
+item.style.gridRowEnd="span "+span;
 });
 }
 
@@ -357,11 +404,13 @@ document.getElementById("modal").style.display="none";
 }
 
 window.addEventListener("load",createGrid);
+window.addEventListener("resize",resizeGridItems);
 
 </script>
 
 </body>
 </html>
+
 
 
 
