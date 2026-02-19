@@ -89,20 +89,16 @@ align-items:start;
 .item{
 position:relative;
 cursor:pointer;
-height:100%;          /* ocupa toda la celda */
 display:flex;
-align-items:center;   /* centra vertical */
+align-items:center;
 justify-content:center;
 }
-
-
 .item img,
 .item video{
 width:100%;
 height:auto;
 display:block;
 }
-
 .item.large{
 grid-column:span 2;
 }
@@ -195,17 +191,21 @@ cursor:pointer;
 <p>Ilustradora y animadora en Barcelona</p>
 </header>
 
+<!-- HERO (destacados) -->
 <div class="hero">
 <div class="hero-item" onclick="openProject(0)">
-<img src="1.png">
+<img src="VERTIGO TAPA.png" alt="Vértigo">
 </div>
+
 <div class="hero-item" onclick="openProject(9)">
-<video src="soporte.mp4" autoplay loop muted playsinline></video>
+<video src="soporte.mp4" autoplay muted loop playsinline preload="metadata"></video>
 </div>
 </div>
 
+<!-- GRID -->
 <div class="grid" id="grid"></div>
 
+<!-- MODAL -->
 <div id="modal" class="modal">
 <span class="close" onclick="closeModal()">&times;</span>
 <div class="modal-content" id="modal-content"></div>
@@ -291,6 +291,10 @@ function createGrid(){
 const grid=document.getElementById("grid");
 
 projects.forEach((project,index)=>{
+
+// excluir hero (0 y 9)
+if(index===0 || index===9) return;
+
 const item=document.createElement("div");
 item.className="item";
 
@@ -301,6 +305,7 @@ item.classList.add("large");
 item.onclick=()=>openProject(index);
 
 let media;
+
 if(project.cover.endsWith(".mp4")){
 media=document.createElement("video");
 media.src=project.cover;
@@ -308,6 +313,8 @@ media.autoplay=true;
 media.loop=true;
 media.muted=true;
 media.playsInline=true;
+media.setAttribute("playsinline","");
+media.preload="metadata";
 }else{
 media=document.createElement("img");
 media.src=project.cover;
@@ -345,6 +352,7 @@ const video=document.createElement("video");
 video.src=src;
 video.controls=true;
 video.playsInline=true;
+video.setAttribute("playsinline","");
 content.appendChild(video);
 }else{
 const img=document.createElement("img");
@@ -366,6 +374,7 @@ window.addEventListener("load",createGrid);
 
 </body>
 </html>
+
 
 
 
