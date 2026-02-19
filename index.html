@@ -307,19 +307,22 @@ item.onclick=()=>openProject(index);
 let media;
 
 if(project.cover.endsWith(".mp4")){
-media=document.createElement("video");
-media.src=project.cover;
-media.autoplay=true;
-media.loop=true;
-media.muted=true;
-media.playsInline=true;
-media.setAttribute("playsinline","");
-media.preload="metadata";
+  media=document.createElement("video");
+  media.src=project.cover;
+  media.autoplay=true;
+  media.loop=true;
+  media.muted=true;
+  media.playsInline=true;
+  media.setAttribute("playsinline","");
+  media.preload="none";   // 🔥 no cargar hasta verse
 }else{
-media=document.createElement("img");
-media.src=project.cover;
-media.alt=project.title;
+  media=document.createElement("img");
+  media.src=project.cover;
+  media.alt=project.title;
+  media.loading="lazy";   // 🔥 carga diferida
+  media.decoding="async";
 }
+
 
 item.appendChild(media);
 
