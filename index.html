@@ -286,6 +286,18 @@ cover:"coca chicas sin fondo ph.png",
 images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
 
 ];
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.play();
+    }else{
+      entry.target.pause();
+    }
+  });
+},{
+  rootMargin: "200px 0px",  // empieza a cargar antes de entrar
+  threshold: 0.01
+});
 
 function createGrid(){
 const grid=document.getElementById("grid");
@@ -309,18 +321,29 @@ let media;
 if(project.cover.endsWith(".mp4")){
   media=document.createElement("video");
   media.src=project.cover;
-  media.autoplay=true;
   media.loop=true;
   media.muted=true;
   media.playsInline=true;
   media.setAttribute("playsinline","");
-  media.preload="none";   // 🔥 no cargar hasta verse
+
+  if(index>4){
+    media.preload="none";
+    observer.observe(media);
+  }else{
+    media.autoplay=true;
+    media.preload="metadata";
+  }
+
 }else{
   media=document.createElement("img");
   media.src=project.cover;
   media.alt=project.title;
-  media.loading="lazy";   // 🔥 carga diferida
-  media.decoding="async";
+
+  // lazy solo después de primeros proyectos
+  if(index>4){
+    media.loading="lazy";
+    media.decoding="async";
+  }
 }
 
 
