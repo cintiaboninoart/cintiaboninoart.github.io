@@ -69,16 +69,18 @@ gap:20px;
 position:relative;
 cursor:pointer;
 overflow:hidden;
-max-width:520px;
-margin:auto;
+display:flex;
+justify-content:center;
 }
 
 .hero-item img,
 .hero-item video{
 width:100%;
+max-width:420px;   /* ← controla tamaño real */
 height:auto;
 display:block;
 }
+
 
 /* GRID MASONRY */
 .grid{
