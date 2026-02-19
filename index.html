@@ -80,10 +80,29 @@ display:block;
 }
 
 /* media */
+.hero{
+max-width:calc(3 * 280px + 2 * 20px);
+margin:40px auto 0;
+padding:0 24px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px; /* un poco más separación central */
+}
+
+.hero-item{
+position:relative;
+cursor:pointer;
+overflow:hidden;
+
+/* altura uniforme */
+aspect-ratio: 4 / 3;   /* ← controla altura común */
+}
+
 .hero-item img,
 .hero-item video{
 width:100%;
-height:auto;
+height:100%;
+object-fit:contain; /* no recorta */
 display:block;
 }
 
