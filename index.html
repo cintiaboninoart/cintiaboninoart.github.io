@@ -304,11 +304,22 @@ grid.querySelectorAll(".item").forEach(item=>{
 const media = item.querySelector("img,video");
 if(!media) return;
 
-const h = media.getBoundingClientRect().height;
-const span = Math.ceil((h + gap) / (rowHeight + gap));
+let mediaHeight;
+
+// usar proporción real
+if(media.tagName==="VIDEO" && media.videoWidth){
+mediaHeight = media.clientWidth * (media.videoHeight / media.videoWidth);
+}else if(media.tagName==="IMG" && media.naturalWidth){
+mediaHeight = media.clientWidth * (media.naturalHeight / media.naturalWidth);
+}else{
+mediaHeight = media.getBoundingClientRect().height;
+}
+
+const span = Math.ceil((mediaHeight + gap) / (rowHeight + gap));
 item.style.gridRowEnd = "span " + span;
 });
 }
+
 
 function createGrid(){
 const grid=document.getElementById("grid");
