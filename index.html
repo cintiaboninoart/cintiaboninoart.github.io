@@ -68,6 +68,7 @@ gap:20px;
 .hero-item{
 position:relative;
 cursor:pointer;
+overflow:hidden;
 }
 .hero-item img,
 .hero-item video{
@@ -76,31 +77,29 @@ height:auto;
 display:block;
 }
 
-/* GRID */
+/* GRID MASONRY */
 .grid{
 max-width:1100px;
 margin:40px auto 80px;
 padding:0 24px;
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+grid-auto-rows:10px;
 gap:20px;
-align-items:start;
 }
+
 .item{
 position:relative;
 cursor:pointer;
-display:flex;
-align-items:center;
-justify-content:center;
+overflow:hidden;
+border-radius:2px;
 }
+
 .item img,
 .item video{
 width:100%;
 height:auto;
 display:block;
-}
-.item.large{
-grid-column:span 2;
 }
 
 /* OVERLAY */
@@ -167,11 +166,7 @@ cursor:pointer;
 
 /* RESPONSIVE */
 @media(max-width:900px){
-.grid{grid-template-columns:repeat(2,1fr);}
 .hero{grid-template-columns:1fr;}
-}
-@media(max-width:600px){
-.grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -191,7 +186,7 @@ cursor:pointer;
 <p>Ilustradora y animadora en Barcelona</p>
 </header>
 
-<!-- HERO (destacados) -->
+<!-- HERO -->
 <div class="hero">
 <div class="hero-item" onclick="openProject(0)">
 <img src="VERTIGO TAPA.png" alt="Vértigo">
@@ -286,66 +281,77 @@ cover:"coca chicas sin fondo ph.png",
 images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
 
 ];
+
 const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.play();
-    }else{
-      entry.target.pause();
-    }
-  });
-},{
-  rootMargin: "200px 0px",  // empieza a cargar antes de entrar
-  threshold: 0.01
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.play();
+}else{
+entry.target.pause();
+}
 });
+},{
+rootMargin:"200px 0px",
+threshold:0.01
+});
+
+function resizeGridItems(){
+const grid = document.querySelector(".grid");
+const rowHeight = parseInt(getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
+const gap = parseInt(getComputedStyle(grid).getPropertyValue("gap"));
+
+grid.querySelectorAll(".item").forEach(item=>{
+const media = item.querySelector("img,video");
+if(!media) return;
+
+const h = media.getBoundingClientRect().height;
+const span = Math.ceil((h + gap) / (rowHeight + gap));
+item.style.gridRowEnd = "span " + span;
+});
+}
 
 function createGrid(){
 const grid=document.getElementById("grid");
 
 projects.forEach((project,index)=>{
 
-// excluir hero (0 y 9)
 if(index===0 || index===9) return;
 
 const item=document.createElement("div");
 item.className="item";
-
-if(project.title==="Amanecen Ocasos" || project.title==="Breve historia de una colonización"){
-item.classList.add("large");
-}
-
 item.onclick=()=>openProject(index);
 
 let media;
 
 if(project.cover.endsWith(".mp4")){
-  media=document.createElement("video");
-  media.src=project.cover;
-  media.loop=true;
-  media.muted=true;
-  media.playsInline=true;
-  media.setAttribute("playsinline","");
+media=document.createElement("video");
+media.src=project.cover;
+media.loop=true;
+media.muted=true;
+media.playsInline=true;
+media.setAttribute("playsinline","");
 
-  if(index>4){
-    media.preload="none";
-    observer.observe(media);
-  }else{
-    media.autoplay=true;
-    media.preload="metadata";
-  }
-
+if(index>4){
+media.preload="none";
+observer.observe(media);
 }else{
-  media=document.createElement("img");
-  media.src=project.cover;
-  media.alt=project.title;
-
-  // lazy solo después de primeros proyectos
-  if(index>4){
-    media.loading="lazy";
-    media.decoding="async";
-  }
+media.autoplay=true;
+media.preload="metadata";
+media.onloadeddata = resizeGridItems;
 }
+}else{
+media=document.createElement("img");
+media.src=project.cover;
+media.alt=project.title;
 
+if(index>4){
+media.loading="lazy";
+media.decoding="async";
+media.onload = resizeGridItems;
+}else{
+media.onload = resizeGridItems;
+}
+}
 
 item.appendChild(media);
 
@@ -395,11 +401,17 @@ function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
-window.addEventListener("load",createGrid);
+window.addEventListener("load",()=>{
+createGrid();
+setTimeout(resizeGridItems,300);
+});
+
+window.addEventListener("resize",resizeGridItems);
 </script>
 
 </body>
 </html>
+
 
 
 
