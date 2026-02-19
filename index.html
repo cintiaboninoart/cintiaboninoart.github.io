@@ -63,22 +63,22 @@ margin:40px auto 0;
 padding:0 24px;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:20px;
+gap:28px; /* más separación central */
+align-items:stretch;
 }
 
 .hero-item{
 position:relative;
 cursor:pointer;
 overflow:hidden;
-display:flex;
-align-items:center;
-justify-content:center;
+height:100%; /* ← iguala altura */
 }
 
 .hero-item img,
 .hero-item video{
 width:100%;
-height:auto;
+height:100%;
+object-fit:cover; /* llena sin achicar */
 display:block;
 }
 
