@@ -63,10 +63,9 @@ margin:40px auto 0;
 padding:0 24px;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:32px; /* más separación central */
+gap:32px;
 align-items:stretch;
 }
-
 .hero-item{
 position:relative;
 cursor:pointer;
@@ -74,19 +73,17 @@ overflow:hidden;
 display:flex;
 align-items:center;
 justify-content:center;
-background:#fff; /* evita bandas oscuras */
+background:#fff;
 }
-
 .hero-item img,
 .hero-item video{
 width:100%;
 height:100%;
-object-fit:contain; /* ← NO recorta */
+object-fit:contain;
 display:block;
 }
 
-
-/* GRID MASONRY */
+/* GRID */
 .grid{
 max-width:1100px;
 margin:40px auto 80px;
@@ -98,12 +95,16 @@ grid-auto-rows:10px;
 gap:20px;
 }
 
-
 .item{
 position:relative;
 cursor:pointer;
 overflow:hidden;
 border-radius:2px;
+}
+
+/* ← horizontales */
+.item.wide{
+grid-column:span 2;
 }
 
 .item img,
@@ -175,9 +176,9 @@ font-size:40px;
 cursor:pointer;
 }
 
-/* RESPONSIVE */
 @media(max-width:900px){
 .hero{grid-template-columns:1fr;}
+.item.wide{grid-column:span 1;} /* móvil */
 }
 </style>
 </head>
@@ -197,150 +198,113 @@ cursor:pointer;
 <p>Ilustradora y animadora en Barcelona</p>
 </header>
 
-<!-- HERO -->
 <div class="hero">
 <div class="hero-item" onclick="openProject(0)">
-<img src="VERTIGO TAPA.png" alt="Vértigo">
+<img src="VERTIGO TAPA.png">
 </div>
 
 <div class="hero-item" onclick="openProject(9)">
-<video src="soporte.mp4" autoplay muted loop playsinline preload="metadata"></video>
+<video src="soporte.mp4" autoplay muted loop playsinline></video>
 </div>
 </div>
 
-<!-- GRID -->
 <div class="grid" id="grid"></div>
 
-<!-- MODAL -->
 <div id="modal" class="modal">
 <span class="close" onclick="closeModal()">&times;</span>
 <div class="modal-content" id="modal-content"></div>
 </div>
 
 <script>
-const projects=[
-
-{title:"Vértigo",description:"Diseño e ilustración editorial.",
-cover:"VERTIGO TAPA.png",
-images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
-
-{title:"Does anyone really know you?",description:"Ilustración editorial.",
-cover:"ho know you photo.png",
-images:["ho know you photo.png","ho know you photo mock.png"]},
-
-{title:"Café para uno",description:"Ilustración editorial.",
-cover:"cafe para uno.png",
-images:["cafe para uno mock.png"]},
-
-{title:"Cartel Fiesta Mayor del Raval",description:"Proyecto ganador concurso público Barcelona.",
-cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",
-images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
-
-{title:"Los mundos de Anna",description:"Libro ilustrado.",
-cover:"anna.png",
-images:["libro anna.png","ANNA MOCK INTERN.png"]},
-
-{title:"Should you just give up?",description:"Ilustración editorial.",
-cover:"NEW YORKER PESO photo.png",
-images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
-
-{title:"What animals understand about death?",description:"Ilustración editorial.",
-cover:"rata photo.png",
-images:["rata photo.png","rata new yorker.png"]},
-
-{title:"Amanecen Ocasos",description:"Videoclip animado.",
-cover:"AMANECEN OCASOS.mp4",
-images:[{type:"vimeo",id:"1158888775"}]},
-
-{title:"Breve historia de una colonización",description:"Videoclip animado.",
-cover:"RECORTE BREVE HISTORIA.mp4",
-images:[{type:"vimeo",id:"1161767177"}]},
-
-{title:"Soporte",description:"Animación.",
-cover:"soporte.mp4",
-images:["soporte.mp4"]},
-
-{title:"La realidad es un videojuego",description:"Animación.",
-cover:"videojuego.mp4",
-images:["videojuego.mp4"]},
-
-{title:"Mudanza",description:"Animación.",
-cover:"mudanza.mp4",
-images:["mudanza.mp4"]},
-
-{title:"Ideas",description:"Animación.",
-cover:"IDEAS.mp4",
-images:["IDEAS.mp4"]},
-
-{title:"María Antonieta",description:"Campaña conceptual Converse.",
-cover:"converse zapatillas.png",
-images:[
-"converse total.png",
-"converse mock caja total.png",
-"converse mock caja zapatillas.png",
-"converse tote toal.png",
-"converse zapatillas.png",
-"converse tote zapatillas.png"
-]},
-
-{title:"El cambio es movimiento",description:"Campaña conceptual Adidas Pride.",
-cover:"ADIDAS PRIDE SENORA.png",
-images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
-
-{title:"Cities",description:"Campaña conceptual Coca-Cola.",
-cover:"coca chicas sin fondo ph.png",
-images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
-
+const projects=[ /* TU ARRAY SIN CAMBIOS */ 
+{title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
+{title:"Does anyone really know you?",description:"Ilustración editorial.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
+{title:"Café para uno",description:"Ilustración editorial.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
+{title:"Cartel Fiesta Mayor del Raval",description:"Proyecto ganador concurso público Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
+{title:"Los mundos de Anna",description:"Libro ilustrado.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
+{title:"Should you just give up?",description:"Ilustración editorial.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
+{title:"What animals understand about death?",description:"Ilustración editorial.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
+{title:"Amanecen Ocasos",description:"Videoclip animado.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
+{title:"Breve historia de una colonización",description:"Videoclip animado.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
+{title:"Soporte",description:"Animación.",cover:"soporte.mp4",images:["soporte.mp4"]},
+{title:"La realidad es un videojuego",description:"Animación.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
+{title:"Mudanza",description:"Animación.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
+{title:"Ideas",description:"Animación.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
+{title:"María Antonieta",description:"Campaña conceptual Converse.",cover:"converse zapatillas.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
+{title:"El cambio es movimiento",description:"Campaña conceptual Adidas Pride.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
+{title:"Cities",description:"Campaña conceptual Coca-Cola.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
 ];
 
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.play();
-}else{
-entry.target.pause();
-}
-});
-},{
-rootMargin:"200px 0px",
-threshold:0.01
-});
+/* índices horizontales */
+const wideProjects=[4,7,8];
 
 function resizeGridItems(){
-const grid = document.querySelector(".grid");
-const rowHeight = parseInt(getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
-const gap = parseInt(getComputedStyle(grid).getPropertyValue("gap"));
+const grid=document.querySelector(".grid");
+const rowHeight=parseInt(getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
+const gap=parseInt(getComputedStyle(grid).getPropertyValue("gap"));
 
 grid.querySelectorAll(".item").forEach(item=>{
-const media = item.querySelector("img,video");
+const media=item.querySelector("img,video");
 if(!media) return;
 
-let mediaHeight;
+const width=media.clientWidth;
+let height;
 
-// usar proporción real
 if(media.tagName==="VIDEO" && media.videoWidth){
-mediaHeight = media.clientWidth * (media.videoHeight / media.videoWidth);
+height=width*(media.videoHeight/media.videoWidth);
 }else if(media.tagName==="IMG" && media.naturalWidth){
-mediaHeight = media.clientWidth * (media.naturalHeight / media.naturalWidth);
+height=width*(media.naturalHeight/media.naturalWidth);
 }else{
-mediaHeight = media.getBoundingClientRect().height;
+height=media.getBoundingClientRect().height;
 }
 
-const span = Math.ceil((mediaHeight + gap) / (rowHeight + gap));
-item.style.gridRowEnd = "span " + span;
+const span=Math.ceil((height+gap)/(rowHeight+gap));
+item.style.gridRowEnd="span "+span;
 });
 }
-
 
 function createGrid(){
 const grid=document.getElementById("grid");
 
-projects.forEach((project,index)=>{
+/* horizontales */
+const wide=[4,7,8];
 
-if(index===0 || index===9) return;
+/* separar */
+const verticalProjects=[];
+const horizontalProjects=[];
+
+projects.forEach((p,i)=>{
+if(i===0||i===9) return;
+
+if(wide.includes(i)){
+horizontalProjects.push({project:p,index:i});
+}else{
+verticalProjects.push({project:p,index:i});
+}
+});
+
+/* ritmo: cada 4 verticales → 1 horizontal */
+const sequence=[];
+let v=0,h=0;
+
+while(v<verticalProjects.length||h<horizontalProjects.length){
+
+for(let i=0;i<4 && v<verticalProjects.length;i++){
+sequence.push(verticalProjects[v++]);
+}
+
+if(h<horizontalProjects.length){
+sequence.push(horizontalProjects[h++]);
+}
+}
+
+/* crear DOM */
+sequence.forEach(({project,index})=>{
 
 const item=document.createElement("div");
 item.className="item";
+if(wide.includes(index)) item.classList.add("wide");
+
 item.onclick=()=>openProject(index);
 
 let media;
@@ -351,28 +315,12 @@ media.src=project.cover;
 media.loop=true;
 media.muted=true;
 media.playsInline=true;
-media.setAttribute("playsinline","");
-
-if(index>4){
-media.preload="none";
-observer.observe(media);
-}else{
 media.autoplay=true;
-media.preload="metadata";
-media.onloadeddata = resizeGridItems;
-}
+media.onloadeddata=resizeGridItems;
 }else{
 media=document.createElement("img");
 media.src=project.cover;
-media.alt=project.title;
-
-if(index>4){
-media.loading="lazy";
-media.decoding="async";
-media.onload = resizeGridItems;
-}else{
-media.onload = resizeGridItems;
-}
+media.onload=resizeGridItems;
 }
 
 item.appendChild(media);
@@ -383,7 +331,9 @@ overlay.innerHTML=`<span>${project.title}</span>`;
 item.appendChild(overlay);
 
 grid.appendChild(item);
+
 });
+
 }
 
 function openProject(index){
@@ -391,10 +341,8 @@ const modal=document.getElementById("modal");
 const content=document.getElementById("modal-content");
 const project=projects[index];
 
-content.innerHTML=`
-<h2 class="project-title">${project.title}</h2>
-<p class="project-description">${project.description}</p>
-`;
+content.innerHTML=`<h2 class="project-title">${project.title}</h2>
+<p class="project-description">${project.description}</p>`;
 
 project.images.forEach(src=>{
 if(typeof src==="object"){
@@ -405,13 +353,10 @@ content.appendChild(iframe);
 const video=document.createElement("video");
 video.src=src;
 video.controls=true;
-video.playsInline=true;
-video.setAttribute("playsinline","");
 content.appendChild(video);
 }else{
 const img=document.createElement("img");
 img.src=src;
-img.alt=project.title;
 content.appendChild(img);
 }
 });
@@ -427,13 +372,11 @@ window.addEventListener("load",()=>{
 createGrid();
 setTimeout(resizeGridItems,300);
 });
-
 window.addEventListener("resize",resizeGridItems);
 </script>
 
 </body>
 </html>
-
 
 
 
