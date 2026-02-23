@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cintia Bonino — Contacto</title>
+  <title>Contacto — Cintia Bonino</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Contacto de Cintia Bonino, ilustradora y animadora en Barcelona.">
+  <link rel="canonical" href="https://cintiaboninoart.github.io/contacto.html">
 
   <style>
     body {
@@ -50,9 +54,20 @@
     /* HEADER */
     header {
       text-align: center;
-      margin-top: 90px;
-      font-size: 20px;
-      font-weight: 600;
+      margin-top: 110px;
+      padding: 0 24px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: #666;
+      font-size: 15px;
     }
 
     /* CONTENIDO */
@@ -81,6 +96,10 @@
       margin-bottom: 40px;
     }
 
+    .contact-container a {
+      color: #111;
+    }
+
     form {
       width: 100%;
     }
@@ -92,6 +111,7 @@
       margin-bottom: 15px;
       font-size: 14px;
       box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     button {
@@ -102,6 +122,10 @@
       cursor: pointer;
     }
 
+    button:hover {
+      opacity: 0.85;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav-inner {
@@ -109,7 +133,7 @@
       }
 
       header {
-        margin-top: 80px;
+        margin-top: 100px;
       }
 
       section {
@@ -121,42 +145,36 @@
 
 <body>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html">Selección</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contacto</a>
-    </div>
-  </nav>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html">Selección</a>
+    <a href="sobre.html">Sobre mí</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+</nav>
 
-  <header>
-    Cintia Bonino
-  </header>
+<header>
+  <h1>Cintia Bonino — Contacto</h1>
+  <p class="subtitle">Ilustración editorial · Animación · Dirección de arte</p>
+</header>
 
-  <section>
-    <div class="contact-container">
-      <h2>¿Hablamos?</h2>
+<section>
+  <div class="contact-container">
+    <h2>¿Hablamos?</h2>
 
-      <p>
-        Instagram:
-        <a href="https://instagram.com/cinbonino" target="_blank">
-          @cinbonino
-        </a>
-      </p>
+    <p>
+      Instagram:
+      <a href="https://instagram.com/cinbonino" target="_blank">@cinbonino</a>
+    </p>
 
-      <form action="https://formspree.io/f/mgoovwjg" method="POST">
-        <input type="text" name="name" placeholder="Nombre" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Mensaje" rows="5" required></textarea>
-        <button type="submit">Enviar mensaje</button>
-      </form>
-    </div>
-  </section>
-
-</body>
-</html>
-
-
+    <form action="https://formspree.io/f/mgoovwjg" method="POST">
+      <input type="text" name="name" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Mensaje" rows="5" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
 
 </body>
 </html>
