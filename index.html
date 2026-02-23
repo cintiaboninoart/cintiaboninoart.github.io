@@ -2,17 +2,47 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Cintia Bonino — Ilustración y animación</title>
+<title>Cintia Bonino — Ilustradora y animadora en Barcelona</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<meta name="description" content="Cintia Bonino es ilustradora y animadora en Barcelona. Portfolio de ilustración editorial, animación 2D y proyectos visuales para medios, música y campañas culturales.">
+<meta name="keywords" content="Cintia Bonino, ilustradora Barcelona, animadora Barcelona, ilustración editorial, animación 2D, ilustradora España">
+<meta name="author" content="Cintia Bonino">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://tudominio.com/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Cintia Bonino — Ilustradora y animadora en Barcelona">
+<meta property="og:description" content="Portfolio de ilustración editorial y animación de Cintia Bonino.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tudominio.com/">
+<meta property="og:image" content="https://tudominio.com/preview.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cintia Bonino — Ilustradora y animadora en Barcelona">
+<meta name="twitter:description" content="Portfolio de ilustración editorial y animación.">
+<meta name="twitter:image" content="https://tudominio.com/preview.jpg">
 
 <style>
 body{margin:0;font-family:Arial, Helvetica, sans-serif;color:#111;background:#fff;}
 .nav{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #ddd;z-index:1000;}
 .nav-inner{max-width:1100px;margin:auto;padding:18px 24px;display:flex;justify-content:center;gap:28px;}
 .nav-inner a{text-decoration:none;color:#111;font-size:14px;}
-header{max-width:1100px;margin:auto;padding:110px 24px 30px;text-align:center;border-bottom:1px solid #ddd;}
+header{max-width:1100px;margin:auto;padding:110px 24px 20px;text-align:center;border-bottom:1px solid #ddd;}
 header h1{margin:0;font-size:34px;letter-spacing:2px;text-transform:uppercase;}
 header p{margin-top:10px;color:#666;}
+
+.seo-text{
+max-width:700px;
+margin:20px auto 0;
+padding:0 24px;
+text-align:center;
+color:#555;
+font-size:14px;
+line-height:1.6;
+}
 
 .hero{max-width:calc(3 * 280px + 2 * 20px);margin:40px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
 .hero-item{position:relative;cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;}
@@ -35,6 +65,14 @@ header p{margin-top:10px;color:#666;}
 .project-description{margin-bottom:30px;text-align:center;}
 .close{position:fixed;top:20px;right:30px;color:white;font-size:40px;cursor:pointer;}
 
+footer{
+border-top:1px solid #ddd;
+padding:30px 24px;
+text-align:center;
+color:#666;
+font-size:13px;
+}
+
 @media(max-width:900px){
 .hero{grid-template-columns:1fr;}
 .item.wide{grid-column:span 1;}
@@ -53,13 +91,19 @@ header p{margin-top:10px;color:#666;}
 </nav>
 
 <header>
-<h1>Cintia Bonino</h1>
-<p>Ilustradora y animadora en Barcelona</p>
+<h1>Cintia Bonino — Ilustradora y animadora en Barcelona</h1>
+<p>Portfolio de ilustración editorial y animación</p>
 </header>
+
+<section class="seo-text">
+<p>
+Cintia Bonino es una ilustradora y animadora radicada en Barcelona, especializada en ilustración editorial, animación 2D y proyectos visuales para medios, música y campañas culturales.
+</p>
+</section>
 
 <div class="hero">
 <div class="hero-item" onclick="openProject(0)">
-<img src="VERTIGO TAPA.png">
+<img src="VERTIGO TAPA.png" alt="Vértigo ilustración editorial de Cintia Bonino">
 </div>
 <div class="hero-item" onclick="openProject(9)">
 <video src="soporte.mp4" autoplay muted loop playsinline></video>
@@ -72,6 +116,10 @@ header p{margin-top:10px;color:#666;}
 <span class="close" onclick="closeModal()">&times;</span>
 <div class="modal-content" id="modal-content"></div>
 </div>
+
+<footer>
+<p>© Cintia Bonino — Ilustradora y animadora en Barcelona</p>
+</footer>
 
 <script>
 const projects=[
@@ -94,8 +142,6 @@ const projects=[
 ];
 
 const wideProjects=[4,7,8];
-
-/* patrón orgánico: verticales antes de cada horizontal */
 const organicPattern=[3,5,4];
 
 function resizeGridItems(){
@@ -126,7 +172,6 @@ item.style.gridRowEnd="span "+span;
 function createGrid(){
 const grid=document.getElementById("grid");
 
-/* separar */
 const vertical=[];
 const horizontal=[];
 
@@ -139,7 +184,6 @@ else vertical.push({project:p,index:i});
 const sequence=[];
 let v=0,h=0;
 
-/* aplicar patrón orgánico */
 organicPattern.forEach(count=>{
 for(let i=0;i<count && v<vertical.length;i++){
 sequence.push(vertical[v++]);
@@ -149,12 +193,10 @@ sequence.push(horizontal[h++]);
 }
 });
 
-/* resto verticales */
 while(v<vertical.length){
 sequence.push(vertical[v++]);
 }
 
-/* render */
 sequence.forEach(({project,index})=>{
 const item=document.createElement("div");
 item.className="item";
@@ -174,6 +216,7 @@ media.onloadeddata=resizeGridItems;
 }else{
 media=document.createElement("img");
 media.src=project.cover;
+media.alt=project.title+" ilustración de Cintia Bonino";
 media.onload=resizeGridItems;
 }
 
@@ -209,6 +252,7 @@ content.appendChild(video);
 }else{
 const img=document.createElement("img");
 img.src=src;
+img.alt=project.title+" obra de Cintia Bonino";
 content.appendChild(img);
 }
 });
