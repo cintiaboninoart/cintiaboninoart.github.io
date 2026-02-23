@@ -6,179 +6,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-color:#111;
-background:#fff;
-}
+body{margin:0;font-family:Arial, Helvetica, sans-serif;color:#111;background:#fff;}
+.nav{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #ddd;z-index:1000;}
+.nav-inner{max-width:1100px;margin:auto;padding:18px 24px;display:flex;justify-content:center;gap:28px;}
+.nav-inner a{text-decoration:none;color:#111;font-size:14px;}
+header{max-width:1100px;margin:auto;padding:110px 24px 30px;text-align:center;border-bottom:1px solid #ddd;}
+header h1{margin:0;font-size:34px;letter-spacing:2px;text-transform:uppercase;}
+header p{margin-top:10px;color:#666;}
 
-/* NAV */
-.nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#fff;
-border-bottom:1px solid #ddd;
-z-index:1000;
-}
-.nav-inner{
-max-width:1100px;
-margin:auto;
-padding:18px 24px;
-display:flex;
-justify-content:center;
-gap:28px;
-}
-.nav-inner a{
-text-decoration:none;
-color:#111;
-font-size:14px;
-}
+.hero{max-width:calc(3 * 280px + 2 * 20px);margin:40px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
+.hero-item{position:relative;cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;}
+.hero-item img,.hero-item video{width:100%;height:100%;object-fit:contain;display:block;}
 
-/* HEADER */
-header{
-max-width:1100px;
-margin:auto;
-padding:110px 24px 30px;
-text-align:center;
-border-bottom:1px solid #ddd;
-}
-header h1{
-margin:0;
-font-size:34px;
-letter-spacing:2px;
-text-transform:uppercase;
-}
-header p{
-margin-top:10px;
-color:#666;
-}
+.grid{max-width:1100px;margin:40px auto 80px;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,280px));justify-content:center;grid-auto-rows:10px;gap:20px;}
+.item{position:relative;cursor:pointer;overflow:hidden;border-radius:2px;}
+.item.wide{grid-column:span 2;}
+.item img,.item video{width:100%;height:auto;display:block;}
 
-/* HERO */
-.hero{
-max-width:calc(3 * 280px + 2 * 20px);
-margin:40px auto 0;
-padding:0 24px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:32px;
-align-items:stretch;
-}
-.hero-item{
-position:relative;
-cursor:pointer;
-overflow:hidden;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#fff;
-}
-.hero-item img,
-.hero-item video{
-width:100%;
-height:100%;
-object-fit:contain;
-display:block;
-}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;}
+.overlay span{color:white;font-size:18px;}
+.item:hover .overlay{opacity:1;}
 
-/* GRID */
-.grid{
-max-width:1100px;
-margin:40px auto 80px;
-padding:0 24px;
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,280px));
-justify-content:center;
-grid-auto-rows:10px;
-gap:20px;
-}
-
-.item{
-position:relative;
-cursor:pointer;
-overflow:hidden;
-border-radius:2px;
-}
-
-/* ← horizontales */
-.item.wide{
-grid-column:span 2;
-}
-
-.item img,
-.item video{
-width:100%;
-height:auto;
-display:block;
-}
-
-/* OVERLAY */
-.overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.5);
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:0;
-transition:.3s;
-}
-.overlay span{
-color:white;
-font-size:18px;
-}
-.item:hover .overlay{
-opacity:1;
-}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.9);
-z-index:2000;
-overflow:auto;
-}
-.modal-content{
-max-width:900px;
-margin:80px auto;
-padding:20px;
-color:white;
-}
-.modal-content img,
-.modal-content video,
-.modal-content iframe{
-width:100%;
-margin-bottom:30px;
-}
-.modal-content iframe{
-aspect-ratio:16/9;
-border:0;
-}
-.project-title{
-font-size:28px;
-margin-bottom:10px;
-text-align:center;
-}
-.project-description{
-margin-bottom:30px;
-text-align:center;
-}
-.close{
-position:fixed;
-top:20px;
-right:30px;
-color:white;
-font-size:40px;
-cursor:pointer;
-}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;overflow:auto;}
+.modal-content{max-width:900px;margin:80px auto;padding:20px;color:white;}
+.modal-content img,.modal-content video,.modal-content iframe{width:100%;margin-bottom:30px;}
+.modal-content iframe{aspect-ratio:16/9;border:0;}
+.project-title{font-size:28px;margin-bottom:10px;text-align:center;}
+.project-description{margin-bottom:30px;text-align:center;}
+.close{position:fixed;top:20px;right:30px;color:white;font-size:40px;cursor:pointer;}
 
 @media(max-width:900px){
 .hero{grid-template-columns:1fr;}
-.item.wide{grid-column:span 1;} /* móvil */
+.item.wide{grid-column:span 1;}
 }
 </style>
 </head>
@@ -202,7 +61,6 @@ cursor:pointer;
 <div class="hero-item" onclick="openProject(0)">
 <img src="VERTIGO TAPA.png">
 </div>
-
 <div class="hero-item" onclick="openProject(9)">
 <video src="soporte.mp4" autoplay muted loop playsinline></video>
 </div>
@@ -216,7 +74,7 @@ cursor:pointer;
 </div>
 
 <script>
-const projects=[ /* TU ARRAY SIN CAMBIOS */ 
+const projects=[
 {title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
 {title:"Does anyone really know you?",description:"Ilustración editorial.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
 {title:"Café para uno",description:"Ilustración editorial.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
@@ -235,8 +93,10 @@ const projects=[ /* TU ARRAY SIN CAMBIOS */
 {title:"Cities",description:"Campaña conceptual Coca-Cola.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
 ];
 
-/* índices horizontales */
 const wideProjects=[4,7,8];
+
+/* patrón orgánico: verticales antes de cada horizontal */
+const organicPattern=[3,5,4];
 
 function resizeGridItems(){
 const grid=document.querySelector(".grid");
@@ -266,49 +126,43 @@ item.style.gridRowEnd="span "+span;
 function createGrid(){
 const grid=document.getElementById("grid");
 
-/* horizontales */
-const wide=[4,7,8];
-
 /* separar */
-const verticalProjects=[];
-const horizontalProjects=[];
+const vertical=[];
+const horizontal=[];
 
 projects.forEach((p,i)=>{
 if(i===0||i===9) return;
-
-if(wide.includes(i)){
-horizontalProjects.push({project:p,index:i});
-}else{
-verticalProjects.push({project:p,index:i});
-}
+if(wideProjects.includes(i)) horizontal.push({project:p,index:i});
+else vertical.push({project:p,index:i});
 });
 
-/* ritmo: cada 4 verticales → 1 horizontal */
 const sequence=[];
 let v=0,h=0;
 
-while(v<verticalProjects.length||h<horizontalProjects.length){
+/* aplicar patrón orgánico */
+organicPattern.forEach(count=>{
+for(let i=0;i<count && v<vertical.length;i++){
+sequence.push(vertical[v++]);
+}
+if(h<horizontal.length){
+sequence.push(horizontal[h++]);
+}
+});
 
-for(let i=0;i<4 && v<verticalProjects.length;i++){
-sequence.push(verticalProjects[v++]);
+/* resto verticales */
+while(v<vertical.length){
+sequence.push(vertical[v++]);
 }
 
-if(h<horizontalProjects.length){
-sequence.push(horizontalProjects[h++]);
-}
-}
-
-/* crear DOM */
+/* render */
 sequence.forEach(({project,index})=>{
-
 const item=document.createElement("div");
 item.className="item";
-if(wide.includes(index)) item.classList.add("wide");
+if(wideProjects.includes(index)) item.classList.add("wide");
 
 item.onclick=()=>openProject(index);
 
 let media;
-
 if(project.cover.endsWith(".mp4")){
 media=document.createElement("video");
 media.src=project.cover;
@@ -331,9 +185,7 @@ overlay.innerHTML=`<span>${project.title}</span>`;
 item.appendChild(overlay);
 
 grid.appendChild(item);
-
 });
-
 }
 
 function openProject(index){
