@@ -2,41 +2,19 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Cintia Bonino — Ilustradora y animadora en Barcelona</title>
+
+<title>Ilustradora en Barcelona | Cintia Bonino | Ilustración editorial y animación</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Cintia Bonino",
-  "url": "https://cintiaboninoart.github.io/",
-  "image": "https://cintiaboninoart.github.io/IMG_4364.jpeg",
-  "jobTitle": "Ilustradora y animadora",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Cintia Bonino"
-  },
-  "sameAs": [
-    "https://instagram.com/cinbonino"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Barcelona",
-    "addressCountry": "ES"
-  }
-}
-</script>
-
 <!-- SEO -->
-<meta name="description" content="Cintia Bonino es ilustradora y animadora en Barcelona. Portfolio de ilustración editorial, animación 2D y proyectos visuales para medios, música y campañas culturales.">
-<meta name="keywords" content="Cintia Bonino, ilustradora Barcelona, animadora Barcelona, ilustración editorial, animación 2D, ilustradora España">
+<meta name="description" content="Cintia Bonino es una ilustradora editorial y animadora en Barcelona. Portfolio de ilustración para prensa, campañas culturales, carteles y animación 2D.">
 <meta name="author" content="Cintia Bonino">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://cintiaboninoart.github.io/">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Cintia Bonino — Ilustradora y animadora en Barcelona">
+<meta property="og:title" content="Ilustradora en Barcelona | Cintia Bonino">
 <meta property="og:description" content="Portfolio de ilustración editorial y animación de Cintia Bonino.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cintiaboninoart.github.io/">
@@ -44,9 +22,29 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cintia Bonino — Ilustradora y animadora en Barcelona">
+<meta name="twitter:title" content="Ilustradora en Barcelona | Cintia Bonino">
 <meta name="twitter:description" content="Portfolio de ilustración editorial y animación.">
 <meta name="twitter:image" content="https://cintiaboninoart.github.io/preview.jpg">
+
+<!-- Schema artista -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Cintia Bonino",
+  "url": "https://cintiaboninoart.github.io/",
+  "image": "https://cintiaboninoart.github.io/IMG_4364.jpeg",
+  "jobTitle": "Ilustradora editorial y animadora",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Barcelona",
+    "addressCountry": "ES"
+  },
+  "sameAs": [
+    "https://instagram.com/cinbonino"
+  ]
+}
+</script>
 
 <style>
 body{margin:0;font-family:Arial, Helvetica, sans-serif;color:#111;background:#fff;}
@@ -71,12 +69,12 @@ margin-top:10px;
 color:#666;
 }
 
-.seo-hidden{
-position:absolute;
-left:-9999px;
-width:1px;
-height:1px;
-overflow:hidden;
+.seo-text{
+max-width:680px;
+margin:14px auto 0;
+color:#444;
+font-size:14px;
+line-height:1.5;
 }
 
 .hero{max-width:calc(3 * 280px + 2 * 20px);margin:40px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
@@ -89,7 +87,7 @@ overflow:hidden;
 .item img,.item video{width:100%;height:auto;display:block;}
 
 .overlay{position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;}
-.overlay span{color:white;font-size:18px;}
+.overlay span{color:white;font-size:18px;text-align:center;padding:0 10px;}
 .item:hover .overlay{opacity:1;}
 
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;overflow:auto;}
@@ -127,18 +125,18 @@ font-size:13px;
 
 <header>
 <h1 class="name-title">Cintia Bonino</h1>
-<p class="subtitle">Ilustración y animación</p>
+<p class="subtitle">Ilustradora editorial y animadora en Barcelona</p>
 
-<p class="seo-hidden">
-Cintia Bonino es una ilustradora y animadora radicada en Barcelona,
-especializada en ilustración editorial, animación 2D y proyectos visuales
-para medios, música y campañas culturales.
+<p class="seo-text">
+Soy una ilustradora editorial y animadora en Barcelona especializada en ilustración para prensa,
+carteles culturales, campañas visuales y animación 2D. Mi trabajo combina narrativa,
+concepto y lenguaje gráfico contemporáneo para medios, música e instituciones culturales.
 </p>
 </header>
 
 <div class="hero">
 <div class="hero-item" onclick="openProject(0)">
-<img src="VERTIGO TAPA.png" alt="Vértigo ilustración editorial de Cintia Bonino">
+<img src="VERTIGO TAPA.png" alt="Ilustración editorial Vértigo de Cintia Bonino" loading="eager">
 </div>
 
 <div class="hero-item" onclick="openProject(9)">
@@ -154,11 +152,11 @@ para medios, música y campañas culturales.
 </div>
 
 <footer>
-<p>© Cintia Bonino — Ilustradora y animadora en Barcelona</p>
+<p>© Cintia Bonino — Ilustradora en Barcelona</p>
 </footer>
 
 <script>
-const projects=[/* TU ARRAY SIN CAMBIOS */ 
+const projects=[ 
 {title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
 {title:"Does anyone really know you?",description:"Ilustración editorial.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
 {title:"Café para uno",description:"Ilustración editorial.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
@@ -179,8 +177,6 @@ const projects=[/* TU ARRAY SIN CAMBIOS */
 
 const wideProjects=[4,7,8];
 const organicPattern=[3,5,4];
-
-/* resto JS igual que el tuyo */
 
 function resizeGridItems(){
 const grid=document.querySelector(".grid");
@@ -255,6 +251,8 @@ media.onloadeddata=resizeGridItems;
 media=document.createElement("img");
 media.src=project.cover;
 media.alt=project.title+" ilustración de Cintia Bonino";
+media.loading="lazy";
+media.decoding="async";
 media.onload=resizeGridItems;
 }
 
@@ -291,6 +289,8 @@ content.appendChild(video);
 const img=document.createElement("img");
 img.src=src;
 img.alt=project.title+" obra de Cintia Bonino";
+img.loading="lazy";
+img.decoding="async";
 content.appendChild(img);
 }
 });
