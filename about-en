@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Cintia Bonino | Illustrator in Barcelona</title>
+
+<!-- SEO -->
+<meta name="description" content="Cintia Bonino is an editorial illustrator and animator based in Barcelona. Visual artist specialised in editorial illustration, cultural campaigns and 2D animation.">
+<link rel="canonical" href="https://cintiaboninoart.github.io/about-en.html">
+
+<style>
+body {
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+background: #ffffff;
+color: #111111;
+line-height: 1.6;
+}
+
+.name-title {
+font-family: Helvetica, Arial, sans-serif;
+font-weight: 900;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+/* HEADER */
+header {
+max-width: 1100px;
+margin: auto;
+padding: 120px 24px 40px;
+text-align: center;
+border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+font-size: 36px;
+margin: 0;
+}
+
+.subtitle {
+font-size: 16px;
+margin-top: 12px;
+color: #666;
+text-align: center;
+}
+
+.seo-intro{
+max-width:680px;
+margin:16px auto 0;
+color:#444;
+font-size:14px;
+line-height:1.6;
+}
+
+/* LANGUAGE SWITCH */
+.lang-switch{
+margin-top:8px;
+font-size:13px;
+letter-spacing:1px;
+}
+
+.lang-switch a{
+text-decoration:none;
+color:#666;
+}
+
+.lang-switch a:hover{
+color:#111;
+}
+
+/* MENÚ */
+.nav {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background: #ffffff;
+border-bottom: 1px solid #ddd;
+z-index: 1000;
+}
+
+.nav-inner {
+max-width: 1100px;
+margin: auto;
+padding: 20px 32px;
+display: flex;
+justify-content: center;
+gap: 32px;
+flex-wrap: wrap;
+}
+
+.nav-inner a {
+text-decoration: none;
+color: #111;
+font-size: 15px;
+font-weight: 500;
+padding-bottom: 4px;
+}
+
+.nav-inner a:hover {
+border-bottom: 2px solid #9CFF2E;
+}
+
+/* CONTENIDO */
+section {
+max-width: 1100px;
+margin: auto;
+padding: 80px 32px;
+}
+
+/* ABOUT */
+.about-container {
+display: flex;
+gap: 60px;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.about-container img {
+max-width: 320px;
+width: 100%;
+border-radius: 6px;
+}
+
+.about-text {
+max-width: 520px;
+}
+
+.about-text p {
+text-align: justify;
+line-height: 1.8;
+hyphens: auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+section {
+padding: 80px 20px 60px;
+}
+
+.about-container {
+flex-direction: column;
+gap: 30px;
+}
+
+.about-text {
+max-width: 320px;
+text-align: center;
+}
+
+.nav-inner {
+gap: 16px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+<div class="nav-inner">
+<a href="index.html">Work</a>
+<a href="about-en.html">About</a>
+<a href="contacto.html">Contact</a>
+</div>
+</nav>
+
+<header>
+<h1 class="name-title">Cintia Bonino</h1>
+
+<p class="subtitle">
+Editorial illustrator and animator based in Barcelona
+</p>
+
+<p class="lang-switch">
+<a href="sobre.html">ES</a> | 
+<a href="about-en.html">EN</a>
+</p>
+
+<p class="seo-intro">
+I am an illustrator and visual artist based in Barcelona, specialised in editorial illustration,
+cultural posters, visual campaigns and 2D animation. I create narrative and conceptual imagery
+for press, cultural institutions, music and audiovisual projects.
+</p>
+</header>
+
+<section>
+<div class="about-container">
+
+<img src="IMG_4364.jpeg"
+alt="Cintia Bonino editorial illustrator in Barcelona"
+loading="lazy"
+decoding="async">
+
+<div class="about-text">
+
+<p>
+I am a visual artist, illustrator and animator based in Barcelona. I work across editorial,
+cultural and commercial projects, developing narrative and conceptual illustration with a poetic
+and expressive approach.
+</p>
+
+<p>
+My work explores human relationships, identity and contemporary culture, combining a textured
+painterly aesthetic with intense colour and atmosphere. My visual language is influenced by
+1990s–2000s visual culture, music and pop culture.
+</p>
+
+<p>
+I have developed illustration and animation projects for media, cultural institutions, music and
+visual campaigns, integrating image and movement within a contemporary authorial approach.
+I work in Spanish and English and collaborate with local and international clients and projects.
+</p>
+
+</div>
+</div>
+</section>
+
+</body>
+</html>
