@@ -9,6 +9,7 @@
 
 <!-- SEO -->
 <meta name="description" content="Cintia Bonino es una ilustradora editorial y animadora en Barcelona. Portfolio de ilustración para prensa, campañas culturales, carteles y animación 2D.">
+<meta name="keywords" content="ilustradora Barcelona, ilustración editorial, ilustradora prensa, ilustradora España, ilustración cultural, animación 2D">
 <meta name="author" content="Cintia Bonino">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://cintiabonino.com/">
@@ -19,6 +20,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cintiabonino.com/">
 <meta property="og:image" content="https://cintiabonino.com/preview.jpg">
+<meta property="og:locale" content="es_ES">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -30,7 +32,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
+  "@type": "VisualArtist",
   "name": "Cintia Bonino",
   "url": "https://cintiabonino.com/",
   "image": "https://cintiabonino.com/IMG_4364.jpeg",
@@ -39,6 +41,10 @@
     "@type": "PostalAddress",
     "addressLocality": "Barcelona",
     "addressCountry": "ES"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Barcelona"
   },
   "sameAs": [
     "https://instagram.com/cinbonino"
@@ -86,7 +92,6 @@ border:1px solid #9CFF2E;
 transition:.2s;
 }
 
-/* green highlight hover */
 .nav-inner a:hover{
 background:#9CFF2E;
 color:#111;
@@ -102,7 +107,6 @@ border-bottom:1px solid #e5e5e5;
 }
 
 .name-title{
-font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 font-weight:700;
 letter-spacing:2px;
 text-transform:uppercase;
@@ -112,7 +116,6 @@ position:relative;
 display:inline-block;
 }
 
-/* green line under name */
 .name-title::after{
 content:"";
 display:block;
@@ -129,7 +132,6 @@ font-size:21px;
 letter-spacing:0.3px;
 }
 
-/* TEXT INTRO — more spacing */
 .seo-text{
 max-width:680px;
 margin:40px auto 0;
@@ -159,6 +161,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 background:#fff;
+aspect-ratio:4/3;
 }
 
 .hero-item img,
@@ -199,7 +202,6 @@ height:auto;
 display:block;
 }
 
-/* overlay refined with green accent */
 .overlay{
 position:absolute;
 inset:0;
@@ -219,7 +221,6 @@ padding:0 10px;
 position:relative;
 }
 
-/* green accent line in overlay */
 .overlay span::after{
 content:"";
 display:block;
@@ -282,7 +283,6 @@ font-size:40px;
 cursor:pointer;
 }
 
-/* FOOTER */
 footer{
 border-top:1px solid #e5e5e5;
 padding:30px 24px;
@@ -291,7 +291,6 @@ color:#666;
 font-size:13px;
 }
 
-/* MOBILE */
 @media(max-width:900px){
 .hero{grid-template-columns:1fr;}
 .item.wide{grid-column:span 1;}
@@ -318,15 +317,21 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 carteles culturales, campañas visuales y animación 2D. Mi trabajo combina narrativa,
 concepto y lenguaje gráfico contemporáneo para medios, música e instituciones culturales.
 </p>
+
+<p style="position:absolute;left:-9999px;">
+Ilustradora en Barcelona especializada en ilustración editorial,
+ilustración para prensa, carteles culturales y animación 2D.
+Portfolio de ilustración contemporánea de Cintia Bonino.
+</p>
 </header>
 
 <div class="hero">
 <div class="hero-item" onclick="openProject(0)">
-<img src="VERTIGO TAPA.png" alt="Ilustración editorial Vértigo de Cintia Bonino" loading="eager">
+<video src="soporte.mp4" autoplay muted loop playsinline preload="metadata"></video>
 </div>
 
-<div class="hero-item" onclick="openProject(9)">
-<video src="soporte.mp4" autoplay muted loop playsinline></video>
+<div class="hero-item" onclick="openProject(1)">
+<img src="VERTIGO TAPA.png" alt="Vértigo ilustración editorial de Cintia Bonino en Barcelona" loading="eager">
 </div>
 </div>
 
@@ -343,6 +348,7 @@ concepto y lenguaje gráfico contemporáneo para medios, música e instituciones
 
 <script>
 const projects=[ 
+{title:"Soporte",description:"Animación.",cover:"soporte.mp4",images:["soporte.mp4"]},
 {title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
 {title:"Does anyone really know you?",description:"Ilustración editorial.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
 {title:"Café para uno",description:"Ilustración editorial.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
@@ -352,7 +358,6 @@ const projects=[
 {title:"What animals understand about death?",description:"Ilustración editorial.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
 {title:"Amanecen Ocasos",description:"Videoclip animado.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
 {title:"Breve historia de una colonización",description:"Videoclip animado.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
-{title:"Soporte",description:"Animación.",cover:"soporte.mp4",images:["soporte.mp4"]},
 {title:"La realidad es un videojuego",description:"Animación.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
 {title:"Mudanza",description:"Animación.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
 {title:"Ideas",description:"Animación.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
@@ -361,7 +366,7 @@ const projects=[
 {title:"Cities",description:"Campaña conceptual Coca-Cola.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
 ];
 
-const wideProjects=[4,7,8];
+const wideProjects=[5,8,9];
 const organicPattern=[3,5,4];
 
 function resizeGridItems(){
@@ -392,32 +397,9 @@ item.style.gridRowEnd="span "+span;
 function createGrid(){
 const grid=document.getElementById("grid");
 
-const vertical=[];
-const horizontal=[];
+projects.forEach((project,index)=>{
+if(index<2) return;
 
-projects.forEach((p,i)=>{
-if(i===0||i===9) return;
-if(wideProjects.includes(i)) horizontal.push({project:p,index:i});
-else vertical.push({project:p,index:i});
-});
-
-const sequence=[];
-let v=0,h=0;
-
-organicPattern.forEach(count=>{
-for(let i=0;i<count && v<vertical.length;i++){
-sequence.push(vertical[v++]);
-}
-if(h<horizontal.length){
-sequence.push(horizontal[h++]);
-}
-});
-
-while(v<vertical.length){
-sequence.push(vertical[v++]);
-}
-
-sequence.forEach(({project,index})=>{
 const item=document.createElement("div");
 item.className="item";
 if(wideProjects.includes(index)) item.classList.add("wide");
@@ -432,11 +414,12 @@ media.loop=true;
 media.muted=true;
 media.playsInline=true;
 media.autoplay=true;
+media.preload="metadata";
 media.onloadeddata=resizeGridItems;
 }else{
 media=document.createElement("img");
 media.src=project.cover;
-media.alt=project.title+" ilustración de Cintia Bonino";
+media.alt=project.title+" ilustración editorial de Cintia Bonino en Barcelona";
 media.loading="lazy";
 media.decoding="async";
 media.onload=resizeGridItems;
@@ -474,7 +457,7 @@ content.appendChild(video);
 }else{
 const img=document.createElement("img");
 img.src=src;
-img.alt=project.title+" obra de Cintia Bonino";
+img.alt=project.title+" obra de Cintia Bonino en Barcelona";
 img.loading="lazy";
 img.decoding="async";
 content.appendChild(img);
