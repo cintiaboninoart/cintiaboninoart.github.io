@@ -179,12 +179,15 @@ max-width:1100px;
 margin:40px auto 80px;
 padding:0 24px;
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,280px));
+grid-template-columns:repeat(auto-fill,280px);
 justify-content:center;
 grid-auto-rows:10px;
 gap:20px;
 }
-
+@media(max-width:620px){
+.grid{
+grid-template-columns:280px;
+}
 .item{
 position:relative;
 cursor:pointer;
