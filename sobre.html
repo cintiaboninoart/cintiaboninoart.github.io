@@ -11,33 +11,78 @@
 <link rel="canonical" href="https://cintiaboninoart.github.io/sobre.html">
 
 <style>
-body {
-margin: 0;
-font-family: Arial, Helvetica, sans-serif;
-background: #ffffff;
-color: #111111;
-line-height: 1.6;
+body{
+margin:0;
+font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+background:#ffffff;
+color:#111111;
+line-height:1.6;
 }
 
-.name-title {
-font-family: Helvetica, Arial, sans-serif;
-font-weight: 900;
-letter-spacing: 2px;
-text-transform: uppercase;
+/* NAV */
+.nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#ffffff;
+border-bottom:1px solid #e5e5e5;
+z-index:1000;
+}
+
+.nav-inner{
+max-width:1100px;
+margin:auto;
+padding:18px 24px;
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.nav-inner a{
+text-decoration:none;
+color:#111;
+font-size:13px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+padding:6px 12px;
+border:1px solid #9CFF2E;
+transition:.2s;
+}
+
+.nav-inner a:hover{
+background:#9CFF2E;
+color:#111;
 }
 
 /* HEADER */
-header {
-max-width: 1100px;
-margin: auto;
-padding: 120px 24px 40px;
-text-align: center;
-border-bottom: 1px solid #ddd;
+header{
+max-width:1100px;
+margin:auto;
+padding:110px 24px 30px;
+text-align:center;
+border-bottom:1px solid #e5e5e5;
 }
 
-header h1 {
-font-size: 36px;
-margin: 0;
+.name-title{
+font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+margin:0;
+font-size:34px;
+display:inline-block;
+position:relative;
+}
+
+.name-title::after{
+content:"";
+display:block;
+width:60%;
+height:2px;
+background:#9CFF2E;
+margin:8px auto 0;
 }
 
 .subtitle{
@@ -47,17 +92,9 @@ font-size:17px;
 letter-spacing:.3px;
 }
 
-.seo-intro{
-max-width:680px;
-margin:16px auto 0;
-color:#444;
-font-size:14px;
-line-height:1.6;
-}
-
 /* LANGUAGE SWITCH */
 .lang-switch{
-margin-top:8px;
+margin-top:10px;
 font-size:13px;
 letter-spacing:1px;
 }
@@ -71,89 +108,64 @@ color:#666;
 color:#111;
 }
 
-/* MENÚ */
-.nav {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background: #ffffff;
-border-bottom: 1px solid #ddd;
-z-index: 1000;
+/* INTRO */
+.seo-intro{
+max-width:680px;
+margin:26px auto 0;
+color:#444;
+font-size:14px;
+line-height:1.8;
 }
 
-.nav-inner {
-max-width: 1100px;
-margin: auto;
-padding: 20px 32px;
-display: flex;
-justify-content: center;
-gap: 32px;
-flex-wrap: wrap;
+/* CONTENT */
+section{
+max-width:1100px;
+margin:auto;
+padding:80px 32px;
 }
 
-.nav-inner a {
-text-decoration: none;
-color: #111;
-font-size: 15px;
-font-weight: 500;
-padding-bottom: 4px;
+.about-container{
+display:flex;
+gap:60px;
+align-items:center;
+justify-content:center;
+flex-wrap:wrap;
 }
 
-.nav-inner a:hover {
-border-bottom: 2px solid #9CFF2E;
+.about-container img{
+max-width:320px;
+width:100%;
+border-radius:6px;
 }
 
-/* CONTENIDO */
-section {
-max-width: 1100px;
-margin: auto;
-padding: 80px 32px;
+.about-text{
+max-width:520px;
 }
 
-/* ABOUT */
-.about-container {
-display: flex;
-gap: 60px;
-align-items: center;
-justify-content: center;
-flex-wrap: wrap;
+.about-text p{
+text-align:justify;
+line-height:1.8;
+hyphens:auto;
 }
 
-.about-container img {
-max-width: 320px;
-width: 100%;
-border-radius: 6px;
+/* MOBILE */
+@media (max-width:768px){
+section{
+padding:80px 20px 60px;
 }
 
-.about-text {
-max-width: 520px;
+.about-container{
+flex-direction:column;
+gap:30px;
 }
 
-.about-text p {
-text-align: justify;
-line-height: 1.8;
-hyphens: auto;
+.about-text{
+max-width:320px;
+text-align:center;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-section {
-padding: 80px 20px 60px;
-}
-
-.about-container {
-flex-direction: column;
-gap: 30px;
-}
-
-.about-text {
-max-width: 320px;
-text-align: center;
-}
-
-.nav-inner {
-gap: 16px;
+.nav-inner{
+gap:10px;
 }
 }
 </style>
