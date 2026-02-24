@@ -81,7 +81,6 @@ gap:14px;
 }
 
 .nav-inner a{
-position:relative;
 text-decoration:none;
 color:#111;
 font-size:13px;
@@ -94,7 +93,6 @@ transition:.2s;
 
 .nav-inner a:hover{
 background:#9CFF2E;
-color:#111;
 }
 
 /* HEADER */
@@ -112,7 +110,6 @@ letter-spacing:2px;
 text-transform:uppercase;
 margin:0;
 font-size:34px;
-position:relative;
 display:inline-block;
 }
 
@@ -127,9 +124,7 @@ margin:8px auto 0;
 
 .subtitle{
 margin-top:10px;
-color:#111;
 font-size:21px;
-letter-spacing:0.3px;
 }
 
 .seo-text{
@@ -154,8 +149,7 @@ gap:20px;
 }
 
 .hero-item{
-width:280px;   /* mismo ancho exacto que columnas grandes del grid */
-max-width:100%;
+width:280px;
 }
 
 .hero-item img,
@@ -165,11 +159,132 @@ height:auto;
 display:block;
 }
 
-/* móvil: una columna centrada */
-@media(max-width:900px){
-.hero{
-grid-template-columns:minmax(220px,280px);
+/* GRID */
+.grid{
+max-width:1100px;
+margin:40px auto 80px;
+padding:0 24px;
+display:grid;
+grid-template-columns:repeat(auto-fill,280px);
 justify-content:center;
+grid-auto-rows:10px;
+gap:20px;
+}
+
+.item{
+position:relative;
+cursor:pointer;
+overflow:hidden;
+border-radius:2px;
+}
+
+.item.wide{
+grid-column:span 2;
+}
+
+.item img,
+.item video{
+width:100%;
+height:auto;
+display:block;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+transition:.25s;
+}
+
+.overlay span{
+color:white;
+font-size:18px;
+text-align:center;
+padding:0 10px;
+}
+
+.overlay span::after{
+content:"";
+display:block;
+width:40%;
+height:2px;
+background:#9CFF2E;
+margin:8px auto 0;
+}
+
+.item:hover .overlay{
+opacity:1;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+z-index:2000;
+overflow:auto;
+}
+
+.modal-content{
+max-width:900px;
+margin:80px auto;
+padding:20px;
+color:white;
+}
+
+.modal-content img,
+.modal-content video,
+.modal-content iframe{
+width:100%;
+margin-bottom:30px;
+}
+
+.modal-content iframe{
+aspect-ratio:16/9;
+border:0;
+}
+
+.project-title{
+font-size:28px;
+margin-bottom:10px;
+text-align:center;
+}
+
+.project-description{
+margin-bottom:30px;
+text-align:center;
+}
+
+.close{
+position:fixed;
+top:20px;
+right:30px;
+color:white;
+font-size:40px;
+cursor:pointer;
+}
+
+footer{
+border-top:1px solid #e5e5e5;
+padding:30px 24px;
+text-align:center;
+color:#666;
+font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:620px){
+.grid{
+grid-template-columns:280px;
+}
+.item.wide{
+grid-column:span 1;
+}
 }
 
 
