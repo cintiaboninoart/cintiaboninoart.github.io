@@ -143,20 +143,19 @@ hyphens:auto;
 }
 
 /* HERO */
-/* HERO */
 .hero{
 max-width:1100px;
 margin:40px auto 0;
 padding:0 24px;
-display:grid;
-grid-template-columns:repeat(2, minmax(220px,280px));
+display:flex;
+flex-wrap:wrap;
 justify-content:center;
 gap:20px;
 }
 
 .hero-item{
-width:100%;
-max-width:280px;
+width:280px;   /* mismo ancho exacto que columnas grandes del grid */
+max-width:100%;
 }
 
 .hero-item img,
