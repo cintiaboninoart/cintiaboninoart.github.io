@@ -35,142 +35,170 @@
 </script>
 
 <style>
-body {
-margin: 0;
-font-family: Arial, Helvetica, sans-serif;
-background: #ffffff;
-color: #111111;
-line-height: 1.6;
+body{
+margin:0;
+font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+background:#ffffff;
+color:#111111;
+line-height:1.6;
 }
 
-/* MENÚ */
-.nav {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background: #ffffff;
-border-bottom: 1px solid #ddd;
-z-index: 1000;
+/* NAV */
+.nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#ffffff;
+border-bottom:1px solid #e5e5e5;
+z-index:1000;
 }
 
-.nav-inner {
-max-width: 1100px;
-margin: auto;
-padding: 20px 24px;
-display: flex;
-justify-content: center;
-gap: 28px;
-flex-wrap: wrap;
+.nav-inner{
+max-width:1100px;
+margin:auto;
+padding:18px 24px;
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
 }
 
-.nav-inner a {
-text-decoration: none;
-color: #111;
-font-size: 15px;
-font-weight: 500;
-padding-bottom: 4px;
+.nav-inner a{
+text-decoration:none;
+color:#111;
+font-size:13px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+padding:6px 12px;
+border:1px solid #9CFF2E;
+transition:.2s;
 }
 
-.nav-inner a:hover {
-border-bottom: 2px solid #9CFF2E;
+.nav-inner a:hover{
+background:#9CFF2E;
+color:#111;
 }
 
 /* HEADER */
-header {
-text-align: center;
-margin-top: 110px;
-padding: 0 24px;
+header{
+text-align:center;
+margin-top:110px;
+padding:0 24px 20px;
+border-bottom:1px solid #e5e5e5;
 }
 
-header h1 {
-font-size: 32px;
-margin: 0;
-font-weight: 700;
+header h1{
+font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+margin:0;
+font-size:34px;
+display:inline-block;
+position:relative;
 }
 
-.subtitle {
-margin-top: 10px;
-color: #666;
-font-size: 15px;
+header h1::after{
+content:"";
+display:block;
+width:60%;
+height:2px;
+background:#9CFF2E;
+margin:8px auto 0;
+}
+
+.subtitle{
+margin-top:12px;
+color:#555;
+font-size:17px;
+letter-spacing:.3px;
 }
 
 .seo-intro{
 max-width:640px;
-margin:14px auto 0;
+margin:24px auto 0;
 color:#444;
 font-size:14px;
-line-height:1.6;
+line-height:1.8;
 }
 
-/* CONTENIDO */
-section {
-max-width: 1100px;
-margin: auto;
-padding: 60px 24px 80px;
+/* CONTENT */
+section{
+max-width:1100px;
+margin:auto;
+padding:60px 24px 80px;
 }
 
-/* CONTACTO */
-.contact-container {
-max-width: 600px;
-margin: auto;
-text-align: center;
+.contact-container{
+max-width:600px;
+margin:auto;
+text-align:center;
 }
 
-.contact-container h2 {
-font-size: 28px;
-margin-bottom: 30px;
-border-bottom: 4px solid #9CFF2E;
-display: inline-block;
-padding-bottom: 6px;
+.contact-container h2{
+font-size:26px;
+margin-bottom:26px;
+border-bottom:2px solid #9CFF2E;
+display:inline-block;
+padding-bottom:6px;
+letter-spacing:.5px;
 }
 
-.contact-container p {
-margin-bottom: 24px;
+.contact-container p{
+margin-bottom:18px;
 }
 
-.contact-container a {
-color: #111;
+.contact-container a{
+color:#111;
 }
 
-form {
-width: 100%;
+/* FORM */
+form{
+width:100%;
+margin-top:20px;
 }
 
-input, textarea {
-width: 100%;
-padding: 12px;
-border: 1px solid #ccc;
-margin-bottom: 15px;
-font-size: 14px;
-box-sizing: border-box;
-font-family: Arial, Helvetica, sans-serif;
+input, textarea{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+margin-bottom:14px;
+font-size:14px;
+box-sizing:border-box;
+font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-button {
-padding: 12px 30px;
-background: #9CFF2E;
-border: none;
-font-weight: 600;
-cursor: pointer;
+input:focus, textarea:focus{
+outline:none;
+border:1px solid #9CFF2E;
 }
 
-button:hover {
-opacity: 0.85;
+button{
+padding:12px 30px;
+background:#9CFF2E;
+border:none;
+font-weight:600;
+cursor:pointer;
+letter-spacing:.5px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-.nav-inner {
-gap: 16px;
+button:hover{
+opacity:.85;
 }
 
-header {
-margin-top: 100px;
+/* MOBILE */
+@media (max-width:768px){
+header{
+margin-top:100px;
 }
 
-section {
-padding: 40px 20px 60px;
+section{
+padding:40px 20px 60px;
+}
+
+.nav-inner{
+gap:10px;
 }
 }
 </style>
