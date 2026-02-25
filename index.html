@@ -8,31 +8,35 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cintia Bonino — Ilustradora editorial en Barcelona</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cintia Bonino es una ilustradora editorial y animadora en Barcelona. Ilustración para prensa, carteles culturales, campañas visuales y animación 2D.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
 <style>
-
 /* ================= CURSORES ================= */
-
-:root{
---cursor-hand:url("data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'>
-<path fill='%239CFF2E' stroke='black' d='M14 2h2v10h2V6h2v8h2v-4h2v6h2v12H10V12h4z'/>
-</svg>") 8 2, pointer;
-}
 
 body{
 margin:0;
 font-family:"Inter", Arial, sans-serif;
 color:#111;
 background:#fff;
-
-cursor:url("data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'>
-<polygon points='1,1 1,23 7,17 10,26 14,24 10,16 18,16'
-fill='%239CFF2E' stroke='black' stroke-width='1'/>
-</svg>") 0 0, auto;
+cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'><polygon points='0,0 0,22 6,16 9,25 12,24 9,15 17,15' fill='%239CFF2E' stroke='black'/></svg>") 0 0, auto;
 }
 
-/* MANO EN ITEMS */
+/* MANITO EN TODAS LAS PORTADAS */
+.hero-item:hover,
+.item:hover,
+.item-media:hover{
+cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' shape-rendering='crispEdges'><path fill='black' d='M14 2h2v10h2V6h2v8h2v-4h2v6h2v12H10V12h4z'/><path fill='white' d='M15 3h1v9h2V7h1v7h2v-3h1v5h2v10H11V13h4z'/></svg>") 8 2, pointer;
+}
+
+/* MANITO EN TODAS LAS PORTADAS */
 .hero-item:hover,
 .hero-item:hover img,
 .hero-item:hover video,
@@ -40,7 +44,7 @@ fill='%239CFF2E' stroke='black' stroke-width='1'/>
 .item:hover img,
 .item:hover video,
 .item-media:hover{
-cursor:var(--cursor-hand);
+cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' shape-rendering='crispEdges'><path fill='black' d='M14 2h2v10h2V6h2v8h2v-4h2v6h2v12H10V12h4z'/><path fill='white' d='M15 3h1v9h2V7h1v7h2v-3h1v5h2v10H11V13h4z'/></svg>") 8 2, pointer;
 }
 
 /* ================= UI ================= */
@@ -92,37 +96,26 @@ justify-content:center;gap:24px;
 
 .grid{
 max-width:1200px;margin:40px auto 80px;
-padding:0 24px;
-columns:clamp(260px,28vw,340px);
+padding:0 24px;columns:clamp(260px,28vw,340px);
 column-gap:24px;
 }
 .item{
-break-inside:avoid;
-margin-bottom:26px;
-display:inline-block;
-width:100%;
+break-inside:avoid;margin-bottom:26px;
+display:inline-block;width:100%;
 }
 
 /* MEDIA */
 
-.item-media{
-position:relative;
-overflow:hidden;
-background:#000;
-}
-.item-media img,
-.item-media video{
-width:100%;
-display:block;
-height:auto;
+.item-media{position:relative;overflow:hidden;background:#000;}
+.item-media img,.item-media video{
+width:100%;display:block;height:auto;
 transition:transform .45s cubic-bezier(.2,.8,.2,1);
 }
 
 /* CRT LINES */
 .item-media::after{
 content:"";
-position:absolute;
-inset:0;
+position:absolute;inset:0;
 background:repeating-linear-gradient(
 0deg,
 rgba(255,255,255,.05) 0px,
@@ -139,8 +132,7 @@ pointer-events:none;
 /* OVERLAY */
 
 .item-overlay{
-position:absolute;
-inset:0;
+position:absolute;inset:0;
 display:flex;
 align-items:flex-end;
 padding:14px;
@@ -150,11 +142,9 @@ transition:opacity .35s ease;
 }
 
 /* VENTANA 90s */
-
 .window-bar{
 position:absolute;
-top:8px;
-left:8px;
+top:8px;left:8px;
 height:18px;
 background:#cfcfcf;
 border:1px solid #000;
@@ -167,13 +157,10 @@ letter-spacing:.5px;
 }
 
 .window-dots{
-display:flex;
-gap:3px;
-margin-right:6px;
+display:flex;gap:3px;margin-right:6px;
 }
 .window-dots span{
-width:8px;
-height:8px;
+width:8px;height:8px;
 background:#9CFF2E;
 border:1px solid #000;
 display:block;
@@ -181,29 +168,16 @@ display:block;
 
 .item-overlay span{
 color:#9CFF2E;
-font-size:18px;
-font-weight:700;
+font-size:18px;font-weight:700;
 transform:translateY(10px);
 transition:transform .35s cubic-bezier(.2,.8,.2,1);
 }
 
-/* HOVER */
-
 .item:hover .item-media img,
-.item:hover .item-media video{
-transform:scale(1.06) translateY(-4px);
-}
-.item:hover .item-overlay{
-opacity:1;
-}
-.item:hover .item-overlay span{
-transform:translateY(0);
-}
-.item:hover .item-media::after{
-opacity:.6;
-}
-
-/* CAPTION */
+.item:hover .item-media video{transform:scale(1.06) translateY(-4px);}
+.item:hover .item-overlay{opacity:1;}
+.item:hover .item-overlay span{transform:translateY(0);}
+.item:hover .item-media::after{opacity:.6;}
 
 .project-caption{margin-top:8px;}
 .project-caption h3{font-size:12.5px;margin:0 0 2px;}
@@ -212,17 +186,12 @@ opacity:.6;
 /* MODAL RETRO */
 
 .modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.92);
-z-index:2000;
-overflow:auto;
+display:none;position:fixed;inset:0;
+background:rgba(0,0,0,.92);z-index:2000;overflow:auto;
 }
 
 .modal-content{
-max-width:900px;
-margin:80px auto;
+max-width:900px;margin:80px auto;
 background:#cfcfcf;
 border:2px solid #000;
 box-shadow:6px 6px 0 #000;
@@ -232,11 +201,9 @@ box-shadow:6px 6px 0 #000;
 height:26px;
 background:#9CFF2E;
 border-bottom:2px solid #000;
-display:flex;
-align-items:center;
+display:flex;align-items:center;
 padding:0 8px;
-font-size:12px;
-font-weight:700;
+font-size:12px;font-weight:700;
 color:#000;
 }
 
@@ -249,37 +216,28 @@ color:#fff;
 .modal-body img,
 .modal-body video,
 .modal-body iframe{
-width:100%;
-margin-bottom:30px;
+width:100%;margin-bottom:30px;
 }
 
 .close{
-position:fixed;
-top:20px;
-right:30px;
-color:white;
-font-size:40px;
+position:fixed;top:20px;right:30px;
+color:white;font-size:40px;
 cursor:pointer;
 }
 
 footer{
 border-top:1px solid #e5e5e5;
-padding:30px 24px;
-text-align:center;
-color:#666;
-font-size:13px;
+padding:30px 24px;text-align:center;
+color:#666;font-size:13px;
 }
-
-/* MOBILE */
-
-@media (max-width:700px){
+@media (max-width: 700px){
 .hero-item{
 width:100%;
 max-width:500px;
 }
 }
-
 </style>
+
 </head>
 
 <body>
