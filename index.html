@@ -137,6 +137,7 @@ cursor:pointer;
 .hero-item video{
 width:100%;
 display:block;
+height:auto;
 }
 
 /* GRID */
@@ -152,8 +153,8 @@ gap:24px;
 }
 
 .item{
-cursor:pointer;
 display:block;
+cursor:pointer;
 }
 
 .item img,
@@ -322,6 +323,8 @@ const wideProjects=[5,8,9];
 
 function resizeGridItems(){
 const grid=document.querySelector(".grid");
+if(!grid) return;
+
 const rowHeight=parseInt(getComputedStyle(grid).getPropertyValue("grid-auto-rows"));
 const gap=parseInt(getComputedStyle(grid).getPropertyValue("gap"));
 
@@ -352,14 +355,14 @@ media.muted=true;
 media.playsInline=true;
 media.autoplay=true;
 media.preload="metadata";
-media.onloadeddata=resizeGridItems;
+media.addEventListener("loadeddata",resizeGridItems);
 }else{
 media=document.createElement("img");
 media.src=project.cover;
 media.alt=project.title+" — "+project.description;
 media.loading="lazy";
 media.decoding="async";
-media.onload=resizeGridItems;
+media.addEventListener("load",resizeGridItems);
 }
 
 item.appendChild(media);
@@ -371,6 +374,8 @@ item.appendChild(caption);
 
 grid.appendChild(item);
 });
+
+requestAnimationFrame(resizeGridItems);
 }
 
 function openProject(index){
@@ -408,11 +413,10 @@ function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
-window.addEventListener("load",()=>{
-createGrid();
-setTimeout(resizeGridItems,300);
-});
+window.addEventListener("load",resizeGridItems);
 window.addEventListener("resize",resizeGridItems);
+
+createGrid();
 </script>
 
 </body>
