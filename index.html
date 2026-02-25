@@ -96,11 +96,12 @@ align-items:stretch;
 }
 
 .hero-item{
-width:clamp(260px,28vw,340px);
-display:flex;
-flex-direction:column;
+  width:100%;
+  max-width:340px;   /* mismo máximo que grid */
+  flex:1 1 260px;    /* mismo mínimo que grid */
+  display:flex;
+  flex-direction:column;
 }
-
 .hero-item img,
 .hero-item video{
 width:100%;
