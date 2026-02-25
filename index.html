@@ -125,7 +125,7 @@ padding:0 24px;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:20px;
+gap:24px;
 }
 
 .hero-item{
@@ -153,19 +153,21 @@ gap:24px;
 
 .item{
 cursor:pointer;
+display:block;
 }
 
 .item img,
 .item video{
 width:100%;
 display:block;
+height:auto;
 }
 
 .item.wide{
 grid-column:span 2;
 }
 
-/* CAPTION CONTEMPORÁNEO */
+/* CAPTION */
 .project-caption{
 margin-top:8px;
 }
@@ -181,28 +183,6 @@ font-size:13px;
 color:#666;
 margin:0;
 line-height:1.4;
-}
-
-/* OVERLAY */
-.overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.45);
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:0;
-transition:.25s;
-}
-
-.overlay span{
-color:white;
-font-size:18px;
-text-align:center;
-}
-
-.item:hover .overlay{
-opacity:1;
 }
 
 /* MODAL */
@@ -288,13 +268,23 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 </header>
 
 <div class="hero">
+
 <div class="hero-item" onclick="openProject(0)">
 <video src="soporte.mp4" autoplay muted loop playsinline preload="metadata"></video>
+<div class="project-caption">
+<h3>Soporte</h3>
+<p>Animación 2D conceptual sobre la necesidad de apoyo del entorno.</p>
+</div>
 </div>
 
 <div class="hero-item" onclick="openProject(1)">
 <img src="VERTIGO TAPA.png" alt="Vértigo — ilustración editorial para novela contemporánea" loading="eager">
+<div class="project-caption">
+<h3>Vértigo</h3>
+<p>Ilustración editorial para novela de autoficción y narrativa contemporánea.</p>
 </div>
+</div>
+
 </div>
 
 <div class="grid" id="grid"></div>
@@ -336,20 +326,7 @@ const rowHeight=parseInt(getComputedStyle(grid).getPropertyValue("grid-auto-rows
 const gap=parseInt(getComputedStyle(grid).getPropertyValue("gap"));
 
 grid.querySelectorAll(".item").forEach(item=>{
-const media=item.querySelector("img,video");
-if(!media) return;
-
-const width=media.clientWidth;
-let height;
-
-if(media.tagName==="VIDEO" && media.videoWidth){
-height=width*(media.videoHeight/media.videoWidth);
-}else if(media.tagName==="IMG" && media.naturalWidth){
-height=width*(media.naturalHeight/media.naturalWidth);
-}else{
-height=media.getBoundingClientRect().height;
-}
-
+const height=item.getBoundingClientRect().height;
 const span=Math.ceil((height+gap)/(rowHeight+gap));
 item.style.gridRowEnd="span "+span;
 });
@@ -364,7 +341,6 @@ if(index<2) return;
 const item=document.createElement("div");
 item.className="item";
 if(wideProjects.includes(index)) item.classList.add("wide");
-
 item.onclick=()=>openProject(index);
 
 let media;
@@ -390,10 +366,7 @@ item.appendChild(media);
 
 const caption=document.createElement("div");
 caption.className="project-caption";
-caption.innerHTML=`
-<h3>${project.title}</h3>
-<p>${project.description}</p>
-`;
+caption.innerHTML=`<h3>${project.title}</h3><p>${project.description}</p>`;
 item.appendChild(caption);
 
 grid.appendChild(item);
