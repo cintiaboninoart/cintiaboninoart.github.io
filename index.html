@@ -3,50 +3,41 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Ilustradora en Barcelona | Cintia Bonino | Ilustración editorial y animación</title>
+<title>Cintia Bonino — Ilustradora editorial en Barcelona</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SEO -->
-<meta name="description" content="Cintia Bonino es una ilustradora editorial y animadora en Barcelona. Portfolio de ilustración para prensa, campañas culturales, carteles y animación 2D.">
-<meta name="keywords" content="ilustradora Barcelona, ilustración editorial, ilustradora prensa, ilustradora España, ilustración cultural, animación 2D">
+<meta name="description" content="Cintia Bonino es una ilustradora editorial y animadora en Barcelona. Ilustración para prensa, carteles culturales, campañas visuales y animación 2D.">
 <meta name="author" content="Cintia Bonino">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://cintiabonino.com/">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Ilustradora en Barcelona | Cintia Bonino">
+<meta property="og:title" content="Cintia Bonino — Ilustradora en Barcelona">
 <meta property="og:description" content="Portfolio de ilustración editorial y animación de Cintia Bonino.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cintiabonino.com/">
 <meta property="og:image" content="https://cintiabonino.com/preview.jpg">
 <meta property="og:locale" content="es_ES">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ilustradora en Barcelona | Cintia Bonino">
+<meta name="twitter:title" content="Cintia Bonino — Ilustradora en Barcelona">
 <meta name="twitter:description" content="Portfolio de ilustración editorial y animación.">
 <meta name="twitter:image" content="https://cintiabonino.com/preview.jpg">
 
-<!-- Schema artista -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "VisualArtist",
-  "name": "Cintia Bonino",
-  "url": "https://cintiabonino.com/",
-  "image": "https://cintiabonino.com/IMG_4364.jpeg",
-  "jobTitle": "Ilustradora editorial y animadora",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Barcelona",
-    "addressCountry": "ES"
+  "@context":"https://schema.org",
+  "@type":"VisualArtist",
+  "name":"Cintia Bonino",
+  "url":"https://cintiabonino.com/",
+  "image":"https://cintiabonino.com/IMG_4364.jpeg",
+  "jobTitle":"Ilustradora editorial y animadora",
+  "address":{
+    "@type":"PostalAddress",
+    "addressLocality":"Barcelona",
+    "addressCountry":"ES"
   },
-  "areaServed": {
-    "@type": "Place",
-    "name": "Barcelona"
-  },
-  "sameAs": [
+  "sameAs":[
     "https://instagram.com/cinbonino"
   ]
 }
@@ -55,7 +46,7 @@
 <style>
 body{
 margin:0;
-font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+font-family:Arial, Helvetica, sans-serif;
 color:#111;
 background:#fff;
 }
@@ -104,37 +95,26 @@ text-align:center;
 border-bottom:1px solid #e5e5e5;
 }
 
-.name-title{
-font-weight:700;
-letter-spacing:2px;
-text-transform:uppercase;
-margin:0;
+h1{
 font-size:34px;
-display:inline-block;
+margin:0;
+letter-spacing:1.5px;
+text-transform:uppercase;
 }
 
-.name-title::after{
-content:"";
-display:block;
-width:60%;
-height:2px;
-background:#9CFF2E;
-margin:8px auto 0;
-}
-
-.subtitle{
-margin-top:10px;
-font-size:21px;
+h2{
+font-size:18px;
+font-weight:500;
+margin:10px 0 0;
+color:#222;
 }
 
 .seo-text{
-max-width:680px;
-margin:40px auto 0;
+max-width:720px;
+margin:30px auto 0;
 color:#444;
-font-size:14px;
-line-height:1.8;
-text-align:justify;
-hyphens:auto;
+font-size:15px;
+line-height:1.7;
 }
 
 /* HERO */
@@ -150,12 +130,12 @@ gap:20px;
 
 .hero-item{
 width:280px;
+cursor:pointer;
 }
 
 .hero-item img,
 .hero-item video{
 width:100%;
-height:auto;
 display:block;
 }
 
@@ -168,27 +148,42 @@ display:grid;
 grid-template-columns:repeat(auto-fill,280px);
 justify-content:center;
 grid-auto-rows:10px;
-gap:20px;
+gap:24px;
 }
 
 .item{
-position:relative;
 cursor:pointer;
-overflow:hidden;
-border-radius:2px;
+}
+
+.item img,
+.item video{
+width:100%;
+display:block;
 }
 
 .item.wide{
 grid-column:span 2;
 }
 
-.item img,
-.item video{
-width:100%;
-height:auto;
-display:block;
+/* CAPTION CONTEMPORÁNEO */
+.project-caption{
+margin-top:8px;
 }
 
+.project-caption h3{
+font-size:14px;
+font-weight:600;
+margin:0 0 2px;
+}
+
+.project-caption p{
+font-size:13px;
+color:#666;
+margin:0;
+line-height:1.4;
+}
+
+/* OVERLAY */
 .overlay{
 position:absolute;
 inset:0;
@@ -204,16 +199,6 @@ transition:.25s;
 color:white;
 font-size:18px;
 text-align:center;
-padding:0 10px;
-}
-
-.overlay span::after{
-content:"";
-display:block;
-width:40%;
-height:2px;
-background:#9CFF2E;
-margin:8px auto 0;
 }
 
 .item:hover .overlay{
@@ -244,11 +229,6 @@ width:100%;
 margin-bottom:30px;
 }
 
-.modal-content iframe{
-aspect-ratio:16/9;
-border:0;
-}
-
 .project-title{
 font-size:28px;
 margin-bottom:10px;
@@ -277,7 +257,6 @@ color:#666;
 font-size:13px;
 }
 
-/* MOBILE */
 @media(max-width:620px){
 .grid{
 grid-template-columns:280px;
@@ -285,134 +264,6 @@ grid-template-columns:280px;
 .item.wide{
 grid-column:span 1;
 }
-}
-
-
-/* GRID */
-.grid{
-max-width:1100px;
-margin:40px auto 80px;
-padding:0 24px;
-display:grid;
-grid-template-columns:repeat(auto-fill,280px);
-justify-content:center;
-grid-auto-rows:10px;
-gap:20px;
-}
-@media(max-width:620px){
-.grid{
-grid-template-columns:280px;
-}
-.item{
-position:relative;
-cursor:pointer;
-overflow:hidden;
-border-radius:2px;
-}
-
-.item.wide{
-grid-column:span 2;
-}
-
-.item img,
-.item video{
-width:100%;
-height:auto;
-display:block;
-}
-
-.overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.45);
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:0;
-transition:.25s;
-}
-
-.overlay span{
-color:white;
-font-size:18px;
-text-align:center;
-padding:0 10px;
-position:relative;
-}
-
-.overlay span::after{
-content:"";
-display:block;
-width:40%;
-height:2px;
-background:#9CFF2E;
-margin:8px auto 0;
-}
-
-.item:hover .overlay{
-opacity:1;
-}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.9);
-z-index:2000;
-overflow:auto;
-}
-
-.modal-content{
-max-width:900px;
-margin:80px auto;
-padding:20px;
-color:white;
-}
-
-.modal-content img,
-.modal-content video,
-.modal-content iframe{
-width:100%;
-margin-bottom:30px;
-}
-
-.modal-content iframe{
-aspect-ratio:16/9;
-border:0;
-}
-
-.project-title{
-font-size:28px;
-margin-bottom:10px;
-text-align:center;
-}
-
-.project-description{
-margin-bottom:30px;
-text-align:center;
-}
-
-.close{
-position:fixed;
-top:20px;
-right:30px;
-color:white;
-font-size:40px;
-cursor:pointer;
-}
-
-footer{
-border-top:1px solid #e5e5e5;
-padding:30px 24px;
-text-align:center;
-color:#666;
-font-size:13px;
-}
-
-@media(max-width:900px){
-.hero{grid-template-columns:1fr;}
-.item.wide{grid-column:span 1;}
 }
 </style>
 </head>
@@ -428,15 +279,12 @@ font-size:13px;
 </nav>
 
 <header>
-<h1>Cintia Bonino — Ilustradora en Barcelona</h1>
+<h1>Cintia Bonino — Ilustradora editorial en Barcelona</h1>
 <h2>Ilustración editorial, carteles culturales y animación 2D</h2>
 
 <p class="seo-text">
-Soy ilustradora editorial y animadora en Barcelona especializada en ilustración para prensa,
-carteles culturales, campañas visuales y animación 2D. Mi trabajo combina narrativa,
-concepto y lenguaje gráfico contemporáneo para medios, música e instituciones culturales.
+Soy ilustradora editorial y animadora en Barcelona especializada en ilustración para prensa, carteles culturales, campañas visuales y animación 2D. Mi trabajo combina narrativa, concepto y lenguaje gráfico contemporáneo para medios, música e instituciones culturales.
 </p>
-
 </header>
 
 <div class="hero">
@@ -445,7 +293,7 @@ concepto y lenguaje gráfico contemporáneo para medios, música e instituciones
 </div>
 
 <div class="hero-item" onclick="openProject(1)">
-<img src="VERTIGO TAPA.png" alt="Vértigo ilustración editorial de Cintia Bonino en Barcelona" loading="eager">
+<img src="VERTIGO TAPA.png" alt="Vértigo — ilustración editorial para novela contemporánea" loading="eager">
 </div>
 </div>
 
@@ -461,27 +309,26 @@ concepto y lenguaje gráfico contemporáneo para medios, música e instituciones
 </footer>
 
 <script>
-const projects=[ 
-{title:"Soporte",description:"Animación.",cover:"soporte.mp4",images:["soporte.mp4"]},
-{title:"Vértigo",description:"Diseño e ilustración editorial.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
-{title:"Does anyone really know you?",description:"Ilustración editorial.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
-{title:"Café para uno",description:"Ilustración editorial.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
-{title:"Cartel Fiesta Mayor del Raval",description:"Proyecto ganador concurso público Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
-{title:"Los mundos de Anna",description:"Libro ilustrado.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
-{title:"Should you just give up?",description:"Ilustración editorial.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
-{title:"What animals understand about death?",description:"Ilustración editorial.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
-{title:"Amanecen Ocasos",description:"Videoclip animado.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
-{title:"Breve historia de una colonización",description:"Videoclip animado.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
-{title:"La realidad es un videojuego",description:"Animación.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
-{title:"Mudanza",description:"Animación.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
-{title:"Ideas",description:"Animación.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
-{title:"María Antonieta",description:"Campaña conceptual Converse.",cover:"converse zapatillas.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
-{title:"El cambio es movimiento",description:"Campaña conceptual Adidas Pride.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
-{title:"Cities",description:"Campaña conceptual Coca-Cola.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
+const projects=[
+{title:"Soporte",description:"Animación 2D conceptual sobre la necesidad de apoyo del entorno.",cover:"soporte.mp4",images:["soporte.mp4"]},
+{title:"Vértigo",description:"Ilustración editorial para novela de autoficción y narrativa contemporánea.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
+{title:"Does anyone really know you?",description:"Ilustración editorial conceptual sobre identidad y percepción social.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
+{title:"Café para uno",description:"Ilustración editorial sobre soledad urbana y vida cotidiana.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
+{title:"Cartel Fiesta Mayor del Raval",description:"Cartel cultural para la Fiesta Mayor del Raval en Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
+{title:"Los mundos de Anna",description:"Ilustración para libro ilustrado juvenil sobre la poeta Anna María Martínez Sagi.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
+{title:"Should you just give up?",description:"Ilustración editorial conceptual sobre fracaso y autoexigencia.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
+{title:"What animals understand about death?",description:"Ilustración editorial para artículo sobre conciencia animal y muerte.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
+{title:"Amanecen Ocasos",description:"Videoclip animado para proyecto musical experimental.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
+{title:"Breve historia de una colonización",description:"Videoclip animado conceptual sobre colonización y memoria histórica.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
+{title:"La realidad es un videojuego",description:"Animación 2D conceptual sobre la percepción de la realidad.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
+{title:"Mudanza",description:"Animación 2D sobre cambio vital y transición personal.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
+{title:"Ideas",description:"Animación 2D conceptual sobre proceso creativo y pensamiento.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
+{title:"María Antonieta (Converse)",description:"Campaña gráfica conceptual para marca de moda.",cover:"converse zapatillas.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
+{title:"El cambio es movimiento (Adidas Pride)",description:"Campaña visual para Adidas Pride sobre diversidad.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
+{title:"Cities (Coca-Cola)",description:"Campaña gráfica sobre identidad urbana.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
 ];
 
 const wideProjects=[5,8,9];
-const organicPattern=[3,5,4];
 
 function resizeGridItems(){
 const grid=document.querySelector(".grid");
@@ -533,7 +380,7 @@ media.onloadeddata=resizeGridItems;
 }else{
 media=document.createElement("img");
 media.src=project.cover;
-media.alt=project.title+" ilustración editorial de Cintia Bonino en Barcelona";
+media.alt=project.title+" — "+project.description;
 media.loading="lazy";
 media.decoding="async";
 media.onload=resizeGridItems;
@@ -541,10 +388,13 @@ media.onload=resizeGridItems;
 
 item.appendChild(media);
 
-const overlay=document.createElement("div");
-overlay.className="overlay";
-overlay.innerHTML=`<span>${project.title}</span>`;
-item.appendChild(overlay);
+const caption=document.createElement("div");
+caption.className="project-caption";
+caption.innerHTML=`
+<h3>${project.title}</h3>
+<p>${project.description}</p>
+`;
+item.appendChild(caption);
 
 grid.appendChild(item);
 });
@@ -571,7 +421,7 @@ content.appendChild(video);
 }else{
 const img=document.createElement("img");
 img.src=src;
-img.alt=project.title+" obra de Cintia Bonino en Barcelona";
+img.alt=project.title+" — "+project.description;
 img.loading="lazy";
 img.decoding="async";
 content.appendChild(img);
@@ -594,7 +444,6 @@ window.addEventListener("resize",resizeGridItems);
 
 </body>
 </html>
-
 
 
 
