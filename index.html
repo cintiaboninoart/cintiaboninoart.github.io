@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Cintia Bonino — Ilustradora editorial en Barcelona</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Cintia Bonino es una ilustradora editorial y animadora en Barcelona. Ilustración para prensa, carteles culturales, campañas visuales y animación 2D.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 <style>
+/* ================= CURSORES ================= */
+
 body{
 margin:0;
 font-family:"Inter", Arial, sans-serif;
@@ -18,15 +19,12 @@ background:#fff;
 cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'><polygon points='0,0 0,22 6,16 9,25 12,24 9,15 17,15' fill='white' stroke='black'/></svg>") 0 0, auto;
 }
 
-::selection{background:#9CFF2E;color:#000;}
-
-::-webkit-scrollbar{width:14px;}
-::-webkit-scrollbar-track{background:#f0f0f0;}
-::-webkit-scrollbar-thumb{background:#9CFF2E;border:2px solid #000;}
-::-webkit-scrollbar-thumb:hover{background:#7dff00;}
-
-.item:hover,
+/* MANITO PIXEL PORTADAS */
 .hero-item:hover,
+.item:hover{
+cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' shape-rendering='crispEdges'><path d='M9 1v11M13 3v9M17 5v7M21 7v5M7 12h16v13H7z' stroke='black' stroke-width='2' fill='white'/></svg>") 8 2, pointer;
+}
+
 .close:hover{
 cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'><polygon points='0,0 0,22 6,16 9,25 12,24 9,15 17,15' fill='%239CFF2E' stroke='black'/></svg>") 0 0, pointer;
 }
@@ -34,6 +32,15 @@ cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' widt
 a:hover{
 cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'><path d='M6 1v12M10 4v9M14 6v7M18 8v5M4 13h18v10H4z' stroke='black' stroke-width='2' fill='white'/></svg>") 8 2, pointer;
 }
+
+/* ================= UI ================= */
+
+::selection{background:#9CFF2E;color:#000;}
+
+::-webkit-scrollbar{width:14px;}
+::-webkit-scrollbar-track{background:#f0f0f0;}
+::-webkit-scrollbar-thumb{background:#9CFF2E;border:2px solid #000;}
+::-webkit-scrollbar-thumb:hover{background:#7dff00;}
 
 .nav{
 position:fixed;top:0;left:0;width:100%;
@@ -61,13 +68,17 @@ max-width:720px;margin:28px auto 0;
 color:#444;font-size:14px;line-height:1.7;
 }
 
+/* HERO */
+
 .hero{
 max-width:1200px;margin:36px auto 0;
 padding:0 24px;display:flex;flex-wrap:wrap;
 justify-content:center;gap:24px;
 }
-.hero-item{width:clamp(260px,28vw,340px);cursor:pointer;}
+.hero-item{width:clamp(260px,28vw,340px);}
 .hero-item img,.hero-item video{width:100%;display:block;}
+
+/* GRID */
 
 .grid{
 max-width:1200px;margin:40px auto 80px;
@@ -76,8 +87,10 @@ column-gap:24px;
 }
 .item{
 break-inside:avoid;margin-bottom:26px;
-cursor:pointer;display:inline-block;width:100%;
+display:inline-block;width:100%;
 }
+
+/* MEDIA */
 
 .item-media{position:relative;overflow:hidden;background:#000;}
 .item-media img,.item-media video{
@@ -89,8 +102,7 @@ transition:transform .45s cubic-bezier(.2,.8,.2,1);
 .item-media::after{
 content:"";
 position:absolute;inset:0;
-background:
-repeating-linear-gradient(
+background:repeating-linear-gradient(
 0deg,
 rgba(255,255,255,.05) 0px,
 rgba(255,255,255,.05) 1px,
@@ -104,6 +116,7 @@ pointer-events:none;
 }
 
 /* OVERLAY */
+
 .item-overlay{
 position:absolute;inset:0;
 display:flex;
@@ -114,6 +127,7 @@ opacity:0;
 transition:opacity .35s ease;
 }
 
+/* VENTANA 90s */
 .window-bar{
 position:absolute;
 top:8px;left:8px;
@@ -140,8 +154,7 @@ display:block;
 
 .item-overlay span{
 color:#9CFF2E;
-font-size:18px;
-font-weight:700;
+font-size:18px;font-weight:700;
 transform:translateY(10px);
 transition:transform .35s cubic-bezier(.2,.8,.2,1);
 }
@@ -156,21 +169,15 @@ transition:transform .35s cubic-bezier(.2,.8,.2,1);
 .project-caption h3{font-size:12.5px;margin:0 0 2px;}
 .project-caption p{font-size:12px;color:#777;margin:0;}
 
-/* RETRO MODAL */
+/* MODAL RETRO */
+
 .modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.92);
-z-index:2000;
-overflow:auto;
+display:none;position:fixed;inset:0;
+background:rgba(0,0,0,.92);z-index:2000;overflow:auto;
 }
 
 .modal-content{
-max-width:900px;
-margin:80px auto;
-padding:0;
-color:#000;
+max-width:900px;margin:80px auto;
 background:#cfcfcf;
 border:2px solid #000;
 box-shadow:6px 6px 0 #000;
@@ -180,11 +187,10 @@ box-shadow:6px 6px 0 #000;
 height:26px;
 background:#9CFF2E;
 border-bottom:2px solid #000;
-display:flex;
-align-items:center;
+display:flex;align-items:center;
 padding:0 8px;
-font-size:12px;
-font-weight:700;
+font-size:12px;font-weight:700;
+color:#000;
 }
 
 .modal-body{
@@ -196,25 +202,19 @@ color:#fff;
 .modal-body img,
 .modal-body video,
 .modal-body iframe{
-width:100%;
-margin-bottom:30px;
+width:100%;margin-bottom:30px;
 }
 
 .close{
-position:fixed;
-top:20px;
-right:30px;
-color:white;
-font-size:40px;
+position:fixed;top:20px;right:30px;
+color:white;font-size:40px;
 cursor:pointer;
 }
 
 footer{
 border-top:1px solid #e5e5e5;
-padding:30px 24px;
-text-align:center;
-color:#666;
-font-size:13px;
+padding:30px 24px;text-align:center;
+color:#666;font-size:13px;
 }
 </style>
 </head>
@@ -265,8 +265,66 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 <footer>© Cintia Bonino — Ilustradora en Barcelona</footer>
 
 <script>
-const projects=[ ... TU ARRAY SIN CAMBIOS ... ];
+const projects=[
+{title:"Soporte",description:"Animación 2D conceptual sobre la necesidad de apoyo del entorno.",cover:"soporte.mp4",images:["soporte.mp4"]},
 
+{title:"Vértigo",description:"Ilustración editorial para novela de autoficción y narrativa contemporánea.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
+
+{title:"Does anyone really know you?",description:"Ilustración editorial conceptual sobre identidad y percepción social.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
+
+{title:"Café para uno",description:"Ilustración editorial sobre soledad urbana y vida cotidiana.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
+
+{title:"Cartel Fiesta Mayor del Raval",description:"Cartel cultural para la Fiesta Mayor del Raval en Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:[
+"CARTELL FESTA MAJOR DEL RAVAL 2025.png",
+"CARTELL FESTA MAJOR RAVAL MOCK.png",
+"CARTELL RAVAL CALLE.jpeg",
+"CARTELL RAVAL MERCH.jpeg",
+"CARTELL RAVALL ALFOMBRA.jpeg"
+]},
+
+{title:"Los mundos de Anna",description:"Ilustración para libro ilustrado juvenil sobre la poeta Anna María Martínez Sagi.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
+
+{title:"Should you just give up?",description:"Ilustración editorial conceptual sobre fracaso y autoexigencia.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
+
+{title:"What animals understand about death?",description:"Ilustración editorial para artículo sobre conciencia animal y muerte.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
+
+{title:"Amanecen Ocasos",description:"Videoclip animado para proyecto musical experimental.",cover:"AMANECEN OCASOS.mp4",images:[
+{type:"vimeo",id:"1158888775"}
+]},
+
+{title:"Breve historia de una colonización",description:"Videoclip animado conceptual sobre colonización y memoria histórica.",cover:"RECORTE BREVE HISTORIA.mp4",images:[
+{type:"vimeo",id:"1161767177"}
+]},
+
+{title:"La realidad es un videojuego",description:"Animación 2D conceptual sobre la percepción de la realidad.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
+
+{title:"Mudanza",description:"Animación 2D sobre cambio vital y transición personal.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
+
+{title:"Ideas",description:"Animación 2D conceptual sobre proceso creativo y pensamiento.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
+
+{title:"María Antonieta (Converse)",description:"Campaña gráfica conceptual para marca de moda.",cover:"converse zapatillas.png",images:[
+"converse total.png",
+"converse mock caja total.png",
+"converse mock caja zapatillas.png",
+"converse tote toal.png",
+"converse zapatillas.png",
+"converse tote zapatillas.png"
+]},
+
+{title:"El cambio es movimiento (Adidas Pride)",description:"Campaña visual para Adidas Pride sobre diversidad.",cover:"ADIDAS PRIDE SENORA.png",images:[
+"ADIDAS PRIDE FINAL.png",
+"ADIDAS PRIDE PERSONAJES.png",
+"ADIDAS PRIDE ABSTRACCION.png",
+"ADIDAS PRIDE ABSTRACCION MOCK.png"
+]},
+
+{title:"Cities (Coca-Cola)",description:"Campaña gráfica sobre identidad urbana.",cover:"coca chicas sin fondo ph.png",images:[
+"coca chicas sin fondo ph.png",
+"coca barcelona ph.png",
+"coca bs as ph.png",
+"coca cola mock libreta bcn.png"
+]}
+];
 function createGrid(){
 const grid=document.getElementById("grid");
 projects.forEach((p,i)=>{
@@ -294,7 +352,7 @@ media.src=p.cover;
 
 mediaWrap.appendChild(media);
 
-/* OVERLAY RETRO */
+/* OVERLAY CON VENTANA 90s */
 const overlay=document.createElement("div");
 overlay.className="item-overlay";
 overlay.innerHTML=`
@@ -306,6 +364,7 @@ ${p.title}.exe
 </div>
 <span>${p.title}</span>
 `;
+
 mediaWrap.appendChild(overlay);
 
 item.appendChild(mediaWrap);
@@ -363,7 +422,6 @@ createGrid();
 
 </body>
 </html>
-
 
 
 
