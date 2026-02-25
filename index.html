@@ -303,8 +303,24 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 <footer>© Cintia Bonino — Ilustradora en Barcelona</footer>
 
 <script>
-const projects = /* TU ARRAY COMPLETO SIN CAMBIOS */ [];
-
+const projects=[
+{title:"Soporte",description:"Animación 2D conceptual sobre la necesidad de apoyo del entorno.",cover:"soporte.mp4",images:["soporte.mp4"]},
+{title:"Vértigo",description:"Ilustración editorial para novela de autoficción y narrativa contemporánea.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
+{title:"Does anyone really know you?",description:"Ilustración editorial conceptual sobre identidad y percepción social.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
+{title:"Café para uno",description:"Ilustración editorial sobre soledad urbana y vida cotidiana.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
+{title:"Cartel Fiesta Mayor del Raval",description:"Cartel cultural para la Fiesta Mayor del Raval en Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
+{title:"Los mundos de Anna",description:"Ilustración para libro ilustrado juvenil sobre la poeta Anna María Martínez Sagi.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
+{title:"Should you just give up?",description:"Ilustración editorial conceptual sobre fracaso y autoexigencia.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
+{title:"What animals understand about death?",description:"Ilustración editorial para artículo sobre conciencia animal y muerte.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
+{title:"Amanecen Ocasos",description:"Videoclip animado para proyecto musical experimental.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
+{title:"Breve historia de una colonización",description:"Videoclip animado conceptual sobre colonización y memoria histórica.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
+{title:"La realidad es un videojuego",description:"Animación 2D conceptual sobre la percepción de la realidad.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
+{title:"Mudanza",description:"Animación 2D sobre cambio vital y transición personal.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
+{title:"Ideas",description:"Animación 2D conceptual sobre proceso creativo y pensamiento.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
+{title:"María Antonieta (Converse)",description:"Campaña gráfica conceptual para marca de moda.",cover:"converse zapatillas.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
+{title:"El cambio es movimiento (Adidas Pride)",description:"Campaña visual para Adidas Pride sobre diversidad.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
+{title:"Cities (Coca-Cola)",description:"Campaña gráfica sobre identidad urbana.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
+];
 function createGrid(){
 const grid=document.getElementById("grid");
 projects.forEach((p,i)=>{
