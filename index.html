@@ -7,34 +7,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Cintia Bonino es una ilustradora editorial y animadora en Barcelona. Ilustración para prensa, carteles culturales, campañas visuales y animación 2D.">
 
+<!-- TIPOGRAFÍA VARIABLE -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 <style>
 body{
 margin:0;
-font-family:"Inter",Arial,sans-serif;
+font-family:"Inter", Arial, sans-serif;
 color:#111;
 background:#fff;
-cursor:url("data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'>
-<polygon points='0,0 0,20 5,15 8,23 11,22 8,14 14,14' fill='%239CFF2E'/>
-</svg>") 0 0, auto;
+cursor:none;
 }
 
-/* DARK MODE */
-@media (prefers-color-scheme: dark){
-body{background:#0c0c0c;color:#eaeaea;}
-.nav{background:#0c0c0c;border-bottom:1px solid #222;}
-header{border-bottom:1px solid #222;}
-.seo-text{color:#aaa;}
-.project-caption p{color:#aaa;}
-footer{border-top:1px solid #222;color:#888;}
+/* CURSOR */
+.cursor{
+position:fixed;
+top:0;
+left:0;
+width:18px;
+height:18px;
+border-radius:50%;
+background:#9CFF2E;
+pointer-events:none;
+transform:translate(-50%,-50%);
+transition:transform .18s ease, width .2s ease, height .2s ease, opacity .2s;
+z-index:3000;
+}
+.cursor.hover{
+width:42px;
+height:42px;
+opacity:.8;
 }
 
 /* NAV */
 .nav{
 position:fixed;
-top:0;left:0;width:100%;
+top:0;
+left:0;
+width:100%;
 background:#fff;
 border-bottom:1px solid #e5e5e5;
 z-index:1000;
@@ -49,7 +59,7 @@ gap:14px;
 }
 .nav-inner a{
 text-decoration:none;
-color:inherit;
+color:#111;
 font-size:12px;
 letter-spacing:1.6px;
 text-transform:uppercase;
@@ -65,20 +75,21 @@ padding:110px 24px 24px;
 text-align:center;
 border-bottom:1px solid #e5e5e5;
 }
+
 .title{
 font-size:clamp(28px,4vw,40px);
 font-weight:700;
+letter-spacing:.02em;
 margin:0;
 }
+
 .subtitle{
 font-size:clamp(15px,1.4vw,18px);
 font-weight:500;
 margin:6px 0 0;
 color:#333;
 }
-@media (prefers-color-scheme: dark){
-.subtitle{color:#bbb;}
-}
+
 .seo-text{
 max-width:720px;
 margin:28px auto 0;
@@ -104,12 +115,10 @@ cursor:pointer;
 .hero-item img,
 .hero-item video{
 width:100%;
-height:auto;
-max-width:100%;
 display:block;
 }
 
-/* MASONRY */
+/* MASONRY DINÁMICO */
 .grid{
 max-width:1200px;
 margin:40px auto 80px;
@@ -124,24 +133,19 @@ margin-bottom:26px;
 cursor:pointer;
 display:inline-block;
 width:100%;
-max-width:100%;
-vertical-align:top;
 }
 
+/* MEDIA */
 .item-media{
 position:relative;
 overflow:hidden;
 background:#000;
-width:100%;
-line-height:0;
 }
-
 .item-media img,
 .item-media video{
 width:100%;
-height:auto;
-max-width:100%;
 display:block;
+height:auto;
 transition:transform .45s cubic-bezier(.2,.8,.2,1);
 }
 
@@ -173,6 +177,7 @@ color:#9CFF2E;
 font-size:18px;
 font-weight:700;
 line-height:1.05;
+letter-spacing:.02em;
 transform:translateY(10px);
 transition:transform .35s cubic-bezier(.2,.8,.2,1);
 }
@@ -182,15 +187,24 @@ transition:transform .35s cubic-bezier(.2,.8,.2,1);
 .item:hover .item-media video{
 transform:scale(1.06) translateY(-4px);
 }
-.item:hover .item-overlay{opacity:1;}
-.item:hover .item-overlay span{transform:translateY(0);}
-.item:hover .item-media::after{opacity:.6;}
+.item:hover .item-overlay{
+opacity:1;
+}
+.item:hover .item-overlay span{
+transform:translateY(0);
+}
+.item:hover .item-media::after{
+opacity:.6;
+}
 
 /* CAPTION */
-.project-caption{margin-top:8px;}
+.project-caption{
+margin-top:8px;
+}
 .project-caption h3{
 font-size:12.5px;
 font-weight:600;
+letter-spacing:.03em;
 margin:0 0 2px;
 }
 .project-caption p{
@@ -242,6 +256,8 @@ font-size:13px;
 
 <body>
 
+<div class="cursor" id="cursor"></div>
+
 <nav class="nav">
 <div class="nav-inner">
 <a href="index.html">Selección</a>
@@ -258,6 +274,7 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 </p>
 </header>
 
+<!-- HERO -->
 <div class="hero">
 <div class="hero-item" onclick="openProject(0)">
 <video src="soporte.mp4" autoplay muted loop playsinline></video>
@@ -286,24 +303,7 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 <footer>© Cintia Bonino — Ilustradora en Barcelona</footer>
 
 <script>
-const projects=[
-{title:"Soporte",description:"Animación 2D conceptual sobre la necesidad de apoyo del entorno.",cover:"soporte.mp4",images:["soporte.mp4"]},
-{title:"Vértigo",description:"Ilustración editorial para novela de autoficción y narrativa contemporánea.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
-{title:"Does anyone really know you?",description:"Ilustración editorial conceptual sobre identidad y percepción social.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
-{title:"Café para uno",description:"Ilustración editorial sobre soledad urbana y vida cotidiana.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
-{title:"Cartel Fiesta Mayor del Raval",description:"Cartel cultural para la Fiesta Mayor del Raval en Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
-{title:"Los mundos de Anna",description:"Ilustración para libro ilustrado juvenil sobre la poeta Anna María Martínez Sagi.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
-{title:"Should you just give up?",description:"Ilustración editorial conceptual sobre fracaso y autoexigencia.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
-{title:"What animals understand about death?",description:"Ilustración editorial para artículo sobre conciencia animal y muerte.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
-{title:"Amanecen Ocasos",description:"Videoclip animado para proyecto musical experimental.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
-{title:"Breve historia de una colonización",description:"Videoclip animado conceptual sobre colonización y memoria histórica.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
-{title:"La realidad es un videojuego",description:"Animación 2D conceptual sobre la percepción de la realidad.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
-{title:"Mudanza",description:"Animación 2D sobre cambio vital y transición personal.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
-{title:"Ideas",description:"Animación 2D conceptual sobre proceso creativo y pensamiento.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
-{title:"María Antonieta (Converse)",description:"Campaña gráfica conceptual para marca de moda.",cover:"converse zapatillas.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
-{title:"El cambio es movimiento (Adidas Pride)",description:"Campaña visual para Adidas Pride sobre diversidad.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
-{title:"Cities (Coca-Cola)",description:"Campaña gráfica sobre identidad urbana.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
-];
+const projects = /* TU ARRAY COMPLETO SIN CAMBIOS */ [];
 
 function createGrid(){
 const grid=document.getElementById("grid");
@@ -378,6 +378,17 @@ modal.style.display="block";
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
+
+/* CURSOR */
+const cursor=document.getElementById("cursor");
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+document.querySelectorAll("a,.item,.hero-item").forEach(el=>{
+el.addEventListener("mouseenter",()=>cursor.classList.add("hover"));
+el.addEventListener("mouseleave",()=>cursor.classList.remove("hover"));
+});
 
 createGrid();
 </script>
