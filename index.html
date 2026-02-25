@@ -93,10 +93,16 @@ line-height:1.7;
 .hero-item{
   break-inside:avoid;
   margin-bottom:26px;
-  display:inline-block;
+  display:inline-block;   /* ✅ correcto para columns */
   width:100%;
 }
-
+.hero-item img,
+.hero-item video{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+}
 /* GRID */
 
 .grid{
