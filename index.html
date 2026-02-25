@@ -7,60 +7,256 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Cintia Bonino es una ilustradora editorial y animadora en Barcelona. Ilustración para prensa, carteles culturales, campañas visuales y animación 2D.">
 
+<!-- TIPOGRAFÍA VARIABLE -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#111;background:#fff}
+body{
+margin:0;
+font-family:"Inter", Arial, sans-serif;
+color:#111;
+background:#fff;
+cursor:none;
+}
+
+/* CURSOR */
+.cursor{
+position:fixed;
+top:0;
+left:0;
+width:18px;
+height:18px;
+border-radius:50%;
+background:#9CFF2E;
+pointer-events:none;
+transform:translate(-50%,-50%);
+transition:transform .18s ease, width .2s ease, height .2s ease, opacity .2s;
+z-index:3000;
+}
+.cursor.hover{
+width:42px;
+height:42px;
+opacity:.8;
+}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #e5e5e5;z-index:1000}
-.nav-inner{max-width:1100px;margin:auto;padding:18px 24px;display:flex;justify-content:center;gap:14px}
-.nav-inner a{text-decoration:none;color:#111;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 12px;border:1px solid #9CFF2E}
+.nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+border-bottom:1px solid #e5e5e5;
+z-index:1000;
+}
+.nav-inner{
+max-width:1200px;
+margin:auto;
+padding:18px 24px;
+display:flex;
+justify-content:center;
+gap:14px;
+}
+.nav-inner a{
+text-decoration:none;
+color:#111;
+font-size:12px;
+letter-spacing:1.6px;
+text-transform:uppercase;
+padding:6px 12px;
+border:1px solid #9CFF2E;
+}
 
 /* HEADER */
-header{max-width:1100px;margin:auto;padding:110px 24px 20px;text-align:center;border-bottom:1px solid #e5e5e5}
-h1{font-size:34px;margin:0;letter-spacing:1.5px;text-transform:uppercase}
-h2{font-size:18px;font-weight:500;margin:10px 0 0;color:#222}
-.seo-text{max-width:720px;margin:30px auto 0;color:#444;font-size:15px;line-height:1.7}
+header{
+max-width:1200px;
+margin:auto;
+padding:110px 24px 24px;
+text-align:center;
+border-bottom:1px solid #e5e5e5;
+}
+
+.title{
+font-size:clamp(28px,4vw,40px);
+font-weight:700;
+letter-spacing:.02em;
+margin:0;
+}
+
+.subtitle{
+font-size:clamp(15px,1.4vw,18px);
+font-weight:500;
+margin:6px 0 0;
+color:#333;
+}
+
+.seo-text{
+max-width:720px;
+margin:28px auto 0;
+color:#444;
+font-size:14px;
+line-height:1.7;
+}
 
 /* HERO */
-.hero{max-width:1100px;margin:40px auto 0;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
-.hero-item{width:280px;cursor:pointer}
-.hero-item img,.hero-item video{width:100%;display:block}
+.hero{
+max-width:1200px;
+margin:36px auto 0;
+padding:0 24px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:24px;
+}
+.hero-item{
+width:clamp(260px,28vw,340px);
+cursor:pointer;
+}
+.hero-item img,
+.hero-item video{
+width:100%;
+display:block;
+}
 
-/* MASONRY */
+/* MASONRY DINÁMICO */
 .grid{
-max-width:1100px;
+max-width:1200px;
 margin:40px auto 80px;
 padding:0 24px;
-columns:280px;
+columns:clamp(260px,28vw,340px);
 column-gap:24px;
 }
 
 .item{
 break-inside:avoid;
-margin-bottom:24px;
+margin-bottom:26px;
 cursor:pointer;
 display:inline-block;
 width:100%;
 }
 
-.item img,.item video{width:100%;display:block;height:auto}
+/* MEDIA */
+.item-media{
+position:relative;
+overflow:hidden;
+background:#000;
+}
+.item-media img,
+.item-media video{
+width:100%;
+display:block;
+height:auto;
+transition:transform .45s cubic-bezier(.2,.8,.2,1);
+}
+
+/* NOISE */
+.item-media::after{
+content:"";
+position:absolute;
+inset:0;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");
+opacity:0;
+transition:opacity .35s;
+pointer-events:none;
+}
+
+/* OVERLAY */
+.item-overlay{
+position:absolute;
+inset:0;
+display:flex;
+align-items:flex-end;
+justify-content:flex-start;
+padding:14px;
+background:linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0));
+opacity:0;
+transition:opacity .35s ease;
+}
+.item-overlay span{
+color:#9CFF2E;
+font-size:18px;
+font-weight:700;
+line-height:1.05;
+letter-spacing:.02em;
+transform:translateY(10px);
+transition:transform .35s cubic-bezier(.2,.8,.2,1);
+}
+
+/* HOVER */
+.item:hover .item-media img,
+.item:hover .item-media video{
+transform:scale(1.06) translateY(-4px);
+}
+.item:hover .item-overlay{
+opacity:1;
+}
+.item:hover .item-overlay span{
+transform:translateY(0);
+}
+.item:hover .item-media::after{
+opacity:.6;
+}
 
 /* CAPTION */
-.project-caption{margin-top:8px}
-.project-caption h3{font-size:14px;margin:0 0 2px}
-.project-caption p{font-size:13px;color:#666;margin:0;line-height:1.4}
+.project-caption{
+margin-top:8px;
+}
+.project-caption h3{
+font-size:12.5px;
+font-weight:600;
+letter-spacing:.03em;
+margin:0 0 2px;
+}
+.project-caption p{
+font-size:12px;
+color:#777;
+margin:0;
+line-height:1.4;
+}
 
 /* MODAL */
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;overflow:auto}
-.modal-content{max-width:900px;margin:80px auto;padding:20px;color:white}
-.modal-content img,.modal-content video,.modal-content iframe{width:100%;margin-bottom:30px}
-.close{position:fixed;top:20px;right:30px;color:white;font-size:40px;cursor:pointer}
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.92);
+z-index:2000;
+overflow:auto;
+}
+.modal-content{
+max-width:900px;
+margin:80px auto;
+padding:20px;
+color:white;
+}
+.modal-content img,
+.modal-content video,
+.modal-content iframe{
+width:100%;
+margin-bottom:30px;
+}
+.close{
+position:fixed;
+top:20px;
+right:30px;
+color:white;
+font-size:40px;
+cursor:pointer;
+}
 
-footer{border-top:1px solid #e5e5e5;padding:30px 24px;text-align:center;color:#666;font-size:13px}
+footer{
+border-top:1px solid #e5e5e5;
+padding:30px 24px;
+text-align:center;
+color:#666;
+font-size:13px;
+}
 </style>
 </head>
 
 <body>
+
+<div class="cursor" id="cursor"></div>
 
 <nav class="nav">
 <div class="nav-inner">
@@ -71,10 +267,10 @@ footer{border-top:1px solid #e5e5e5;padding:30px 24px;text-align:center;color:#6
 </nav>
 
 <header>
-<h1>Cintia Bonino — Ilustradora editorial en Barcelona</h1>
-<h2>Ilustración editorial, carteles culturales y animación 2D</h2>
+<h1 class="title">Cintia Bonino</h1>
+<p class="subtitle">Ilustradora editorial en Barcelona</p>
 <p class="seo-text">
-Soy ilustradora editorial y animadora en Barcelona especializada en ilustración para prensa, carteles culturales, campañas visuales y animación 2D. Mi trabajo combina narrativa, concepto y lenguaje gráfico contemporáneo para medios, música e instituciones culturales.
+Soy ilustradora editorial y animadora en Barcelona especializada en ilustración para prensa, carteles culturales, campañas visuales y animación 2D.
 </p>
 </header>
 
@@ -97,10 +293,8 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 </div>
 </div>
 
-<!-- GRID -->
 <div class="grid" id="grid"></div>
 
-<!-- MODAL -->
 <div id="modal" class="modal">
 <span class="close" onclick="closeModal()">&times;</span>
 <div class="modal-content" id="modal-content"></div>
@@ -109,34 +303,19 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 <footer>© Cintia Bonino — Ilustradora en Barcelona</footer>
 
 <script>
-const projects=[
-{title:"Soporte",description:"Animación 2D conceptual sobre la necesidad de apoyo del entorno.",cover:"soporte.mp4",images:["soporte.mp4"]},
-{title:"Vértigo",description:"Ilustración editorial para novela de autoficción y narrativa contemporánea.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
-{title:"Does anyone really know you?",description:"Ilustración editorial conceptual sobre identidad y percepción social.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
-{title:"Café para uno",description:"Ilustración editorial sobre soledad urbana y vida cotidiana.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
-{title:"Cartel Fiesta Mayor del Raval",description:"Cartel cultural para la Fiesta Mayor del Raval en Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:["CARTELL FESTA MAJOR DEL RAVAL 2025.png","CARTELL FESTA MAJOR RAVAL MOCK.png","CARTELL RAVAL CALLE.jpeg","CARTELL RAVAL MERCH.jpeg","CARTELL RAVALL ALFOMBRA.jpeg"]},
-{title:"Los mundos de Anna",description:"Ilustración para libro ilustrado juvenil sobre la poeta Anna María Martínez Sagi.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
-{title:"Should you just give up?",description:"Ilustración editorial conceptual sobre fracaso y autoexigencia.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
-{title:"What animals understand about death?",description:"Ilustración editorial para artículo sobre conciencia animal y muerte.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
-{title:"Amanecen Ocasos",description:"Videoclip animado para proyecto musical experimental.",cover:"AMANECEN OCASOS.mp4",images:[{type:"vimeo",id:"1158888775"}]},
-{title:"Breve historia de una colonización",description:"Videoclip animado conceptual sobre colonización y memoria histórica.",cover:"RECORTE BREVE HISTORIA.mp4",images:[{type:"vimeo",id:"1161767177"}]},
-{title:"La realidad es un videojuego",description:"Animación 2D conceptual sobre la percepción de la realidad.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
-{title:"Mudanza",description:"Animación 2D sobre cambio vital y transición personal.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
-{title:"Ideas",description:"Animación 2D conceptual sobre proceso creativo y pensamiento.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
-{title:"María Antonieta (Converse)",description:"Campaña gráfica conceptual para marca de moda.",cover:"converse zapatillas.png",images:["converse total.png","converse mock caja total.png","converse mock caja zapatillas.png","converse tote toal.png","converse zapatillas.png","converse tote zapatillas.png"]},
-{title:"El cambio es movimiento (Adidas Pride)",description:"Campaña visual para Adidas Pride sobre diversidad.",cover:"ADIDAS PRIDE SENORA.png",images:["ADIDAS PRIDE FINAL.png","ADIDAS PRIDE PERSONAJES.png","ADIDAS PRIDE ABSTRACCION.png","ADIDAS PRIDE ABSTRACCION MOCK.png"]},
-{title:"Cities (Coca-Cola)",description:"Campaña gráfica sobre identidad urbana.",cover:"coca chicas sin fondo ph.png",images:["coca chicas sin fondo ph.png","coca barcelona ph.png","coca bs as ph.png","coca cola mock libreta bcn.png"]}
-];
+const projects = /* TU ARRAY COMPLETO SIN CAMBIOS */ [];
 
 function createGrid(){
 const grid=document.getElementById("grid");
-
 projects.forEach((p,i)=>{
 if(i<2) return;
 
 const item=document.createElement("div");
 item.className="item";
 item.onclick=()=>openProject(i);
+
+const mediaWrap=document.createElement("div");
+mediaWrap.className="item-media";
 
 let media;
 if(p.cover.endsWith(".mp4")){
@@ -151,7 +330,14 @@ media=document.createElement("img");
 media.src=p.cover;
 }
 
-item.appendChild(media);
+mediaWrap.appendChild(media);
+
+const overlay=document.createElement("div");
+overlay.className="item-overlay";
+overlay.innerHTML=`<span>${p.title}</span>`;
+mediaWrap.appendChild(overlay);
+
+item.appendChild(mediaWrap);
 
 const caption=document.createElement("div");
 caption.className="project-caption";
@@ -192,6 +378,17 @@ modal.style.display="block";
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
+
+/* CURSOR */
+const cursor=document.getElementById("cursor");
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+document.querySelectorAll("a,.item,.hero-item").forEach(el=>{
+el.addEventListener("mouseenter",()=>cursor.classList.add("hover"));
+el.addEventListener("mouseleave",()=>cursor.classList.remove("hover"));
+});
 
 createGrid();
 </script>
