@@ -301,30 +301,30 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 </header>
 
 <div class="hero">
-<div class="hero-item" onclick="openProject(0)">
-<video src="soporte.mp4" autoplay muted loop playsinline></video>
-<div class="project-caption">
-<h3>Soporte</h3>
-<p>Animación 2D conceptual sobre la necesidad de apoyo del entorno.</p>
-</div>
-</div>
+  <div class="hero-item" onclick="openProject(0)">
+    <video src="soporte.mp4" autoplay muted loop playsinline></video>
+    <div class="project-caption">
+      <h3>Soporte</h3>
+      <p>Animación 2D conceptual sobre la necesidad de apoyo del entorno.</p>
+    </div>
+  </div>
 
-<div class="hero-item" onclick="openProject(1)">
-<img src="VERTIGO TAPA.png">
-<div class="project-caption">
-<h3>Vértigo</h3>
-<p>Ilustración editorial para novela de autoficción y narrativa contemporánea.</p>
-</div>
-</div>
-</div>
+  <div class="hero-item" onclick="openProject(1)">
+    <img src="VERTIGO TAPA.png">
+    <div class="project-caption">
+      <h3>Vértigo</h3>
+      <p>Ilustración editorial para novela de autoficción y narrativa contemporánea.</p>
+    </div>
+  </div>
 
-<div class="grid" id="grid"></div>
-
-<div id="modal" class="modal">
-<span class="close" onclick="closeModal()">&times;</span>
-<div class="modal-content" id="modal-content"></div>
+  <div class="hero-item" onclick="openProject(2)">
+    <video src="true.mp4" autoplay muted loop playsinline></video>
+    <div class="project-caption">
+      <h3>True</h3>
+      <p>Animación 2D conceptual sobre escaparse de la propia verdad.</p>
+    </div>
+  </div>
 </div>
-
 <footer>© Cintia Bonino — Ilustradora en Barcelona</footer>
 
 <script>
@@ -332,6 +332,8 @@ const projects=[
 {title:"Soporte",description:"Animación 2D conceptual sobre la necesidad de apoyo del entorno.",cover:"soporte.mp4",images:["soporte.mp4"]},
 
 {title:"Vértigo",description:"Ilustración editorial para novela de autoficción y narrativa contemporánea.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
+
+{title:"True",description:"Animación 2D conceptual sobre escaparse de la propia verdad.",cover:"true.mp4",images:["true.mp4"]},
 
 {title:"Does anyone really know you?",description:"Ilustración editorial conceptual sobre identidad y percepción social.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
 
@@ -391,7 +393,7 @@ const projects=[
 function createGrid(){
 const grid=document.getElementById("grid");
 projects.forEach((p,i)=>{
-if(i<2) return;
+if(i<3) return;
 
 const item=document.createElement("div");
 item.className="item";
