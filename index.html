@@ -7,37 +7,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Cintia Bonino es una ilustradora editorial y animadora en Barcelona. Ilustración para prensa, carteles culturales, campañas visuales y animación 2D.">
 
-<!-- TIPOGRAFÍA VARIABLE -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 <style>
 body{
 margin:0;
-font-family:"Inter", Arial, sans-serif;
+font-family:"Inter",Arial,sans-serif;
 color:#111;
 background:#fff;
-cursor:none;
-}
-
-/* CURSOR */
-body{
 cursor:url("data:image/svg+xml;utf8,
 <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'>
 <polygon points='0,0 0,20 5,15 8,23 11,22 8,14 14,14' fill='%239CFF2E'/>
 </svg>") 0 0, auto;
 }
-.cursor.hover{
-width:42px;
-height:42px;
-opacity:.8;
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark){
+body{background:#0c0c0c;color:#eaeaea;}
+.nav{background:#0c0c0c;border-bottom:1px solid #222;}
+header{border-bottom:1px solid #222;}
+.seo-text{color:#aaa;}
+.project-caption p{color:#aaa;}
+footer{border-top:1px solid #222;color:#888;}
 }
 
 /* NAV */
 .nav{
 position:fixed;
-top:0;
-left:0;
-width:100%;
+top:0;left:0;width:100%;
 background:#fff;
 border-bottom:1px solid #e5e5e5;
 z-index:1000;
@@ -52,7 +49,7 @@ gap:14px;
 }
 .nav-inner a{
 text-decoration:none;
-color:#111;
+color:inherit;
 font-size:12px;
 letter-spacing:1.6px;
 text-transform:uppercase;
@@ -68,21 +65,20 @@ padding:110px 24px 24px;
 text-align:center;
 border-bottom:1px solid #e5e5e5;
 }
-
 .title{
 font-size:clamp(28px,4vw,40px);
 font-weight:700;
-letter-spacing:.02em;
 margin:0;
 }
-
 .subtitle{
 font-size:clamp(15px,1.4vw,18px);
 font-weight:500;
 margin:6px 0 0;
 color:#333;
 }
-
+@media (prefers-color-scheme: dark){
+.subtitle{color:#bbb;}
+}
 .seo-text{
 max-width:720px;
 margin:28px auto 0;
@@ -108,10 +104,12 @@ cursor:pointer;
 .hero-item img,
 .hero-item video{
 width:100%;
+height:auto;
+max-width:100%;
 display:block;
 }
 
-/* MASONRY DINÁMICO */
+/* MASONRY */
 .grid{
 max-width:1200px;
 margin:40px auto 80px;
@@ -126,19 +124,24 @@ margin-bottom:26px;
 cursor:pointer;
 display:inline-block;
 width:100%;
+max-width:100%;
+vertical-align:top;
 }
 
-/* MEDIA */
 .item-media{
 position:relative;
 overflow:hidden;
 background:#000;
+width:100%;
+line-height:0;
 }
+
 .item-media img,
 .item-media video{
 width:100%;
-display:block;
 height:auto;
+max-width:100%;
+display:block;
 transition:transform .45s cubic-bezier(.2,.8,.2,1);
 }
 
@@ -170,7 +173,6 @@ color:#9CFF2E;
 font-size:18px;
 font-weight:700;
 line-height:1.05;
-letter-spacing:.02em;
 transform:translateY(10px);
 transition:transform .35s cubic-bezier(.2,.8,.2,1);
 }
@@ -180,24 +182,15 @@ transition:transform .35s cubic-bezier(.2,.8,.2,1);
 .item:hover .item-media video{
 transform:scale(1.06) translateY(-4px);
 }
-.item:hover .item-overlay{
-opacity:1;
-}
-.item:hover .item-overlay span{
-transform:translateY(0);
-}
-.item:hover .item-media::after{
-opacity:.6;
-}
+.item:hover .item-overlay{opacity:1;}
+.item:hover .item-overlay span{transform:translateY(0);}
+.item:hover .item-media::after{opacity:.6;}
 
 /* CAPTION */
-.project-caption{
-margin-top:8px;
-}
+.project-caption{margin-top:8px;}
 .project-caption h3{
 font-size:12.5px;
 font-weight:600;
-letter-spacing:.03em;
 margin:0 0 2px;
 }
 .project-caption p{
@@ -249,8 +242,6 @@ font-size:13px;
 
 <body>
 
-<div class="cursor" id="cursor"></div>
-
 <nav class="nav">
 <div class="nav-inner">
 <a href="index.html">Selección</a>
@@ -267,7 +258,6 @@ Soy ilustradora editorial y animadora en Barcelona especializada en ilustración
 </p>
 </header>
 
-<!-- HERO -->
 <div class="hero">
 <div class="hero-item" onclick="openProject(0)">
 <video src="soporte.mp4" autoplay muted loop playsinline></video>
@@ -388,17 +378,6 @@ modal.style.display="block";
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
-
-/* CURSOR */
-const cursor=document.getElementById("cursor");
-document.addEventListener("mousemove",e=>{
-cursor.style.left=e.clientX+"px";
-cursor.style.top=e.clientY+"px";
-});
-document.querySelectorAll("a,.item,.hero-item").forEach(el=>{
-el.addEventListener("mouseenter",()=>cursor.classList.add("hover"));
-el.addEventListener("mouseleave",()=>cursor.classList.remove("hover"));
-});
 
 createGrid();
 </script>
