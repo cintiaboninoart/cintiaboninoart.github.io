@@ -105,17 +105,20 @@ line-height:1.7;
   display:block;
   object-fit:cover;
 }
+
+/* fuerza misma proporción visual */
 .hero-item video,
 .hero-item img{
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  aspect-ratio:4/5;
+  object-fit:cover;
 }
+
 /* responsive */
 @media (max-width:900px){
   .hero{
     grid-template-columns:1fr;
   }
-
+}
 /* GRID */
 
 .grid{
