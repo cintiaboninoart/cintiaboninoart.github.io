@@ -121,19 +121,28 @@ padding:0 24px;
 columns:clamp(260px,28vw,340px);
 column-gap:24px;
 }
+/* ITEM CONTENEDOR (icono sobre escritorio) */
 .item{
 break-inside:avoid;
 margin-bottom:26px;
 display:inline-block;
 width:100%;
+background:#efefef;
+padding:10px;
 }
 
-/* MEDIA */
-
+/* MEDIA = ventana 90s */
 .item-media{
 position:relative;
 overflow:hidden;
-background:transparent;
+background:#fff;
+border:2px solid #cfcfcf;
+box-shadow:3px 3px 0 #000;
+}
+
+/* ACTIVACIÓN */
+.item:hover .item-media{
+border-color:#9CFF2E;
 }
 
 .item-media img,
