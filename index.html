@@ -121,6 +121,19 @@ padding:0 24px;
 columns:clamp(260px,28vw,340px);
 column-gap:24px;
 }
+@media (max-width:700px){
+
+  .grid{
+    padding:0;          /* quita margen lateral */
+    margin:40px 0 80px; /* elimina auto centrado */
+    columns:1;          /* una sola columna */
+  }
+
+  .item{
+    width:100%;
+  }
+
+}
 /* ITEM CONTENEDOR (icono sobre escritorio) */
 .item{
 break-inside:avoid;
