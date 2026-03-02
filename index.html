@@ -124,13 +124,15 @@ column-gap:24px;
 @media (max-width:700px){
 
   .grid{
-    padding:0;          /* quita margen lateral */
-    margin:40px 0 80px; /* elimina auto centrado */
+    padding:0 24px;     /* mismo margen que header/hero */
+    margin:40px auto 80px;
     columns:1;          /* una sola columna */
   }
 
   .item{
     width:100%;
+    margin-left:auto;
+    margin-right:auto;
   }
 
 }
