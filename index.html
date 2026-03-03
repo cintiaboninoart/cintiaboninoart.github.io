@@ -209,7 +209,7 @@ Soy ilustradora editorial y animadora 2D en Barcelona, especializada en ilustrac
 <section class="services-block">
 <h3>Servicios</h3>
 <ul>
-<li>Ilustración editorial en Barcelona</li>
+<li>Ilustración editorial</li>
 <li>Carteles culturales y festivales</li>
 <li>Animación 2D conceptual</li>
 <li>Campañas visuales para marcas</li>
@@ -305,8 +305,10 @@ media=document.createElement("video");
 media.src=p.cover;
 media.muted=true;
 media.loop=true;
-media.autoplay=true;
-}else{
+if(window.innerWidth > 768){
+  media.autoplay=true;
+}
+else{
 media=document.createElement("img");
 media.src=p.cover;
 media.loading="lazy";
