@@ -333,9 +333,9 @@ max-width:500px;
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
- "@type": "ProfessionalService",
-  "name": "Cintia Bonino",
-  "jobTitle": "Ilustradora y animadora 2D",
+  "@type": "ProfessionalService",
+  "@id": "https://cintiaboninoart.github.io/#business",
+  "name": "Cintia Bonino — Ilustradora en Barcelona",
   "description": "Ilustradora en Barcelona especializada en ilustración editorial, carteles culturales y animación 2D.",
   "url": "https://cintiaboninoart.github.io/",
   "image": "https://cintiaboninoart.github.io/IMG_4364.jpeg",
@@ -344,11 +344,17 @@ max-width:500px;
     "addressLocality": "Barcelona",
     "addressCountry": "ES"
   },
-  "areaServed": {
-    "@type": "Place",
-    "name": "Barcelona"
-  },
-  "knowsAbout": [
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Barcelona"
+    },
+    {
+      "@type": "Country",
+      "name": "España"
+    }
+  ],
+  "serviceType": [
     "Ilustración editorial",
     "Animación 2D",
     "Carteles culturales",
