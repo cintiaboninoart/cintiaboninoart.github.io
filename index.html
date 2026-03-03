@@ -288,53 +288,52 @@ const projects=[
 ];
 
 function createGrid(){
-const grid=document.getElementById("grid");
+  const grid=document.getElementById("grid");
 
-projects.forEach((p,i)=>{
-const item=document.createElement("div");
-item.className="item";
-item.onclick=()=>openProject(i);
+  projects.forEach((p,i)=>{
 
-const mediaWrap=document.createElement("div");
-mediaWrap.className="item-media";
+    const item=document.createElement("div");
+    item.className="item";
+    item.onclick=()=>openProject(i);
 
-let media;
+    const mediaWrap=document.createElement("div");
+    mediaWrap.className="item-media";
 
-let media;
+    let media;
 
-if(p.cover.endsWith(".mp4")){
+    if(p.cover.endsWith(".mp4")){
 
-  media = document.createElement("video");
-  media.src = p.cover;
-  media.muted = true;
-  media.loop = true;
-  media.playsInline = true;
-  media.preload = "none";
+      media=document.createElement("video");
+      media.src=p.cover;
+      media.muted=true;
+      media.loop=true;
+      media.playsInline=true;
+      media.preload="none";
 
-  if(window.innerWidth > 768){
-    media.autoplay = true;
-  }
+      if(window.innerWidth > 768){
+        media.autoplay=true;
+      }
 
-}else{
+    }else{
 
-  media = document.createElement("img");
-  media.src = p.cover;
-  media.loading = "lazy";
-  media.decoding = "async";
-  media.alt = p.title + " — Cintia Bonino";
+      media=document.createElement("img");
+      media.src=p.cover;
+      media.loading="lazy";
+      media.decoding="async";
+      media.alt=p.title + " — Cintia Bonino";
 
-}
+    }
 
-mediaWrap.appendChild(media);
-item.appendChild(mediaWrap);
+    mediaWrap.appendChild(media);
+    item.appendChild(mediaWrap);
 
-const caption=document.createElement("div");
-caption.className="project-caption";
-caption.innerHTML=`<h3>${p.title}</h3><p>${p.description}</p>`;
-item.appendChild(caption);
+    const caption=document.createElement("div");
+    caption.className="project-caption";
+    caption.innerHTML=`<h3>${p.title}</h3><p>${p.description}</p>`;
+    item.appendChild(caption);
 
-grid.appendChild(item);
-});
+    grid.appendChild(item);
+  });
 }
 
 function openProject(i){
