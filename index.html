@@ -317,8 +317,14 @@ if(p.cover.endsWith(".mp4")){
     });
   }
 
-else{
+}else{
 
+  media = document.createElement("img");
+  media.src = p.cover;
+  media.loading = "lazy";
+  media.alt = p.title + " — Cintia Bonino";
+
+}
   media = document.createElement("img");
   media.src = p.cover;
   media.loading = "lazy";
