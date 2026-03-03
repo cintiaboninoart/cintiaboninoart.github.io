@@ -522,20 +522,24 @@ function createGrid(){
 
     let media;
 
-    if(p.cover.endsWith(".mp4")){
-      media=document.createElement("video");
-      media.src=p.cover;
-      media.muted=true;
-      media.loop=true;
-      media.playsInline=true;
-      media.preload="none";
+if(p.cover.endsWith(".mp4")){
+  media=document.createElement("video");
+  media.src=p.cover;
+  media.muted=true;
+  media.loop=true;
+  media.autoplay = window.innerWidth > 768;
+  media.playsInline = true;
+  media.setAttribute("playsinline", "");
+  media.preload="metadata";
 
-      // Autoplay solo en desktop
-      if(window.innerWidth > 768){
-        media.autoplay=true;
-      }
+  // Forzar reproducción segura
+  media.addEventListener("loadeddata", () => {
+    if(window.innerWidth > 768){
+      media.play().catch(()=>{});
+    }
+  });
 
-    }else{
+}else{
       media=document.createElement("img");
       media.src=p.cover;
       media.loading="lazy";
