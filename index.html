@@ -43,24 +43,16 @@ margin-bottom:8px;
 letter-spacing:.3px;
 }
 
-/* ================= CURSORES ================= */
+/* ================= UI ================= */
 
 body{
 margin:0;
 font-family:"Inter", Arial, sans-serif;
 color:#111;
 background:#fff;
-cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'><polygon points='0,0 0,22 6,16 9,25 12,24 9,15 17,15' fill='%239CFF2E' stroke='black'/></svg>") 0 0, auto;
 }
 
-/* ================= UI ================= */
-
 ::selection{background:#9CFF2E;color:#000;}
-
-::-webkit-scrollbar{width:14px;}
-::-webkit-scrollbar-track{background:#f0f0f0;}
-::-webkit-scrollbar-thumb{background:#9CFF2E;border:2px solid #000;}
-::-webkit-scrollbar-thumb:hover{background:#7dff00;}
 
 .nav{
 position:fixed;top:0;left:0;width:100%;
@@ -83,29 +75,17 @@ border-bottom:1px solid #e5e5e5;
 }
 
 .title{
-font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 font-weight:700;
 letter-spacing:2px;
 text-transform:uppercase;
 margin:0;
 font-size:34px;
-display:inline-block;
-position:relative;
-}
-.title::after{
-content:"";
-display:block;
-width:60%;
-height:2px;
-background:#9CFF2E;
-margin:8px auto 0;
 }
 
 .subtitle{
 margin-top:12px;
 color:#555;
 font-size:17px;
-letter-spacing:.3px;
 }
 
 .seo-text{
@@ -127,9 +107,7 @@ column-gap:24px;
 }
 
 @media (max-width:700px){
-.grid{
-columns:1;
-}
+.grid{columns:1;}
 }
 
 .item{
@@ -146,11 +124,6 @@ position:relative;
 overflow:hidden;
 background:#fff;
 border:2px solid #cfcfcf;
-box-shadow:3px 3px 0 #000;
-}
-
-.item:hover .item-media{
-border-color:#9CFF2E;
 }
 
 .item-media img,
@@ -159,33 +132,6 @@ width:100%;
 height:auto;
 display:block;
 object-fit:contain;
-}
-
-.item-overlay{
-position:absolute;
-inset:0;
-display:flex;
-align-items:flex-end;
-padding:14px;
-background:linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0));
-opacity:0;
-transition:opacity .35s ease;
-}
-
-.item-overlay span{
-color:#9CFF2E;
-font-size:18px;
-font-weight:700;
-transform:translateY(10px);
-transition:transform .35s;
-}
-
-.item:hover .item-overlay{
-opacity:1;
-}
-
-.item:hover .item-overlay span{
-transform:translateY(0);
 }
 
 .project-caption{margin-top:8px;}
@@ -206,27 +152,8 @@ overflow:auto;
 .modal-content{
 max-width:900px;
 margin:80px auto;
-background:#cfcfcf;
-border:2px solid #000;
-box-shadow:6px 6px 0 #000;
-}
-
-.modal-header{
-height:26px;
-background:#9CFF2E;
-border-bottom:2px solid #000;
-display:flex;
-align-items:center;
-padding:0 8px;
-font-size:12px;
-font-weight:700;
-color:#000;
-}
-
-.modal-body{
-padding:18px;
-background:#111;
-color:#fff;
+background:#fff;
+padding:30px;
 }
 
 .modal-body img,
@@ -255,36 +182,6 @@ font-size:13px;
 }
 
 </style>
-
-<!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-LXGFM973S5');
-</script>
-
-<!-- Schema Markup -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://cintiaboninoart.github.io/#business",
-  "name": "Cintia Bonino — Ilustradora editorial en Barcelona",
-  "description": "Ilustradora en Barcelona especializada en ilustración editorial, carteles culturales y animación 2D.",
-  "url": "https://cintiaboninoart.github.io/",
-  "image": "https://cintiaboninoart.github.io/IMG_4364.jpeg",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Barcelona",
-    "addressCountry": "ES"
-  }
-}
-</script>
-
-<link rel="alternate" hreflang="es" href="https://cintiaboninoart.github.io/index.html">
-<link rel="alternate" hreflang="en" href="https://cintiaboninoart.github.io/index-en.html">
 
 </head>
 <body>
@@ -321,13 +218,74 @@ Soy ilustradora editorial y animadora 2D en Barcelona, especializada en ilustrac
 
 <script>
 
-const projects = [
+const projects=[
+
 {title:"Soporte",description:"Animación 2D conceptual sobre la necesidad de apoyo del entorno.",cover:"soporte.mp4",images:["soporte.mp4"]},
-{title:"Vértigo",description:"Ilustración editorial para novela de autoficción y narrativa contemporánea.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]}
+
+{title:"Vértigo",description:"Ilustración editorial para novela de autoficción y narrativa contemporánea.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
+
+{title:"True",description:"Animación 2D conceptual sobre escaparse de la propia verdad.",cover:"true.mp4",images:["true.mp4"]},
+
+{title:"Does anyone really know you?",description:"Ilustración editorial conceptual sobre identidad y percepción social.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
+
+{title:"Should you just give up?",description:"Ilustración editorial conceptual sobre fracaso y autoexigencia.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
+
+{title:"What animals understand about death?",description:"Ilustración editorial para artículo sobre conciencia animal y muerte.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
+
+{title:"Café para uno",description:"Ilustración editorial sobre soledad urbana y vida cotidiana.",cover:"cafe para uno.png",images:["cafe para uno mock.png"]},
+
+{title:"Cartel Fiesta Mayor del Raval",description:"Cartel cultural para la Fiesta Mayor del Raval en Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:[
+"CARTELL FESTA MAJOR DEL RAVAL 2025.png",
+"CARTELL FESTA MAJOR RAVAL MOCK.png",
+"CARTELL RAVAL CALLE.jpeg",
+"CARTELL RAVAL MERCH.jpeg",
+"CARTELL RAVALL ALFOMBRA.jpeg"
+]},
+
+{title:"Los mundos de Anna",description:"Ilustración para libro ilustrado juvenil sobre la poeta Anna María Martínez Sagi.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
+
+{title:"La realidad es un videojuego",description:"Animación 2D conceptual sobre la percepción de la realidad.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
+
+{title:"Mudanza",description:"Animación 2D sobre cambio vital y transición personal.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
+
+{title:"Ideas",description:"Animación 2D conceptual sobre proceso creativo y pensamiento.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
+
+{title:"Amanecen Ocasos",description:"Videoclip animado para proyecto musical experimental.",cover:"AMANECEN OCASOS.mp4",images:[
+{type:"vimeo",id:"1158888775"}
+]},
+
+{title:"Breve historia de una colonización",description:"Videoclip animado conceptual sobre colonización y memoria histórica.",cover:"RECORTE BREVE HISTORIA.mp4",images:[
+{type:"vimeo",id:"1161767177"}
+]},
+
+{title:"María Antonieta (Converse)",description:"Campaña gráfica conceptual para marca de moda.",cover:"converse zapatillas.png",images:[
+"converse total.png",
+"converse mock caja total.png",
+"converse mock caja zapatillas.png",
+"converse tote toal.png",
+"converse zapatillas.png",
+"converse tote zapatillas.png"
+]},
+
+{title:"El cambio es movimiento (Adidas Pride)",description:"Campaña visual para Adidas Pride sobre diversidad.",cover:"ADIDAS PRIDE SENORA.png",images:[
+"ADIDAS PRIDE FINAL.png",
+"ADIDAS PRIDE PERSONAJES.png",
+"ADIDAS PRIDE ABSTRACCION.png",
+"ADIDAS PRIDE ABSTRACCION MOCK.png"
+]},
+
+{title:"Cities (Coca-Cola)",description:"Campaña gráfica sobre identidad urbana.",cover:"coca chicas sin fondo ph.png",images:[
+"coca chicas sin fondo ph.png",
+"coca barcelona ph.png",
+"coca bs as ph.png",
+"coca cola mock libreta bcn.png"
+]}
+
 ];
 
 function createGrid(){
 const grid=document.getElementById("grid");
+
 projects.forEach((p,i)=>{
 const item=document.createElement("div");
 item.className="item";
@@ -337,6 +295,7 @@ const mediaWrap=document.createElement("div");
 mediaWrap.className="item-media";
 
 let media;
+
 if(p.cover.endsWith(".mp4")){
 media=document.createElement("video");
 media.src=p.cover;
@@ -347,7 +306,7 @@ media.autoplay=true;
 media=document.createElement("img");
 media.src=p.cover;
 media.loading="lazy";
-media.alt=p.title;
+media.alt=p.title + " — Cintia Bonino";
 }
 
 mediaWrap.appendChild(media);
@@ -368,17 +327,19 @@ const content=document.getElementById("modal-content");
 const p=projects[i];
 
 content.innerHTML=`
-<div class="modal-header">${p.title}</div>
-<div class="modal-body">
 <h2>${p.title}</h2>
 <p>${p.description}</p>
-</div>
+<div class="modal-body"></div>
 `;
 
 const body=content.querySelector(".modal-body");
 
 p.images.forEach(src=>{
-if(src.endsWith(".mp4")){
+if(typeof src==="object"){
+const iframe=document.createElement("iframe");
+iframe.src=`https://player.vimeo.com/video/${src.id}`;
+body.appendChild(iframe);
+}else if(src.endsWith(".mp4")){
 const video=document.createElement("video");
 video.src=src;
 video.controls=true;
@@ -408,7 +369,6 @@ createGrid();
 
 </body>
 </html>
-
 
 
 
