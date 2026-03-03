@@ -301,12 +301,30 @@ mediaWrap.className="item-media";
 let media;
 
 if(p.cover.endsWith(".mp4")){
-media=document.createElement("video");
-media.src=p.cover;
-media.muted=true;
-media.loop=true;
-if(window.innerWidth > 768){
-  media.autoplay=true;
+
+  media = document.createElement("video");
+  media.src = p.cover;
+  media.muted = true;
+  media.loop = true;
+  media.playsInline = true;
+  media.setAttribute("playsinline", "");
+  media.preload = "metadata";
+
+  if(window.innerWidth > 768){
+    media.autoplay = true;
+    media.addEventListener("loadeddata", () => {
+      media.play().catch(()=>{});
+    });
+  }
+
+else{
+
+  media = document.createElement("img");
+  media.src = p.cover;
+  media.loading = "lazy";
+  media.decoding = "async";
+  media.alt = p.title + " — Cintia Bonino";
+
 }
 else{
 media=document.createElement("img");
