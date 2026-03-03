@@ -300,6 +300,8 @@ mediaWrap.className="item-media";
 
 let media;
 
+let media;
+
 if(p.cover.endsWith(".mp4")){
 
   media = document.createElement("video");
@@ -307,14 +309,10 @@ if(p.cover.endsWith(".mp4")){
   media.muted = true;
   media.loop = true;
   media.playsInline = true;
-  media.setAttribute("playsinline", "");
-  media.preload = "metadata";
+  media.preload = "none";
 
   if(window.innerWidth > 768){
     media.autoplay = true;
-    media.addEventListener("loadeddata", () => {
-      media.play().catch(()=>{});
-    });
   }
 
 }else{
@@ -322,21 +320,9 @@ if(p.cover.endsWith(".mp4")){
   media = document.createElement("img");
   media.src = p.cover;
   media.loading = "lazy";
-  media.alt = p.title + " — Cintia Bonino";
-
-}
-  media = document.createElement("img");
-  media.src = p.cover;
-  media.loading = "lazy";
   media.decoding = "async";
   media.alt = p.title + " — Cintia Bonino";
 
-}
-else{
-media=document.createElement("img");
-media.src=p.cover;
-media.loading="lazy";
-media.alt=p.title + " — Cintia Bonino";
 }
 
 mediaWrap.appendChild(media);
