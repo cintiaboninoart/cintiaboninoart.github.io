@@ -198,9 +198,11 @@ padding:30px;
 .modal-body img,
 .modal-body video,
 .modal-body iframe{
-width:100%;
-display:block;
-margin-bottom:30px;
+  width:100%;
+  height:500px;
+  border:none;
+  display:block;
+  margin-bottom:30px;
 }
 
 .close{
@@ -394,6 +396,8 @@ p.images.forEach(src=>{
 if(typeof src==="object"){
 const iframe=document.createElement("iframe");
 iframe.src=`https://player.vimeo.com/video/${src.id}`;
+iframe.allow="autoplay; fullscreen; picture-in-picture";
+iframe.loading="lazy";
 body.appendChild(iframe);
 }else if(src.endsWith(".mp4")){
 const video=document.createElement("video");
