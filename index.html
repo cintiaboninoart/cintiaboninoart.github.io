@@ -195,13 +195,26 @@ background:#fff;
 padding:30px;
 }
 
-.modal-body img,
-.modal-body video,
+.modal-body img{
+  width:100%;
+  height:auto;
+  max-height:80vh;
+  object-fit:contain;
+  display:block;
+  margin-bottom:30px;
+}
+
+.modal-body video{
+  width:100%;
+  height:auto;
+  display:block;
+  margin-bottom:30px;
+}
+
 .modal-body iframe{
   width:100%;
   height:500px;
   border:none;
-  display:block;
   margin-bottom:30px;
 }
 
