@@ -13,6 +13,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 <style>
+
+.image-title{
+  font-size:13px;
+  color:#666;
+  margin-top:-20px;
+  margin-bottom:30px;
+}
+
 /* ===== RESALTADOR VERDE EN SERVICES ===== */
 
 .services-block h3{
@@ -448,8 +456,35 @@ I am an editorial illustrator and animator based in Barcelona, specialising in p
 
 const projects=[
 
-{title:"Illustrations for The Dangers of Smoking in Bed by Mariana Enriquez",description:"Editorial illustration project including cover and interior artwork.Although created for different stories, the illustrations share a strong and cohesive visual identity, building a unified universe that supports the tone of the book.The approach combines visual reduction and atmosphere to reinforce the book’s visual unity.",cover:"donde estas corazon.png",images:["mock tapa los peligros.png","donde estas corazon.png","ni cumpleanos.png","rambla triste.png","el aljibe.png","el carrito.png","el desentiegro de angelita.png","espinosa.png","la virgen.png"]},
-  
+{
+title:"Illustrations for The Dangers of Smoking in Bed by Mariana Enriquez",
+description:"Editorial illustration project including cover and interior artwork. Although created for different stories, the illustrations share a strong and cohesive visual identity, building a unified universe that supports the tone of the book. The approach combines visual reduction and atmosphere to reinforce the book’s visual unity.",
+cover:"donde estas corazon.png",
+
+images:[
+"mock tapa los peligros.png",
+"donde estas corazon.png",
+"ni cumpleanos.png",
+"rambla triste.png",
+"el aljibe.png",
+"el carrito.png",
+"el desentiegro de angelita.png",
+"espinosa.png",
+"la virgen.png"
+],
+
+titles:[
+"Portada",
+"Dónde estas corazón?",
+"Ni cumpleaños ni bautismos",
+"Rambla triste",
+"El aljibe",
+"El carrito",
+"El desentierro de Angelita",
+"Carne",
+"La Virgen de La Tosquera"
+]
+}, 
 {title:"Soporte",description:"Conceptual 2D animation about the need for support from one's environment.",cover:"soporte.mp4",images:["soporte.mp4"]},
 
 {title:"Vértigo",description:"Editorial illustration for an autofiction and contemporary narrative novel.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
@@ -584,40 +619,50 @@ if(p.cover.endsWith(".mp4")){
 }
 
 function openProject(i){
-const modal=document.getElementById("modal");
-const content=document.getElementById("modal-content");
-const p=projects[i];
+  const modal=document.getElementById("modal");
+  const content=document.getElementById("modal-content");
+  const p=projects[i];
 
-content.innerHTML=`
-<div class="modal-header">${p.title}.viewer</div>
-<div class="modal-body">
-<h2>${p.title}</h2>
-<p>${p.description}</p>
-</div>
-`;
+  content.innerHTML=`
+  <div class="modal-header">${p.title}.viewer</div>
+  <div class="modal-body">
+    <h2>${p.title}</h2>
+    <p>${p.description}</p>
+  </div>
+  `;
 
-const body=content.querySelector(".modal-body");
+  const body=content.querySelector(".modal-body");
 
-p.images.forEach(src=>{
-if(typeof src==="object"){
-const iframe=document.createElement("iframe");
-iframe.src=`https://player.vimeo.com/video/${src.id}`;
-body.appendChild(iframe);
-}else if(src.endsWith(".mp4")){
-const video=document.createElement("video");
-video.src=src;
-video.controls=true;
-video.style.width="100%";
-video.style.height="auto";
-body.appendChild(video);
-}else{
-const img=document.createElement("img");
-img.src=src;
-body.appendChild(img);
-}
-});
+  p.images.forEach((src, index)=>{
+    if(typeof src==="object"){
+      const iframe=document.createElement("iframe");
+      iframe.src=`https://player.vimeo.com/video/${src.id}`;
+      body.appendChild(iframe);
 
-modal.style.display="block";
+    }else if(src.endsWith(".mp4")){
+      const video=document.createElement("video");
+      video.src=src;
+      video.controls=true;
+      video.style.width="100%";
+      video.style.height="auto";
+      body.appendChild(video);
+
+    }else{
+      const img=document.createElement("img");
+      img.src=src;
+      body.appendChild(img);
+
+      // 👇 TÍTULO DEBAJO
+      if(p.titles && p.titles[index]){
+        const caption=document.createElement("p");
+        caption.className="image-title";
+        caption.textContent=p.titles[index];
+        body.appendChild(caption);
+      }
+    }
+  });
+
+  modal.style.display="block";
 }
 
 function closeModal(){
