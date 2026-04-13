@@ -203,8 +203,10 @@ padding:30px;
   display:block;
   margin-bottom:8px;   /* 👈 reduce espacio */
 }
-
-.modal-body video{
+.modal-body{
+  text-align:center;
+}
+ .modal-body video{
   width:100%;
   height:auto;
   display:block;
@@ -238,11 +240,13 @@ font-size:13px;
 </style>
  
 .image-title{
+  display:block;
+  width:100%;
+  text-align:center;
   font-size:13px;
   color:#666;
-  margin-top:6px;       /* 👈 más cerca de la imagen */
+  margin-top:6px;
   margin-bottom:20px;
-  text-align:center;    /* 👈 centrado */
 }
 </head>
 <body>
@@ -460,17 +464,23 @@ p.images.forEach((src, index)=>{
     body.appendChild(video);
 
   }else{
-    const img=document.createElement("img");
-    img.src=src;
-    body.appendChild(img);
+const wrapper=document.createElement("div");
+wrapper.style.textAlign="center";
 
-    // 👇 TÍTULO DEBAJO
-    if(p.titles && p.titles[index]){
-      const caption=document.createElement("p");
-      caption.className="image-title";
-      caption.textContent=p.titles[index];
-      body.appendChild(caption);
-    }
+const img=document.createElement("img");
+img.src=src;
+
+wrapper.appendChild(img);
+
+// 👇 título
+if(p.titles && p.titles[index]){
+  const caption=document.createElement("p");
+  caption.className="image-title";
+  caption.textContent=p.titles[index];
+  wrapper.appendChild(caption);
+}
+
+body.appendChild(wrapper);
   }
 });
 
