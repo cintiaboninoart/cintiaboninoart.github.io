@@ -236,7 +236,13 @@ font-size:13px;
 }
 
 </style>
-
+ 
+.image-title{
+  font-size:13px;
+  color:#666;
+  margin-top:-20px;
+  margin-bottom:30px;
+}
 </head>
 <body>
 
@@ -278,8 +284,35 @@ Soy ilustradora editorial y animadora 2D en Barcelona, especializada en ilustrac
 
 const projects=[
 
-{title:"Ilustraciones para Los peligros de fumar en la cama de Mariana Enriquez.",description:"Proyecto de ilustración editorial que incluye cubierta e interiores.Las imágenes,desarrolladas para distintos cuentos,mantienen una identidad visual sólida y coherente,construyendo un universo común que acompaña el tono del libro.El enfoque combina síntesis formal y carga atmosférica para reforzar la unidad visual del libro.",cover:"donde estas corazon.png",images:["mock tapa los peligros.png","donde estas corazon.png","ni cumpleanos.png","rambla triste.png","el aljibe.png","el carrito.png","el desentiegro de angelita.png","espinosa.png","la virgen.png"]},
- 
+{
+title:"Ilustraciones para Los peligros de fumar en la cama de Mariana Enriquez.",
+description:"Proyecto de ilustración editorial que incluye cubierta e interiores.Las imágenes,desarrolladas para distintos cuentos,mantienen una identidad visual sólida y coherente,construyendo un universo común que acompaña el tono del libro.El enfoque combina síntesis formal y carga atmosférica para reforzar la unidad visual del libro.",
+cover:"donde estas corazon.png",
+
+images:[
+"mock tapa los peligros.png",
+"donde estas corazon.png",
+"ni cumpleanos.png",
+"rambla triste.png",
+"el aljibe.png",
+"el carrito.png",
+"el desentiegro de angelita.png",
+"espinosa.png",
+"la virgen.png"
+],
+
+titles:[
+"Portada",
+"Dónde estas corazón?",
+"Ni cumpleaños ni bautismos",
+"Rambla triste",
+"El aljibe",
+"El carrito",
+"El desentierro de Angelita",
+"Carne",
+"La Virgen de La Tosquera"
+]
+},
 {title:"Soporte",description:"Animación 2D conceptual sobre la necesidad de apoyo del entorno.",cover:"soporte.mp4",images:["soporte.mp4"]},
 
 {title:"Vértigo",description:"Ilustración editorial para novela de autoficción y narrativa contemporánea.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
@@ -411,23 +444,33 @@ content.innerHTML=`
 
 const body=content.querySelector(".modal-body");
 
-p.images.forEach(src=>{
-if(typeof src==="object"){
-const iframe=document.createElement("iframe");
-iframe.src=`https://player.vimeo.com/video/${src.id}`;
-iframe.allow="autoplay; fullscreen; picture-in-picture";
-iframe.loading="lazy";
-body.appendChild(iframe);
-}else if(src.endsWith(".mp4")){
-const video=document.createElement("video");
-video.src=src;
-video.controls=true;
-body.appendChild(video);
-}else{
-const img=document.createElement("img");
-img.src=src;
-body.appendChild(img);
-}
+p.images.forEach((src, index)=>{
+  if(typeof src==="object"){
+    const iframe=document.createElement("iframe");
+    iframe.src=`https://player.vimeo.com/video/${src.id}`;
+    iframe.allow="autoplay; fullscreen; picture-in-picture";
+    iframe.loading="lazy";
+    body.appendChild(iframe);
+
+  }else if(src.endsWith(".mp4")){
+    const video=document.createElement("video");
+    video.src=src;
+    video.controls=true;
+    body.appendChild(video);
+
+  }else{
+    const img=document.createElement("img");
+    img.src=src;
+    body.appendChild(img);
+
+    // 👇 TÍTULO DEBAJO
+    if(p.titles && p.titles[index]){
+      const caption=document.createElement("p");
+      caption.className="image-title";
+      caption.textContent=p.titles[index];
+      body.appendChild(caption);
+    }
+  }
 });
 
 modal.style.display="block";
