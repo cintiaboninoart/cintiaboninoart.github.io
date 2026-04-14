@@ -238,7 +238,56 @@ font-size:13px;
 }
 
 </style>
- 
+.item-overlay{
+position:absolute;
+inset:0;
+display:flex;
+align-items:flex-end;
+padding:14px;
+background:linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0));
+opacity:0;
+transition:opacity .35s ease;
+}
+
+.window-bar{
+position:absolute;
+top:8px;
+left:8px;
+height:18px;
+background:#cfcfcf;
+border:1px solid #000;
+display:flex;
+align-items:center;
+padding:0 6px;
+font-size:10px;
+color:#000;
+letter-spacing:.5px;
+}
+
+.window-dots{
+display:flex;
+gap:3px;
+margin-right:6px;
+}
+
+.window-dots span{
+width:8px;
+height:8px;
+background:#9CFF2E;
+border:1px solid #000;
+display:block;
+}
+
+.item-overlay span{
+color:#9CFF2E;
+font-size:18px;
+font-weight:700;
+transform:translateY(10px);
+transition:transform .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.item:hover .item-overlay{opacity:1;}
+.item:hover .item-overlay span{transform:translateY(0);} 
 .image-title{
   display:block;
   width:100%;
@@ -417,7 +466,19 @@ function createGrid(){
 
     mediaWrap.appendChild(media);
     item.appendChild(mediaWrap);
+const overlay=document.createElement("div");
+overlay.className="item-overlay";
+overlay.innerHTML=`
+  <div class="window-bar">
+    <div class="window-dots">
+      <span></span><span></span><span></span>
+    </div>
+    ${p.title}.exe
+  </div>
+  <span>${p.title}</span>
+`;
 
+mediaWrap.appendChild(overlay);
     const caption=document.createElement("div");
 caption.className="project-caption";
 caption.innerHTML=`<h3>${p.title}</h3>`;
