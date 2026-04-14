@@ -425,11 +425,11 @@ function createGrid(){
     item.appendChild(mediaWrap);
 
     const caption=document.createElement("div");
-    caption.className="project-caption";
-    caption.innerHTML=`<h3>${p.title}</h3><p>${p.description}</p>`;
-    item.appendChild(caption);
+caption.className="project-caption";
+caption.innerHTML=`<h3>${p.title}</h3>`;
+item.appendChild(caption);
 
-    grid.appendChild(item);
+grid.appendChild(item);
   });
 }
 
