@@ -636,13 +636,14 @@ function openProject(i){
 
   const body=content.querySelector(".modal-body");
 
-  p.images.forEach((src, index)=>{
+  (p.images || []).forEach((src, index)=>{
     if(typeof src==="object"){
       const iframe=document.createElement("iframe");
       iframe.src=`https://player.vimeo.com/video/${src.id}`;
       body.appendChild(iframe);
 
-    }else if(src.endsWith(".mp4")){
+    }else if(p.cover && p.cover.endsWith(".mp4")){
+
       const video=document.createElement("video");
       video.src=src;
       video.controls=true;
