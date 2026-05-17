@@ -178,7 +178,18 @@ object-fit:contain;
 .project-caption p{font-size:12px;color:#777;margin:0;}
 
 /* MODAL */
-
+ 
+.modal-header{
+height:26px;
+background:#9CFF2E;
+border-bottom:2px solid #000;
+display:flex;
+align-items:center;
+padding:0 8px;
+font-size:12px;
+font-weight:700;
+color:#000;
+}
 .modal{
 display:none;
 position:fixed;
@@ -495,9 +506,11 @@ const content=document.getElementById("modal-content");
 const p=projects[i];
 
 content.innerHTML=`
-<h2>${p.title}</h2>
-<p>${p.description}</p>
-<div class="modal-body"></div>
+<div class="modal-header">${p.title}.viewer</div>
+<div class="modal-body">
+  <h2>${p.title}</h2>
+  <p>${p.description}</p>
+</div>
 `;
 
 const body=content.querySelector(".modal-body");
