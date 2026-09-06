@@ -11,6 +11,7 @@
 <link rel="canonical" href="https://cintiabonino.com/about-en.html">
 
 <style>
+
 body{
 margin:0;
 font-family:"Inter", Arial, sans-serif;
@@ -20,7 +21,29 @@ line-height:1.6;
 cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'><polygon points='0,0 0,22 6,16 9,25 12,24 9,15 17,15' fill='%239CFF2E' stroke='black'/></svg>") 0 0, auto;
 }
 
+
+/* SCROLLBAR VERDE */
+
+::-webkit-scrollbar{
+width:14px;
+}
+
+::-webkit-scrollbar-track{
+background:#f0f0f0;
+}
+
+::-webkit-scrollbar-thumb{
+background:#9CFF2E;
+border:2px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#7dff00;
+}
+
+
 /* NAV */
+
 .nav{
 position:fixed;
 top:0;
@@ -56,6 +79,8 @@ transition:.2s;
 background:#9CFF2E;
 color:#111;
 }
+
+
 /* SCROLLBAR VERDE */
 
 ::-webkit-scrollbar{
@@ -74,7 +99,10 @@ border:2px solid #000;
 ::-webkit-scrollbar-thumb:hover{
 background:#7dff00;
 }
+
+
 /* HEADER */
+
 header{
 max-width:1100px;
 margin:auto;
@@ -110,7 +138,9 @@ font-size:17px;
 letter-spacing:.3px;
 }
 
+
 /* LANGUAGE SWITCH */
+
 .lang-switch{
 margin-top:10px;
 font-size:13px;
@@ -126,7 +156,9 @@ color:#666;
 color:#111;
 }
 
+
 /* INTRO */
+
 .seo-intro{
 max-width:680px;
 margin:26px auto 0;
@@ -137,7 +169,9 @@ text-align:justify;
 hyphens:auto;
 }
 
+
 /* CONTENT */
+
 section{
 max-width:1100px;
 margin:auto;
@@ -168,8 +202,97 @@ line-height:1.8;
 hyphens:auto;
 }
 
+
+/* =========================
+   IN THE PRESS
+   ========================= */
+
+.press-section{
+max-width:1100px;
+margin:auto;
+padding:20px 32px 100px;
+border-top:1px solid #e5e5e5;
+}
+
+.press-heading{
+text-align:center;
+margin-bottom:50px;
+}
+
+.press-label{
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#555;
+margin-bottom:10px;
+}
+
+.press-title{
+font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size:30px;
+line-height:1.2;
+font-weight:700;
+margin:0;
+}
+
+.press-intro{
+max-width:620px;
+margin:18px auto 0;
+font-size:14px;
+line-height:1.8;
+color:#444;
+text-align:center;
+}
+
+
+/* NEWSPAPER IMAGES */
+
+.press-images{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:45px;
+align-items:start;
+max-width:1000px;
+margin:50px auto 0;
+}
+
+.press-item{
+display:block;
+text-decoration:none;
+color:#111;
+}
+
+.press-image{
+width:100%;
+display:block;
+border:1px solid #ddd;
+box-shadow:8px 8px 0 #9CFF2E;
+transition:
+transform .25s ease,
+box-shadow .25s ease;
+}
+
+.press-item:hover .press-image{
+transform:translate(-4px,-4px);
+box-shadow:12px 12px 0 #9CFF2E;
+}
+
+.press-caption{
+margin-top:22px;
+font-size:12px;
+letter-spacing:1.3px;
+text-transform:uppercase;
+}
+
+.press-caption::after{
+content:" ↗";
+}
+
+
 /* MOBILE */
+
 @media (max-width:768px){
+
 section{
 padding:80px 20px 60px;
 }
@@ -187,80 +310,272 @@ text-align:center;
 .nav-inner{
 gap:10px;
 }
-}
-</style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-LXGFM973S5');
+
+/* IN THE PRESS MOBILE */
+
+.press-section{
+padding:20px 20px 70px;
+}
+
+.press-heading{
+margin-bottom:40px;
+}
+
+.press-title{
+font-size:26px;
+}
+
+.press-intro{
+font-size:14px;
+}
+
+.press-images{
+grid-template-columns:1fr;
+gap:50px;
+margin-top:40px;
+}
+
+.press-image{
+box-shadow:6px 6px 0 #9CFF2E;
+}
+
+.press-item:hover .press-image{
+transform:none;
+box-shadow:6px 6px 0 #9CFF2E;
+}
+
+}
+
+</style>
+
+
+<!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
+
+<script>
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-LXGFM973S5');
+
 </script>
+
 </head>
+
 
 <body>
 
 
+<!-- NAV -->
+
 <nav class="nav">
+
 <div class="nav-inner">
+
 <a href="index-en.html">Selected work</a>
+
 <a href="about-en.html">About</a>
+
 <a href="contact-en.html">Contact</a>
+
 </div>
+
 </nav>
 
+
+
+<!-- HEADER -->
+
 <header>
-<h1 class="name-title">Cintia Bonino</h1>
+
+<h1 class="name-title">
+Cintia Bonino
+</h1>
+
 
 <p class="subtitle">
 Editorial illustrator and animator based in Barcelona
 </p>
 
+
 <p class="lang-switch">
-<a href="sobre.html" style="color:#777;text-decoration:none;">ES</a> | 
-<a href="about-en.html" style="color:#111;text-decoration:none;">EN</a>
+
+<a href="sobre.html" style="color:#777;text-decoration:none;">
+ES
+</a>
+
+|
+
+<a href="about-en.html" style="color:#111;text-decoration:none;">
+EN
+</a>
+
 </p>
 
+
 <p class="seo-intro">
+
 I am an illustrator and visual artist based in Barcelona, specialised in editorial illustration,
 cultural posters, visual campaigns and 2D animation. I create narrative and conceptual imagery
 for press, cultural institutions, music and audiovisual projects.
+
 </p>
+
 </header>
 
+
+
+<!-- ABOUT -->
+
 <section>
+
 <div class="about-container">
 
-<img src="IMG_4364.jpeg"
+
+<img
+src="IMG_4364.jpeg"
 alt="Cintia Bonino editorial illustrator in Barcelona"
 loading="lazy"
-decoding="async">
+decoding="async"
+>
+
 
 <div class="about-text">
 
+
 <p>
+
 I work across editorial,
 cultural and commercial projects, developing narrative and conceptual illustration with a poetic
 and expressive approach.
+
 </p>
 
+
 <p>
+
 My work explores human relationships, identity and contemporary culture, combining a textured
 painterly aesthetic with intense colour and atmosphere. My visual language is influenced by
 1990s–2000s visual culture, music and pop culture.
+
 </p>
 
+
 <p>
+
 I have developed illustration and animation projects for media, cultural institutions, music and
 visual campaigns, integrating image and movement within a contemporary authorial approach.
 I work in Spanish and English and collaborate with local and international clients and projects.
+
+</p>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- IN THE PRESS -->
+
+<section class="press-section">
+
+
+<div class="press-heading">
+
+<div class="press-label">
+In the press
+</div>
+
+
+<h2 class="press-title">
+Cintia Bonino in <em>Abril</em>
+</h2>
+
+
+<p class="press-intro">
+
+A feature published in <em>Abril</em>, the literary supplement of
+<em>El Periódico</em>, as part of the
+<strong>El oficio</strong> section.
+
 </p>
 
 </div>
+
+
+
+<!-- NEWSPAPER IMAGES -->
+
+<div class="press-images">
+
+
+<!-- IMAGE 1 -->
+
+<a
+class="press-item"
+href="https://kioscoprensaiberica.pressreader.com/article/281792815902244"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+<img
+class="press-image"
+src="abril-cintia-bonino-1.jpg"
+alt="Cintia Bonino in Abril, literary supplement of El Periódico"
+loading="lazy"
+decoding="async"
+>
+
+<div class="press-caption">
+View publication
 </div>
+
+</a>
+
+
+
+<!-- IMAGE 2 -->
+
+<a
+class="press-item"
+href="https://kioscoprensaiberica.pressreader.com/article/281792815902244"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+<img
+class="press-image"
+src="abril-cintia-bonino-2.jpg"
+alt="Feature about Cintia Bonino published in Abril"
+loading="lazy"
+decoding="async"
+>
+
+<div class="press-caption">
+View publication
+</div>
+
+</a>
+
+
+</div>
+
+
 </section>
 
+
+
 </body>
+
 </html>
