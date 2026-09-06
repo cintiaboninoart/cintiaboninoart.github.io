@@ -18,6 +18,7 @@
 <meta property="og:image" content="https://cintiabonino.com/IMG_4364.jpeg">
 
 <style>
+
 body{
 margin:0;
 font-family:"Inter", Arial, sans-serif;
@@ -26,6 +27,8 @@ color:#111;
 line-height:1.6;
 cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'><polygon points='0,0 0,22 6,16 9,25 12,24 9,15 17,15' fill='%239CFF2E' stroke='black'/></svg>") 0 0, auto;
 }
+
+
 /* SCROLLBAR VERDE */
 
 ::-webkit-scrollbar{
@@ -44,7 +47,10 @@ border:2px solid #000;
 ::-webkit-scrollbar-thumb:hover{
 background:#7dff00;
 }
+
+
 /* NAV */
+
 .nav{
 position:fixed;
 top:0;
@@ -81,7 +87,9 @@ background:#9CFF2E;
 color:#111;
 }
 
+
 /* HEADER */
+
 header{
 max-width:1100px;
 margin:auto;
@@ -117,7 +125,9 @@ font-size:17px;
 letter-spacing:.3px;
 }
 
+
 /* LANGUAGE SWITCH */
+
 .lang-switch{
 margin-top:10px;
 font-size:13px;
@@ -133,7 +143,9 @@ color:#666;
 color:#111;
 }
 
+
 /* INTRO */
+
 .seo-intro{
 max-width:680px;
 margin:26px auto 0;
@@ -144,7 +156,9 @@ text-align:justify;
 hyphens:auto;
 }
 
+
 /* CONTENT */
+
 section{
 max-width:1100px;
 margin:auto;
@@ -175,8 +189,97 @@ line-height:1.8;
 hyphens:auto;
 }
 
+
+/* =========================
+   EN PRENSA
+   ========================= */
+
+.press-section{
+max-width:1100px;
+margin:auto;
+padding:20px 32px 100px;
+border-top:1px solid #e5e5e5;
+}
+
+.press-heading{
+text-align:center;
+margin-bottom:50px;
+}
+
+.press-label{
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#555;
+margin-bottom:10px;
+}
+
+.press-title{
+font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size:30px;
+line-height:1.2;
+font-weight:700;
+margin:0;
+}
+
+.press-intro{
+max-width:620px;
+margin:18px auto 0;
+font-size:14px;
+line-height:1.8;
+color:#444;
+text-align:center;
+}
+
+
+/* IMÁGENES DEL PERIÓDICO */
+
+.press-images{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:45px;
+align-items:start;
+max-width:1000px;
+margin:50px auto 0;
+}
+
+.press-item{
+display:block;
+text-decoration:none;
+color:#111;
+}
+
+.press-image{
+width:100%;
+display:block;
+border:1px solid #ddd;
+box-shadow:8px 8px 0 #9CFF2E;
+transition:
+transform .25s ease,
+box-shadow .25s ease;
+}
+
+.press-item:hover .press-image{
+transform:translate(-4px,-4px);
+box-shadow:12px 12px 0 #9CFF2E;
+}
+
+.press-caption{
+margin-top:22px;
+font-size:12px;
+letter-spacing:1.3px;
+text-transform:uppercase;
+}
+
+.press-caption::after{
+content:" ↗";
+}
+
+
 /* MOBILE */
+
 @media (max-width:768px){
+
 section{
 padding:80px 20px 60px;
 }
@@ -194,77 +297,270 @@ text-align:center;
 .nav-inner{
 gap:10px;
 }
-}
-</style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-LXGFM973S5');
+
+/* EN PRENSA MOBILE */
+
+.press-section{
+padding:20px 20px 70px;
+}
+
+.press-heading{
+margin-bottom:40px;
+}
+
+.press-title{
+font-size:26px;
+}
+
+.press-intro{
+font-size:14px;
+}
+
+.press-images{
+grid-template-columns:1fr;
+gap:50px;
+margin-top:40px;
+}
+
+.press-image{
+box-shadow:6px 6px 0 #9CFF2E;
+}
+
+.press-item:hover .press-image{
+transform:none;
+box-shadow:6px 6px 0 #9CFF2E;
+}
+
+}
+
+</style>
+
+
+<!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
+
+<script>
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-LXGFM973S5');
+
 </script>
+
 </head>
+
 
 <body>
 
+
+<!-- NAV -->
+
 <nav class="nav">
+
 <div class="nav-inner">
+
 <a href="index.html">Selección</a>
+
 <a href="sobre.html">Sobre mí</a>
+
 <a href="contacto.html">Contacto</a>
+
 </div>
+
 </nav>
 
+
+
+<!-- HEADER -->
+
 <header>
-<h1 class="name-title">Cintia Bonino</h1>
+
+<h1 class="name-title">
+Cintia Bonino
+</h1>
+
 
 <p class="subtitle">
 Ilustradora editorial y animadora en Barcelona
 </p>
 
+
 <p class="lang-switch">
-<a href="sobre.html" style="color:#111;text-decoration:none;">ES</a> | 
-<a href="about-en.html" style="color:#777;text-decoration:none;">EN</a>
+
+<a href="sobre.html" style="color:#111;text-decoration:none;">
+ES
+</a>
+
+|
+
+<a href="about-en.html" style="color:#777;text-decoration:none;">
+EN
+</a>
+
 </p>
 
+
 <p class="seo-intro">
+
 Soy ilustradora y artista visual radicada en Barcelona especializada en ilustración editorial,
 carteles culturales, campañas visuales y animación 2D. Desarrollo imágenes narrativas y conceptuales
 para prensa, instituciones culturales, música y proyectos audiovisuales.
+
 </p>
+
 </header>
 
+
+
+<!-- SOBRE MÍ -->
+
 <section>
+
 <div class="about-container">
 
-<img src="IMG_4364.jpeg"
+
+<img
+src="IMG_4364.jpeg"
 alt="Cintia Bonino ilustradora editorial en Barcelona"
 loading="lazy"
-decoding="async">
+decoding="async"
+>
+
 
 <div class="about-text">
 
-<p>
-Trabajo en proyectos editoriales,culturales y comerciales desarrollando ilustraciones narrativas y conceptuales con un enfoque poético y expresivo.
-</p>
 
 <p>
+
+Trabajo en proyectos editoriales,culturales y comerciales desarrollando ilustraciones narrativas y conceptuales con un enfoque poético y expresivo.
+
+</p>
+
+
+<p>
+
 Mi trabajo explora las relaciones humanas, la identidad y la cultura contemporánea, combinando una estética pictórica
 texturizada con color y atmósferas intensas. Mi lenguaje visual está influido por la cultura visual de los años 90 y 2000,
 la música y la cultura pop.
+
 </p>
 
+
 <p>
+
 He desarrollado proyectos de ilustración y animación para medios, instituciones culturales, música y campañas visuales,
 integrando imagen y movimiento en un enfoque autoral contemporáneo. Trabajo en español e inglés y colaboro con clientes
 y proyectos a nivel local e internacional.
+
+</p>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- EN PRENSA -->
+
+<section class="press-section">
+
+
+<div class="press-heading">
+
+<div class="press-label">
+En prensa
+</div>
+
+
+<h2 class="press-title">
+Cintia Bonino en <em>Abril</em>
+</h2>
+
+
+<p class="press-intro">
+
+Nota publicada en <em>Abril</em>, suplemento literario de
+<em>El Periódico</em>, dentro de la sección
+<strong>El oficio</strong>.
+
 </p>
 
 </div>
+
+
+
+<!-- IMÁGENES -->
+
+<div class="press-images">
+
+
+<!-- IMAGEN 1 -->
+
+<a
+class="press-item"
+href="https://kioscoprensaiberica.pressreader.com/article/281792815902244"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+<img
+class="press-image"
+src="abril-cintia-bonino-1.jpg"
+alt="Cintia Bonino en Abril, suplemento literario de El Periódico"
+loading="lazy"
+decoding="async"
+>
+
+<div class="press-caption">
+Ver publicación
 </div>
+
+</a>
+
+
+
+<!-- IMAGEN 2 -->
+
+<a
+class="press-item"
+href="https://kioscoprensaiberica.pressreader.com/article/281792815902244"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+<img
+class="press-image"
+src="abril-cintia-bonino-2.jpg"
+alt="Nota sobre Cintia Bonino publicada en Abril"
+loading="lazy"
+decoding="async"
+>
+
+<div class="press-caption">
+Ver publicación
+</div>
+
+</a>
+
+
+</div>
+
+
 </section>
 
+
+
 </body>
+
 </html>
