@@ -659,9 +659,18 @@ function openProject(i){
 
   (p.images || []).forEach((src, index)=>{
     if(typeof src==="object"){
-      const iframe=document.createElement("iframe");
-      iframe.src=`https://player.vimeo.com/video/${src.id}`;
-      body.appendChild(iframe);
+      const iframe = document.createElement("iframe");
+
+iframe.src = `https://player.vimeo.com/video/${src.id}`;
+iframe.style.width = "100%";
+iframe.style.aspectRatio = "16 / 9";
+iframe.style.height = "auto";
+iframe.style.display = "block";
+iframe.style.border = "0";
+iframe.allow = "autoplay; fullscreen; picture-in-picture";
+iframe.allowFullscreen = true;
+
+body.appendChild(iframe);
 
     }else if(p.cover && p.cover.endsWith(".mp4")){
 
