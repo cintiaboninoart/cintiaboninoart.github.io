@@ -374,6 +374,20 @@ max-width:500px;
 background:linear-gradient(transparent 60%, #9CFF2E 60%);
 padding:0 4px;
 }
+
+.instagram-link {
+  display: inline-block;
+  margin: 8px 0 20px;
+  color: #9CFF2E;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.instagram-link:hover {
+  color: #fff;
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
@@ -457,9 +471,15 @@ I am an editorial illustrator and animator based in Barcelona, specialising in p
 
 const projects=[
   
-{title:"Huggin & Kissin",description:"Animated music video.",cover:"fusion corto.mp4",images:[
-{type:"vimeo",id:"1236794947"}
-]},
+{
+  title:"Huggin & Kissin",
+  description:"Animated 2D music video. An original visual approach combining illustration, movement and visual storytelling.",
+  cover:"fusion corto.mp4",
+  instagram:"https://www.instagram.com/reel/DemAy8OMvv-/?rpxt=MWVyYWNxeGJ4eWlxMg==",
+  images:[
+    {type:"vimeo",id:"1236794947"}
+  ]
+},
 
 {title:"Anne Carson",description:"Conceptual 2D animation: The mind wants to move and the best thing a work of art can do is take you with it to a place you never thought you’d go. Anne Carson",cover:"premio nobel.mp4",images:["premio nobel.mp4"]},
 
@@ -544,13 +564,25 @@ titles:[
 
 {title:"Ideas",description:"Conceptual 2D animation about the creative process and thinking.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
 
-{title:"Amanecen Ocasos",description:"Animated music video.",cover:"AMANECEN OCASOS.mp4",images:[
-{type:"vimeo",id:"1158888775"}
-]},
+{
+  title:"Amanecen Ocasos",
+  description:"An auteur animated music video exploring the relationship between image, movement and music through 2D animation.",
+  cover:"AMANECEN OCASOS.mp4",
+  instagram:"https://www.instagram.com/reel/DUBvm17DM6s/?mdxt=MXNkeGh0NmxzbHQyOA==",
+  images:[
+    {type:"vimeo",id:"1158888775"}
+  ]
+},
 
-{title:"A Brief History of a Colonization",description:"Conceptual animated videoclip about colonisation and historical memory.",cover:"RECORTE BREVE HISTORIA.mp4",images:[
-{type:"vimeo",id:"1161767177"}
-]},
+{
+  title:"Breve historia de una colonización",
+  description:"A conceptual animated music video exploring colonisation and historical memory through illustration and visual storytelling.",
+  cover:"RECORTE BREVE HISTORIA.mp4",
+  instagram:"https://www.instagram.com/reel/DY2VHYTMMlU/?obrf=azVjM3V3NnpsaDl5",
+  images:[
+    {type:"vimeo",id:"1161767177"}
+  ]
+},
 
 {title:"María Antonieta (Converse)",description:"Conceptual graphic campaign for a fashion brand.",cover:"converse total.png",images:[
 "converse total.png",
@@ -657,13 +689,25 @@ function openProject(i){
   const content=document.getElementById("modal-content");
   const p=projects[i];
 
-  content.innerHTML=`
-  <div class="modal-header">${p.title}.viewer</div>
-  <div class="modal-body">
-    <h2>${p.title}</h2>
-    <p>${p.description}</p>
-  </div>
-  `;
+
+content.innerHTML=`
+<div class="modal-header">${p.title}.viewer</div>
+<div class="modal-body">
+  <h2>${p.title}</h2>
+  <p>${p.description}</p>
+  ${p.instagram ? `
+    <p>
+      <a class="instagram-link"
+         href="${p.instagram}"
+         target="_blank"
+         rel="noopener noreferrer">
+        Watch the version with music on Instagram ↗
+      </a>
+    </p>
+  ` : ""}
+</div>
+`;
+
 
   const body=content.querySelector(".modal-body");
 
