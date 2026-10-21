@@ -313,6 +313,20 @@ transition:transform .35s cubic-bezier(.2,.8,.2,1);
   margin-top:6px;
   margin-bottom:20px;
 }
+
+.instagram-link {
+  display: inline-block;
+  margin: 8px 0 20px;
+  color: #9CFF2E;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.instagram-link:hover {
+  color: #fff;
+}
+
 </style>
 
 </head>
@@ -356,9 +370,15 @@ Soy ilustradora editorial y animadora 2D en Barcelona, especializada en ilustrac
 
 const projects=[
 
-{title:"Huggin & Kissin",description:"Videoclip animado para proyecto musical.",cover:"fusion corto.mp4",images:[
-{type:"vimeo",id:"1236794947"}
-]},
+{
+  title:"Huggin & Kissin",
+  description:"Videoclip musical animado en 2D. Una propuesta visual de autor que combina ilustración, movimiento y narrativa audiovisual.",
+  cover:"fusion corto.mp4",
+  instagram:"https://www.instagram.com/reel/DemAy8OMvv-/?rpxt=MWVyYWNxeGJ4eWlxMg==",
+  images:[
+    {type:"vimeo",id:"1236794947"}
+  ]
+},
  
 {title:"Anne Carson",description:"Animación 2D conceptual: La mente quiere moverse y lo mejor que puede hacer una obra de arte es llevarte contigo a un lugar al que nunca pensaste que irías. Anne Carson",cover:"premio nobel.mp4",images:["premio nobel.mp4"]},
  
@@ -439,13 +459,25 @@ titles:[
 
 {title:"Ideas",description:"Animación 2D conceptual sobre proceso creativo y pensamiento.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
 
-{title:"Amanecen Ocasos",description:"Videoclip animado para proyecto musical.",cover:"AMANECEN OCASOS.mp4",images:[
-{type:"vimeo",id:"1158888775"}
-]},
+{
+  title:"Amanecen Ocasos",
+  description:"Videoclip animado de autor que explora la relación entre imagen, movimiento y música a través de la animación 2D.",
+  cover:"AMANECEN OCASOS.mp4",
+  instagram:"https://www.instagram.com/reel/DemAy8OMvv-/?rpxt=MWVyYWNxeGJ4eWlxMg==",
+  images:[
+    {type:"vimeo",id:"1158888775"}
+  ]
+},
 
-{title:"Breve historia de una colonización",description:"Videoclip animado conceptual sobre colonización y memoria histórica.",cover:"RECORTE BREVE HISTORIA.mp4",images:[
-{type:"vimeo",id:"1161767177"}
-]},
+{
+  title:"Breve historia de una colonización",
+  description:"Videoclip animado conceptual sobre colonización y memoria histórica, desarrollado mediante ilustración y narrativa visual.",
+  cover:"RECORTE BREVE HISTORIA.mp4",
+  instagram:"https://www.instagram.com/reel/DY2VHYTMMlU/?obrf=azVjM3V3NnpsaDl5",
+  images:[
+    {type:"vimeo",id:"1161767177"}
+  ]
+},
 
 {title:"María Antonieta (Converse)",description:"Campaña gráfica conceptual para marca de moda.",cover:"converse total.png",images:[
 "converse total.png",
@@ -548,13 +580,25 @@ const modal=document.getElementById("modal");
 const content=document.getElementById("modal-content");
 const p=projects[i];
 
+
 content.innerHTML=`
 <div class="modal-header">${p.title}.viewer</div>
 <div class="modal-body">
   <h2>${p.title}</h2>
   <p>${p.description}</p>
+  ${p.instagram ? `
+    <p>
+      <a class="instagram-link"
+         href="${p.instagram}"
+         target="_blank"
+         rel="noopener noreferrer">
+        Ver versión con música en Instagram ↗
+      </a>
+    </p>
+  ` : ""}
 </div>
 `;
+
 
 const body=content.querySelector(".modal-body");
 
