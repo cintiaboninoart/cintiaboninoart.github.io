@@ -605,15 +605,20 @@ if(p.cover.endsWith(".mp4")){
   media.preload="metadata";
 }
 
-    else{
+ 
+else{
+  media=document.createElement("img");
+  media.src=p.cover;
+  media.loading = i < 6 ? "eager" : "lazy";
+  media.decoding="async";
 
-      media=document.createElement("img");
-      media.src=p.cover;
-      media.loading="lazy";
-      media.decoding="async";
-      media.alt=p.title + " — Cintia Bonino";
+  if (i < 3) {
+    media.fetchPriority = "high";
+  }
 
-    }
+  media.alt=p.title + " — Cintia Bonino";
+}
+
 
 
     mediaWrap.appendChild(media);
