@@ -638,10 +638,15 @@ else{
     mediaWrap.appendChild(overlay);
     item.appendChild(mediaWrap);
 
-    const caption=document.createElement("div");
+    
+const caption=document.createElement("div");
 caption.className="project-caption";
-caption.innerHTML=`<h3>${p.title}</h3>`;
+caption.innerHTML=`
+  <h3>${p.title}</h3>
+  <p>${p.description}</p>
+`;
 item.appendChild(caption);
+
 
 grid.appendChild(item);
   });
