@@ -215,6 +215,14 @@ object-fit:contain;
 .project-caption h3{font-size:12.5px;margin:0 0 2px;}
 .project-caption p{font-size:12px;color:#777;margin:0;}
 
+/* When a project is opened from a service page, show only that project. */
+body.project-only> :not(#modal){display:none !important}
+body.project-only{background:#111;min-height:100vh}
+body.project-only #modal{display:block !important;position:fixed;inset:0;overflow:auto;background:#111}
+body.project-only .modal-content{max-width:1000px;margin:54px auto 24px;min-height:calc(100vh - 80px);background:#cfcfcf}
+body.project-only .modal-body{min-height:calc(100vh - 110px)}
+@media(max-width:600px){body.project-only .modal-content{margin:50px 10px 12px;min-height:calc(100vh - 62px)}body.project-only .close{top:7px;right:16px;font-size:36px}}
+
 /* MODAL */
  
 .modal-header{
@@ -1124,7 +1132,11 @@ function setupProjectFilters(){
 }
 
 function closeModal(){
-document.getElementById("modal").style.display="none";
+  if (new URLSearchParams(window.location.search).has("project")) {
+    window.location.href = "/ilustracion-editorial.html";
+    return;
+  }
+  document.getElementById("modal").style.display="none";
 }
 
 createGrid();
@@ -1133,6 +1145,7 @@ setupProjectFilters();
 // Open a selected portfolio project when arriving from the editorial illustration page.
 const requestedProject = new URLSearchParams(window.location.search).get("project");
 if (requestedProject) {
+  document.body.classList.add("project-only");
   const projectIndex = projects.findIndex(project => project.cover === ({
     "cafe-para-uno":"cafe-para-uno.png",
     "rata-photo":"rata photo.png",
