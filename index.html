@@ -5,6 +5,9 @@
 <meta charset="UTF-8">
 <title>Cintia Bonino | Ilustradora editorial y animadora 2D de autor en Barcelona</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bungee&family=Bungee+Shade&family=Cabin+Sketch:wght@400;700&family=DM+Sans:wght@400;500;600;700;800&family=Fredericka+the+Great&family=Special+Elite&display=swap" rel="stylesheet">
 <meta name="description" content="Portfolio de Cintia Bonino, ilustradora editorial y animadora 2D de autor en Barcelona. Ilustraciones, carteles culturales, campañas visuales y videoclips animados para músicos.">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Cintia Bonino">
@@ -69,10 +72,9 @@
 <link rel="apple-touch-icon" href="/cafe-para-uno.png">
  
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+
+
 
 /* ===== SERVICES ===== */
 
@@ -464,7 +466,7 @@ header{padding-top:122px;padding-bottom:24px}
 
 
 /* Retro 3D display lettering */
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
 .title{
   font-family:'Bungee Shade',Impact,sans-serif;
   font-size:clamp(42px,6vw,72px);
@@ -481,7 +483,7 @@ header{padding-top:122px;padding-bottom:24px}
 
 
 /* Solid retro lettering with a visible 3D extrusion */
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
 .title{
   font-family:'Bungee',Impact,sans-serif;
   font-size:clamp(40px,6vw,68px);
@@ -505,7 +507,7 @@ header{padding-top:122px;padding-bottom:24px}
 
 
 /* Header typography: outlined retro 3D lettering */
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
 .title{
   font-family:'Bungee Shade',Impact,sans-serif;
   font-size:clamp(30px,4.2vw,46px);
@@ -618,7 +620,7 @@ header .tagline, p.tagline{
 
 
 /* More painterly crayon lettering; restore a stronger angled highlight */
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
 header .title, h1.title{
   font-family:'Fredericka the Great', 'Comic Sans MS', cursive !important;
   font-size:clamp(33px,4.4vw,47px) !important;
@@ -640,7 +642,7 @@ header .tagline, p.tagline{
 
 
 /* Return to Cabin Sketch, black only, slightly larger */
-@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
+
 header .title, h1.title{
   font-family:'Cabin Sketch', cursive !important;
   font-size:clamp(38px,4.8vw,54px) !important;
@@ -1120,6 +1122,8 @@ p.images.forEach((src, index)=>{
     const video=document.createElement("video");
     video.src=src;
     video.controls=true;
+    video.preload="metadata";
+    video.playsInline=true;
     body.appendChild(video);
 
   }else{
