@@ -1014,6 +1014,10 @@ function createGrid(){
     if(p.cover.toLowerCase().endsWith(".mp4")){
   media=document.createElement("video");
   mediaWrap.classList.add("item-video-media");
+  media.addEventListener("error",()=>{
+    item.hidden=true;
+    item.style.display="none";
+  });
   media.autoplay=true;
   media.muted=true;
   media.loop=true;
