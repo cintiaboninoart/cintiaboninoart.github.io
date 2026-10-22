@@ -245,6 +245,7 @@ border-color:#9CFF2E;
 .item-media video{
 width:100%;
 height:auto;
+max-width:100%;
 display:block;
 object-fit:contain;
 background:transparent;
@@ -1113,11 +1114,14 @@ if(p.cover.endsWith(".mp4")){
 else{
   media=document.createElement("img");
   media.src=p.cover;
-  media.loading = i < 3 ? "eager" : "lazy";
+  media.loading = i === 0 ? "eager" : "lazy";
   media.decoding="async";
 
-  if (i < 3) {
+  // Reserve layout space after intrinsic dimensions become available and prioritize only the first image.
+  if (i === 0) {
     media.fetchPriority = "high";
+  } else {
+    media.fetchPriority = "auto";
   }
 
   const categoryLabels = {editorial:"editorial illustration",brands:"cultural campaigns",music:"animated music video",author:"artist-led 2D animation"};
