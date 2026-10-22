@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700;800&display=swap');
 
 .image-title{
@@ -581,6 +582,22 @@ header .tagline, p.tagline{
 }
 @media(max-width:600px){
  header .tagline, p.tagline{font-size:12px !important}
+}
+
+
+/* Crayon-like hand-drawn name */
+header .title, h1.title{
+  font-family:'Cabin Sketch', 'Comic Sans MS', cursive !important;
+  font-size:clamp(32px,4.2vw,46px) !important;
+  font-weight:700 !important;
+  letter-spacing:0.2px !important;
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+  -webkit-text-stroke:0.45px #171717;
+  text-shadow:1px 1px 0 #171717, 2px 2px 0 #171717, 3px 3px 0 #9CFF2E !important;
+}
+@media(max-width:600px){
+  header .title, h1.title{font-size:clamp(29px,7vw,38px) !important}
 }
 
 </style>
