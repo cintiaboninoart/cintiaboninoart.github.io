@@ -701,7 +701,7 @@ header .tagline, header p.tagline{
   text-align:left;
   font-size:13px;
 }
-.services-top{text-align:center}
+.services-top{width:100%;max-width:100%;min-width:0;justify-self:stretch;text-align:center;margin-inline:auto}
 .services-top h2{
   display:table;
   margin:0 auto 12px;
@@ -1189,6 +1189,17 @@ function setupProjectFilters(){
       buttons.forEach(candidate=>candidate.setAttribute("aria-pressed",String(candidate===button)));
       items.forEach(item=>{
         item.hidden=selected!=="all" && item.dataset.category!==selected;
+        if(!item.hidden){
+          item.querySelectorAll("video.lazy-video[data-src]").forEach(video=>{
+            video.src=video.dataset.src;
+            delete video.dataset.src;
+            video.preload="metadata";
+            video.load();
+            const playAttempt=video.play();
+            if(playAttempt && typeof playAttempt.catch==="function") playAttempt.catch(()=>{});
+            video.classList.remove("lazy-video");
+          });
+        }
       });
     });
   });
