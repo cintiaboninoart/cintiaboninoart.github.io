@@ -5,6 +5,18 @@
 <title>Cintia Bonino — Editorial Illustrator and conceptual animator in Barcelona</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Cintia Bonino is an editorial illustrator and 2D animator based in Barcelona, creating editorial illustration, cultural posters, visual campaigns and original animated music videos.">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Cintia Bonino">
+<meta property="og:title" content="Cintia Bonino — Editorial Illustrator & Author-led 2D Animator">
+<meta property="og:description" content="Portfolio of Cintia Bonino, editorial illustrator and author-led 2D animator. Explore editorial illustration, cultural campaigns and animated music videos.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cintiabonino.com/index-en.html">
+<meta property="og:image" content="https://cintiabonino.com/IMG_4364.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cintia Bonino — Editorial Illustrator & Author-led 2D Animator">
+<meta name="twitter:description" content="Portfolio of Cintia Bonino, editorial illustrator and author-led 2D animator. Explore editorial illustration, cultural campaigns and animated music videos.">
+<meta name="twitter:image" content="https://cintiabonino.com/IMG_4364.jpeg">
+
 <link rel="icon" type="image/png" sizes="32x32" href="/cafe-para-uno.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/cafe-para-uno.png">
 <link rel="apple-touch-icon" href="/cafe-para-uno.png">
@@ -1100,7 +1112,10 @@ body.appendChild(iframe);
 
     }else{
       const img=document.createElement("img");
-      img.src=src;
+img.src=src;
+img.alt = p.alt || (p.title + " — " + p.description + " — Cintia Bonino");
+img.loading = "lazy";
+img.decoding = "async";
       body.appendChild(img);
 
       // 👇 TÍTULO DEBAJO
