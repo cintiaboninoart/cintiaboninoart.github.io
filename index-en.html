@@ -1113,6 +1113,13 @@ if(p.cover.endsWith(".mp4")){
  
 else{
   media=document.createElement("img");
+  // Set intrinsic dimensions as soon as metadata is available to help Lighthouse avoid layout shifts.
+  media.addEventListener("load", () => {
+    if (media.naturalWidth && media.naturalHeight) {
+      media.width = media.naturalWidth;
+      media.height = media.naturalHeight;
+    }
+  }, { once: true });
   media.src=p.cover;
   media.loading = i === 0 ? "eager" : "lazy";
   media.decoding="async";
@@ -1242,6 +1249,12 @@ body.appendChild(iframe);
 
     }else{
       const img=document.createElement("img");
+img.addEventListener("load", () => {
+  if (img.naturalWidth && img.naturalHeight) {
+    img.width = img.naturalWidth;
+    img.height = img.naturalHeight;
+  }
+}, { once: true });
 img.src=src;
 const categoryLabels = {editorial:"editorial illustration",brands:"cultural campaigns",music:"animated music video",author:"artist-led 2D animation"};
 img.alt = p.alt || `${p.title} — ${categoryLabels[p.category] || "visual project"}: ${p.description} — Cintia Bonino`;
