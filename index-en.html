@@ -1236,6 +1236,20 @@ document.getElementById("modal").style.display="none";
 
 createGrid();
 setupProjectFilters();
+
+// Open a selected portfolio project when arriving from the editorial illustration page.
+const requestedProject = new URLSearchParams(window.location.search).get("project");
+if (requestedProject) {
+  const projectIndex = projects.findIndex(project => project.cover === ({
+    "cafe-para-uno":"cafe-para-uno.png",
+    "rata-photo":"rata photo.png",
+    "donde-estas-corazon":"donde estas corazon.png",
+    "anna":"anna.png",
+    "pobres-y-ricos":"pobres y ricos final con fondo.png",
+    "lunatica":"lunatica.png"
+  })[requestedProject]);
+  if (projectIndex >= 0) openProject(projectIndex);
+}
 </script>
 
 <div id="modal" class="modal">
