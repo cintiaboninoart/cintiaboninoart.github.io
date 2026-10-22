@@ -1011,7 +1011,17 @@ function createGrid(){
     const item=document.createElement("div");
     item.className="item";
     item.dataset.category=p.category;
-    item.onclick=()=>openProject(i);
+    if (p.pageUrl) {
+      item.onclick=()=>{ window.location.href=p.pageUrl; };
+      item.setAttribute("role","link");
+      item.setAttribute("tabindex","0");
+      item.setAttribute("aria-label", `View project: ${p.title}`);
+      item.addEventListener("keydown", event=>{
+        if(event.key==="Enter" || event.key===" "){event.preventDefault();window.location.href=p.pageUrl;}
+      });
+    } else {
+      item.onclick=()=>openProject(i);
+    }
 
     const mediaWrap=document.createElement("div");
     mediaWrap.className="item-media";
