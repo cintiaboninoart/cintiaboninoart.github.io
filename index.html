@@ -1142,6 +1142,16 @@ function closeModal(){
 createGrid();
 setupProjectFilters();
 
+
+
+</script>
+
+<div id="modal" class="modal">
+<span class="close" onclick="closeModal()">&times;</span>
+<div class="modal-content" id="modal-content"></div>
+</div>
+
+<script>
 // Open a selected portfolio project when arriving from the editorial illustration page.
 const requestedProject = new URLSearchParams(window.location.search).get("project");
 if (requestedProject) {
@@ -1156,13 +1166,7 @@ if (requestedProject) {
   })[requestedProject]);
   if (projectIndex >= 0) openProject(projectIndex);
 }
-
 </script>
-
-<div id="modal" class="modal">
-<span class="close" onclick="closeModal()">&times;</span>
-<div class="modal-content" id="modal-content"></div>
-</div>
 
 </body>
 </html>
