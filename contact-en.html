@@ -46,6 +46,7 @@
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap');
 body{
 margin:0;
 font-family:"Inter", Arial, sans-serif;
@@ -247,6 +248,45 @@ header .tagline, header p.tagline{
   box-decoration-break:clone;
   -webkit-box-decoration-break:clone;
   transform:rotate(-2.2deg) !important;
+}
+
+
+/* Shared header typography: identical across all six pages */
+header .title,
+header .name-title,
+header h1{
+  font-family:'Cabin Sketch',cursive !important;
+  font-size:clamp(38px,4.8vw,54px) !important;
+  font-weight:700 !important;
+  letter-spacing:0 !important;
+  line-height:1.08 !important;
+  text-transform:uppercase !important;
+  color:#080808 !important;
+  -webkit-text-fill-color:#080808 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+}
+header .subtitle,
+header p.subtitle{
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-size:clamp(12px,1.25vw,15px) !important;
+  font-weight:400 !important;
+  letter-spacing:.35px !important;
+  line-height:1.45 !important;
+  text-transform:uppercase !important;
+}
+header .tagline,
+header p.tagline{
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-size:clamp(12px,1.2vw,14px) !important;
+  font-weight:500 !important;
+  letter-spacing:normal !important;
+  line-height:1.35 !important;
+}
+@media(max-width:600px){
+  header .title, header .name-title, header h1{font-size:clamp(33px,8vw,43px) !important}
+  header .subtitle, header p.subtitle{font-size:12px !important}
+  header .tagline, header p.tagline{font-size:12px !important}
 }
 
 </style>
