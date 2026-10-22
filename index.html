@@ -686,6 +686,8 @@ header .tagline, header p.tagline{
 
 /* Introductory description with the complete service list aligned on the right */
 .intro-layout{
+  width:100%;
+  box-sizing:border-box;
   max-width:1200px;
   margin:22px auto 0;
   padding:0 24px;
@@ -701,7 +703,9 @@ header .tagline, header p.tagline{
   text-align:left;
   font-size:13px;
 }
-.services-top{width:100%;max-width:100%;min-width:0;justify-self:stretch;text-align:center;margin-inline:auto}
+.services-top{width:100%;max-width:100%;min-width:0;justify-self:stretch;align-self:start;text-align:center;margin-inline:auto;box-sizing:border-box}
+.services-top ul{width:100%;text-align:center}
+.services-top li{width:100%;margin-left:auto;margin-right:auto}
 .services-top h2{
   display:table;
   margin:0 auto 12px;
@@ -1190,10 +1194,12 @@ function setupProjectFilters(){
       items.forEach(item=>{
         item.hidden=selected!=="all" && item.dataset.category!==selected;
         if(!item.hidden){
-          item.querySelectorAll("video.lazy-video[data-src]").forEach(video=>{
-            video.src=video.dataset.src;
-            delete video.dataset.src;
-            video.preload="metadata";
+          item.querySelectorAll("video").forEach(video=>{
+            if(!video.getAttribute("src") && video.dataset.src){
+              video.setAttribute("src",video.dataset.src);
+              delete video.dataset.src;
+            }
+            video.preload="auto";
             video.load();
             const playAttempt=video.play();
             if(playAttempt && typeof playAttempt.catch==="function") playAttempt.catch(()=>{});
