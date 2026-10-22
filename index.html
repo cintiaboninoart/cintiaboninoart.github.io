@@ -331,6 +331,9 @@ transition:transform .35s cubic-bezier(.2,.8,.2,1);
   color: #fff;
 }
 
+.tagline{margin:10px auto 0;color:#555;font-size:12px;letter-spacing:.7px}
+header{padding-bottom:16px}
+.project-filters{margin-top:18px}
 </style>
 
 <style>
@@ -355,15 +358,24 @@ transition:transform .35s cubic-bezier(.2,.8,.2,1);
 
 <header>
 <h1 class="title">Cintia Bonino</h1>
-<p class="subtitle">Ilustradora editorial y animadora conceptual en Barcelona</p>
+<p class="subtitle">Ilustradora editorial y animadora 2D de autor</p>
+<p class="tagline">Barcelona · Pop, ironía y provocación visual.</p>
 <p style="margin-top:10px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;">
 <a href="index.html" style="color:#111;text-decoration:none;">ES</a> |
 <a href="index-en.html" style="color:#777;text-decoration:none;">EN</a>
 </p>
-<p class="seo-text">
-Soy ilustradora editorial y animadora conceptual en Barcelona. Trabajo en ilustración editorial, carteles culturales, campañas visuales y videoclips animados de autor.
-</p>
 </header>
+
+
+
+<div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
+<button type="button" data-filter="all" aria-pressed="true">Todo</button>
+<button type="button" data-filter="editorial" aria-pressed="false">Ilustración editorial</button>
+<button type="button" data-filter="brands" aria-pressed="false">Marcas y campañas culturales</button>
+<button type="button" data-filter="music" aria-pressed="false">Videoclips musicales</button>
+<button type="button" data-filter="author" aria-pressed="false">Animación de autor</button>
+</div>
+<div class="grid" id="grid"></div>
 
 <section class="services-block">
 <h3>Servicios</h3>
@@ -374,15 +386,6 @@ Soy ilustradora editorial y animadora conceptual en Barcelona. Trabajo en ilustr
 <li>Videoclips animados de autor para músicos</li>
 </ul>
 </section>
-
-<div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
-<button type="button" data-filter="all" aria-pressed="true">Todo</button>
-<button type="button" data-filter="editorial" aria-pressed="false">Ilustración editorial</button>
-<button type="button" data-filter="brands" aria-pressed="false">Marcas y campañas culturales</button>
-<button type="button" data-filter="music" aria-pressed="false">Videoclips musicales</button>
-<button type="button" data-filter="author" aria-pressed="false">Animación de autor</button>
-</div>
-<div class="grid" id="grid"></div>
 
 <footer>© Cintia Bonino — Ilustradora editorial y animadora conceptual en Barcelona</footer>
 
