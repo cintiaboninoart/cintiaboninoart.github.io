@@ -1094,19 +1094,24 @@ function createGrid(){
 
 if(p.cover.endsWith(".mp4")){
   media=document.createElement("video");
-  media.src=p.cover;
   media.autoplay=true;
   media.muted=true;
   media.loop=true;
   media.playsInline=true;
-  media.preload="metadata";
+  media.preload = i < 2 ? "metadata" : "none";
+  if(i < 2){
+    media.src=p.cover;
+  }else{
+    media.dataset.src=p.cover;
+    media.classList.add("lazy-video");
+  }
 }
 
  
 else{
   media=document.createElement("img");
   media.src=p.cover;
-  media.loading = i < 6 ? "eager" : "lazy";
+  media.loading = i < 3 ? "eager" : "lazy";
   media.decoding="async";
 
   if (i < 3) {
@@ -1148,6 +1153,31 @@ item.appendChild(caption);
 
 grid.appendChild(item);
   });
+
+  // Defer loading videos until they approach the viewport.
+  const lazyVideos = grid.querySelectorAll("video.lazy-video[data-src]");
+  if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const video = entry.target;
+        video.src = video.dataset.src;
+        delete video.dataset.src;
+        video.load();
+        const playAttempt = video.play();
+        if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
+        video.classList.remove("lazy-video");
+        videoObserver.unobserve(video);
+      });
+    }, { rootMargin: "300px 0px" });
+    lazyVideos.forEach(video => videoObserver.observe(video));
+  } else {
+    lazyVideos.forEach(video => {
+      video.src = video.dataset.src;
+      delete video.dataset.src;
+      video.load();
+    });
+  }
 }
 
 function openProject(i){
@@ -1198,6 +1228,8 @@ body.appendChild(iframe);
       const video=document.createElement("video");
       video.src=src;
       video.controls=true;
+      video.preload="metadata";
+      video.playsInline=true;
       video.style.width="100%";
       video.style.height="auto";
       body.appendChild(video);
