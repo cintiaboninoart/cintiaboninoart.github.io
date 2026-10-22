@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700;800&display=swap');
@@ -741,6 +742,45 @@ header .tagline, header p.tagline{
 .project-filters button:focus-visible{outline:2px solid #111;outline-offset:3px}
 .item[hidden]{display:none !important}
 @media(max-width:600px){.project-filters{gap:6px}.project-filters button{font-size:10px;padding:8px 10px}}
+
+/* Shared header typography: identical across all six pages */
+header .title,
+header .name-title,
+header h1{
+  font-family:'Cabin Sketch',cursive !important;
+  font-size:clamp(38px,4.8vw,54px) !important;
+  font-weight:700 !important;
+  letter-spacing:0 !important;
+  line-height:1.08 !important;
+  text-transform:uppercase !important;
+  color:#080808 !important;
+  -webkit-text-fill-color:#080808 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+}
+header .subtitle,
+header p.subtitle{
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-size:clamp(12px,1.25vw,15px) !important;
+  font-weight:400 !important;
+  letter-spacing:.35px !important;
+  line-height:1.45 !important;
+  text-transform:uppercase !important;
+}
+header .tagline,
+header p.tagline{
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-size:clamp(12px,1.2vw,14px) !important;
+  font-weight:500 !important;
+  letter-spacing:normal !important;
+  line-height:1.35 !important;
+}
+@media(max-width:600px){
+  header .title, header .name-title, header h1{font-size:clamp(33px,8vw,43px) !important}
+  header .subtitle, header p.subtitle{font-size:12px !important}
+  header .tagline, header p.tagline{font-size:12px !important}
+}
+
 </style>
 </head>
 
