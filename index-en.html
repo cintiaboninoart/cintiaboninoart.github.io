@@ -1105,7 +1105,7 @@ else{
     media.fetchPriority = "high";
   }
 
-  const categoryLabels = {editorial:"editorial illustration",brands:"cultural campaigns",music:"animated music video",author:"author-led 2D animation"};
+  const categoryLabels = {editorial:"editorial illustration",brands:"cultural campaigns",music:"animated music video",author:"artist-led 2D animation"};
   media.alt = `${p.title} — ${categoryLabels[p.category] || "visual project"}: ${p.description} — Cintia Bonino`;
 }
 
@@ -1197,7 +1197,7 @@ body.appendChild(iframe);
     }else{
       const img=document.createElement("img");
 img.src=src;
-const categoryLabels = {editorial:"editorial illustration",brands:"cultural campaigns",music:"animated music video",author:"author-led 2D animation"};
+const categoryLabels = {editorial:"editorial illustration",brands:"cultural campaigns",music:"animated music video",author:"artist-led 2D animation"};
 img.alt = p.alt || `${p.title} — ${categoryLabels[p.category] || "visual project"}: ${p.description} — Cintia Bonino`;
 img.loading = "lazy";
 img.decoding = "async";
