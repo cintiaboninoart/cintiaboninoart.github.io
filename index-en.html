@@ -518,6 +518,39 @@ header{padding-top:122px;padding-bottom:24px}
   .title{font-size:clamp(34px,9vw,50px);letter-spacing:-.3px;text-shadow:1px 1px 0 #9CFF2E,2px 2px 0 #9CFF2E,3px 3px 0 #9CFF2E,4px 4px 0 #111}
 }
 
+
+/* Header typography: outlined retro 3D lettering */
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+.title{
+  font-family:'Bungee Shade',Impact,sans-serif;
+  font-size:clamp(30px,4.2vw,46px);
+  line-height:1.12;
+  letter-spacing:0;
+  font-weight:400;
+  text-transform:uppercase;
+  color:#f7f7f2;
+  -webkit-text-stroke:0.5px #171717;
+  text-shadow:2px 2px 0 #9CFF2E, 4px 4px 0 #171717;
+  transform:none;
+  margin-bottom:10px;
+}
+.subtitle{
+  font-size:clamp(15px,1.7vw,18px);
+  line-height:1.4;
+  font-weight:600;
+  margin:0 auto 5px;
+}
+.tagline{
+  font-size:clamp(15px,1.7vw,18px);
+  line-height:1.4;
+  font-weight:500;
+  margin:0 auto;
+}
+@media(max-width:600px){
+  .title{font-size:clamp(27px,7vw,38px);text-shadow:1px 1px 0 #9CFF2E,2px 2px 0 #171717}
+  .subtitle,.tagline{font-size:15px}
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
@@ -581,7 +614,7 @@ header{padding-top:122px;padding-bottom:24px}
 <header>
 <h1 class="title">Cintia Bonino</h1>
 <p class="subtitle">Editorial illustrator and author-led 2D animator based in Barcelona</p>
-<p class="tagline">Barcelona · Pop, irony and visual provocation.</p>
+<p class="tagline">Pop, irony and visual provocation.</p>
 
 <p style="margin-top:10px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;">
 <a href="index.html" style="color:#777;text-decoration:none;">ES</a> |
