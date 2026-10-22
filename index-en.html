@@ -567,6 +567,22 @@ header{padding-top:122px;padding-bottom:24px}
   .tagline{font-size:13px !important}
 }
 
+
+/* Guaranteed final override for header */
+header .title, h1.title{
+ color:#fff !important;
+ -webkit-text-fill-color:#fff !important;
+ text-shadow:2px 2px 0 #111, 4px 4px 0 #111, 5px 5px 0 #9CFF2E !important;
+}
+header .tagline, p.tagline{
+ font-size:clamp(12px,1.2vw,14px) !important;
+ line-height:1.35 !important;
+ margin-top:2px !important;
+}
+@media(max-width:600px){
+ header .tagline, p.tagline{font-size:12px !important}
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
