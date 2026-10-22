@@ -391,6 +391,46 @@ padding:0 4px;
 .tagline{margin:10px auto 0;color:#555;font-size:12px;letter-spacing:.7px}
 header{padding-bottom:16px}
 .project-filters{margin-top:18px}
+
+/* Display typography: bold, condensed and independent */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&display=swap');
+.title{
+  font-family:'Anton',Impact,'Arial Narrow',sans-serif;
+  font-weight:400;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-size:clamp(42px,6vw,68px);
+  line-height:.98;
+}
+.subtitle{
+  font-family:'DM Sans',Arial,sans-serif;
+  font-weight:600;
+  letter-spacing:-.45px;
+  font-size:clamp(15px,2vw,19px);
+}
+.tagline{
+  font-family:'DM Sans',Arial,sans-serif;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.35px;
+}
+.project-filters button{
+  font-family:'DM Sans',Arial,sans-serif;
+  font-weight:700;
+  letter-spacing:.35px;
+}
+.project-caption h3{
+  font-family:'DM Sans',Arial,sans-serif;
+  font-weight:700;
+  letter-spacing:-.2px;
+}
+.services-block h3,.services-block li{
+  font-family:'DM Sans',Arial,sans-serif;
+}
+@media(max-width:600px){
+  .title{font-size:46px;letter-spacing:.5px}
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
