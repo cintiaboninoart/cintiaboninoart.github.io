@@ -862,7 +862,7 @@ header p.tagline{
 const projects=[
   
 {
-  title:"Huggin & Kissin",category:"music",
+  title:"Huggin & Kissin",category:"music",pageUrl:"/huggin-and-kissin-en.html",
   description:"Author-led 2D animated music video, combining illustration, rhythm and movement in a distinctive visual interpretation.",
   cover:"fusion corto.mp4",
   instagram:"https://www.instagram.com/reel/DemAy8OMvv-/?rpxt=MWVyYWNxeGJ4eWlxMg==",
@@ -1097,6 +1097,7 @@ content.innerHTML=`
       </a>
     </p>
   ` : ""}
+  ${p.pageUrl ? `<p><a class="project-page-link" href="${p.pageUrl}">View full project ↗</a></p>` : ""}
 </div>
 `;
 
