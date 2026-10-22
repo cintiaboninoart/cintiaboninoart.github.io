@@ -208,6 +208,7 @@ border:2px solid #cfcfcf;
 }
 
 .item-media video{background:#111;}
+.item-video-media{background:#111;}
 
 .item-media img,
 .item-media video{
@@ -1010,8 +1011,9 @@ function createGrid(){
 
     let media;
 
-    if(p.cover.endsWith(".mp4")){
+    if(p.cover.toLowerCase().endsWith(".mp4")){
   media=document.createElement("video");
+  mediaWrap.classList.add("item-video-media");
   media.autoplay=true;
   media.muted=true;
   media.loop=true;
