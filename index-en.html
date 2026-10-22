@@ -104,9 +104,14 @@ position:fixed;top:0;left:0;width:100%;
 background:#fff;border-bottom:1px solid #e5e5e5;z-index:1000;
 }
 .nav-inner{
-max-width:1200px;margin:auto;padding:18px 24px;
-display:flex;justify-content:center;gap:14px;
+max-width:1400px;margin:auto;padding:12px 24px;
+display:flex;justify-content:flex-end;align-items:center;gap:10px;flex-wrap:wrap;
 }
+.nav-service-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:10px}
+.nav-inner a.service-nav{background:#9CFF2E;border-color:#111;font-weight:700;letter-spacing:.5px}
+.nav-inner a.service-nav:hover{background:#111;color:#9CFF2E}
+@media(max-width:850px){.nav-inner{justify-content:center}.nav-service-links{width:100%;justify-content:center;margin-left:0}}
+@media(max-width:600px){.nav-inner{padding:10px 12px;gap:6px}.nav-inner a{font-size:10px;padding:6px 8px}.nav-service-links{gap:6px}.nav-inner a.service-nav{font-size:10px}}
 .nav-inner a{
 text-decoration:none;color:#111;font-size:12px;
 letter-spacing:1.6px;text-transform:uppercase;
@@ -817,6 +822,7 @@ header p.tagline{
 <a href="index-en.html">Selected work</a>
 <a href="about-en.html">About</a>
 <a href="contact-en.html">Contact</a>
+<span class="nav-service-links"><a class="service-nav" href="/editorial-illustration.html">Editorial illustration ↗</a><a class="service-nav" href="/animated-music-videos.html">Animated music videos ↗</a></span>
 </div>
 </nav>
 
