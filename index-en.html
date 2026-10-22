@@ -427,6 +427,14 @@ padding:0 4px;
 }
 </script>
 
+<style>
+/* Category filters */
+.project-filters{max-width:1200px;margin:34px auto 0;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.project-filters button{appearance:none;border:1px solid #111;background:#fff;color:#111;padding:9px 13px;font:inherit;font-size:11px;letter-spacing:.7px;text-transform:uppercase;cursor:pointer}
+.project-filters button:hover,.project-filters button[aria-pressed="true"]{background:#9CFF2E;border-color:#111;color:#111}
+.project-filters button:focus-visible{outline:2px solid #111;outline-offset:3px}
+@media(max-width:600px){.project-filters{gap:6px}.project-filters button{font-size:10px;padding:8px 10px}}
+</style>
 </head>
 
 <body>
@@ -457,13 +465,19 @@ I am an editorial illustrator and conceptual animator based in Barcelona, creati
 <h3>Services</h3>
 <ul>
 <li>Editorial illustration</li>
-<li>Cultural posters and festival artwork</li>
+<li>Illustration for brands and cultural campaigns</li>
 <li>Conceptual 2D animation</li>
-<li>Visual campaigns for brands</li>
 <li>Author-led animated music videos for musicians</li>
 </ul>
 </section>
   
+<div class="project-filters" role="group" aria-label="Filter projects by category">
+<button type="button" data-filter="all" aria-pressed="true">All</button>
+<button type="button" data-filter="editorial" aria-pressed="false">Editorial illustration</button>
+<button type="button" data-filter="brands" aria-pressed="false">Brands &amp; cultural campaigns</button>
+<button type="button" data-filter="music" aria-pressed="false">Music videos</button>
+<button type="button" data-filter="author" aria-pressed="false">Author-led animation</button>
+</div>
 <div class="grid" id="grid"></div>
 
 <footer>© Cintia Bonino — Illustrator and 2d animator in Barcelona</footer>
@@ -473,7 +487,7 @@ I am an editorial illustrator and conceptual animator based in Barcelona, creati
 const projects=[
   
 {
-  title:"Huggin & Kissin",
+  title:"Huggin & Kissin",category:"music",
   description:"Author-led 2D animated music video, combining illustration, rhythm and movement in a distinctive visual interpretation.",
   cover:"fusion corto.mp4",
   instagram:"https://www.instagram.com/reel/DemAy8OMvv-/?rpxt=MWVyYWNxeGJ4eWlxMg==",
@@ -482,13 +496,13 @@ const projects=[
   ]
 },
 
-{title:"Anne Carson",description:"Conceptual 2D animation:«The mind wants to move and the best thing a work of art can do is take you with it to a place you never thought you’d go» Anne Carson",cover:"premio nobel.mp4",images:["premio nobel.mp4"]},
+{title:"Anne Carson",category:"author",description:"Conceptual 2D animation:«The mind wants to move and the best thing a work of art can do is take you with it to a place you never thought you’d go» Anne Carson",cover:"premio nobel.mp4",images:["premio nobel.mp4"]},
 
-{title:"First show",description:"Visual storytelling exploring music and performance.",cover:"primer show1.png",images:["secuencia primer show.png"]},
+{title:"First show",category:"editorial",description:"Visual storytelling exploring music and performance.",cover:"primer show1.png",images:["secuencia primer show.png"]},
   
-{title:"Welcome to the Community",description:"Personal visual storytelling project inspired by Samanta Schweblin’s short story «Bienvenida a la comunidad», from «El buen mal».",cover:"bienvenida2.png",images:["secuencia bienvenida.png"]},
+{title:"Welcome to the Community",category:"editorial",description:"Personal visual storytelling project inspired by Samanta Schweblin’s short story «Bienvenida a la comunidad», from «El buen mal».",cover:"bienvenida2.png",images:["secuencia bienvenida.png"]},
 {
-title:"Unsettling Normality",
+title:"Unsettling Normality",category:"editorial",
 description:"Illustration project inspired by Mariana Enriquez’s unsettling fictional world, where the disturbing seeps into everyday life.",
     
 cover:"donde estas corazon.png",
@@ -510,63 +524,63 @@ titles:[
 ]
 
 },
-{title:"Support",description:"Conceptual animation about the need for support from one's environment.",cover:"soporte.mp4",images:["soporte.mp4"]},
+{title:"Support",category:"author",description:"Conceptual animation about the need for support from one's environment.",cover:"soporte.mp4",images:["soporte.mp4"]},
 
-{title:"Vértigo",description:"Editorial illustration for a contemporary autofiction novel.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
+{title:"Vértigo",category:"editorial",description:"Editorial illustration for a contemporary autofiction novel.",cover:"VERTIGO TAPA.png",images:["VERTIGO MOCK TAPA.png","VERTIGO GUARDA.png","VERTIGO MOCK INTERIOR.png"]},
 
-{title:"True",description:"Conceptual animation about escaping from one's own truth.",cover:"true.mp4",images:["true.mp4"]},
+{title:"True",category:"author",description:"Conceptual animation about escaping from one's own truth.",cover:"true.mp4",images:["true.mp4"]},
 
-{title:"Lighthouse",description:"Editorial illustration exploring female friendship and feminism as a guiding light.",cover:"faro_2.PNG",images:["faro_1.PNG","faro_2.PNG","faro_3.PNG"]},
+{title:"Lighthouse",category:"editorial",description:"Editorial illustration exploring female friendship and feminism as a guiding light.",cover:"faro_2.PNG",images:["faro_1.PNG","faro_2.PNG","faro_3.PNG"]},
 
-{title:"An artist can be anywhere",description:"Conceptual animation exploring how art and creativity can exist beyond conventional spaces.",cover:"ARTISTA.mp4",images:["ARTISTA.mp4"]},
+{title:"An artist can be anywhere",category:"author",description:"Conceptual animation exploring how art and creativity can exist beyond conventional spaces.",cover:"ARTISTA.mp4",images:["ARTISTA.mp4"]},
 
-{title:"I Won’t Give Them Money for Alcohol",description:"Editorial illustration offering social commentary on solidarity, money and its contradictions.",cover:"no doy_1.PNG",images:["no doy_1.PNG","no doy_2.PNG","no doy_3.PNG"]},
+{title:"I Won’t Give Them Money for Alcohol",category:"editorial",description:"Editorial illustration offering social commentary on solidarity, money and its contradictions.",cover:"no doy_1.PNG",images:["no doy_1.PNG","no doy_2.PNG","no doy_3.PNG"]},
 
-{title:"Unscrupulous Traveler",description:"Editorial illustration with an ironic take on a traveller without scruples.",cover:"viajera_1.PNG",images:["viajera_1.PNG","viajera_2.PNG","viajera_3.PNG"]},
+{title:"Unscrupulous Traveler",category:"editorial",description:"Editorial illustration with an ironic take on a traveller without scruples.",cover:"viajera_1.PNG",images:["viajera_1.PNG","viajera_2.PNG","viajera_3.PNG"]},
 
-{title:"I Can’t Stand You",description:"Editorial illustration conveying an attitude of exasperation and defiance.",cover:"no te aguanto_1.PNG",images:["no te aguanto_1.PNG","no te aguanto_2.PNG","no te aguando_3.PNG"]},
+{title:"I Can’t Stand You",category:"editorial",description:"Editorial illustration conveying an attitude of exasperation and defiance.",cover:"no te aguanto_1.PNG",images:["no te aguanto_1.PNG","no te aguanto_2.PNG","no te aguando_3.PNG"]},
 
-{title:"Does anyone really know you?",description:"Conceptual editorial illustration about identity and social perception.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
+{title:"Does anyone really know you?",category:"editorial",description:"Conceptual editorial illustration about identity and social perception.",cover:"ho know you photo.png",images:["ho know you photo.png","ho know you photo mock.png"]},
 
-{title:"Different, the same hill",description:"Conceptual animation exploring how the same journey changes with or without companionship.",cover:"MONTANA.mp4",images:["MONTANA.mp4"]},
+{title:"Different, the same hill",category:"author",description:"Conceptual animation exploring how the same journey changes with or without companionship.",cover:"MONTANA.mp4",images:["MONTANA.mp4"]},
   
-{title:"The Poor and the Rich",description:"Conceptual editorial illustration about the similarities between rich and poor people (which cause more anxiety among the rich than among the poor)",cover:"pobres y ricos final con fondo.png",images:["pobres y ricos ph.png", "pobres y ricos caras ph.png", "pobres y ricos sentados ph.png", "pobres y ricos mano ph.png", "pobres y ricos toch ph.png","pobres y ricos rueda final sin fondo.png", "biombo ph.png","POBRES Y RICOS MAGAZINE.png" ]},
+{title:"The Poor and the Rich",category:"editorial",description:"Conceptual editorial illustration about the similarities between rich and poor people (which cause more anxiety among the rich than among the poor)",cover:"pobres y ricos final con fondo.png",images:["pobres y ricos ph.png", "pobres y ricos caras ph.png", "pobres y ricos sentados ph.png", "pobres y ricos mano ph.png", "pobres y ricos toch ph.png","pobres y ricos rueda final sin fondo.png", "biombo ph.png","POBRES Y RICOS MAGAZINE.png" ]},
 
-{title:"Should you just give up?",description:"Conceptual editorial illustration about failure and self-pressure.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
+{title:"Should you just give up?",category:"editorial",description:"Conceptual editorial illustration about failure and self-pressure.",cover:"NEW YORKER PESO photo.png",images:["NEW YORKER PESO photo.png","new yorker peso mock.png"]},
 
-{title:"Mirages of freedom",description:"Editorial illustration exploring the illusions of freedom and their contradictions.",cover:"rph.PNG",images:["rph.PNG","r2ph.PNG"]},
+{title:"Mirages of freedom",category:"editorial",description:"Editorial illustration exploring the illusions of freedom and their contradictions.",cover:"rph.PNG",images:["rph.PNG","r2ph.PNG"]},
   
-{title:"A Pill to Awaken",description:"Conceptual animation about awakening consciousness.",cover:"pastilla.mp4",images:["pastilla.mp4"]},
+{title:"A Pill to Awaken",category:"author",description:"Conceptual animation about awakening consciousness.",cover:"pastilla.mp4",images:["pastilla.mp4"]},
   
-{title:"What animals understand about death?",description:"Editorial illustration for an article about animal consciousness and death.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
+{title:"What animals understand about death?",category:"editorial",description:"Editorial illustration for an article about animal consciousness and death.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
 
-{title:"Coffee for one",description:"Editorial illustration exploring loneliness in urban life.",cover:"cafe-para-uno.png",images:["cafe para uno mock.png"]},
+{title:"Coffee for one",category:"editorial",description:"Editorial illustration exploring loneliness in urban life.",cover:"cafe-para-uno.png",images:["cafe para uno mock.png"]},
 
-{title:"El Raval festival poster",description:"Cultural poster for the Festa Major del Raval in Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:[
+{title:"El Raval festival poster",category:"brands",description:"Cultural poster for the Festa Major del Raval in Barcelona.",cover:"CARTELL FESTA MAJOR DEL RAVAL 2025.png",images:[
 "CARTELL FESTA MAJOR DEL RAVAL 2025.png",
 "CARTELL FESTA MAJOR RAVAL MOCK.png",
 "CARTELL RAVAL CALLE.jpeg",
 "CARTELL RAVAL MERCH.jpeg",
 "CARTELL RAVALL ALFOMBRA.jpeg"]},
 
-{title:"Illustration for Cartel Fiesta Mayor de Gracia",description:"Illustration for cultural poster for the Festa Major de Gracia in Barcelona.",cover:"CARTELL FESTA MAJOR DE GRACIA.jpg",images:["CARTELL FESTA MAJOR DE GRACIA.jpg"]},
+{title:"Illustration for Cartel Fiesta Mayor de Gracia",category:"brands",description:"Illustration for cultural poster for the Festa Major de Gracia in Barcelona.",cover:"CARTELL FESTA MAJOR DE GRACIA.jpg",images:["CARTELL FESTA MAJOR DE GRACIA.jpg"]},
 
-{title:"25N Poster",description:"Cultural poster for November 25 (25N), the International Day for the Elimination of Violence Against Women, in Barcelona.",cover:"CARTELL 25N.jpg",images:["CARTELL 25N.jpg"]},
+{title:"25N Poster",category:"brands",description:"Cultural poster for November 25 (25N), the International Day for the Elimination of Violence Against Women, in Barcelona.",cover:"CARTELL 25N.jpg",images:["CARTELL 25N.jpg"]},
 
-{title:"Anna's Worlds",description:"Illustration for a young readers’ book about the life and world of poet Anna María Martínez Sagi.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
+{title:"Anna's Worlds",category:"editorial",description:"Illustration for a young readers’ book about the life and world of poet Anna María Martínez Sagi.",cover:"anna.png",images:["libro anna.png","ANNA MOCK INTERN.png"]},
 
-{title:"Reality is a videogame",description:"Conceptual animation exploring how we perceive and interpret reality.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
+{title:"Reality is a videogame",category:"author",description:"Conceptual animation exploring how we perceive and interpret reality.",cover:"videojuego.mp4",images:["videojuego.mp4"]},
 
-{title:"A Horror Story with No Right of Reply",description:"Conceptual animation exploring the absurdity of a meaningless life.",cover:"SIN REPLICA.mp4",images:["SIN REPLICA.mp4"]},
+{title:"A Horror Story with No Right of Reply",category:"author",description:"Conceptual animation exploring the absurdity of a meaningless life.",cover:"SIN REPLICA.mp4",images:["SIN REPLICA.mp4"]},
   
-{title:"They wanted it all, he wanted nothing",description:"Editorial illustration exploring fame, idolization and the passage of time.",cover:"fans 1975.png",images:["fans 1975.png"]},
+{title:"They wanted it all, he wanted nothing",category:"editorial",description:"Editorial illustration exploring fame, idolization and the passage of time.",cover:"fans 1975.png",images:["fans 1975.png"]},
   
-{title:"Moving",description:"Conceptual animation exploring change and the uncertainty that comes with a new chapter in life.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
+{title:"Moving",category:"author",description:"Conceptual animation exploring change and the uncertainty that comes with a new chapter in life.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
 
-{title:"Ideas",description:"Conceptual animation exploring the creative process and the birth of ideas.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
+{title:"Ideas",category:"author",description:"Conceptual animation exploring the creative process and the birth of ideas.",cover:"IDEAS.mp4",images:["IDEAS.mp4"]},
 
 {
-  title:"Amanecen Ocasos",
+  title:"Amanecen Ocasos",category:"music",
   description:"Author-led animated music video translating music into a sequence of illustrated images and movement.",
   cover:"AMANECEN OCASOS.mp4",
   instagram:"https://www.instagram.com/reel/DUBvm17DM6s/?mdxt=MXNkeGh0NmxzbHQyOA==",
@@ -576,7 +590,7 @@ titles:[
 },
 
 {
-  title:"Breve historia de una colonización",
+  title:"Breve historia de una colonización",category:"music",
   description:"Author-led animated music video addressing colonization and historical memory through illustration and visual storytelling.",
   cover:"RECORTE BREVE HISTORIA.mp4",
   instagram:"https://www.instagram.com/reel/DY2VHYTMMlU/?obrf=azVjM3V3NnpsaDl5",
@@ -585,21 +599,21 @@ titles:[
   ]
 },
 
-{title:"María Antonieta (Converse)",description:"Conceptual graphic campaign for Converse, inspired by the figure of Marie Antoinette.",cover:"converse total.png",images:[
+{title:"María Antonieta (Converse)",category:"brands",description:"Conceptual graphic campaign for Converse, inspired by the figure of Marie Antoinette.",cover:"converse total.png",images:[
 "converse total.png",
 "converse mock caja total.png",
 "converse mock caja zapatillas.png",
 "converse tote toal.png",
 ]},
 
-{title:"Change is movement",description:"Conceptual visual campaign for Adidas Pride exploring diversity and inclusion.",cover:"ADIDAS PRIDE SENORA.png",images:[
+{title:"Change is movement",category:"brands",description:"Conceptual visual campaign for Adidas Pride exploring diversity and inclusion.",cover:"ADIDAS PRIDE SENORA.png",images:[
 "ADIDAS PRIDE FINAL.png",
 "ADIDAS PRIDE PERSONAJES.png",
 "ADIDAS PRIDE ABSTRACCION.png",
 "ADIDAS PRIDE ABSTRACCION MOCK.png"
 ]},
 
-{title:"Cities (Coca-Cola)",description:"Graphic campaign about urban identity.",cover:"coca chicas sin fondo ph.png",images:[
+{title:"Cities (Coca-Cola)",category:"brands",description:"Graphic campaign about urban identity.",cover:"coca chicas sin fondo ph.png",images:[
 "coca chicas sin fondo ph.png",
 "coca barcelona ph.png",
 "coca bs as ph.png",
@@ -607,7 +621,7 @@ titles:[
 ]},
 
 
-{title:"Lunatic",description:"Illustrated book exploring a girl’s emotions throughout a day and night under the full moon.",cover:"lunatica.png",images:[
+{title:"Lunatic",category:"editorial",description:"Illustrated book exploring a girl’s emotions throughout a day and night under the full moon.",cover:"lunatica.png",images:[
 "lunatica interior 1.png",
 "lunatica interior 2.png" 
 ]}
@@ -621,6 +635,7 @@ function createGrid(){
 
     const item=document.createElement("div");
     item.className="item";
+    item.dataset.category=p.category;
     item.onclick=()=>openProject(i);
 
     const mediaWrap=document.createElement("div");
@@ -754,11 +769,26 @@ body.appendChild(iframe);
   modal.style.display="block";
 }
 
+function setupProjectFilters(){
+  const buttons=document.querySelectorAll(".project-filters button");
+  const items=document.querySelectorAll("#grid .item");
+  buttons.forEach(button=>{
+    button.addEventListener("click",()=>{
+      const selected=button.dataset.filter;
+      buttons.forEach(candidate=>candidate.setAttribute("aria-pressed",String(candidate===button)));
+      items.forEach(item=>{
+        item.hidden=selected!=="all" && item.dataset.category!==selected;
+      });
+    });
+  });
+}
+
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
 createGrid();
+setupProjectFilters();
 </script>
 
 <div id="modal" class="modal">
