@@ -576,6 +576,28 @@ header .tagline, p.tagline{
   transform:rotate(-0.6deg);
 }
 
+
+/* More painterly crayon lettering; restore a stronger angled highlight */
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+header .title, h1.title{
+  font-family:'Fredericka the Great', 'Comic Sans MS', cursive !important;
+  font-size:clamp(33px,4.4vw,47px) !important;
+  font-weight:400 !important;
+  letter-spacing:-.5px !important;
+  text-transform:none !important;
+  color:#080808 !important;
+  -webkit-text-fill-color:#080808 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+  filter:contrast(1.35);
+}
+header .tagline, p.tagline{
+  background-image:
+    repeating-linear-gradient(168deg, transparent 0px, transparent 2px, rgba(35,65,0,.18) 2px, rgba(35,65,0,.18) 3px),
+    linear-gradient(170deg, transparent 0%, #9CFF2E 8%, #9CFF2E 84%, transparent 100%) !important;
+  transform:rotate(-2.2deg) !important;
+}
+
 </style>
 
 <style>
