@@ -669,6 +669,55 @@ header .tagline, header p.tagline{
   line-height:1.35 !important;
 }
 
+
+/* Introductory description with the complete service list aligned on the right */
+.intro-layout{
+  max-width:1200px;
+  margin:22px auto 0;
+  padding:0 24px;
+  display:grid;
+  grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);
+  gap:42px;
+  align-items:start;
+}
+.intro-layout .seo-text{
+  max-width:none;
+  margin:0;
+  padding:0;
+  text-align:left;
+  font-size:13px;
+}
+.services-top h2{
+  display:table;
+  margin:0 0 12px;
+  padding:0 5px;
+  font:700 12px/1.4 'DM Sans',Arial,sans-serif;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  background:linear-gradient(transparent 50%,#9CFF2E 50%);
+}
+.services-top ul{list-style:none;margin:0;padding:0}
+.services-top li{
+  margin:0 0 9px;
+  color:#555;
+  font:400 13px/1.45 'DM Sans',Arial,sans-serif;
+  letter-spacing:.1px;
+}
+.services-top a{
+  color:#111;
+  text-decoration:underline;
+  text-decoration-color:#9CFF2E;
+  text-decoration-thickness:2px;
+  text-underline-offset:3px;
+}
+.services-top a:hover{background:#9CFF2E}
+@media(max-width:760px){
+  .intro-layout{grid-template-columns:1fr;gap:18px;margin-top:18px;padding:0 20px}
+  .intro-layout .seo-text{font-size:12px}
+  .services-top li{font-size:12px;margin-bottom:7px}
+  .services-top h2{margin-bottom:8px}
+}
+
 </style>
 
 <style>
@@ -727,7 +776,7 @@ header p.tagline{
 <a href="index.html">Selección</a>
 <a href="sobre.html">Sobre mí</a>
 <a href="contacto.html">Contacto</a>
-<span class="nav-service-links"><a class="service-nav" href="/ilustracion-editorial.html">Ilustración editorial ↗</a><a class="service-nav" href="/videoclips-animados-para-musicos.html">Videoclips para músicos ↗</a></span>
+
 </div>
 </nav>
 
@@ -741,8 +790,17 @@ header p.tagline{
 </p>
 </header>
 
-<section class="seo-text" aria-label="Servicios de ilustración y animación">
-<p>Portfolio de Cintia Bonino, ilustradora editorial y animadora 2D de autor en Barcelona. Desarrollo ilustraciones para publicaciones, carteles y campañas culturales, además de videoclips animados para músicos. Mi trabajo combina narrativa visual, humor e ironía con una identidad gráfica pop y provocadora.</p>
+<section class="intro-layout" aria-label="Servicios de ilustración y animación">
+<div class="seo-text"><p>Portfolio de Cintia Bonino, ilustradora editorial y animadora 2D de autor en Barcelona. Desarrollo ilustraciones para publicaciones, carteles y campañas culturales, además de videoclips animados para músicos. Mi trabajo combina narrativa visual, humor e ironía con una identidad gráfica pop y provocadora.</p></div>
+<aside class="services-top" aria-label="Servicios de ilustración y animación">
+<h2>Servicios</h2>
+<ul>
+<li><a href="/ilustracion-editorial.html">Ilustración editorial ↗</a></li>
+<li>Ilustración para marcas y campañas culturales</li>
+<li>Animación 2D conceptual</li>
+<li><a href="/videoclips-animados-para-musicos.html">Videoclips animados de autor para músicos ↗</a></li>
+</ul>
+</aside>
 </section>
 
 <div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
@@ -754,15 +812,7 @@ header p.tagline{
 </div>
 <div class="grid" id="grid"></div>
 
-<section class="services-block">
-<h3>Servicios</h3>
-<ul>
-<li><a href="/ilustracion-editorial.html" style="color:inherit;text-decoration:underline;text-decoration-color:#9CFF2E;text-decoration-thickness:2px;text-underline-offset:3px">Ilustración editorial ↗</a></li>
-<li>Ilustración para marcas y campañas culturales</li>
-<li>Animación 2D conceptual</li>
-<li><a href="/videoclips-animados-para-musicos.html" style="color:inherit;text-decoration:underline;text-decoration-color:#9CFF2E;text-decoration-thickness:2px;text-underline-offset:3px">Videoclips animados de autor para músicos ↗</a></li>
-</ul>
-</section>
+
 
 <footer>© Cintia Bonino — Ilustradora editorial y animadora conceptual en Barcelona</footer>
 
