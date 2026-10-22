@@ -388,6 +388,9 @@ padding:0 4px;
   color: #fff;
 }
 
+.tagline{margin:10px auto 0;color:#555;font-size:12px;letter-spacing:.7px}
+header{padding-bottom:16px}
+.project-filters{margin-top:18px}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
@@ -450,17 +453,26 @@ padding:0 4px;
 
 <header>
 <h1 class="title">Cintia Bonino</h1>
-<p class="subtitle">Editorial illustrator and conceptual animator in Barcelona</p>
+<p class="subtitle">Editorial illustrator and author-led 2D animator</p>
+<p class="tagline">Barcelona · Pop, irony and visual provocation.</p>
 
 <p style="margin-top:10px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;">
 <a href="index.html" style="color:#777;text-decoration:none;">ES</a> |
 <a href="index-en.html" style="color:#111;text-decoration:none;">EN</a>
 </p>
 
-<p class="seo-text">
-I am an editorial illustrator and conceptual animator based in Barcelona, creating editorial illustrations, cultural posters, visual campaigns and author-led animated music videos.
-</p>
 </header>
+
+
+  
+<div class="project-filters" role="group" aria-label="Filter projects by category">
+<button type="button" data-filter="all" aria-pressed="true">All</button>
+<button type="button" data-filter="editorial" aria-pressed="false">Editorial illustration</button>
+<button type="button" data-filter="brands" aria-pressed="false">Brands &amp; cultural campaigns</button>
+<button type="button" data-filter="music" aria-pressed="false">Music videos</button>
+<button type="button" data-filter="author" aria-pressed="false">Author-led animation</button>
+</div>
+<div class="grid" id="grid"></div>
 
 <section class="services-block">
 <h3>Services</h3>
@@ -471,15 +483,6 @@ I am an editorial illustrator and conceptual animator based in Barcelona, creati
 <li>Author-led animated music videos for musicians</li>
 </ul>
 </section>
-  
-<div class="project-filters" role="group" aria-label="Filter projects by category">
-<button type="button" data-filter="all" aria-pressed="true">All</button>
-<button type="button" data-filter="editorial" aria-pressed="false">Editorial illustration</button>
-<button type="button" data-filter="brands" aria-pressed="false">Brands &amp; cultural campaigns</button>
-<button type="button" data-filter="music" aria-pressed="false">Music videos</button>
-<button type="button" data-filter="author" aria-pressed="false">Author-led animation</button>
-</div>
-<div class="grid" id="grid"></div>
 
 <footer>© Cintia Bonino — Illustrator and 2d animator in Barcelona</footer>
 
