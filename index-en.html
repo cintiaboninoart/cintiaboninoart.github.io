@@ -431,6 +431,49 @@ header{padding-bottom:16px}
   .title{font-size:46px;letter-spacing:.5px}
 }
 
+
+/* Stronger pop-poster identity */
+.title{
+  font-family:'Anton',Impact,'Arial Narrow',sans-serif;
+  font-size:clamp(58px,10vw,112px);
+  line-height:.86;
+  letter-spacing:-1.2px;
+  font-weight:400;
+  text-transform:uppercase;
+  transform:scaleX(.94);
+  transform-origin:center;
+}
+.subtitle{
+  font-family:'Anton',Impact,'Arial Narrow',sans-serif;
+  font-size:clamp(20px,3.2vw,34px);
+  line-height:1.12;
+  letter-spacing:.1px;
+  text-transform:uppercase;
+  color:#111;
+  max-width:900px;
+  margin:22px auto 0;
+}
+.tagline{
+  display:inline-block;
+  background:#9CFF2E;
+  color:#111;
+  font-family:'DM Sans',Arial,sans-serif;
+  font-size:clamp(16px,2.3vw,22px);
+  font-weight:700;
+  line-height:1.25;
+  letter-spacing:-.25px;
+  padding:8px 13px 9px;
+  margin:14px auto 0;
+  transform:rotate(-1deg);
+}
+header{padding-top:122px;padding-bottom:24px}
+@media(max-width:600px){
+  .title{font-size:clamp(48px,14vw,72px);letter-spacing:-.6px}
+  .subtitle{font-size:clamp(18px,5.2vw,25px);margin-top:18px}
+  .tagline{font-size:16px;padding:7px 9px}
+  header{padding-top:100px}
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
