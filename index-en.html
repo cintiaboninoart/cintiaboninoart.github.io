@@ -718,6 +718,55 @@ header .tagline, header p.tagline{
   line-height:1.35 !important;
 }
 
+
+/* Introductory description with the complete service list aligned on the right */
+.intro-layout{
+  max-width:1200px;
+  margin:22px auto 0;
+  padding:0 24px;
+  display:grid;
+  grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);
+  gap:42px;
+  align-items:start;
+}
+.intro-layout .seo-text{
+  max-width:none;
+  margin:0;
+  padding:0;
+  text-align:left;
+  font-size:13px;
+}
+.services-top h2{
+  display:table;
+  margin:0 0 12px;
+  padding:0 5px;
+  font:700 12px/1.4 'DM Sans',Arial,sans-serif;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  background:linear-gradient(transparent 50%,#9CFF2E 50%);
+}
+.services-top ul{list-style:none;margin:0;padding:0}
+.services-top li{
+  margin:0 0 9px;
+  color:#555;
+  font:400 13px/1.45 'DM Sans',Arial,sans-serif;
+  letter-spacing:.1px;
+}
+.services-top a{
+  color:#111;
+  text-decoration:underline;
+  text-decoration-color:#9CFF2E;
+  text-decoration-thickness:2px;
+  text-underline-offset:3px;
+}
+.services-top a:hover{background:#9CFF2E}
+@media(max-width:760px){
+  .intro-layout{grid-template-columns:1fr;gap:18px;margin-top:18px;padding:0 20px}
+  .intro-layout .seo-text{font-size:12px}
+  .services-top li{font-size:12px;margin-bottom:7px}
+  .services-top h2{margin-bottom:8px}
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXGFM973S5"></script>
@@ -822,7 +871,7 @@ header p.tagline{
 <a href="index-en.html">Selected work</a>
 <a href="about-en.html">About</a>
 <a href="contact-en.html">Contact</a>
-<span class="nav-service-links"><a class="service-nav" href="/editorial-illustration.html">Editorial illustration ↗</a><a class="service-nav" href="/animated-music-videos.html">Animated music videos ↗</a></span>
+
 </div>
 </nav>
 
@@ -838,8 +887,17 @@ header p.tagline{
 
 </header>
 
-<section class="seo-text" aria-label="Illustration and animation services">
-<p>Portfolio of Cintia Bonino, an editorial illustrator and author-led 2D animator based in Barcelona. I create illustrations for publications, cultural posters and visual campaigns, as well as animated music videos for musicians. My work combines visual storytelling, humour and irony with a distinctive pop-inspired and provocative style.</p>
+<section class="intro-layout" aria-label="Illustration and animation services">
+<div class="seo-text"><p>Portfolio of Cintia Bonino, an editorial illustrator and author-led 2D animator based in Barcelona. I create illustrations for publications, cultural posters and visual campaigns, as well as animated music videos for musicians. My work combines visual storytelling, humour and irony with a distinctive pop-inspired and provocative style.</p></div>
+<aside class="services-top" aria-label="Illustration and animation services">
+<h2>Services</h2>
+<ul>
+<li><a href="/editorial-illustration.html">Editorial illustration ↗</a></li>
+<li>Illustration for brands and cultural campaigns</li>
+<li>Conceptual 2D animation</li>
+<li><a href="/animated-music-videos.html">Author-led animated music videos for musicians ↗</a></li>
+</ul>
+</aside>
 </section>
 
 <div class="project-filters" role="group" aria-label="Filter projects by category">
@@ -851,15 +909,7 @@ header p.tagline{
 </div>
 <div class="grid" id="grid"></div>
 
-<section class="services-block">
-<h3>Services</h3>
-<ul>
-<li><a href="/editorial-illustration.html" style="color:inherit;text-decoration:underline;text-decoration-color:#9CFF2E;text-decoration-thickness:2px;text-underline-offset:3px">Editorial illustration ↗</a></li>
-<li>Illustration for brands and cultural campaigns</li>
-<li>Conceptual 2D animation</li>
-<li><a href="/animated-music-videos.html" style="color:inherit;text-decoration:underline;text-decoration-color:#9CFF2E;text-decoration-thickness:2px;text-underline-offset:3px">Author-led animated music videos for musicians ↗</a></li>
-</ul>
-</section>
+
 
 <footer>© Cintia Bonino — Illustrator and 2d animator in Barcelona</footer>
 
