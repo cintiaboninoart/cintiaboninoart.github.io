@@ -986,10 +986,14 @@ titles:[
 
 ];
 
-function createGrid(){
+function createGrid(selectedCategory="all"){
   const grid=document.getElementById("grid");
+  grid.innerHTML="";
+  let visibleIndex=0;
 
   projects.forEach((p,i)=>{
+    if(selectedCategory!=="all" && p.category!==selectedCategory) return;
+    const previewIndex=visibleIndex++;
 
     const item=document.createElement("div");
     item.className="item";
@@ -1019,8 +1023,8 @@ function createGrid(){
   media.muted=true;
   media.loop=true;
   media.playsInline=true;
-  media.preload = i < 2 ? "metadata" : "none";
-  if(i < 2){
+  media.preload = previewIndex < 2 ? "metadata" : "none";
+  if(previewIndex < 2){
     media.src=p.cover;
   }else{
     media.dataset.src=p.cover;
@@ -1039,11 +1043,11 @@ else{
     }
   }, { once: true });
   media.src=p.cover;
-  media.loading = i === 0 ? "eager" : "lazy";
+  media.loading = previewIndex === 0 ? "eager" : "lazy";
   media.decoding="async";
 
   // Reserve layout space after intrinsic dimensions become available and prioritize only the first image.
-  if (i === 0) {
+  if (previewIndex === 0) {
     media.fetchPriority = "high";
   } else {
     media.fetchPriority = "auto";
@@ -1188,31 +1192,11 @@ modal.style.display="block";
 
 function setupProjectFilters(){
   const buttons=document.querySelectorAll(".project-filters button");
-  const items=document.querySelectorAll("#grid .item");
   buttons.forEach(button=>{
     button.addEventListener("click",()=>{
       const selected=button.dataset.filter;
       buttons.forEach(candidate=>candidate.setAttribute("aria-pressed",String(candidate===button)));
-      items.forEach(item=>{
-        item.hidden=selected!=="all" && item.dataset.category!==selected;
-        item.style.display=item.hidden ? "none" : "";
-        if(!item.hidden){
-          item.querySelectorAll("video").forEach(video=>{
-            if(!video.getAttribute("src") && video.dataset.src){
-              video.setAttribute("src",video.dataset.src);
-              delete video.dataset.src;
-            }
-            video.preload="auto";
-            video.load();
-            video.addEventListener("loadeddata",()=>{
-              video.classList.remove("lazy-video");
-            },{once:true});
-            const playAttempt=video.play();
-            if(playAttempt && typeof playAttempt.catch==="function") playAttempt.catch(()=>{});
-            video.classList.remove("lazy-video");
-          });
-        }
-      });
+      createGrid(selected);
     });
   });
 }
@@ -1225,7 +1209,7 @@ function closeModal(){
   document.getElementById("modal").style.display="none";
 }
 
-createGrid();
+createGrid("all");
 setupProjectFilters();
 
 
