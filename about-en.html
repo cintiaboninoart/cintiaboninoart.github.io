@@ -433,7 +433,22 @@ header p.tagline{
   header .tagline, header p.tagline{font-size:12px !important}
 }
 
-</style>
+
+/* Align subtitle to the rendered width of the name */
+header .title, header .name-title, header h1 {
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+header p.subtitle {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: justify !important;
+  text-align-last: justify !important;
+  max-width: calc(100vw - 32px);
+}
+
 
 
 <!-- Google tag (gtag.js) -->
@@ -680,6 +695,30 @@ View the second page ↗
 </section>
 
 
+
+
+<script>
+(function(){
+  function alignSubtitle(){
+    const header = document.querySelector('header');
+    if(!header) return;
+    const name = header.querySelector('.name-title, .title, h1');
+    const subtitle = header.querySelector('p.subtitle');
+    if(!name || !subtitle) return;
+    const clone = name.cloneNode(true);
+    const cs = getComputedStyle(name);
+    clone.style.cssText += ';position:fixed;left:-10000px;top:0;visibility:hidden;display:inline-block;width:max-content;max-width:none;white-space:nowrap;margin:0;transform:none;';
+    ['fontFamily','fontSize','fontWeight','fontStyle','letterSpacing','textTransform','lineHeight'].forEach(function(prop){clone.style[prop]=cs[prop];});
+    document.body.appendChild(clone);
+    const width = clone.getBoundingClientRect().width;
+    clone.remove();
+    subtitle.style.width = Math.min(width, window.innerWidth - 32) + 'px';
+  }
+  window.addEventListener('load', alignSubtitle);
+  window.addEventListener('resize', alignSubtitle);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(alignSubtitle);
+})();
+</script>
 
 </body>
 
