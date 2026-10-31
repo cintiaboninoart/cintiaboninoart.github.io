@@ -960,6 +960,7 @@ header p.subtitle {
   max-width: calc(100vw - 32px);
 }
 
+</style>
 </head>
 
 <body>
@@ -1184,7 +1185,7 @@ function createGrid(selectedCategory="all"){
 
     const mediaWrap=document.createElement("div");
     mediaWrap.className="item-media";
-    if(p.title==="Coffee for One" || p.title==="Café para uno") mediaWrap.classList.add("white-art-cover");
+    if(/coffee for one|café para uno/i.test(p.title)) mediaWrap.classList.add("white-art-cover");
 
     let media;
 
@@ -1323,7 +1324,7 @@ content.innerHTML=`
   (p.images || []).forEach((src,index)=>{
     const mediaItem=document.createElement("div");
     mediaItem.className="project-media-item";
-    if(p.title==="Coffee for One" || p.title==="Café para uno") mediaItem.classList.add("white-art");
+    if(/coffee for one|café para uno/i.test(p.title)) mediaItem.classList.add("white-art");
     mediaGrid.appendChild(mediaItem);
 
     if(typeof src==="object"){
