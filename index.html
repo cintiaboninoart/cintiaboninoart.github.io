@@ -907,6 +907,14 @@ header > p:last-child{margin:5px 0 0 !important}
 .project-filters{margin-top:24px}
 @media(max-width:600px){.services-top{margin-bottom:18px}.services-top h2{margin-bottom:13px}.services-top ul{gap:9px}.services-top li{line-height:1.45}.project-filters{margin-top:20px}}
 </style>
+<style>
+.project-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start;margin-top:18px}
+.project-media-item{min-width:0;text-align:center}
+.project-media-item img,.project-media-item video,.project-media-item iframe{max-width:100%;width:100%;height:auto;max-height:75vh;object-fit:contain;display:block;margin:0 auto}
+.project-media-grid.single-media{grid-template-columns:1fr}
+.project-media-grid.single-media .project-media-item{width:min(100%,760px);justify-self:center}
+@media(max-width:650px){.project-media-grid{grid-template-columns:1fr;gap:12px}}
+</style>
 </head>
 <body>
 
@@ -1329,14 +1337,21 @@ content.innerHTML=`
 
 
 const body=content.querySelector(".modal-body");
+const mediaGrid=document.createElement("div");
+mediaGrid.className="project-media-grid";
+if(p.images.length===1) mediaGrid.classList.add("single-media");
+body.appendChild(mediaGrid);
 
 p.images.forEach((src, index)=>{
+  const mediaItem=document.createElement("div");
+  mediaItem.className="project-media-item";
+  mediaGrid.appendChild(mediaItem);
   if(typeof src==="object"){
     const iframe=document.createElement("iframe");
     iframe.src=`https://player.vimeo.com/video/${src.id}`;
     iframe.allow="autoplay; fullscreen; picture-in-picture";
     iframe.loading="lazy";
-    body.appendChild(iframe);
+    mediaItem.appendChild(iframe);
 
   }else if(src.endsWith(".mp4")){
     const video=document.createElement("video");
@@ -1344,7 +1359,7 @@ p.images.forEach((src, index)=>{
     video.controls=true;
     video.preload="metadata";
     video.playsInline=true;
-    body.appendChild(video);
+    mediaItem.appendChild(video);
 
   }else{
 const wrapper=document.createElement("div");
@@ -1373,7 +1388,7 @@ if(p.titles && p.titles[index]){
   wrapper.appendChild(caption);
 }
 
-body.appendChild(wrapper);
+mediaItem.appendChild(wrapper);
   }
 });
 
