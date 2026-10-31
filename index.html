@@ -1155,10 +1155,19 @@ header > p:last-child{margin:5px 0 0 !important}
   transition:opacity .18s ease;
 }
 .video-poster-overlay.is-hidden{opacity:0;}
-/* Music category: larger covers, without changing the all-projects gallery. */
+/* Music category: vertical 9:16 short previews, limited to this filter. */
 .grid.is-music-filter{
-  columns:clamp(340px,42vw,500px) !important;
+  columns:clamp(280px,32vw,380px) !important;
   column-gap:28px !important;
+}
+.grid.is-music-filter .item-video-media{
+  aspect-ratio:9 / 16 !important;
+  overflow:hidden;
+}
+.grid.is-music-filter .item-video-media > video,
+.grid.is-music-filter .item-video-media > .video-poster-overlay{
+  object-fit:cover !important;
+  aspect-ratio:9 / 16 !important;
 }
 @media(max-width:700px){
   .grid.is-music-filter{columns:1 !important;}
