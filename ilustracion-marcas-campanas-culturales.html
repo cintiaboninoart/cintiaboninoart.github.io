@@ -30,10 +30,10 @@
 .brand-modal-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-items:start}
 .brand-modal-gallery img{display:block;width:100%;height:auto;max-height:85vh;object-fit:contain;margin:0;padding:0}
 .brand-modal-gallery img.brand-landscape{grid-column:1 / -1}
-.brand-modal-gallery img.brand-square-centered{grid-column:1 / -1;width:min(72%,760px);justify-self:center}
+.brand-modal-gallery img.brand-square-centered,.brand-modal-gallery img.brand-centered{grid-column:1 / -1;width:min(72%,760px);justify-self:center}
 .brand-modal-gallery:has(img:only-child){grid-template-columns:1fr}
 .brand-modal-gallery:has(img:only-child) img{width:min(75%,760px);justify-self:center}
-@media(max-width:600px){.brand-modal-gallery{grid-template-columns:1fr}.brand-modal-gallery img.brand-landscape{grid-column:1}.brand-modal-gallery img.brand-square-centered{grid-column:1;width:min(85%,760px)}}
+@media(max-width:600px){.brand-modal-gallery{grid-template-columns:1fr}.brand-modal-gallery img.brand-landscape{grid-column:1}.brand-modal-gallery img.brand-square-centered,.brand-modal-gallery img.brand-centered{grid-column:1;width:min(85%,760px)}}
 .brand-close{position:fixed;top:10px;right:22px;border:0;background:none;color:white;font-size:42px;cursor:pointer;line-height:1}
 @media(max-width:600px){.brand-modal-gallery{columns:1}.brand-modal{padding:54px 12px 20px}}
 </style>
@@ -98,7 +98,8 @@ const projectImages=[...gallery.querySelectorAll("img")];
 projectImages.forEach((img,index)=>{
   img.addEventListener("load",()=>{
     if(img.naturalWidth>img.naturalHeight*1.12) img.classList.add("brand-landscape");
-    else if(img.naturalWidth>=img.naturalHeight*.88 && projectImages[index+1]){
+    else img.classList.add("brand-centered");
+    if(img.naturalWidth>=img.naturalHeight*.88 && projectImages[index+1]){
       const next=projectImages[index+1];
       const centerIfNextIsLandscape=()=>{
         if(next.naturalWidth>next.naturalHeight*1.12) img.classList.add("brand-square-centered");
