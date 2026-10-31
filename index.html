@@ -1488,7 +1488,10 @@ function createGrid(selectedCategory="all"){
 
   // Keep the preview box in the video's native ratio once metadata is available.
   media.addEventListener("loadedmetadata",()=>{
-    if(media.videoWidth && media.videoHeight){
+    if(p.title === "NO SÉ" && p.category === "music"){
+      // NO SÉ is presented as a vertical short in the music category.
+      mediaWrap.style.aspectRatio = "9 / 16";
+    }else if(media.videoWidth && media.videoHeight){
       mediaWrap.style.aspectRatio = media.videoWidth + " / " + media.videoHeight;
     }
   });
