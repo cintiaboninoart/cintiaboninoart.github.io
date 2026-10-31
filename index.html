@@ -294,12 +294,13 @@ box-shadow:6px 6px 0 #000;
 }
 
 .modal-body img{
-  width:100%;
+  width:auto;
   height:auto;
-  max-height:80vh;
+  max-width:100%;
+  max-height:75vh;
   object-fit:contain;
   display:block;
-  margin-bottom:8px;   /* 👈 reduce espacio */
+  margin:0 auto 8px;
 }
 .modal-body{
 padding:18px;
@@ -307,11 +308,14 @@ background:#111;
 color:#fff;
 text-align:center;
 }
- .modal-body video{
-  width:100%;
+.modal-body video{
+  width:auto;
   height:auto;
+  max-width:100%;
+  max-height:75vh;
+  object-fit:contain;
   display:block;
-  margin-bottom:30px;
+  margin:0 auto 24px;
 }
 
 .modal-body iframe{
