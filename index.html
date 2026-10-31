@@ -1034,6 +1034,87 @@ header > p:last-child{margin:5px 0 0 !important}
 }
 </style>
 
+
+<style>
+/* Fixed category bar below the main navigation; more breathing room in the intro. */
+.project-filters{
+  position:fixed !important;
+  top:50px !important;
+  left:0;
+  right:0;
+  z-index:999 !important;
+  box-sizing:border-box;
+  width:100%;
+  max-width:none !important;
+  min-height:54px;
+  margin:0 !important;
+  padding:12px 22px !important;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px 12px !important;
+  background:rgba(255,255,255,.98);
+  border-bottom:1px solid #e5e5e5;
+}
+.project-filters button{
+  padding:8px 12px !important;
+  font-size:10px !important;
+}
+.intro-layout{
+  margin-top:44px !important;
+  margin-bottom:28px !important;
+  padding:0 34px !important;
+  gap:48px !important;
+  align-items:center;
+}
+.intro-layout .services-top{flex-basis:46%;max-width:650px !important}
+.intro-layout .services-top h2{margin-bottom:16px !important}
+.intro-layout .services-top ul{gap:10px !important}
+.intro-layout .services-top li{font-size:12px !important;line-height:1.55 !important}
+.intro-layout header{flex-basis:54%;padding:12px 0 !important}
+.intro-layout header .title,
+.intro-layout header h1{margin-bottom:10px !important}
+.intro-layout header .subtitle,
+.intro-layout header p.subtitle{line-height:1.55 !important}
+.intro-layout header .tagline,
+.intro-layout header p.tagline{margin-top:9px !important}
+.intro-layout header > p:last-child{margin-top:12px !important}
+.grid{margin-top:20px !important}
+@media(max-width:850px){
+  .project-filters{top:43px !important;min-height:48px;padding:9px 12px !important;gap:7px 9px !important}
+  .intro-layout{gap:24px !important;padding:0 20px !important;margin-top:34px !important}
+}
+@media(max-width:760px){
+  .project-filters{
+    top:43px !important;
+    min-height:44px;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+    padding:8px 12px !important;
+  }
+  .project-filters::-webkit-scrollbar{display:none}
+  .project-filters button{flex:0 0 auto}
+  .intro-layout{margin-top:28px !important;gap:22px !important}
+  .intro-layout .services-top ul{gap:9px !important}
+  .intro-layout .services-top li{font-size:11px !important;line-height:1.45 !important}
+  .intro-layout header{padding:8px 0 !important}
+  .intro-layout header .title,.intro-layout header h1{margin-bottom:7px !important}
+  .intro-layout header .subtitle,.intro-layout header p.subtitle{line-height:1.4 !important}
+  .grid{margin-top:16px !important}
+}
+@media(max-width:480px){
+  .intro-layout{gap:16px !important;padding:0 12px !important;margin-top:24px !important}
+  .intro-layout .services-top h2{margin-bottom:11px !important}
+  .intro-layout .services-top ul{gap:8px !important}
+  .intro-layout .services-top li{font-size:10px !important;line-height:1.4 !important}
+  .intro-layout header .title,.intro-layout header h1{font-size:clamp(24px,7vw,32px) !important}
+}
+</style>
+
 </head>
 <body>
 
