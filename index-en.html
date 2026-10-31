@@ -1184,6 +1184,45 @@ header p.subtitle {
 }
 </style>
 
+
+<style>
+/* Video previews always have a visible fallback instead of a black empty frame. */
+.item-video-media{
+  background:#efefef !important;
+  aspect-ratio:16 / 9;
+}
+.item-media.item-video-media > video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  display:block;
+  object-fit:contain;
+  background:#efefef !important;
+}
+.item-media.item-video-media > .video-poster-overlay{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  pointer-events:none;
+  transition:opacity .18s ease;
+}
+.video-poster-overlay.is-hidden{opacity:0;}
+/* Music category: larger covers, without changing the all-projects gallery. */
+.grid.is-music-filter{
+  columns:clamp(340px,42vw,500px) !important;
+  column-gap:28px !important;
+}
+@media(max-width:700px){
+  .grid.is-music-filter{columns:1 !important;}
+}
+</style>
 </head>
 
 <body>
@@ -1238,7 +1277,7 @@ const projects=[
 {
   title:"Huggin & Kissin",category:"music",pageUrl:"/huggin-and-kissin-en.html",
   description:"Artist-led 2D animated music video combining illustration, rhythm and movement in a distinctive visual interpretation.",
-  cover:"fusion corto.mp4",
+  cover:"HAGGIN REDES.mp4",
   instagram:"https://www.instagram.com/reel/DemAy8OMvv-/?rpxt=MWVyYWNxeGJ4eWlxMg==",
   images:[
     {type:"vimeo",id:"1236794947"}
@@ -1247,12 +1286,21 @@ const projects=[
 {
   title:"A Brief History of Colonisation",category:"music",pageUrl:"/breve-historia-de-una-colonizacion-en.html",
   description:"An artist-led animated music video exploring colonisation and historical memory through illustration and visual storytelling.",
-  cover:"RECORTE BREVE HISTORIA.mp4",
+  cover:"COLONIZACION REDES.mov",
   instagram:"https://www.instagram.com/reel/DY2VHYTMMlU/?obrf=azVjM3V3NnpsaDl5",
   images:[
     {type:"vimeo",id:"1161767177"}
   ]
 },
+{
+  title:"NO SÉ",category:"music",pageUrl:"/no-se-en.html",
+  description:"Illustrated cover artwork and 2D animation for a music release.",
+  cover:"NO SÉ REDES.mp4",
+  images:[
+    {type:"vimeo",id:"1240804248"}
+  ]
+},
+
 {title:"First show",category:"editorial",description:"Visual storytelling exploring music and performance.",cover:"primer show1.webp",images:["secuencia primer show.png"]},
 {title:"Welcome to the Community",category:"editorial",description:"A personal visual storytelling project inspired by Samanta Schweblin’s short story “Bienvenida a la comunidad,” from the collection El buen mal.",cover:"bienvenida2.webp",images:["secuencia bienvenida.png"]},
 {
@@ -1312,7 +1360,7 @@ titles:[
 {
   title:"Amanecen Ocasos",category:"music",pageUrl:"/amanecen-ocasos-en.html",
   description:"An artist-led animated music video translating music into illustrated sequences and movement.",
-  cover:"AMANECEN OCASOS.mp4",
+  cover:"AMANECEN REDES.mov",
   instagram:"https://www.instagram.com/reel/DUBvm17DM6s/?mdxt=MXNkeGh0NmxzbHQyOA==",
   images:[
     {type:"vimeo",id:"1158888775"}
@@ -1342,9 +1390,62 @@ titles:[
 ]}
 ];
 
+function isVideoAsset(value){ return /\.(mp4|mov|webm)$/i.test(String(value || "")); }
+
+function escapeSvgText(value){
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&apos;");
+}
+
+function makeVideoPoster(title, category){
+  const words = String(title).split(/\s+/);
+  const lines = [];
+  let line = "";
+  words.forEach(word => {
+    const candidate = line ? line + " " + word : word;
+    if (candidate.length > 25 && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = candidate;
+    }
+  });
+  if (line) lines.push(line);
+  const visibleLines = lines.slice(0, 2);
+  const titleMarkup = visibleLines.map((part, index) => {
+    return '<tspan x="76" dy="' + (index === 0 ? 0 : 1.12) + 'em">' + escapeSvgText(part) + '</tspan>';
+  }).join("");
+  const categoryLabel = category === "music" ? "ANIMATED MUSIC VIDEO" : "ARTIST-LED ANIMATION";
+  const svg =
+    '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">' +
+    '<rect width="1200" height="675" fill="#efefef"/>' +
+    '<rect x="30" y="30" width="1140" height="615" fill="none" stroke="#111" stroke-width="8"/>' +
+    '<rect x="30" y="30" width="1140" height="16" fill="#9CFF2E"/>' +
+    '<text x="76" y="105" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" letter-spacing="4" fill="#111">CINTIA BONINO / PORTFOLIO</text>' +
+    '<text x="76" y="285" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="900" fill="#111">' + titleMarkup + '</text>' +
+    '<line x1="76" y1="430" x2="720" y2="430" stroke="#111" stroke-width="5"/>' +
+    '<text x="76" y="490" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="2" fill="#555">' + categoryLabel + '</text>' +
+    '<text x="76" y="580" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="3" fill="#555">VISTA PREVIA</text>' +
+    '<circle cx="1000" cy="325" r="82" fill="#9CFF2E" stroke="#111" stroke-width="8"/>' +
+    '<path d="M980 270 L1043 325 L980 380 Z" fill="#111"/>' +
+    '</svg>';
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+}
+
+let videoPreviewObserver = null;
+
 function createGrid(selectedCategory="all"){
+  if (videoPreviewObserver) {
+    videoPreviewObserver.disconnect();
+    videoPreviewObserver = null;
+  }
   const grid=document.getElementById("grid");
   grid.innerHTML="";
+  grid.classList.toggle("is-music-filter", selectedCategory === "music");
   let visibleIndex=0;
 
   projects.forEach((p,i)=>{
@@ -1368,28 +1469,53 @@ function createGrid(selectedCategory="all"){
 
     const mediaWrap=document.createElement("div");
     mediaWrap.className="item-media";
-    if(/coffee for one|café para uno/i.test(p.title)) mediaWrap.classList.add("white-art-cover");
+    if(p.title==="Café para uno") mediaWrap.classList.add("white-art-cover");
 
     let media;
 
-if(p.cover.toLowerCase().endsWith(".mp4")){
+    if(isVideoAsset(p.cover)){
   media=document.createElement("video");
   mediaWrap.classList.add("item-video-media");
-
-  media.autoplay=true;
   media.muted=true;
   media.loop=true;
   media.playsInline=true;
+  media.controls=false;
   media.preload = previewIndex < 2 ? "metadata" : "none";
+  media.setAttribute("aria-label", p.title + " — video preview");
+
+  // Use a real IMG overlay, not video.poster: some browsers leave poster data URLs blank.
+  const videoPoster=document.createElement("img");
+  videoPoster.className="video-poster-overlay";
+  videoPoster.alt="";
+  videoPoster.setAttribute("aria-hidden","true");
+  videoPoster.decoding="async";
+  videoPoster.src=makeVideoPoster(p.title,p.category);
+
+  // Keep the preview box in the video's native ratio once metadata is available.
+  media.addEventListener("loadedmetadata",()=>{
+    if(media.videoWidth && media.videoHeight){
+      mediaWrap.style.aspectRatio = media.videoWidth + " / " + media.videoHeight;
+    }
+  });
+  media.addEventListener("playing",()=>{
+    videoPoster.classList.add("is-hidden");
+  },{once:true});
+  media.addEventListener("error",()=>{
+    videoPoster.classList.remove("is-hidden");
+  });
+
+  // Preserve the title cover when autoplay fails or video data is still loading.
+  mediaWrap.appendChild(media);
+  mediaWrap.appendChild(videoPoster);
+
   if(previewIndex < 2){
     media.src=p.cover;
   }else{
     media.dataset.src=p.cover;
-    media.classList.add("lazy-video");
   }
 }
 
- 
+   
 else{
   media=document.createElement("img");
   // Set intrinsic dimensions as soon as metadata is available to help Lighthouse avoid layout shifts.
@@ -1399,41 +1525,34 @@ else{
       media.height = media.naturalHeight;
     }
   }, { once: true });
-  media.src=p.cover;
   media.loading = previewIndex === 0 ? "eager" : "lazy";
   media.decoding="async";
-
-  // Reserve layout space after intrinsic dimensions become available and prioritize only the first image.
-  if (previewIndex === 0) {
-    media.fetchPriority = "high";
-  } else {
-    media.fetchPriority = "auto";
-  }
+  media.fetchPriority = previewIndex === 0 ? "high" : "auto";
+  media.src=p.cover;
 
   const categoryLabels = {editorial:"editorial illustration",brands:"cultural campaigns",music:"animated music video",author:"artist-led 2D animation"};
-  media.alt = `${p.title} — ${categoryLabels[p.category] || "visual project"}: ${p.description} — Cintia Bonino`;
+  media.alt = `${p.title} — ${categoryLabels[p.category] || "proyecto visual"}: ${p.description} — Cintia Bonino`;
 }
 
 
-
-    mediaWrap.appendChild(media);
-
-    const overlay=document.createElement("div");
-    overlay.className="item-overlay";
-    overlay.innerHTML=`
-    <div class="window-bar">
-      <div class="window-dots">
-        <span></span><span></span><span></span>
-      </div>
-      ${p.title}.exe
-    </div>
-    <span>${p.title}</span>
-    `;
-
-    mediaWrap.appendChild(overlay);
+    if(!isVideoAsset(p.cover)){
+      mediaWrap.appendChild(media);
+    }
     item.appendChild(mediaWrap);
+const overlay=document.createElement("div");
+overlay.className="item-overlay";
+overlay.innerHTML=`
+  <div class="window-bar">
+    <div class="window-dots">
+      <span></span><span></span><span></span>
+    </div>
+    ${p.title}.exe
+  </div>
+  <span>${p.title}</span>
+`;
 
-    
+mediaWrap.appendChild(overlay);
+ 
 const caption=document.createElement("div");
 caption.className="project-caption";
 caption.innerHTML=`
@@ -1446,28 +1565,34 @@ item.appendChild(caption);
 grid.appendChild(item);
   });
 
-  // Defer loading videos until they approach the viewport.
-  const lazyVideos = grid.querySelectorAll("video.lazy-video[data-src]");
+  // Load video files only near the viewport, and pause previews when they scroll away.
+  const previewVideos = grid.querySelectorAll("video");
   if ("IntersectionObserver" in window) {
-    const videoObserver = new IntersectionObserver(entries => {
+    videoPreviewObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
         const video = entry.target;
+        if (entry.isIntersecting) {
+          if (video.dataset.src) {
+            video.src = video.dataset.src;
+            delete video.dataset.src;
+            video.load();
+          }
+          const playAttempt = video.play();
+          if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { rootMargin: "220px 0px", threshold: 0.12 });
+    previewVideos.forEach(video => videoPreviewObserver.observe(video));
+  } else {
+    previewVideos.forEach(video => {
+      if (video.dataset.src) {
         video.src = video.dataset.src;
         delete video.dataset.src;
+        video.preload = "metadata";
         video.load();
-        const playAttempt = video.play();
-        if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
-        video.classList.remove("lazy-video");
-        videoObserver.unobserve(video);
-      });
-    }, { rootMargin: "300px 0px" });
-    lazyVideos.forEach(video => videoObserver.observe(video));
-  } else {
-    lazyVideos.forEach(video => {
-      video.src = video.dataset.src;
-      delete video.dataset.src;
-      video.load();
+      }
     });
   }
 }
@@ -1518,7 +1643,7 @@ content.innerHTML=`
       iframe.allowFullscreen=true;
       iframe.loading="lazy";
       mediaItem.appendChild(iframe);
-    }else if(p.cover && p.cover.endsWith(".mp4")){
+    }else if(isVideoAsset(src)){
       const video=document.createElement("video");
       video.addEventListener("loadedmetadata",()=>{if(video.videoWidth>video.videoHeight*1.12)mediaItem.classList.add("landscape");},{once:true});
       video.src=src;
