@@ -820,6 +820,11 @@ header .tagline, header p.tagline{
 </style>
 
 <style>
+/* Coffee for one: use a white project background instead of the default black modal. */
+.modal-body.white-art-project{background:#fff !important;color:#111 !important}
+</style>
+
+<style>
 /* Compact homepage, preserving masonry columns and image proportions */
 header{max-width:1600px;padding:82px 20px 10px;border-bottom:0}
 header .title,header h1{margin-bottom:3px !important}
@@ -1291,6 +1296,7 @@ content.innerHTML=`
 
 
   const body=content.querySelector(".modal-body");
+  if(/coffee for one|café para uno/i.test(p.title)) body.classList.add("white-art-project");
   const mediaGrid=document.createElement("div");
   mediaGrid.className="project-media-grid";
   if((p.images || []).length===1) mediaGrid.classList.add("single-media");
