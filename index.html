@@ -1125,6 +1125,45 @@ header > p:last-child{margin:5px 0 0 !important}
 }
 </style>
 
+
+<style>
+/* Video previews always have a visible fallback instead of a black empty frame. */
+.item-video-media{
+  background:#efefef !important;
+  aspect-ratio:16 / 9;
+}
+.item-media.item-video-media > video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  display:block;
+  object-fit:contain;
+  background:#efefef !important;
+}
+.item-media.item-video-media > .video-poster-overlay{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  pointer-events:none;
+  transition:opacity .18s ease;
+}
+.video-poster-overlay.is-hidden{opacity:0;}
+/* Music category: larger covers, without changing the all-projects gallery. */
+.grid.is-music-filter{
+  columns:clamp(340px,42vw,500px) !important;
+  column-gap:28px !important;
+}
+@media(max-width:700px){
+  .grid.is-music-filter{columns:1 !important;}
+}
+</style>
 </head>
 <body>
 
@@ -1178,7 +1217,7 @@ const projects=[
 {
   title:"Huggin & Kissin",category:"music",pageUrl:"/huggin-and-kissin.html",
   description:"Videoclip musical animado en 2D, con una interpretación visual de autor que combina ilustración, ritmo y movimiento.",
-  cover:"fusion corto.mp4",
+  cover:"HAGGIN REDES.mp4",
   instagram:"https://www.instagram.com/reel/DemAy8OMvv-/?rpxt=MWVyYWNxeGJ4eWlxMg==",
   images:[
     {type:"vimeo",id:"1236794947"}
@@ -1188,13 +1227,22 @@ const projects=[
 {
   title:"Breve historia de una colonización",category:"music",pageUrl:"/breve-historia-de-una-colonizacion.html",
   description:"Videoclip animado de autor que aborda la colonización y la memoria histórica mediante ilustración y narrativa visual.",
-  cover:"RECORTE BREVE HISTORIA.mp4",
+  cover:"COLONIZACION REDES.mov",
   instagram:"https://www.instagram.com/reel/DY2VHYTMMlU/?obrf=azVjM3V3NnpsaDl5",
   images:[
     {type:"vimeo",id:"1161767177"}
   ]
 },
  
+{
+  title:"NO SÉ",category:"music",pageUrl:"/no-se.html",
+  description:"Ilustración de portada y animación 2D para un lanzamiento musical.",
+  cover:"NO SÉ REDES.mp4",
+  images:[
+    {type:"vimeo",id:"1240804248"}
+  ]
+},
+
 {title:"Primer show",category:"editorial",description:"Narrativa visual en torno a la música y la performance.",cover:"primer show1.webp",images:["secuencia primer show.png"]},
 
 {title:"Bienvenida a la comunidad",category:"editorial",description:"Trabajo personal de narrativa visual inspirado en el cuento «Bienvenida a la comunidad», de Samanta Schweblin, incluido en «El buen mal».",cover:"bienvenida2.webp",images:["secuencia bienvenida.png"]},
@@ -1278,7 +1326,7 @@ titles:[
 {
   title:"Amanecen Ocasos",category:"music",pageUrl:"/amanecen-ocasos.html",
   description:"Videoclip animado de autor que traduce la música en una secuencia de imágenes ilustradas y movimiento.",
-  cover:"AMANECEN OCASOS.mp4",
+  cover:"AMANECEN REDES.mov",
   instagram:"https://www.instagram.com/reel/DUBvm17DM6s/?mdxt=MXNkeGh0NmxzbHQyOA==",
   images:[
     {type:"vimeo",id:"1158888775"}
@@ -1313,6 +1361,8 @@ titles:[
 ]}
 
 ];
+
+function isVideoAsset(value){ return /\.(mp4|mov|webm)$/i.test(String(value || "")); }
 
 function escapeSvgText(value){
   return String(value)
@@ -1394,7 +1444,7 @@ function createGrid(selectedCategory="all"){
 
     let media;
 
-    if(p.cover.toLowerCase().endsWith(".mp4")){
+    if(isVideoAsset(p.cover)){
   media=document.createElement("video");
   mediaWrap.classList.add("item-video-media");
   media.muted=true;
@@ -1456,7 +1506,7 @@ else{
 }
 
 
-    if(!p.cover.toLowerCase().endsWith(".mp4")){
+    if(!isVideoAsset(p.cover)){
       mediaWrap.appendChild(media);
     }
     item.appendChild(mediaWrap);
@@ -1563,7 +1613,7 @@ p.images.forEach((src, index)=>{
     iframe.loading="lazy";
     mediaItem.appendChild(iframe);
 
-  }else if(src.endsWith(".mp4")){
+  }else if(isVideoAsset(src)){
     const video=document.createElement("video");
     video.addEventListener("loadedmetadata",()=>{if(video.videoWidth>video.videoHeight*1.12)mediaItem.classList.add("landscape");},{once:true});
     video.src=src;
