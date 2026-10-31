@@ -804,6 +804,31 @@ header .tagline, header p.tagline{
 .project-filters{margin-top:24px}
 @media(max-width:600px){.services-top{margin-bottom:18px}.services-top h2{margin-bottom:13px}.services-top ul{gap:9px}.services-top li{line-height:1.45}.project-filters{margin-top:20px}}
 
+
+/* Experimental compact masonry: landscape artwork spans two columns. */
+.grid:not(.is-music-filter){
+  display:grid !important;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));
+  grid-auto-rows:8px;
+  grid-auto-flow:row dense;
+  column-count:initial !important;
+  columns:initial !important;
+  column-gap:20px;
+  row-gap:16px;
+  align-items:start;
+}
+.grid:not(.is-music-filter) > .item{
+  width:100%;
+  min-width:0;
+  margin:0 !important;
+  break-inside:initial;
+  grid-row-end:span var(--masonry-rows,30);
+}
+.grid:not(.is-music-filter) > .item.is-landscape-cover{grid-column:span 2;}
+@media(max-width:620px){
+  .grid:not(.is-music-filter){grid-template-columns:1fr;}
+  .grid:not(.is-music-filter) > .item.is-landscape-cover{grid-column:span 1;}
+}
 </style>
 
 <style>
@@ -1464,6 +1489,25 @@ function makeVideoPoster(title, category){
 
 let videoPreviewObserver = null;
 
+function updateCompactMasonry(grid){
+  if(!grid || grid.classList.contains("is-music-filter")) return;
+  const rowStep=24; // 8px auto-row + 16px row gap
+  grid.querySelectorAll(":scope > .item").forEach(item=>{
+    const media=item.querySelector(".item-media > img, .item-media > video");
+    if(!media) return;
+    const w=media.tagName==="VIDEO" ? media.videoWidth : media.naturalWidth;
+    const h=media.tagName==="VIDEO" ? media.videoHeight : media.naturalHeight;
+    if(w && h){
+      item.classList.toggle("is-landscape-cover", w/h > 1.25 && window.innerWidth > 620);
+      requestAnimationFrame(()=>{
+        const height=item.getBoundingClientRect().height;
+        item.style.setProperty("--masonry-rows", Math.max(1,Math.ceil((height+16)/rowStep)));
+      });
+    }
+  });
+}
+
+
 function createGrid(selectedCategory="all"){
   if (videoPreviewObserver) {
     videoPreviewObserver.disconnect();
@@ -1519,6 +1563,7 @@ function createGrid(selectedCategory="all"){
 
   // Keep the preview box in the video's native ratio once metadata is available.
   media.addEventListener("loadedmetadata",()=>{
+    updateCompactMasonry(document.getElementById("grid"));
     if(media.videoWidth && media.videoHeight){
       mediaWrap.style.aspectRatio = media.videoWidth + " / " + media.videoHeight;
     }
@@ -1546,6 +1591,7 @@ else{
   media=document.createElement("img");
   // Set intrinsic dimensions as soon as metadata is available to help Lighthouse avoid layout shifts.
   media.addEventListener("load", () => {
+    updateCompactMasonry(document.getElementById("grid"));
     if (media.naturalWidth && media.naturalHeight) {
       media.width = media.naturalWidth;
       media.height = media.naturalHeight;
@@ -1590,6 +1636,12 @@ item.appendChild(caption);
 
 grid.appendChild(item);
   });
+
+  updateCompactMasonry(grid);
+  if(!grid._masonryResizeObserver && "ResizeObserver" in window){
+    grid._masonryResizeObserver=new ResizeObserver(()=>updateCompactMasonry(grid));
+    grid._masonryResizeObserver.observe(grid);
+  }
 
   // Load video files only near the viewport, and pause previews when they scroll away.
   const previewVideos = grid.querySelectorAll("video");
