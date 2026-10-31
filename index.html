@@ -1404,7 +1404,7 @@ mediaItem.appendChild(wrapper);
 });
 const mediaItems=[...mediaGrid.querySelectorAll(".project-media-item")];
 mediaItems.forEach((item,index)=>{
-  if(item.classList.contains("square") && mediaItems[index+1] && mediaItems[index+1].classList.contains("landscape")) item.classList.add("center-square");
+  if(item.classList.contains("square") && (index===0 || (mediaItems[index+1] && mediaItems[index+1].classList.contains("landscape")))) item.classList.add("center-square");
 });
 
 modal.style.display="block";
