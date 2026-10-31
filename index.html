@@ -1492,8 +1492,12 @@ function createGrid(selectedCategory="all"){
   // Keep the preview box in the video's native ratio once metadata is available.
   media.addEventListener("loadedmetadata",()=>{
     if(p.title === "NO SÉ" && p.category === "music"){
-      // NO SÉ is presented as a vertical short in the music category.
+      // Fill the vertical preview: the source file is landscape, so contain would leave it small.
       mediaWrap.style.aspectRatio = "9 / 16";
+      media.style.width = "100%";
+      media.style.height = "100%";
+      media.style.objectFit = "cover";
+      media.style.objectPosition = "center";
     }else if(media.videoWidth && media.videoHeight){
       mediaWrap.style.aspectRatio = media.videoWidth + " / " + media.videoHeight;
     }
