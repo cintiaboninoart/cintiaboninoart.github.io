@@ -1490,6 +1490,7 @@ function createGrid(selectedCategory="all"){
     videoPreviewObserver = null;
   }
   const grid=document.getElementById("grid");
+  grid.classList.toggle("is-music-filter", selectedCategory === "music");
   grid.innerHTML="";
   let visibleIndex=0;
 
