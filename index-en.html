@@ -1214,10 +1214,20 @@ header p.subtitle {
   transition:opacity .18s ease;
 }
 .video-poster-overlay.is-hidden{opacity:0;}
-/* Music category: vertical 9:16 short previews, limited to this filter. */
+/* Music category: four vertical shorts in one row on desktop. */
 .grid.is-music-filter{
-  columns:clamp(280px,32vw,380px) !important;
-  column-gap:28px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  columns:unset !important;
+  column-gap:0 !important;
+  gap:20px !important;
+  align-items:start;
+}
+.grid.is-music-filter > .item{
+  width:100%;
+  min-width:0;
+  margin:0 !important;
+  padding:8px;
 }
 .grid.is-music-filter .item-video-media{
   aspect-ratio:9 / 16 !important;
@@ -1225,11 +1235,16 @@ header p.subtitle {
 }
 .grid.is-music-filter .item-video-media > video,
 .grid.is-music-filter .item-video-media > .video-poster-overlay{
+  width:100%;
+  height:100%;
   object-fit:cover !important;
   aspect-ratio:9 / 16 !important;
 }
-@media(max-width:700px){
-  .grid.is-music-filter{columns:1 !important;}
+@media(max-width:900px){
+  .grid.is-music-filter{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:16px !important;}
+}
+@media(max-width:560px){
+  .grid.is-music-filter{grid-template-columns:1fr !important;}
 }
 </style>
 </head>
