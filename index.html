@@ -242,6 +242,7 @@ border:2px solid #cfcfcf;
 }
 .video-poster-overlay.is-hidden{opacity:0;}
 
+.item-media.white-art-cover,.item-media.white-art-cover img{background:#fff}
 .item-media img,
 .item-media video{
 width:100%;
@@ -1188,6 +1189,7 @@ function createGrid(selectedCategory="all"){
 
     const mediaWrap=document.createElement("div");
     mediaWrap.className="item-media";
+    if(p.title==="Café para uno") mediaWrap.classList.add("white-art-cover");
 
     let media;
 
