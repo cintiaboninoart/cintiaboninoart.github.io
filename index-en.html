@@ -110,11 +110,6 @@ background:#fff;border-bottom:1px solid #e5e5e5;z-index:1000;
 max-width:1400px;margin:auto;padding:12px 24px;
 display:flex;justify-content:flex-end;align-items:center;gap:10px;flex-wrap:wrap;
 }
-.nav-service-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:10px}
-.nav-inner a.service-nav{background:#9CFF2E;border-color:#111;font-weight:700;letter-spacing:.5px}
-.nav-inner a.service-nav:hover{background:#111;color:#9CFF2E}
-@media(max-width:850px){.nav-inner{justify-content:center}.nav-service-links{width:100%;justify-content:center;margin-left:0}}
-@media(max-width:600px){.nav-inner{padding:10px 12px;gap:6px}.nav-inner a{font-size:10px;padding:6px 8px}.nav-service-links{gap:6px}.nav-inner a.service-nav{font-size:10px}}
 .nav-inner a{
 text-decoration:none;color:#111;font-size:12px;
 letter-spacing:1.6px;text-transform:uppercase;
@@ -800,6 +795,16 @@ header .tagline, header p.tagline{
   transform:none !important;
   box-shadow:none !important;
 }
+
+/* Services: clearer hierarchy and more breathing room before categories. */
+.services-top{margin-top:4px;margin-bottom:22px}
+.services-top h2{margin-bottom:15px}
+.services-top ul{display:flex;flex-direction:column;gap:10px}
+.services-top li{margin:0;font-weight:700;letter-spacing:.15px;line-height:1.5}
+.services-top a{font-weight:800;text-decoration-thickness:2px}
+.project-filters{margin-top:24px}
+@media(max-width:600px){.services-top{margin-bottom:18px}.services-top h2{margin-bottom:13px}.services-top ul{gap:9px}.services-top li{line-height:1.45}.project-filters{margin-top:20px}}
+
 </style>
 
 <style>
@@ -970,8 +975,6 @@ header p.subtitle {
 <a href="index-en.html">Selected work</a>
 <a href="about-en.html">About</a>
 <a href="contact-en.html">Contact</a>
-
-<div class="nav-service-links"><a class="service-nav" href="/editorial-illustration.html">Editorial illustration</a><a class="service-nav" href="/illustration-for-brands-and-cultural-campaigns.html">Brands &amp; cultural campaigns</a><a class="service-nav" href="/authorial-and-conceptual-2d-animation.html">Authorial 2D animation</a><a class="service-nav" href="/animated-music-videos.html">Music &amp; animation</a></div>
 </div>
 </nav>
 
@@ -994,8 +997,8 @@ header p.subtitle {
 <h2>Services</h2>
 <ul>
 <li><a href="/editorial-illustration.html">Editorial illustration ↗</a></li>
-<li>Illustration for brands and cultural campaigns</li>
-<li>Conceptual 2D animation</li>
+<li><a href="/illustration-for-brands-and-cultural-campaigns.html">Illustration for brands and cultural campaigns ↗</a></li>
+<li><a href="/authorial-and-conceptual-2d-animation.html">Authorial and conceptual 2D animation ↗</a></li>
 <li><a href="/animated-music-videos.html">Artist-led animated music videos for musicians ↗</a></li>
 </ul>
 </aside>
