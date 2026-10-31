@@ -921,6 +921,119 @@ header > p:last-child{margin:5px 0 0 !important}
 @media(max-width:650px){.project-media-grid{grid-template-columns:1fr;gap:6px;margin-left:-12px;margin-right:-12px}.project-media-item.landscape,.project-media-item.wide-media{grid-column:1}.project-media-item.center-square,.project-media-item.center-media{grid-column:1;width:min(85%,760px)}}
 
 </style>
+
+<style>
+/* Compact homepage hierarchy: categories first, services left, identity right. */
+.project-filters{
+  box-sizing:border-box;
+  max-width:1600px;
+  margin:54px auto 0 !important;
+  padding:0 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px 7px;
+}
+.project-filters button{padding:5px 9px;font-size:10px;line-height:1.25}
+.intro-layout{
+  box-sizing:border-box;
+  width:100%;
+  max-width:1600px;
+  margin:13px auto 8px !important;
+  padding:0 24px !important;
+  display:flex !important;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.intro-layout .services-top{
+  flex:0 1 44%;
+  width:auto !important;
+  max-width:620px !important;
+  margin:0 !important;
+  text-align:left !important;
+}
+.intro-layout .services-top h2{margin:0 0 7px !important;display:block;text-align:left}
+.intro-layout .services-top ul{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  gap:4px !important;
+}
+.intro-layout .services-top li{
+  width:auto !important;
+  margin:0 !important;
+  text-align:left !important;
+  font-size:11px !important;
+  line-height:1.35 !important;
+}
+.intro-layout header{
+  flex:1 1 56%;
+  width:auto;
+  min-width:0;
+  max-width:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  text-align:right !important;
+  border:0 !important;
+}
+.intro-layout header .title,
+.intro-layout header h1{
+  margin-left:auto !important;
+  margin-right:0 !important;
+}
+.intro-layout header .subtitle,
+.intro-layout header p.subtitle{
+  width:auto !important;
+  max-width:100% !important;
+  margin-left:auto !important;
+  margin-right:0 !important;
+  text-align:right !important;
+  text-align-last:right !important;
+}
+.intro-layout header .tagline,
+.intro-layout header p.tagline{margin-left:auto !important;margin-right:0 !important}
+.intro-layout header > p:last-child{margin-top:4px !important}
+.grid{margin-top:10px !important}
+@media(max-width:760px){
+  .project-filters{
+    margin-top:54px !important;
+    padding:0 10px;
+    justify-content:flex-start;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    scrollbar-width:none;
+    white-space:nowrap;
+  }
+  .project-filters::-webkit-scrollbar{display:none}
+  .project-filters button{flex:0 0 auto}
+  .intro-layout{
+    margin:12px auto 6px !important;
+    padding:0 14px !important;
+    align-items:flex-start;
+    gap:14px;
+  }
+  .intro-layout .services-top{flex:0 1 48%}
+  .intro-layout .services-top li{font-size:10px !important}
+  .intro-layout header{flex:1 1 52%}
+  .intro-layout header .title, .intro-layout header h1{font-size:clamp(28px,6vw,40px) !important}
+  .intro-layout header .subtitle, .intro-layout header p.subtitle{font-size:10px !important;line-height:1.3 !important}
+  .intro-layout header .tagline, .intro-layout header p.tagline{font-size:11px !important}
+  .intro-layout header > p:last-child{font-size:10px !important}
+  .grid{margin-top:8px !important}
+}
+@media(max-width:480px){
+  .intro-layout{gap:8px;padding:0 10px !important}
+  .intro-layout .services-top h2{font-size:10px !important}
+  .intro-layout .services-top li{font-size:9px !important}
+  .intro-layout header .title, .intro-layout header h1{font-size:clamp(24px,7vw,32px) !important}
+  .intro-layout header .subtitle, .intro-layout header p.subtitle{font-size:9px !important}
+  .intro-layout header .tagline, .intro-layout header p.tagline{font-size:10px !important}
+}
+</style>
+
 </head>
 <body>
 
@@ -933,17 +1046,13 @@ header > p:last-child{margin:5px 0 0 !important}
 </div>
 </nav>
 
-<header>
-<h1 class="title">Cintia Bonino</h1>
-<p class="subtitle">Ilustradora editorial y animadora 2D de autor en Barcelona</p>
-<p class="tagline">Pop, ironía y poesía.</p>
-<p style="margin-top:10px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;">
-<a href="index.html" style="color:#111;text-decoration:none;">ES</a> |
-<a href="index-en.html" style="color:#777;text-decoration:none;">EN</a>
-</p>
-</header>
-
-
+<div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
+<button type="button" data-filter="all" aria-pressed="true">Todo</button>
+<button type="button" data-filter="editorial" aria-pressed="false">Ilustración editorial</button>
+<button type="button" data-filter="brands" aria-pressed="false">Marcas y campañas culturales</button>
+<button type="button" data-filter="music" aria-pressed="false">Videoclips musicales</button>
+<button type="button" data-filter="author" aria-pressed="false">Animación de autor</button>
+</div>
 
 <section class="intro-layout" aria-label="Servicios de ilustración y animación">
 <aside class="services-top" aria-label="Servicios de ilustración y animación">
@@ -955,15 +1064,16 @@ header > p:last-child{margin:5px 0 0 !important}
 <li><a href="/videoclips-animados-para-musicos.html">Animación y visuales para música ↗</a></li>
 </ul>
 </aside>
+<header>
+<h1 class="title">Cintia Bonino</h1>
+<p class="subtitle">Ilustradora editorial y animadora 2D de autor en Barcelona</p>
+<p class="tagline">Pop, ironía y poesía.</p>
+<p style="margin-top:10px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;">
+<a href="index.html" style="color:#111;text-decoration:none;">ES</a> |
+<a href="index-en.html" style="color:#777;text-decoration:none;">EN</a>
+</p>
+</header>
 </section>
-
-<div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
-<button type="button" data-filter="all" aria-pressed="true">Todo</button>
-<button type="button" data-filter="editorial" aria-pressed="false">Ilustración editorial</button>
-<button type="button" data-filter="brands" aria-pressed="false">Marcas y campañas culturales</button>
-<button type="button" data-filter="music" aria-pressed="false">Videoclips musicales</button>
-<button type="button" data-filter="author" aria-pressed="false">Animación de autor</button>
-</div>
 <div class="grid" id="grid"></div>
 
 
