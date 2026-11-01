@@ -1403,6 +1403,61 @@ header p.subtitle {
 }
 </style>
 
+
+<style>
+/* Mobile category navigation: show every category without horizontal clipping. */
+@media(max-width:760px){
+  .project-filters{
+    top:43px !important;
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    align-items:stretch !important;
+    justify-content:stretch !important;
+    gap:6px !important;
+    padding:8px 10px !important;
+    overflow:visible !important;
+    white-space:normal !important;
+    flex-wrap:initial !important;
+  }
+  .project-filters button{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:34px !important;
+    height:auto !important;
+    padding:6px 5px !important;
+    white-space:normal !important;
+    overflow-wrap:break-word;
+    text-align:center !important;
+    font-size:9px !important;
+    line-height:1.2 !important;
+  }
+  .intro-layout{margin-top:150px !important}
+}
+@media(max-width:480px){
+  .project-filters{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    padding:8px 10px !important;
+  }
+  .project-filters button{font-size:9px !important;min-height:34px !important}
+  .intro-layout{margin-top:188px !important}
+}
+@media(max-width:360px){
+  .project-filters{padding-left:8px !important;padding-right:8px !important;gap:5px !important}
+  .project-filters button{font-size:8.5px !important;padding:6px 3px !important}
+  .intro-layout{margin-top:184px !important}
+}
+</style>
+
 </head>
 
 <body>
