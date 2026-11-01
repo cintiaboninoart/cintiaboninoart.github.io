@@ -32,6 +32,34 @@
  "url":"https://cintiabonino.com/videoclips-animados-para-musicos.html"
 }
 </script>
+
+<style>
+/* Music service gallery matches the music-category portfolio cards. */
+.projects{
+  width:100%;
+  max-width:1600px;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:20px;
+  margin:24px auto 46px;
+}
+.project{min-width:0}
+.project video,
+.project img,
+.project .no-se-preview,
+.project .embed-preview{
+  width:100%;
+  aspect-ratio:9 / 16;
+}
+.project video{object-fit:cover}
+.project .embed-preview iframe{aspect-ratio:9 / 16}
+@media(max-width:900px) and (min-width:561px){
+  .projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+}
+@media(max-width:560px){
+  .projects{grid-template-columns:1fr;max-width:420px;gap:16px;margin:20px auto 36px}
+}
+</style>
+
 </head>
 <body>
 <nav class="nav" aria-label="Navegación principal">
