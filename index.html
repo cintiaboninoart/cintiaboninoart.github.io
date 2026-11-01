@@ -1215,6 +1215,134 @@ header > p:last-child{margin:5px 0 0 !important}
   .grid.is-music-filter{grid-template-columns:1fr !important;}
 }
 </style>
+
+<style>
+/* Mobile homepage: keep the portfolio visible sooner and make navigation usable. */
+.services-top .services-details{width:100%}
+.services-top .services-details summary{
+  display:table;
+  margin:0 0 7px;
+  padding:0 5px;
+  color:#111;
+  font:700 12px/1.4 'DM Sans',Arial,sans-serif;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  list-style:none;
+  cursor:pointer;
+  background:linear-gradient(transparent 50%,#9CFF2E 50%);
+}
+.services-top .services-details summary::-webkit-details-marker{display:none}
+.services-top .services-label-mobile{display:none}
+@media(max-width:760px){
+  .project-filters{
+    top:43px !important;
+    min-height:46px !important;
+    height:46px;
+    padding:7px max(14px, env(safe-area-inset-left)) !important;
+    gap:7px !important;
+    flex-wrap:nowrap !important;
+    justify-content:flex-start !important;
+    align-items:center !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;
+    scrollbar-width:none;
+  }
+  .project-filters::-webkit-scrollbar{display:none}
+  .project-filters button{
+    flex:0 0 auto !important;
+    white-space:nowrap;
+    scroll-snap-align:start;
+    min-height:30px;
+    padding:7px 10px !important;
+    font-size:10px !important;
+    line-height:1.2 !important;
+  }
+  .intro-layout{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:12px !important;
+    margin:104px auto 8px !important;
+    padding:0 16px !important;
+  }
+  .intro-layout header{
+    order:1;
+    flex:0 0 auto !important;
+    width:100% !important;
+    padding:0 !important;
+    margin:0 !important;
+    text-align:center !important;
+  }
+  .intro-layout header .title,
+  .intro-layout header h1{
+    margin:0 auto 5px !important;
+    font-size:clamp(31px,8vw,40px) !important;
+  }
+  .intro-layout header .subtitle,
+  .intro-layout header p.subtitle{
+    width:auto !important;
+    max-width:100% !important;
+    margin:0 auto 4px !important;
+    text-align:center !important;
+    text-align-last:center !important;
+    font-size:11px !important;
+    line-height:1.4 !important;
+  }
+  .intro-layout header .tagline,
+  .intro-layout header p.tagline{
+    margin:3px auto 0 !important;
+    font-size:12px !important;
+  }
+  .intro-layout header > p:last-child{margin:5px auto 0 !important}
+  .intro-layout .services-top{
+    order:2;
+    flex:0 0 auto !important;
+    width:auto !important;
+    max-width:100% !important;
+    margin:0 auto !important;
+    text-align:center !important;
+  }
+  .services-top .services-details{width:auto}
+  .services-top .services-details summary{
+    display:table;
+    margin:0 auto !important;
+    padding:5px 9px !important;
+    border:1px solid #111;
+    background:#fff;
+    font-size:10px;
+    letter-spacing:.7px;
+    line-height:1.3;
+  }
+  .services-top .services-label-desktop{display:none}
+  .services-top .services-label-mobile{display:inline}
+  .services-top .services-details[open] summary{background:#9CFF2E}
+  .services-top .services-details ul{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:8px !important;
+    margin:10px 0 0 !important;
+    padding:0 !important;
+  }
+  .services-top .services-details li{
+    width:auto !important;
+    margin:0 !important;
+    text-align:center !important;
+    font-size:10px !important;
+    line-height:1.4 !important;
+  }
+  .grid{margin-top:12px !important}
+}
+@media(max-width:380px){
+  .project-filters{padding-left:10px !important;padding-right:10px !important}
+  .project-filters button{font-size:9px !important;padding:7px 8px !important}
+  .intro-layout{margin-top:100px !important;padding:0 12px !important}
+}
+</style>
+
 </head>
 <body>
 
@@ -1237,13 +1365,15 @@ header > p:last-child{margin:5px 0 0 !important}
 
 <section class="intro-layout" aria-label="Servicios de ilustración y animación">
 <aside class="services-top" aria-label="Servicios de ilustración y animación">
-<h2>Servicios</h2>
+<details class="services-details" open>
+<summary><span class="services-label-desktop">Servicios</span><span class="services-label-mobile">Ver servicios</span></summary>
 <ul>
 <li><a href="/ilustracion-editorial.html">Ilustración editorial ↗</a></li>
 <li><a href="/ilustracion-marcas-campanas-culturales.html">Ilustración para marcas y campañas culturales ↗</a></li>
 <li><a href="/animacion-2d-autor-conceptual.html">Animación 2D de autor y conceptual ↗</a></li>
 <li><a href="/videoclips-animados-para-musicos.html">Animación y visuales para música ↗</a></li>
 </ul>
+</details>
 </aside>
 <header>
 <h1 class="title">Cintia Bonino</h1>
@@ -1830,6 +1960,20 @@ if (requestedProject) {
   window.addEventListener('load', alignSubtitle);
   window.addEventListener('resize', alignSubtitle);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(alignSubtitle);
+})();
+</script>
+
+
+<script>
+/* Keep all service links available while showing only a compact link on mobile. */
+(function(){
+  const details=document.querySelector(".services-top .services-details");
+  if(!details) return;
+  const mobile=window.matchMedia("(max-width: 760px)");
+  function syncServicesDisclosure(){details.open=!mobile.matches;}
+  syncServicesDisclosure();
+  if(mobile.addEventListener) mobile.addEventListener("change",syncServicesDisclosure);
+  else mobile.addListener(syncServicesDisclosure);
 })();
 </script>
 
