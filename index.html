@@ -1399,6 +1399,24 @@ header > p:last-child{margin:5px 0 0 !important}
 }
 </style>
 
+
+<style>
+/* Mobile music category: slightly narrower cards and prevent page drift sideways. */
+@media(max-width:560px){
+  html,body{max-width:100%;overflow-x:clip !important}
+  .grid.is-music-filter{
+    width:90% !important;
+    max-width:430px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    padding:0 !important;
+    gap:12px !important;
+    overflow-x:clip !important;
+  }
+  .grid.is-music-filter > .item{padding:4px !important;min-width:0}
+}
+</style>
+
 </head>
 <body>
 
