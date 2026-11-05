@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Cintia Bonino | Editorial Illustrator and 2D Animator in Barcelona</title>
+<title>Cintia Bonino | Illustrator in Barcelona – Editorial Illustration & 2D Animation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bungee&family=Bungee+Shade&family=Cabin+Sketch:wght@400;700&family=DM+Sans:wght@400;500;600;700;800&family=Fredericka+the+Great&family=Special+Elite&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bungee&family=Bungee+Shade&family=Cabin+Sketch:wght@400;700&family=DM+Sans:wght@400;500;600;700;800&family=Fredericka+the+Great&family=Special+Elite&display=swap" rel="stylesheet"></noscript>
-<meta name="description" content="Cintia Bonino is a freelance illustrator and 2D animator based in Barcelona. Editorial illustration for books and press, illustration for brands and cultural projects, posters and animated music videos for music projects.">
+<meta name="description" content="Cintia Bonino, freelance illustrator in Barcelona and 2D animator. Editorial illustration for books, press, brands and cultural projects; animation and visuals for music.">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Cintia Bonino">
-<meta property="og:title" content="Cintia Bonino — Editorial Illustrator and 2D Animator">
-<meta property="og:description" content="Portfolio of Cintia Bonino, editorial illustrator and independent 2D animator. Explore editorial illustration, cultural campaigns and animated music videos.">
+<meta property="og:title" content="Cintia Bonino — Illustrator in Barcelona | Illustration & 2D Animation">
+<meta property="og:description" content="Cintia Bonino, freelance illustrator in Barcelona and 2D animator. Editorial illustration for books, press, brands and cultural projects; animation and visuals for music.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cintiabonino.com/index-en.html">
 <meta property="og:image" content="https://cintiabonino.com/IMG_4364.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cintia Bonino — Editorial Illustrator and 2D Animator">
-<meta name="twitter:description" content="Portfolio of Cintia Bonino, editorial illustrator and independent 2D animator. Explore editorial illustration, cultural campaigns and animated music videos.">
+<meta name="twitter:title" content="Cintia Bonino — Illustrator in Barcelona | Illustration & 2D Animation">
+<meta name="twitter:description" content="Cintia Bonino, freelance illustrator in Barcelona and 2D animator. Editorial illustration for books, press, brands and cultural projects; animation and visuals for music.">
 <meta name="twitter:image" content="https://cintiabonino.com/IMG_4364.jpeg">
 
 <link rel="icon" type="image/png" sizes="32x32" href="/cafe%20para%20uno.webp">
@@ -908,8 +908,8 @@ header{padding:106px 12px 8px}
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "@id": "https://cintiabonino.com/#business",
-  "name": "Cintia Bonino — Editorial illustrator and independent 2D animator in Barcelona",
-  "description": "Cintia Bonino is a freelance illustrator and 2D animator based in Barcelona. Editorial illustration for books and press, illustration for brands and cultural projects, posters and animated music videos for music projects.",
+  "name": "Cintia Bonino — Illustrator and 2D Animator in Barcelona",
+  "description": "Cintia Bonino, freelance illustrator in Barcelona and 2D animator. Editorial illustration for books, press, brands and cultural projects; animation and visuals for music.",
   "url": "https://cintiabonino.com",
   "image": "https://cintiabonino.com/IMG_4364.jpeg",
   "address": {
@@ -918,25 +918,38 @@ header{padding:106px 12px 8px}
     "addressCountry": "ES"
   },
   "areaServed": [
-    { "@type": "City", "name": "Barcelona" },
-    { "@type": "Country", "name": "Spain" },
-    { "@type": "Country", "name": "Worldwide" }
+    {
+      "@type": "City",
+      "name": "Barcelona"
+    },
+    {
+      "@type": "Country",
+      "name": "Spain"
+    },
+    {
+      "@type": "Country",
+      "name": "Worldwide"
+    }
   ],
   "serviceType": [
+    "Freelance illustrator",
     "Editorial illustration",
-    "Commissioned illustration services",
     "Illustration for books and press",
-    "Illustration for brands",
+    "Illustration for brands and cultural projects",
     "2D animation",
-    "Animated music videos",
-    "Cultural posters",
-    "Visual campaigns"
+    "Animation and visuals for music",
+    "Cultural posters"
   ],
-  "sameAs": ["https://instagram.com/cinbonino"],
+  "sameAs": [
+    "https://instagram.com/cinbonino",
+    "https://barcelonaartists.com/artists/cintia_bonino_q3ritu"
+  ],
   "knowsAbout": [
+    "Illustration",
     "Editorial illustration",
+    "Conceptual illustration",
     "Artist-led 2D animation",
-    "Animated music videos",
+    "Animation and visuals for music",
     "Cultural posters",
     "Visual direction"
   ]
@@ -1794,7 +1807,7 @@ function createGrid(selectedCategory="all"){
   media.playsInline=true;
   media.controls=false;
   media.preload = previewIndex < 2 ? "metadata" : "none";
-  media.setAttribute("aria-label", p.title + " — video preview");
+  media.setAttribute("aria-label", p.title + " — 2D animation by Cintia Bonino");
 
   // Use a real IMG overlay, not video.poster: some browsers leave poster data URLs blank.
   const videoPoster=document.createElement("img");
@@ -1852,7 +1865,7 @@ else{
   media.src=p.cover;
 
   const categoryLabels = {editorial:"editorial illustration",brands:"cultural campaigns",music:"animated music video",author:"artist-led 2D animation"};
-  media.alt = `${p.title} — ${categoryLabels[p.category] || "proyecto visual"}: ${p.description} — Cintia Bonino`;
+  media.alt = `${p.title} — ${categoryLabels[p.category] || "visual project}: ${p.description} — Cintia Bonino`;
 }
 
 
