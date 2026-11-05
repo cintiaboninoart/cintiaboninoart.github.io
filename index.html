@@ -149,6 +149,10 @@ max-width:1400px;margin:auto;padding:12px 24px;
 display:flex;justify-content:flex-end;align-items:center;gap:10px;flex-wrap:wrap;
 }
 .nav-service-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:10px}
+.language-switch{display:flex;align-items:center;gap:7px;margin-left:8px;font-size:14px;font-weight:600;letter-spacing:1.2px}
+.language-switch a{padding:5px 3px !important;border:0 !important;color:#777 !important;text-decoration:none}
+.language-switch a[aria-current="page"]{color:#111 !important}
+.language-switch span{color:#999;font-size:13px}
 .nav-inner a.service-nav{background:#9CFF2E;border-color:#111;font-weight:700;letter-spacing:.5px}
 .nav-inner a.service-nav:hover{background:#111;color:#9CFF2E}
 @media(max-width:850px){.nav-inner{justify-content:center}.nav-service-links{width:100%;justify-content:center;margin-left:0}}
@@ -1438,7 +1442,7 @@ header > p:last-child{margin:5px 0 0 !important}
 <a href="index.html">Selección</a>
 <a href="sobre.html">Sobre mí</a>
 <a href="contacto.html">Contacto</a>
-
+<div class="language-switch" aria-label="Cambiar idioma"><a href="index.html" aria-current="page">ES</a><span>|</span><a href="index-en.html">EN</a></div>
 </div>
 </nav>
 
@@ -1466,10 +1470,6 @@ header > p:last-child{margin:5px 0 0 !important}
 <h1 class="title">Cintia Bonino</h1>
 <p class="subtitle">Ilustradora editorial y animadora 2D de autor en Barcelona</p>
 <p class="tagline">Mirada millennial, pop, ironía y poesía.</p>
-<p style="margin-top:10px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;">
-<a href="index.html" style="color:#111;text-decoration:none;">ES</a> |
-<a href="index-en.html" style="color:#777;text-decoration:none;">EN</a>
-</p>
 </header>
 </section>
 <div class="grid" id="grid"></div>
