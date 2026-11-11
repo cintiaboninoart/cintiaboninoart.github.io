@@ -2033,14 +2033,36 @@ content.innerHTML=`
 }
 
 function setupProjectFilters(){
-  const buttons=document.querySelectorAll(".project-filters button");
+  const buttons=[...document.querySelectorAll(".project-filters button")];
+  const params=new URLSearchParams(window.location.search);
+  const allowed=["all","editorial","brands","music","author"];
+  const initial=params.get("category");
+  const selected=allowed.includes(initial)?initial:"all";
   buttons.forEach(button=>{
+    button.setAttribute("aria-pressed",String(button.dataset.filter===selected));
     button.addEventListener("click",()=>{
-      const selected=button.dataset.filter;
+      const category=button.dataset.filter;
       buttons.forEach(candidate=>candidate.setAttribute("aria-pressed",String(candidate===button)));
-      createGrid(selected);
+      createGrid(category);
+      const next=new URL(window.location.href);
+      if(category==="all") next.searchParams.delete("category");
+      else next.searchParams.set("category",category);
+      history.replaceState({}, "", next.pathname+next.search+next.hash);
+      updateLanguageSwitch(category);
     });
   });
+  createGrid(selected);
+  updateLanguageSwitch(selected);
+}
+
+function updateLanguageSwitch(category){
+  const languageLink=document.querySelector('.language-switch a[href*="index.html"]');
+  if(!languageLink) return;
+  const url=new URL(languageLink.getAttribute("href"),window.location.origin);
+  if(category && category!=="all") url.searchParams.set("category",category);
+  else url.searchParams.delete("category");
+  url.hash="grid";
+  languageLink.href=url.pathname+url.search+url.hash;
 }
 
 function closeModal(){
@@ -2051,7 +2073,6 @@ function closeModal(){
   document.getElementById("modal").style.display="none";
 }
 
-createGrid("all");
 setupProjectFilters();
 
 
