@@ -212,7 +212,7 @@ hyphens:auto;
 
 
 /* =========================
-   IN THE PRESS
+   PUBLICATIONS & EDITORIAL FEATURES
    ========================= */
 
 .press-section{
@@ -292,9 +292,35 @@ letter-spacing:1.3px;
 text-transform:uppercase;
 }
 
-.press-caption::after{
+ .press-caption::after{
 content:" ↗";
 }
+
+.press-profile-card{
+min-height:220px;
+padding:28px;
+border:1px solid #ddd;
+box-shadow:8px 8px 0 #9CFF2E;
+background:#f7f7f7;
+box-sizing:border-box;
+transition:transform .25s ease,box-shadow .25s ease;
+}
+.press-profile-item:hover .press-profile-card{
+transform:translate(-4px,-4px);
+box-shadow:12px 12px 0 #9CFF2E;
+}
+.press-profile-name{
+font-size:22px;
+font-weight:700;
+letter-spacing:.3px;
+}
+.press-profile-card p{
+font-size:14px;
+line-height:1.7;
+color:#444;
+margin:16px 0 24px;
+}
+.press-profile-card .press-caption{margin-top:0;}
 
 
 /* MOBILE */
@@ -619,18 +645,18 @@ I create illustration and animation for publications, cultural organisations, mu
 <div class="press-heading">
 
 <div class="press-label">
-In the press
+Publications & editorial features
 </div>
 
 
 <h2 class="press-title">
-Cintia Bonino in <em>Abril</em>
+Cintia Bonino in print and cultural platforms
 </h2>
 
 
 <p class="press-intro">
 
-A feature in <em>Abril</em>, the literary supplement of <em>El Periódico</em>, published as part of the <strong>El oficio</strong> section.
+Selected publications and platforms featuring my work across the editorial and cultural fields.
 
 </p>
 
@@ -691,6 +717,14 @@ View the second page ↗
 
 </a>
 
+
+<a class="press-item press-profile-item" href="https://illustrators.catalanarts.cat/es/profile/cintia-bonino" target="_blank" rel="noopener noreferrer">
+<div class="press-profile-card">
+<div class="press-profile-name">Catalan Arts</div>
+<p>Professional profile in the Catalan Arts illustrators directory.</p>
+<span class="press-caption">View profile</span>
+</div>
+</a>
 
 </div>
 
