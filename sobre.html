@@ -200,7 +200,7 @@ color:#444;
 
 
 /* =========================
-   EN PRENSA
+   PUBLICACIONES Y PRESENCIA EDITORIAL
    ========================= */
 
 .press-section{
@@ -280,9 +280,35 @@ letter-spacing:1.3px;
 text-transform:uppercase;
 }
 
-.press-caption::after{
+ .press-caption::after{
 content:" ↗";
 }
+
+.press-profile-card{
+min-height:220px;
+padding:28px;
+border:1px solid #ddd;
+box-shadow:8px 8px 0 #9CFF2E;
+background:#f7f7f7;
+box-sizing:border-box;
+transition:transform .25s ease,box-shadow .25s ease;
+}
+.press-profile-item:hover .press-profile-card{
+transform:translate(-4px,-4px);
+box-shadow:12px 12px 0 #9CFF2E;
+}
+.press-profile-name{
+font-size:22px;
+font-weight:700;
+letter-spacing:.3px;
+}
+.press-profile-card p{
+font-size:14px;
+line-height:1.7;
+color:#444;
+margin:16px 0 24px;
+}
+.press-profile-card .press-caption{margin-top:0;}
 
 
 /* MOBILE */
@@ -607,20 +633,18 @@ Desarrollo proyectos de ilustración y animación para medios, instituciones cul
 <div class="press-heading">
 
 <div class="press-label">
-En prensa
+Publicaciones y presencia editorial
 </div>
 
 
 <h2 class="press-title">
-Cintia Bonino en <em>Abril</em>
+Cintia Bonino en publicaciones
 </h2>
 
 
 <p class="press-intro">
 
-Nota publicada en <em>Abril</em>, suplemento literario de
-<em>El Periódico</em>, dentro de la sección
-<strong>El oficio</strong>.
+Publicaciones y espacios del ámbito editorial y cultural que han presentado mi trabajo.
 
 </p>
 
@@ -681,6 +705,14 @@ Ver publicación
 
 </a>
 
+
+<a class="press-item press-profile-item" href="https://illustrators.catalanarts.cat/es/profile/cintia-bonino" target="_blank" rel="noopener noreferrer">
+<div class="press-profile-card">
+<div class="press-profile-name">Catalan Arts</div>
+<p>Perfil profesional en el directorio d’il·lustradors i il·lustradores de Catalan Arts.</p>
+<span class="press-caption">Ver perfil</span>
+</div>
+</a>
 
 </div>
 
