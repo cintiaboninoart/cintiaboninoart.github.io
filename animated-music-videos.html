@@ -23,6 +23,21 @@
 
 /* Rounded project cover corners */
 .project img,.project video,.project .no-se-preview{border-radius:10px}
+
+/* Creative process timeline and typographic service grid */
+.content{max-width:1100px;margin:0 auto}
+.content .section-intro{max-width:760px;font-size:17px;color:#444}
+.process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:26px 0 46px;border-top:1px solid #bbb}
+.process-step{position:relative;padding:22px 22px 8px 0;min-width:0}
+.process-step:not(:last-child):after{content:"";position:absolute;top:-5px;right:18px;width:9px;height:9px;border-radius:50%;background:var(--acid);border:1px solid #111}
+.process-number{font-family:"Archivo Black",Inter,sans-serif;font-size:34px;line-height:1;color:#999;letter-spacing:-.05em}
+.process-step h3,.services-grid h3{font-family:"Archivo Black",Inter,sans-serif;font-size:17px;line-height:1.2;margin:13px 0 8px}
+.process-step p,.services-grid p{font-size:14px;color:#555;line-height:1.55;margin:0;max-width:230px}
+.services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin:20px 0 34px}
+.services-grid article{border-top:1px solid #ddd;padding:16px 0 18px}
+.services-grid h3{margin:0 0 7px}
+.closing-line{font-size:16px!important;color:#222!important;margin-top:30px}
+@media(max-width:700px){.process{grid-template-columns:1fr;border-top:0;border-left:1px solid #bbb;margin-left:7px;padding-left:22px}.process-step{padding:0 0 28px}.process-step:not(:last-child):after{top:4px;left:-27px;right:auto}.process-step:last-child{padding-bottom:4px}.process-number{font-size:28px}.services-grid{grid-template-columns:1fr;gap:0}}
 </style>
 <script type="application/ld+json">
 {
@@ -84,21 +99,42 @@
 <a class="project" href="/amanecen-ocasos-en.html"><video src="/AMANECEN REDES.mov" autoplay muted loop playsinline preload="metadata" aria-label="Amanecen Ocasos preview"></video><span class="project-copy"><strong>Amanecen Ocasos ↗</strong><span>Illustrated cover artwork · 2D animation · Visualizer</span></span></a>
 </div>
 <section class="content">
-<h2>Every music project has its own visual universe</h2>
-<p>A song can spark a thousand images. Sometimes it all starts with a line from the lyrics; other times, with a melody, a personal story, an emotion or an unexpected association. Every piece of music has its own clues, and I love setting out to find them.</p>
-<p>That’s where each project’s visual universe begins: characters, scenes, colours, situations and little oddities that gradually find their place. I work with illustration and 2D animation, developing a visual approach for each song, from the first sketches to the moving images.</p>
-<p>Each project finds its own visual language. Sometimes it takes shape through characters, sometimes through scenes, situations, more abstract imagery or little stories. The interesting part is discovering what form each song might take.</p>
-<h2>What can we make?</h2>
-<ul>
-<li><strong>Animated music videos:</strong> songs turned into small visual stories.</li>
-<li><strong>Live music visuals:</strong> loops and animations for concerts, performances and stages.</li>
-<li><strong>Release visuals:</strong> short animations for singles, albums and music campaigns.</li>
-<li><strong>Music visual identity:</strong> illustrations, artwork and graphic elements that give a project its own visual personality.</li>
-</ul>
-<h2>From listening to bringing it to life</h2>
-<p>First, we listen. We talk about the music, where it comes from, what it’s about, its references and everything it brings to mind.</p>
-<p>Then come the sketches, experiments, associations, characters and ideas that emerge along the way. Little by little, they take shape as a visual universe and eventually come to life through animation.</p>
-<p><strong>Got a song in the works? Tell me what you’re working on and let’s see what images might come out of it.</strong></p>
+<h2>Every song has a visual universe waiting to be discovered</h2>
+<p class="section-intro">I turn music into images, characters and stories through illustration and 2D animation. Each project finds its own visual language.</p>
+
+<h2>From brief to animation</h2>
+<div class="process" aria-label="Creative process stages">
+  <article class="process-step">
+    <span class="process-number">01</span>
+    <h3>Brief</h3>
+    <p>Concept, objectives, references and musical universe.</p>
+  </article>
+  <article class="process-step">
+    <span class="process-number">02</span>
+    <h3>Art direction</h3>
+    <p>Moodboard, visual exploration, sketches and design.</p>
+  </article>
+  <article class="process-step">
+    <span class="process-number">03</span>
+    <h3>Visual development</h3>
+    <p>Graphic language, colour palette, composition and keyframes.</p>
+  </article>
+  <article class="process-step">
+    <span class="process-number">04</span>
+    <h3>Animation</h3>
+    <p>Frame-by-frame animation, editing and post-production.</p>
+  </article>
+</div>
+
+<h2>What can we create?</h2>
+<div class="services-grid">
+  <article><h3>Animated music videos</h3><p>Songs transformed into small visual stories.</p></article>
+  <article><h3>Live music visuals</h3><p>Loops and animations for concerts and performances.</p></article>
+  <article><h3>Visuals for releases</h3><p>Animated pieces for singles, albums and campaigns.</p></article>
+  <article><h3>Art direction &amp; visual identity</h3><p>Artwork, illustrations and graphic worlds for musicians.</p></article>
+</div>
+
+<p class="closing-line"><strong>Got a song in the works?</strong> Tell me what you’re working on and let’s see what images might come out of it.</p>
 <a class="cta" href="/contact-en.html">Let's talk about your project ↗</a>
 <a class="back" href="/index-en.html#grid">← Back to portfolio</a>
 </section>
