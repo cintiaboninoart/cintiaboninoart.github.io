@@ -69,6 +69,14 @@ img.cover{
   filter:drop-shadow(0 7px 10px rgba(0,0,0,.09));
 }
 </style>
+
+/* Square cover canvas: preserve the full original vinyl mockup without cropping. */
+img.cover{
+  aspect-ratio:1 / 1 !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  background:#f1f0ec !important;
+}
 </head>
 <body>
 <nav class="nav" aria-label="Navegación principal">
