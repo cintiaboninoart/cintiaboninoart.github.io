@@ -2282,27 +2282,7 @@ if (requestedProject) {
 </script>
 
 
-<style>
-/* Keep the language switch readable; do not inherit the main navigation hover treatment. */
-.nav-inner .language-switch a,
-.nav-inner .language-switch a:visited,
-.nav-inner .language-switch a[aria-current="page"]{
-  color:#111 !important;
-  background:transparent !important;
-  border:0 !important;
-  box-shadow:none !important;
-  transform:none !important;
-  text-shadow:none !important;
-  padding:5px 3px !important;
-}
-.nav-inner .language-switch a:hover,
-.nav-inner .language-switch a:focus-visible{
-  color:#111 !important;
-  background:#F5D52E !important;
-  text-decoration:underline !important;
-  text-underline-offset:3px;
-}
-</style>
+
 
 
 <style>
@@ -2340,6 +2320,23 @@ header .title, header .name-title, header h1 {
     font-size:clamp(28px,7.2vw,40px)!important;
   }
 }
+</style>
+
+<style>
+/* Language selector: always visible, button-like on both language versions. */
+.nav-inner .language-switch{display:flex!important;align-items:center!important;gap:6px!important}
+.nav-inner .language-switch a,
+.nav-inner .language-switch a:visited,
+.nav-inner .language-switch a[aria-current="page"]{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ min-width:34px!important;padding:7px 9px!important;
+ background:#090909!important;color:#fff!important;
+ border:2px solid #090909!important;box-shadow:2px 2px 0 #b7f52a!important;
+ text-decoration:none!important;text-shadow:none!important;transform:none!important;opacity:1!important
+}
+.nav-inner .language-switch a:hover,
+.nav-inner .language-switch a:focus-visible{background:#f4dc24!important;color:#090909!important}
+.nav-inner .language-switch span{color:#090909!important;opacity:1!important}
 </style>
 
 </body>
