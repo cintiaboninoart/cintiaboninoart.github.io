@@ -2264,5 +2264,28 @@ if (requestedProject) {
 })();
 </script>
 
+
+<style>
+/* Keep the language switch readable; do not inherit the main navigation hover treatment. */
+.nav-inner .language-switch a,
+.nav-inner .language-switch a:visited,
+.nav-inner .language-switch a[aria-current="page"]{
+  color:#111 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  transform:none !important;
+  text-shadow:none !important;
+  padding:5px 3px !important;
+}
+.nav-inner .language-switch a:hover,
+.nav-inner .language-switch a:focus-visible{
+  color:#111 !important;
+  background:#F5D52E !important;
+  text-decoration:underline !important;
+  text-underline-offset:3px;
+}
+</style>
+
 </body>
 </html>
