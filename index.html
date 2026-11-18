@@ -2255,6 +2255,18 @@ if (requestedProject) {
 .project-filters{border-bottom:0 !important;box-shadow:none !important;}
 </style>
 
+<style>
+/* Slightly reduce the site name while preserving its typeface and treatment. */
+header .title, header .name-title, header h1 {
+  font-size:clamp(38px,7.2vw,92px)!important;
+}
+@media(max-width:700px){
+  header .title, header .name-title, header h1 {
+    font-size:clamp(28px,7.2vw,40px)!important;
+  }
+}
+</style>
+
 </body>
 </html>
 
