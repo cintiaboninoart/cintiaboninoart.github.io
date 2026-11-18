@@ -1490,6 +1490,56 @@ footer{background:var(--cb-paper)!important;color:#555!important;border-top:1px 
 }
 
 </style>
+<style>
+
+/* === DELIRIO POP / Fanzine layer: intentionally irregular, artwork untouched === */
+:root{--ink:#090909;--paper:#fff;--acid:#b7f52a;--sun:#f4dc24;--hot:#f50083}
+body{font-family:"Special Elite","Courier New",monospace!important;background:#fff!important;color:var(--ink)!important}
+.nav{position:absolute!important;top:18px!important;left:3%!important;width:94%!important;background:transparent!important;border:0!important;transform:rotate(-1deg);z-index:1000}
+.nav-inner{max-width:none!important;justify-content:flex-start!important;gap:7px!important;padding:0!important}
+.nav-inner a{font-family:"Bungee",Impact,sans-serif!important;font-size:10px!important;letter-spacing:.5px!important;border:0!important;background:var(--sun)!important;padding:8px 11px!important;transform:rotate(1.5deg);box-shadow:3px 3px 0 var(--ink)}
+.nav-inner a:nth-child(2){background:var(--acid)!important;transform:rotate(-2deg)}
+.nav-inner a:nth-child(3){background:var(--hot)!important;color:#fff!important;transform:rotate(1deg)}
+.nav-inner a:hover{background:var(--ink)!important;color:#fff!important;transform:rotate(-3deg) scale(1.05)}
+.language-switch{margin-left:auto!important;font-family:"Bungee",sans-serif!important;transform:rotate(3deg)}
+.language-switch a{background:var(--ink)!important;color:#fff!important;padding:7px 9px!important}
+header{position:relative!important;max-width:none!important;margin:0 5%!important;padding:130px 3% 34px!important;text-align:left!important;border:0!important;min-height:190px}
+header:before{content:"NO HAY MANUAL";position:absolute;right:5%;top:118px;font:12px "Special Elite",monospace;letter-spacing:2px;transform:rotate(8deg);background:var(--acid);padding:5px 8px}
+header .title,header h1,.title{font-family:"Bungee Shade","Bungee",Impact,sans-serif!important;font-size:clamp(42px,8vw,104px)!important;line-height:.92!important;letter-spacing:-3px!important;text-align:left!important;max-width:900px!important;transform:rotate(-2deg);text-shadow:4px 4px 0 var(--sun)!important;color:var(--ink)!important}
+header .subtitle{font-family:"Cabin Sketch",cursive!important;font-size:clamp(18px,2.4vw,27px)!important;font-weight:700!important;text-align:left!important;margin:20px 0 0 8%!important;transform:rotate(1.5deg);color:var(--ink)!important}
+header .tagline{display:inline-block!important;margin:14px 0 0 3%!important;padding:4px 10px!important;background:var(--hot)!important;color:#fff!important;font-family:"Special Elite",monospace!important;transform:rotate(-1deg)}
+.seo-text{font-family:"Special Elite",monospace!important;text-align:left!important;margin:12px 8% 28px!important;max-width:650px!important}
+.project-filters{display:flex!important;justify-content:flex-start!important;flex-wrap:wrap!important;gap:9px!important;margin:20px 4% 30px!important;padding:0!important;background:transparent!important;transform:rotate(-.5deg)}
+.project-filters button{font-family:"Bungee",Impact,sans-serif!important;font-size:9px!important;letter-spacing:.3px!important;padding:9px 12px!important;border:2px solid var(--ink)!important;border-radius:0!important;background:#fff!important;color:var(--ink)!important;box-shadow:3px 3px 0 var(--ink)!important;transform:rotate(1deg)}
+.project-filters button:nth-child(2n){transform:rotate(-1.8deg);background:var(--acid)!important}
+.project-filters button:nth-child(3n){transform:rotate(1.5deg);background:var(--sun)!important}
+.project-filters button[aria-pressed="true"]{background:var(--hot)!important;color:#fff!important;transform:rotate(-2deg) scale(1.04)!important}
+.intro-layout{position:relative!important}
+.intro-layout .services-top{transform:rotate(1deg)!important;text-align:left!important}
+.intro-layout .services-top h2,.intro-layout .services-top h3{font-family:"Bungee",Impact,sans-serif!important;display:inline-block!important;background:var(--sun)!important;padding:5px 8px!important;transform:rotate(-2deg)}
+.intro-layout .services-top a{font-family:"Special Elite",monospace!important;text-decoration:underline!important;text-decoration-color:var(--hot)!important;text-decoration-thickness:2px!important}
+.grid{margin:34px auto 80px!important;column-gap:30px!important}
+.grid .item{margin-bottom:28px!important}
+.grid .item:nth-child(3n+1){transform:rotate(-.65deg)}
+.grid .item:nth-child(3n+2){transform:rotate(.45deg)}
+.grid .item:nth-child(5n){transform:rotate(-1deg)}
+.grid .item img,.grid .item video{border:0!important;box-shadow:none!important;filter:none!important}
+.grid .item:hover{transform:rotate(0deg) scale(1.012)!important;z-index:2}
+footer{font-family:"Special Elite",monospace!important;text-align:left!important;padding:35px 8%!important;transform:rotate(-.3deg)}
+@media(max-width:760px){
+ .nav{top:8px!important;left:2%!important;width:96%!important}
+ .nav-inner{justify-content:center!important}
+ header{padding:145px 5% 24px!important;margin:0 2%!important;min-height:150px}
+ header:before{top:112px;right:3%;font-size:9px}
+ header .title,header h1,.title{font-size:clamp(38px,12vw,66px)!important;letter-spacing:-2px!important}
+ header .subtitle{margin-left:4%!important;font-size:18px!important}
+ .project-filters{margin:18px 3% 25px!important}
+ .project-filters button{font-size:8px!important;padding:8px!important}
+ .grid{padding:0 14px!important;columns:1!important}
+ .grid .item:nth-child(n){transform:none!important}
+}
+
+</style>
 </head>
 <body>
 
