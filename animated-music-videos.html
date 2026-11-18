@@ -109,6 +109,18 @@ footer{padding:20px 16px!important}
 img,video,iframe{max-width:100%}
 }
 </style>
+<style>
+/* iOS/mobile horizontal overflow guard for service pages. */
+@media(max-width:700px){
+html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
+*,*::before,*::after{box-sizing:border-box}
+body>*{max-width:100%!important}
+.nav,.navlinks,main,.content,.samples,.projects,footer{max-width:100%!important}
+.navlinks a,footer{transform:none!important}
+.sample,.project{min-width:0!important;max-width:100%!important}
+img,video,iframe,svg{max-width:100%!important}
+}
+</style>
 </head>
 <body>
 <nav class="nav" aria-label="Main navigation">
