@@ -1437,6 +1437,59 @@ header > p:last-child{margin:5px 0 0 !important}
 }
 </style>
 
+<style>
+
+/* === CINTIA BONINO: restrained pop identity === */
+:root{
+  --cb-black:#090909;
+  --cb-paper:#fff;
+  --cb-yellow:#f4dc24;
+  --cb-lime:#b7f52a;
+  --cb-fuchsia:#f50083;
+}
+html,body{background:var(--cb-paper)!important;color:var(--cb-black)!important}
+.nav{background:var(--cb-paper)!important;border-bottom:1px solid var(--cb-black)!important}
+.nav-inner a{color:var(--cb-black)!important;border-color:transparent!important}
+.nav-inner a:hover{background:var(--cb-yellow)!important;color:var(--cb-black)!important}
+.language-switch{color:var(--cb-black)!important}
+.project-filters{background:var(--cb-paper)!important}
+.project-filters button{
+  background:transparent!important;color:var(--cb-black)!important;
+  border:1px solid var(--cb-black)!important;border-radius:0!important;
+  box-shadow:none!important;text-transform:uppercase;
+}
+.project-filters button:hover,
+.project-filters button[aria-pressed="true"]{
+  background:var(--cb-yellow)!important;color:var(--cb-black)!important;
+}
+.intro-layout header .title, .intro-layout header h1{
+  color:var(--cb-black)!important;-webkit-text-fill-color:var(--cb-black)!important;
+  text-shadow:none!important;
+}
+.intro-layout header .subtitle{color:var(--cb-black)!important}
+.intro-layout header .tagline{
+  display:inline-block!important;width:auto!important;
+  color:var(--cb-black)!important;background:transparent!important;
+  background-image:linear-gradient(transparent 62%,var(--cb-lime) 62%)!important;
+  padding:0 3px 2px!important;transform:rotate(-1deg);
+}
+.intro-layout .services-top h2{
+  background:linear-gradient(transparent 55%,var(--cb-yellow) 55%)!important;
+}
+.intro-layout .services-top a{
+  color:var(--cb-black)!important;text-decoration-color:var(--cb-fuchsia)!important;
+}
+.grid,.grid .item,.grid .item-media{background:transparent!important;box-shadow:none!important}
+.grid .item img,.grid .item video{filter:none!important;box-shadow:none!important;border:0!important}
+.project-caption h3{color:var(--cb-black)!important}
+.project-caption p{color:#555!important}
+footer{background:var(--cb-paper)!important;color:#555!important;border-top:1px solid #ddd!important}
+@media(max-width:760px){
+ .project-filters button{white-space:nowrap}
+ .intro-layout header .tagline{max-width:100%}
+}
+
+</style>
 </head>
 <body>
 
