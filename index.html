@@ -2267,6 +2267,23 @@ header .title, header .name-title, header h1 {
 }
 </style>
 
+<style>
+/* Language selector: always visible, button-like on both language versions. */
+.nav-inner .language-switch{display:flex!important;align-items:center!important;gap:6px!important}
+.nav-inner .language-switch a,
+.nav-inner .language-switch a:visited,
+.nav-inner .language-switch a[aria-current="page"]{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ min-width:34px!important;padding:7px 9px!important;
+ background:#090909!important;color:#fff!important;
+ border:2px solid #090909!important;box-shadow:2px 2px 0 #b7f52a!important;
+ text-decoration:none!important;text-shadow:none!important;transform:none!important;opacity:1!important
+}
+.nav-inner .language-switch a:hover,
+.nav-inner .language-switch a:focus-visible{background:#f4dc24!important;color:#090909!important}
+.nav-inner .language-switch span{color:#090909!important;opacity:1!important}
+</style>
+
 </body>
 </html>
 
