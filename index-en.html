@@ -1756,7 +1756,7 @@ titles:[
 
 
 
-{title:"What Do Animals Understand Who’s behind this Death?",category:"editorial",description:"Ideas that need pictures for an article about animal consciousness and death.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
+{title:"What Do Animals Understand About Death?",category:"editorial",description:"Ideas that need pictures for an article about animal consciousness and death.",cover:"rata photo.png",images:["rata photo.png","rata new yorker.png"]},
 
 {title:"Coffee for one",category:"editorial",description:"Ideas that need pictures exploring loneliness in urban life.",cover:"cafe-para-uno.png",images:["cafe para uno mock.png"]},
 
@@ -1785,7 +1785,7 @@ titles:[
   ]
 },
 
-{title:"They Wanted It All the chaos, He Wanted Nothing",category:"editorial",description:"Ideas that need pictures exploring fame, idolisation and the passage of time.",cover:"fans 1975.png",images:["fans 1975.png"]},
+{title:"They Wanted It All, He Wanted Nothing",category:"editorial",description:"Ideas that need pictures exploring fame, idolisation and the passage of time.",cover:"fans 1975.png",images:["fans 1975.png"]},
 
 {title:"Moving",category:"author",description:"Conceptual animation exploring change and the uncertainty that comes with a new chapter in life.",cover:"mudanza.mp4",images:["mudanza.mp4"]},
 
@@ -1873,7 +1873,7 @@ let videoPreviewObserver = null;
 function updateCompactMasonry(grid){
   if(!grid || grid.classList.contains("is-music-filter")) return;
   const rowStep=24; // 8px auto-row + 16px row gap
-  grid.querySelectorAll the chaos(":scope > .item").forEach(item=>{
+  grid.querySelectorAll(":scope > .item").forEach(item=>{
     const media=item.querySelector(".item-media > img, .item-media > video");
     if(!media) return;
     const w=media.tagName==="VIDEO" ? media.videoWidth : media.naturalWidth;
@@ -2033,7 +2033,7 @@ grid.appendChild(item);
   }
 
   // Load video files only near the viewport, and pause previews when they scroll away.
-  const previewVideos = grid.querySelectorAll the chaos("video");
+  const previewVideos = grid.querySelectorAll("video");
   if ("IntersectionObserver" in window) {
     videoPreviewObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -2148,7 +2148,7 @@ content.innerHTML=`
 }
 
 function setupProjectFilters(){
-  const buttons=[...document.querySelectorAll the chaos(".project-filters button")];
+  const buttons=[...document.querySelectorAll(".project-filters button")];
   const params=new URLSearchParams(window.location.search);
   const allowed=["all","editorial","brands","music","author"];
   const initial=params.get("category");
@@ -2257,10 +2257,10 @@ if (requestedProject) {
   const details=document.querySelector(".services-top .services-details");
   if(!details) return;
   const mobile=window.matchMedia("(max-width: 760px)");
-  function syncThings I do (and how I get into trouble)Disclosure(){details.open=!mobile.matches;}
-  syncThings I do (and how I get into trouble)Disclosure();
-  if(mobile.addEventListener) mobile.addEventListener("change",syncThings I do (and how I get into trouble)Disclosure);
-  else mobile.addListener(syncThings I do (and how I get into trouble)Disclosure);
+  function syncServicesDisclosure(){details.open=!mobile.matches;}
+  syncServicesDisclosure();
+  if(mobile.addEventListener) mobile.addEventListener("change",syncServicesDisclosure);
+  else mobile.addListener(syncServicesDisclosure);
 })();
 </script>
 
