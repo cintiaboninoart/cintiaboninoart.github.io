@@ -1504,7 +1504,7 @@ body{font-family:"Special Elite","Courier New",monospace!important;background:#f
 .language-switch{margin-left:auto!important;font-family:"Bungee",sans-serif!important;transform:rotate(3deg)}
 .language-switch a{background:var(--ink)!important;color:#fff!important;padding:7px 9px!important}
 header{position:relative!important;max-width:none!important;margin:0 5%!important;padding:130px 3% 34px!important;text-align:left!important;border:0!important;min-height:190px}
-header:before{content:"NO HAY MANUAL";position:absolute;right:5%;top:118px;font:12px "Special Elite",monospace;letter-spacing:2px;transform:rotate(8deg);background:var(--acid);padding:5px 8px}
+header:before{content:none!important;position:absolute;right:5%;top:118px;font:12px "Special Elite",monospace;letter-spacing:2px;transform:rotate(8deg);background:var(--acid);padding:5px 8px}
 header .title,header h1,.title{font-family:"Bungee Shade","Bungee",Impact,sans-serif!important;font-size:clamp(42px,8vw,104px)!important;line-height:.92!important;letter-spacing:-3px!important;text-align:left!important;max-width:900px!important;transform:rotate(-2deg);text-shadow:4px 4px 0 var(--sun)!important;color:var(--ink)!important}
 header .subtitle{font-family:"Cabin Sketch",cursive!important;font-size:clamp(18px,2.4vw,27px)!important;font-weight:700!important;text-align:left!important;margin:20px 0 0 8%!important;transform:rotate(1.5deg);color:var(--ink)!important}
 header .tagline{display:inline-block!important;margin:14px 0 0 3%!important;padding:4px 10px!important;background:var(--hot)!important;color:#fff!important;font-family:"Special Elite",monospace!important;transform:rotate(-1deg)}
@@ -1541,28 +1541,30 @@ footer{font-family:"Special Elite",monospace!important;text-align:left!important
 
 </style>
 <style>
-/* Unified portfolio identity and responsive navigation */
-:root{--portfolio-ink:#111;--portfolio-paper:#fff;--portfolio-accent:#9CFF2E}
-.nav,.nav-inner{box-sizing:border-box}
-.nav{background:rgba(255,255,255,.97)!important;border-bottom:1px solid #111!important;z-index:1000;backdrop-filter:blur(8px)}
-.nav-inner{max-width:1400px!important;width:100%;padding:12px clamp(14px,3vw,32px)!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;flex-wrap:wrap!important}
-.nav-inner>a,.navlinks>a,.navlinks a,.nav a:not(.brand){box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:8px 12px!important;border:1px solid #111!important;border-radius:0!important;background:#fff!important;color:#111!important;text-decoration:none!important;font-family:'DM Sans',Arial,sans-serif!important;font-size:11px!important;font-weight:700!important;letter-spacing:.8px!important;line-height:1.2!important;text-transform:uppercase!important;transition:background .18s ease,color .18s ease!important}
-.nav-inner>a:hover,.navlinks>a:hover,.navlinks a:hover,.nav a:not(.brand):hover{background:#111!important;color:#fff!important}
-.nav .brand{display:inline-flex;align-items:center;color:#111!important;text-decoration:none!important;font-family:'Special Elite','Courier New',monospace!important;font-size:clamp(17px,2vw,22px)!important;font-weight:400!important;letter-spacing:-.5px!important;white-space:nowrap}
-.navlinks{display:flex;align-items:center;justify-content:center;gap:8px!important;flex-wrap:wrap}
-header .name-title,header h1,header .title{font-family:'Special Elite','Courier New',monospace!important;font-weight:400!important;letter-spacing:-.6px!important;color:#111!important;text-shadow:none!important;-webkit-text-stroke:0!important;-webkit-text-fill-color:#111!important;max-width:100%;overflow-wrap:anywhere}
-@media(max-width:700px){.nav{padding:8px 10px!important}.nav-inner{padding:8px 8px!important;gap:6px!important}.nav .brand{width:100%;justify-content:center;margin:0 0 3px}.nav-inner>a,.navlinks>a,.navlinks a,.nav a:not(.brand){min-height:34px;padding:7px 9px!important;font-size:10px!important;letter-spacing:.45px!important}.navlinks{width:100%;gap:6px!important}.nav-inner{justify-content:center!important}header{padding-left:16px!important;padding-right:16px!important}header .name-title,header h1,header .title{font-size:clamp(29px,8vw,40px)!important;line-height:1.15!important}}
-@media(max-width:380px){.nav-inner>a,.navlinks>a,.navlinks a,.nav a:not(.brand){font-size:9px!important;padding:6px 7px!important;letter-spacing:.2px!important}}
-@media(prefers-reduced-motion:reduce){.nav *{transition:none!important}}
-</style>
-</head>
+/* end previous unified style */</style>
+<style>
+/* Keep the approved display typeface for the name across the site. */
+.nav .brand, header .title, header .name-title, header h1 {
+ font-family:'Bungee Shade',Impact,sans-serif!important;
+ font-weight:400!important;
+ letter-spacing:0!important;
+ text-shadow:2px 2px 0 #9CFF2E,4px 4px 0 #171717!important;
+ -webkit-text-stroke:0!important;
+ -webkit-text-fill:currentColor!important;
+}
+.nav .brand{font-size:clamp(17px,2vw,22px)!important;white-space:nowrap}
+@media(max-width:700px){
+ .nav .brand{font-size:18px!important}
+ header .title,header .name-title,header h1{font-size:clamp(30px,8vw,44px)!important;line-height:1.15!important}
+}
+</style></head>
 <body>
 
 <nav class="nav">
 <div class="nav-inner">
-<a href="index.html">Obras</a>
-<a href="sobre.html">Sobre mí</a>
-<a href="contacto.html">Contacto</a>
+<a href="index.html">Obras y otros accidentes</a>
+<a href="sobre.html">Quién está detrás de esto</a>
+<a href="contacto.html">Decime algo</a>
 <div class="language-switch" aria-label="Cambiar idioma"><a href="index.html" aria-current="page">ES</a><span>|</span><a href="index-en.html">EN</a></div>
 </div>
 </nav>
