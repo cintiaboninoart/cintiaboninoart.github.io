@@ -1675,6 +1675,20 @@ footer{font-family:"Special Elite",monospace!important;text-align:left!important
   img,video,iframe{max-width:100%}
 }
 </style>
+<style>
+/* iOS/mobile horizontal overflow guard: stop rotated and oversized children from widening the page. */
+@media(max-width:760px){
+  html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
+  *,*::before,*::after{box-sizing:border-box}
+  body>*{max-width:100%!important}
+  .nav,.nav-inner,.intro-layout,.project-filters,.services-top,.grid,footer{max-width:100%!important}
+  .grid .item,.grid .item:nth-child(n),.grid .item:hover,footer,.intro-layout .services-top,
+  .project-filters button,.nav-inner>a{transform:none!important}
+  .project-media-grid{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
+  .project-media-item{min-width:0!important;max-width:100%!important}
+  img,video,iframe,svg{max-width:100%!important}
+}
+</style>
 </head>
 
 <body>
