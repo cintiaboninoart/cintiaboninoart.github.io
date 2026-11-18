@@ -2320,3 +2320,20 @@ header .title, header .name-title, header h1 {
 
 
 
+
+
+<style>
+/* Reduce the homepage name while keeping its approved typeface and styling. */
+.intro-layout header .title,
+.intro-layout header .name-title,
+.intro-layout header h1{
+  font-size:clamp(32px,6vw,76px)!important;
+}
+@media(max-width:700px){
+  .intro-layout header .title,
+  .intro-layout header .name-title,
+  .intro-layout header h1{
+    font-size:clamp(24px,6vw,34px)!important;
+  }
+}
+</style>
