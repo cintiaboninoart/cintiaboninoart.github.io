@@ -1557,7 +1557,66 @@ footer{font-family:"Special Elite",monospace!important;text-align:left!important
  .nav .brand{font-size:18px!important}
  header .title,header .name-title,header h1{font-size:clamp(30px,8vw,44px)!important;line-height:1.15!important}
 }
-</style></head>
+</style><style>
+/* Reduce the homepage name while keeping its approved typeface and styling. */
+.intro-layout header .title,
+.intro-layout header .name-title,
+.intro-layout header h1{
+  font-size:clamp(32px,6vw,76px)!important;
+}
+@media(max-width:700px){
+  .intro-layout header .title,
+  .intro-layout header .name-title,
+  .intro-layout header h1{
+    font-size:clamp(24px,6vw,34px)!important;
+  }
+}
+</style>
+
+
+<style>
+/* Move the fixed category buttons slightly higher while keeping them clear of the main navigation. */
+.project-filters{top:45px!important}
+@media(max-width:850px){.project-filters{top:38px!important}}
+</style>
+
+<style>
+/* Mobile layout: keep navigation and filters in the document flow, never over the artwork. */
+@media(max-width:760px){
+  html,body{width:100%;max-width:100%;overflow-x:clip}
+  .nav{left:0!important;right:0!important;width:100%!important;max-width:100%!important}
+  .nav-inner{width:100%!important;max-width:100%!important;padding:9px 10px!important;gap:7px!important;justify-content:center!important;flex-wrap:wrap!important}
+  .nav-inner>a{font-size:10px!important;letter-spacing:.45px!important;padding:6px 8px!important;white-space:normal!important}
+  .language-switch{margin:0!important}
+  .project-filters{
+    position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+    width:calc(100% - 24px)!important;height:auto!important;min-height:0!important;
+    margin:76px 12px 14px!important;padding:0!important;
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;overflow:visible!important;transform:none!important;
+    justify-content:stretch!important;align-items:stretch!important;
+  }
+  .project-filters button{
+    min-width:0!important;width:100%!important;min-height:36px!important;
+    padding:7px 6px!important;font-size:9px!important;line-height:1.2!important;
+    white-space:normal!important;overflow-wrap:anywhere!important;
+    transform:none!important;box-shadow:2px 2px 0 #090909!important;
+  }
+  .project-filters button:last-child{grid-column:1/-1}
+  .intro-layout{margin:12px auto 8px!important;padding:0 14px!important;gap:14px!important}
+  .intro-layout header{width:100%!important;max-width:100%!important;padding:0 4px 14px!important;margin:0!important}
+  .intro-layout header .title,.intro-layout header h1{font-size:clamp(26px,8vw,36px)!important;line-height:1.08!important;overflow-wrap:anywhere}
+  .intro-layout header .subtitle{font-size:13px!important;line-height:1.45!important}
+  .intro-layout header .tagline{font-size:12px!important}
+  .intro-layout .services-top{width:100%!important;max-width:100%!important;margin:0 auto!important}
+  .services-top .services-details summary{max-width:100%;white-space:normal}
+  .grid{width:100%!important;max-width:100%!important;padding:0 12px!important;margin:20px auto 50px!important;columns:1!important}
+  .grid .item{width:100%!important;max-width:100%!important;margin:0 0 20px!important;padding:7px!important}
+  .grid .item img,.grid .item video{max-width:100%!important;height:auto}
+  img,video,iframe{max-width:100%}
+}
+</style>
+</head>
 <body>
 
 <nav class="nav">
@@ -2306,77 +2365,3 @@ header .title, header .name-title, header h1 {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style>
-/* Reduce the homepage name while keeping its approved typeface and styling. */
-.intro-layout header .title,
-.intro-layout header .name-title,
-.intro-layout header h1{
-  font-size:clamp(32px,6vw,76px)!important;
-}
-@media(max-width:700px){
-  .intro-layout header .title,
-  .intro-layout header .name-title,
-  .intro-layout header h1{
-    font-size:clamp(24px,6vw,34px)!important;
-  }
-}
-</style>
-
-
-<style>
-/* Move the fixed category buttons slightly higher while keeping them clear of the main navigation. */
-.project-filters{top:45px!important}
-@media(max-width:850px){.project-filters{top:38px!important}}
-</style>
-
-<style>
-/* Mobile layout: keep navigation and filters in the document flow, never over the artwork. */
-@media(max-width:760px){
-  html,body{width:100%;max-width:100%;overflow-x:clip}
-  .nav{left:0!important;right:0!important;width:100%!important;max-width:100%!important}
-  .nav-inner{width:100%!important;max-width:100%!important;padding:9px 10px!important;gap:7px!important;justify-content:center!important;flex-wrap:wrap!important}
-  .nav-inner>a{font-size:10px!important;letter-spacing:.45px!important;padding:6px 8px!important;white-space:normal!important}
-  .language-switch{margin:0!important}
-  .project-filters{
-    position:relative!important;top:auto!important;left:auto!important;right:auto!important;
-    width:calc(100% - 24px)!important;height:auto!important;min-height:0!important;
-    margin:76px 12px 14px!important;padding:0!important;
-    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:8px!important;overflow:visible!important;transform:none!important;
-    justify-content:stretch!important;align-items:stretch!important;
-  }
-  .project-filters button{
-    min-width:0!important;width:100%!important;min-height:36px!important;
-    padding:7px 6px!important;font-size:9px!important;line-height:1.2!important;
-    white-space:normal!important;overflow-wrap:anywhere!important;
-    transform:none!important;box-shadow:2px 2px 0 #090909!important;
-  }
-  .project-filters button:last-child{grid-column:1/-1}
-  .intro-layout{margin:12px auto 8px!important;padding:0 14px!important;gap:14px!important}
-  .intro-layout header{width:100%!important;max-width:100%!important;padding:0 4px 14px!important;margin:0!important}
-  .intro-layout header .title,.intro-layout header h1{font-size:clamp(26px,8vw,36px)!important;line-height:1.08!important;overflow-wrap:anywhere}
-  .intro-layout header .subtitle{font-size:13px!important;line-height:1.45!important}
-  .intro-layout header .tagline{font-size:12px!important}
-  .intro-layout .services-top{width:100%!important;max-width:100%!important;margin:0 auto!important}
-  .services-top .services-details summary{max-width:100%;white-space:normal}
-  .grid{width:100%!important;max-width:100%!important;padding:0 12px!important;margin:20px auto 50px!important;columns:1!important}
-  .grid .item{width:100%!important;max-width:100%!important;margin:0 0 20px!important;padding:7px!important}
-  .grid .item img,.grid .item video{max-width:100%!important;height:auto}
-  img,video,iframe{max-width:100%}
-}
-</style>
