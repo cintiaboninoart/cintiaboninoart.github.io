@@ -2212,6 +2212,26 @@ if (requestedProject) {
 })();
 </script>
 
+
+<style>
+/* Category buttons: strict black-and-white palette in every state. */
+.project-filters button,
+.project-filters button:nth-child(2n),
+.project-filters button:nth-child(3n){
+  background:#fff !important;
+  color:#090909 !important;
+  border-color:#090909 !important;
+  box-shadow:3px 3px 0 #090909 !important;
+}
+.project-filters button:hover,
+.project-filters button:focus-visible,
+.project-filters button[aria-pressed="true"]{
+  background:#090909 !important;
+  color:#fff !important;
+  border-color:#090909 !important;
+}
+</style>
+
 </body>
 </html>
 
