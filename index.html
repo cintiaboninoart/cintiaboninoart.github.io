@@ -2601,5 +2601,73 @@ html:root body .project-filters button[aria-pressed="true"]{
   html:root body .project-filters button{font-size:12px !important;padding:7px 3px !important}
 }
 </style>
+<style>
+/* Final layout correction: category controls never overlap on mobile. */
+@media(max-width:760px){
+  html:root body .project-filters{
+    position:relative !important;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-auto-flow:row !important;
+    grid-auto-rows:minmax(44px,auto) !important;
+    align-items:stretch !important;
+    justify-items:stretch !important;
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin:16px 0 20px !important;
+    padding:0 12px !important;
+    box-sizing:border-box !important;
+    gap:10px !important;
+    overflow:visible !important;
+    transform:none !important;
+  }
+  html:root body .project-filters > button,
+  html:root body .project-filters > button:last-child{
+    position:relative !important;
+    inset:auto !important;
+    float:none !important;
+    display:flex !important;
+    grid-column:auto !important;
+    grid-row:auto !important;
+    align-self:stretch !important;
+    justify-self:stretch !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    min-height:44px !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:8px 6px !important;
+    box-sizing:border-box !important;
+    white-space:normal !important;
+    overflow-wrap:break-word !important;
+    word-break:normal !important;
+    text-align:center !important;
+    line-height:1.25 !important;
+    transform:none !important;
+  }
+}
+/* Desktop: display the four services in one horizontal row when space allows. */
+@media(min-width:761px){
+  html:root body .intro-layout .services-top .services-details > ul{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:wrap !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:10px 14px !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  html:root body .intro-layout .services-top .services-details > ul > li{
+    flex:0 1 auto !important;
+    width:auto !important;
+    margin:0 !important;
+  }
+}
+</style>
 </body>
 </html>
