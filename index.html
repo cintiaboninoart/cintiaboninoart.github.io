@@ -1630,6 +1630,77 @@ footer{font-family:"Special Elite",monospace!important;text-align:left!important
   img,video,iframe,svg{max-width:100%!important}
 }
 </style>
+
+<style>
+/* Final mobile homepage correction: remove the oversized header gap and prevent horizontal page overflow. */
+@media (max-width:760px){
+  html,body{
+    width:100% !important;
+    max-width:100% !important;
+    overflow-x:clip !important;
+  }
+  body{overflow-x:hidden !important}
+  .intro-layout{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    padding-left:12px !important;
+    padding-right:12px !important;
+    gap:8px !important;
+    overflow-x:clip !important;
+  }
+  .intro-layout header{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    padding:0 !important;
+    margin:0 !important;
+    overflow-wrap:anywhere !important;
+  }
+  .intro-layout header .title,
+  .intro-layout header h1{
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+  }
+  .intro-layout .services-top{
+    width:auto !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin:0 auto !important;
+  }
+  .services-top .services-details summary{
+    margin:0 auto !important;
+  }
+  .grid{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    padding-left:8px !important;
+    padding-right:8px !important;
+  }
+  .grid .item,
+  .grid .item-media,
+  .grid .item-overlay,
+  .grid .project-caption{
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+  img,video,iframe,svg,canvas{
+    max-width:100% !important;
+  }
+  .nav,.nav-inner,.project-filters,footer{
+    box-sizing:border-box !important;
+    max-width:100% !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
