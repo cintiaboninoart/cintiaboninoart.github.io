@@ -3011,5 +3011,55 @@ html:root body .services-top .services-details > ul > li > a:hover{
 }
 </style>
 
+
+<style>
+/* Mobile refinements: tighter category rhythm and a stronger services CTA. */
+@media screen and (max-width:760px){
+  html:root body .project-filters{
+    flex-direction:column !important;
+    flex-wrap:nowrap !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:12px !important;
+    margin:8px auto 16px !important;
+    padding:0 12px !important;
+  }
+  html:root body .project-filters > button{
+    display:block !important;
+    flex:0 0 auto !important;
+    width:auto !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:2px 3px !important;
+    line-height:1.2 !important;
+  }
+  html:root body .services-top .services-details > summary{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:5px !important;
+    margin:4px auto 10px !important;
+    padding:10px 16px !important;
+    border:2px solid #090909 !important;
+    background:#090909 !important;
+    color:#fff !important;
+    box-shadow:4px 4px 0 #b7f52a !important;
+    text-decoration:none !important;
+    font-size:11px !important;
+    line-height:1.25 !important;
+    letter-spacing:1px !important;
+  }
+  html:root body .services-top .services-details > summary::after{
+    content:" +" !important;
+    color:#ed2b91 !important;
+    font-size:15px !important;
+    line-height:1 !important;
+  }
+  html:root body .services-top .services-details[open] > summary::after{
+    content:" −" !important;
+  }
+}
+</style>
+
 </body>
 </html>
