@@ -57,7 +57,11 @@ html:root body .handwritten {
   text-transform: none !important;
 }
 
-@media (max-width: 600px) {\n  html:root body .services-top li,\n  html:root body .services-top li a {\n    font-size: 19px !important;\n  }
+@media (max-width: 600px) {
+  html:root body .services-top li,
+  html:root body .services-top li a {
+    font-size: 19px !important;
+  }
   html:root body .eyebrow,
   html:root body .image-title,
   html:root body .handwritten {
