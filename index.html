@@ -3061,5 +3061,27 @@ html:root body .services-top .services-details > ul > li > a:hover{
 }
 </style>
 
+<style>
+/* Desktop: keep the fixed category navigation readable while scrolling over project imagery. */
+@media (min-width:761px){
+  html:root body .project-filters{
+    background:#fff !important;
+    background-color:#fff !important;
+    background-image:none !important;
+    border-bottom:1px solid rgba(0,0,0,.14) !important;
+    box-shadow:0 3px 9px rgba(0,0,0,.07) !important;
+    opacity:1 !important;
+    z-index:1001 !important;
+  }
+  html:root body .project-filters > button{
+    color:#171717 !important;
+    text-shadow:none !important;
+  }
+  html:root body .project-filters > button[aria-pressed="true"]{
+    background:linear-gradient(transparent 57%, rgba(239,226,91,.9) 57%) !important;
+  }
+}
+</style>
+
 </body>
 </html>
