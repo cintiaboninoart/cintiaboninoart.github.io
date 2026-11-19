@@ -2806,5 +2806,102 @@ html:root body .project-filters > button:hover{
 }
 </style>
 
+
+<style>
+/* Services: editorial text treatment, integrated with the homepage composition. */
+html:root body .services-top .services-details > summary{
+  display:inline-block !important;
+  width:fit-content !important;
+  max-width:100% !important;
+  margin:0 0 11px !important;
+  padding:2px 3px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:linear-gradient(transparent 55%, rgba(239,226,91,.82) 55%) !important;
+  box-shadow:none !important;
+  color:#171717 !important;
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  letter-spacing:1.1px !important;
+  line-height:1.4 !important;
+  text-transform:uppercase !important;
+  cursor:pointer !important;
+  list-style:none !important;
+}
+html:root body .services-top .services-details > summary::-webkit-details-marker{display:none !important}
+html:root body .services-top .services-details > summary::marker{content:"" !important}
+html:root body .services-top .services-details > summary::after{
+  content:" +";
+  color:#d72b83;
+  font-weight:800;
+}
+html:root body .services-top .services-details[open] > summary::after{content:" −"}
+html:root body .services-top .services-details > ul{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  align-items:start !important;
+  justify-items:start !important;
+  gap:9px 20px !important;
+  margin:2px 0 0 !important;
+  padding:0 !important;
+  list-style:none !important;
+}
+html:root body .services-top .services-details > ul > li{
+  position:relative !important;
+  width:auto !important;
+  margin:0 !important;
+  padding:0 0 0 12px !important;
+  color:#222 !important;
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-size:11px !important;
+  font-weight:600 !important;
+  line-height:1.45 !important;
+  letter-spacing:.15px !important;
+  text-align:left !important;
+  text-transform:uppercase !important;
+}
+html:root body .services-top .services-details > ul > li::before{
+  content:"↳";
+  position:absolute;
+  left:0;
+  top:0;
+  color:#d72b83;
+  font-weight:800;
+}
+html:root body .services-top .services-details > ul > li > a{
+  color:#171717 !important;
+  font-weight:700 !important;
+  text-decoration:none !important;
+  background:linear-gradient(transparent 78%, rgba(239,226,91,.9) 78%) !important;
+  text-underline-offset:3px !important;
+}
+html:root body .services-top .services-details > ul > li > a:hover{
+  background:linear-gradient(transparent 48%, rgba(239,226,91,.95) 48%) !important;
+}
+@media(max-width:760px){
+  html:root body .services-top .services-details > summary{
+    margin:0 auto 10px !important;
+    font-size:10px !important;
+    text-align:center !important;
+  }
+  html:root body .services-top .services-details > ul{
+    grid-template-columns:1fr !important;
+    justify-items:center !important;
+    gap:8px !important;
+  }
+  html:root body .services-top .services-details > ul > li{
+    text-align:center !important;
+    padding-left:0 !important;
+    font-size:10px !important;
+  }
+  html:root body .services-top .services-details > ul > li::before{
+    position:static;
+    display:inline-block;
+    margin-right:5px;
+  }
+}
+</style>
+
 </body>
 </html>
