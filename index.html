@@ -3299,5 +3299,22 @@ html:root body .services-top .services-details > ul > li > a:hover{
 }
 </style>
 
+
+<style>
+/* Desktop services: move the links slightly upward and improve readability. */
+@media screen and (min-width:761px){
+  html body .intro-layout aside.services-top .services-details > ul{
+    position:relative !important;
+    top:-8px !important;
+    gap:12px 16px !important;
+  }
+  html body .intro-layout aside.services-top .services-details > ul > li,
+  html body .intro-layout aside.services-top .services-details > ul > li > a{
+    font-size:14px !important;
+    line-height:1.5 !important;
+  }
+}
+</style>
+
 </body>
 </html>
