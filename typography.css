@@ -219,3 +219,19 @@ html:root body .nav .brand {
   text-shadow: 2px 2px 0 #9cff2e !important;
   -webkit-text-stroke: 0 !important;
 }
+
+/* Category filters: preserve the DOS typeface in every interaction state
+   on desktop and mobile (hover, focus, pressed and selected). */
+html:root body .project-filters button,
+html:root body .project-filters button:hover,
+html:root body .project-filters button:focus,
+html:root body .project-filters button:focus-visible,
+html:root body .project-filters button:active,
+html:root body .project-filters button[aria-pressed="true"],
+html:root body .project-filters button[aria-pressed="false"] {
+  font-family: "IBM VGA", monospace !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: 400 !important;
+  font-stretch: normal !important;
+}
