@@ -3200,5 +3200,59 @@ html:root body .services-top .services-details > ul > li > a:hover{
 })();
 </script>
 
+
+<style>
+/* Final desktop reset: service links are plain text, never boxed buttons. */
+@media screen and (min-width:761px){
+  html:root body .intro-layout .services-top .services-details,
+  html:root body .intro-layout .services-top .services-details > summary,
+  html:root body .intro-layout .services-top .services-details > ul,
+  html:root body .intro-layout .services-top .services-details > ul > li,
+  html:root body .intro-layout .services-top .services-details > ul > li > a{
+    border:0 !important;
+    border-width:0 !important;
+    border-style:none !important;
+    border-radius:0 !important;
+    outline:0 !important;
+    box-shadow:none !important;
+    background:transparent !important;
+    background-color:transparent !important;
+    background-image:none !important;
+    padding:0 !important;
+    -webkit-appearance:none !important;
+    appearance:none !important;
+  }
+  html:root body .intro-layout .services-top .services-details > ul > li{
+    display:block !important;
+    margin:0 !important;
+  }
+  html:root body .intro-layout .services-top .services-details > ul > li > a{
+    display:inline !important;
+    color:#171717 !important;
+    text-decoration:underline !important;
+    text-decoration-color:#efe25b !important;
+    text-decoration-thickness:2px !important;
+    text-underline-offset:3px !important;
+    font-weight:700 !important;
+  }
+  html:root body .intro-layout .services-top .services-details > ul > li::before,
+  html:root body .intro-layout .services-top .services-details > ul > li::after,
+  html:root body .intro-layout .services-top .services-details > ul > li > a::before,
+  html:root body .intro-layout .services-top .services-details > ul > li > a::after{
+    content:none !important;
+    display:none !important;
+  }
+  html:root body .intro-layout .services-top .services-details > summary{
+    cursor:default !important;
+    pointer-events:none !important;
+  }
+  html:root body .intro-layout .services-top .services-details > summary::before,
+  html:root body .intro-layout .services-top .services-details > summary::after{
+    content:none !important;
+    display:none !important;
+  }
+}
+</style>
+
 </body>
 </html>
