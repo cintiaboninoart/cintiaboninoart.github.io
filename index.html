@@ -3083,5 +3083,61 @@ html:root body .services-top .services-details > ul > li > a:hover{
 }
 </style>
 
+<style>
+/* Desktop services: plain heading and permanently visible links, not a disclosure box. */
+@media (min-width:761px){
+  html:root body .services-top .services-details{
+    display:block !important;
+  }
+  html:root body .services-top .services-details > summary{
+    display:block !important;
+    width:auto !important;
+    max-width:100% !important;
+    margin:0 0 12px !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    outline:0 !important;
+    background:none !important;
+    background-color:transparent !important;
+    background-image:none !important;
+    box-shadow:none !important;
+    pointer-events:none !important;
+    cursor:default !important;
+    text-decoration:none !important;
+  }
+  html:root body .services-top .services-details > summary::after{
+    content:none !important;
+    display:none !important;
+  }
+  html:root body .services-top .services-details > ul,
+  html:root body .services-top .services-details:not([open]) > ul{
+    display:grid !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    height:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+    margin:2px 0 0 !important;
+    padding:0 !important;
+  }
+  html:root body .services-top .services-details > ul > li,
+  html:root body .services-top .services-details > ul > li > a{
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    background:none !important;
+    background-color:transparent !important;
+    background-image:none !important;
+  }
+  html:root body .services-top .services-details > ul > li > a{
+    text-decoration:underline !important;
+    text-decoration-color:#efe25b !important;
+    text-decoration-thickness:2px !important;
+    text-underline-offset:3px !important;
+  }
+}
+</style>
+
 </body>
 </html>
