@@ -3144,5 +3144,50 @@ html:root body .services-top .services-details > ul > li > a:hover{
 }
 </style>
 
+
+<style>
+/* HARD RESET for desktop service links: no button/card styling on any nested element. */
+@media screen and (min-width:761px){
+  html body .intro-layout aside.services-top .services-details ul,
+  html body .intro-layout aside.services-top .services-details ul li,
+  html body .intro-layout aside.services-top .services-details ul li a,
+  html body .intro-layout aside.services-top .services-details ul li a *,
+  html body .intro-layout aside.services-top .services-details ul li::before,
+  html body .intro-layout aside.services-top .services-details ul li::after,
+  html body .intro-layout aside.services-top .services-details ul li a::before,
+  html body .intro-layout aside.services-top .services-details ul li a::after{
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: 0 !important;
+  }
+  html body .intro-layout aside.services-top .services-details ul li{
+    display:block !important;
+    width:auto !important;
+    padding:0 !important;
+    margin:0 !important;
+  }
+  html body .intro-layout aside.services-top .services-details ul li a{
+    display:inline !important;
+    width:auto !important;
+    min-width:0 !important;
+    max-width:none !important;
+    padding:0 !important;
+    margin:0 !important;
+    color:#171717 !important;
+    text-decoration:underline !important;
+    text-decoration-color:#f50083 !important;
+    text-decoration-thickness:2px !important;
+    text-underline-offset:3px !important;
+    transform:none !important;
+    -webkit-appearance:none !important;
+    appearance:none !important;
+  }
+}
+</style>
+
 </body>
 </html>
