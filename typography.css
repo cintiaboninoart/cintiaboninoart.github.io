@@ -20,7 +20,7 @@ html:root body *::after {
   font-family: var(--font-main) !important;
 }
 
-/* Helvetica Neue también en marca, títulos, navegación y botones */
+/* IBM VGA también en el nombre de marca en todas las páginas */
 html:root body .nav .brand,
 html:root body header .title,
 html:root body header .name-title,
