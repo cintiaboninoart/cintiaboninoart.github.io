@@ -79,3 +79,58 @@ html:root body .handwritten {
     font-size: 16px !important;
   }
 }
+
+/* Servicios como botones de una pantalla clásica de DOS */
+html:root body .intro-layout .services-top ul {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+html:root body .intro-layout .services-top li {
+  width: auto !important;
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+html:root body .intro-layout .services-top li a {
+  display: inline-block !important;
+  box-sizing: border-box !important;
+  padding: 9px 13px !important;
+  min-width: min(100%, 260px);
+  background: #080808 !important;
+  color: #fff !important;
+  border: 1px solid #858585 !important;
+  border-radius: 0 !important;
+  box-shadow: inset 1px 1px 0 #444, inset -1px -1px 0 #000 !important;
+  font-family: var(--font-handwritten) !important;
+  font-size: 16px !important;
+  line-height: 1.35 !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+  transition: background-color .12s linear, color .12s linear !important;
+}
+
+html:root body .intro-layout .services-top li a:hover,
+html:root body .intro-layout .services-top li a:focus-visible {
+  background: #9cff2e !important;
+  color: #080808 !important;
+  border-color: #9cff2e !important;
+  outline: 1px solid #fff !important;
+  outline-offset: 2px !important;
+}
+
+@media (max-width: 600px) {
+  html:root body .intro-layout .services-top ul {
+    gap: 7px !important;
+  }
+  html:root body .intro-layout .services-top li a {
+    min-width: 0;
+    max-width: 100%;
+    padding: 8px 10px !important;
+    font-size: 14px !important;
+  }
+}
