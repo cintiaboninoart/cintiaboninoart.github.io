@@ -1,9 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+/* IBM VGA 8x16: fuente de pantalla clásica de PC/DOS. Licencia CC BY-SA 4.0; fuente y atribución: https://fontpixel.com/en/fonts/ibm-vga/ */
+@font-face {
+  font-family: "IBM VGA";
+  src: url("https://fontpixel.com/downloads/ibm-vga-16px-square.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
 /* Únicas tipografías visibles del sitio */
 :root {
   --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-handwritten: "Permanent Marker", cursive;
+  --font-handwritten: "IBM VGA", monospace;
 }
 
 /* Selector válido y con prioridad sobre las reglas antiguas de cada página */
@@ -38,20 +45,20 @@ html:root body .project-filters button {
 html:root body .services-top li,
 html:root body .services-top li a {
   font-family: var(--font-handwritten) !important;
-  font-size: 22px !important;
+  font-size: 16px !important;
   font-weight: 400 !important;
-  line-height: 1.25 !important;
+  line-height: 1.5 !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
 }
 
-/* Permanent Marker solo en detalles gráficos breves */
+/* IBM VGA en detalles breves, además del listado de servicios */
 html:root body .eyebrow,
 html:root body .image-title,
 html:root body .handwritten {
   font-family: var(--font-handwritten) !important;
   font-weight: 400 !important;
-  font-size: 30px !important;
+  font-size: 16px !important;
   line-height: 1.1;
   letter-spacing: 0 !important;
   text-transform: none !important;
@@ -60,11 +67,11 @@ html:root body .handwritten {
 @media (max-width: 600px) {
   html:root body .services-top li,
   html:root body .services-top li a {
-    font-size: 19px !important;
+    font-size: 16px !important;
   }
   html:root body .eyebrow,
   html:root body .image-title,
   html:root body .handwritten {
-    font-size: 27px !important;
+    font-size: 16px !important;
   }
 }
