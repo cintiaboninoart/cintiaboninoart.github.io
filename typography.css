@@ -1,47 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap');
 
-/* Las únicas familias tipográficas visibles del sitio */
+/* Únicas tipografías visibles del sitio */
 :root {
   --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-handwritten: "Waiting for the Sunrise", cursive;
 }
 
-/* Regla global de alta prioridad: incluye marca, navegación, botones y controles */
-html:root body body *,
-html:root body body *::before,
-html:root body body *::after {
+/* Selector válido y con prioridad sobre las reglas antiguas de cada página */
+html:root body * ,
+html:root body *::before,
+html:root body *::after {
   font-family: var(--font-main) !important;
 }
 
-/* La marca y todos los títulos permanecen en Helvetica Neue */
-html:root body body .nav .brand,
-html:root body body header .title,
-html:root body body header .name-title,
-html:root body body header h1,
-html:root body body h1,
-html:root body body h2,
-html:root body body h3,
-html:root body body h4,
-html:root body body h5,
-html:root body body h6 {
+/* Helvetica Neue también en marca, títulos, navegación y botones */
+html:root body .nav .brand,
+html:root body header .title,
+html:root body header .name-title,
+html:root body header h1,
+html:root body h1,
+html:root body h2,
+html:root body h3,
+html:root body h4,
+html:root body h5,
+html:root body h6,
+html:root body button,
+html:root body input,
+html:root body select,
+html:root body textarea,
+html:root body .nav-inner a,
+html:root body .language-switch,
+html:root body .project-filters button {
   font-family: var(--font-main) !important;
 }
 
-/* Botones y enlaces de navegación: también Helvetica Neue */
-html:root body body button,
-html:root body body input,
-html:root body body select,
-html:root body body textarea,
-html:root body body .nav-inner a,
-html:root body body .language-switch,
-html:root body body .project-filters button {
-  font-family: var(--font-main) !important;
-}
-
-/* Waiting for the Sunrise solo en acentos manuscritos breves */
-html:root body body .eyebrow,
-html:root body body .image-title,
-html:root body body .handwritten {
+/* Waiting for the Sunrise solo en detalles manuscritos breves */
+html:root body .eyebrow,
+html:root body .image-title,
+html:root body .handwritten {
   font-family: var(--font-handwritten) !important;
   font-weight: 400 !important;
   font-size: 30px !important;
@@ -51,9 +47,9 @@ html:root body body .handwritten {
 }
 
 @media (max-width: 600px) {
-  html:root body body .eyebrow,
-  html:root body body .image-title,
-  html:root body body .handwritten {
+  html:root body .eyebrow,
+  html:root body .image-title,
+  html:root body .handwritten {
     font-size: 27px !important;
   }
 }
