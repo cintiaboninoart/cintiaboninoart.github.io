@@ -3206,5 +3206,28 @@ html:root body .services-top .services-details > ul > li > a:hover{
 }
 </style>
 
+
+<style>
+/* Category labels: keep the DOS/IBM VGA typography identical in every interaction state. */
+html body .project-filters > button,
+html body .project-filters > button:hover,
+html body .project-filters > button:focus,
+html body .project-filters > button:focus-visible,
+html body .project-filters > button:active,
+html body .project-filters > button[aria-pressed="true"],
+html body .project-filters > button[aria-pressed="true"]:hover,
+html body .project-filters > button[aria-pressed="true"]:focus-visible {
+  font-family:"IBM VGA", monospace !important;
+  font-size:16px !important;
+  font-style:normal !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+  font-variant:normal !important;
+  text-shadow:none !important;
+  transition-property:background-color, color, box-shadow, text-decoration-color !important;
+}
+</style>
+
 </body>
 </html>
