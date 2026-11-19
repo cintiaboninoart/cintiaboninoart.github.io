@@ -3250,5 +3250,37 @@ html body .intro-layout aside.services-top .services-details > ul > li > a {
 }
 </style>
 
+
+
+<style>
+/* Mobile only: compact category menu into a tight two-column grid. */
+@media screen and (max-width:760px){
+  html:root body .project-filters{
+    position:relative !important; display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-auto-flow:row !important; grid-auto-rows:32px !important;
+    align-items:center !important; justify-items:stretch !important;
+    gap:4px 10px !important; width:100% !important; height:auto !important;
+    min-height:0 !important; margin:8px 0 12px !important;
+    padding:0 12px !important; overflow:visible !important; box-sizing:border-box !important;
+  }
+  html:root body .project-filters > button,
+  html:root body .project-filters > button:hover,
+  html:root body .project-filters > button:focus,
+  html:root body .project-filters > button:focus-visible,
+  html:root body .project-filters > button:active,
+  html:root body .project-filters > button[aria-pressed="true"],
+  html:root body .project-filters > button[aria-pressed="false"]{
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    width:100% !important; min-width:0 !important; max-width:100% !important;
+    min-height:0 !important; height:32px !important; margin:0 !important;
+    padding:0 3px !important; font-family:"IBM VGA",monospace !important;
+    font-size:18px !important; line-height:1.1 !important; font-weight:400 !important;
+    letter-spacing:0 !important; white-space:normal !important; text-align:center !important;
+    box-sizing:border-box !important;
+  }
+}
+</style>
+
 </body>
 </html>
