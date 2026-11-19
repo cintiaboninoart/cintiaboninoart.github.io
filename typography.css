@@ -1,32 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap');
 
-/* Site-wide typography system: Helvetica Neue + Reenie Beanie */
+/* Únicas tipografías del sitio: Helvetica Neue + Waiting for the Sunrise */
 :root {
   --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-handwritten: "Reenie Beanie", cursive;
+  --font-handwritten: "Waiting for the Sunrise", cursive;
 }
-html, body {
+
+/* Helvetica Neue en todos los elementos, incluidos el nombre y la navegación */
+html,
+body,
+body * {
   font-family: var(--font-main) !important;
 }
-button, input, select, textarea {
-  font-family: var(--font-main) !important;
-}
+
 h1, h2, h3, h4, h5, h6,
 .content h2, .press-title {
   font-family: var(--font-main) !important;
   font-weight: 700 !important;
   letter-spacing: -0.035em;
 }
-.eyebrow, .image-title, .handwritten {
+
+/* Tipografía manuscrita solo como acento en textos breves */
+.eyebrow,
+.image-title,
+.handwritten {
   font-family: var(--font-handwritten) !important;
   font-weight: 400 !important;
-  font-size: 23px !important;
-  line-height: 1.05;
+  font-size: 30px !important;
+  line-height: 1.1;
   letter-spacing: 0 !important;
   text-transform: none !important;
 }
+
 @media (max-width: 600px) {
-  .eyebrow, .image-title, .handwritten {
-    font-size: 21px !important;
+  .eyebrow,
+  .image-title,
+  .handwritten {
+    font-size: 27px !important;
   }
 }
