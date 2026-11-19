@@ -1,29 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap');
 
-/* Únicas tipografías del sitio: Helvetica Neue + Waiting for the Sunrise */
+/* Las únicas familias tipográficas visibles del sitio */
 :root {
   --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-handwritten: "Waiting for the Sunrise", cursive;
 }
 
-/* Helvetica Neue en todos los elementos, incluidos el nombre y la navegación */
-html,
-body,
-body * {
+/* Regla global de alta prioridad: incluye marca, navegación, botones y controles */
+html:root body body *,
+html:root body body *::before,
+html:root body body *::after {
   font-family: var(--font-main) !important;
 }
 
-h1, h2, h3, h4, h5, h6,
-.content h2, .press-title {
+/* La marca y todos los títulos permanecen en Helvetica Neue */
+html:root body body .nav .brand,
+html:root body body header .title,
+html:root body body header .name-title,
+html:root body body header h1,
+html:root body body h1,
+html:root body body h2,
+html:root body body h3,
+html:root body body h4,
+html:root body body h5,
+html:root body body h6 {
   font-family: var(--font-main) !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.035em;
 }
 
-/* Tipografía manuscrita solo como acento en textos breves */
-.eyebrow,
-.image-title,
-.handwritten {
+/* Botones y enlaces de navegación: también Helvetica Neue */
+html:root body body button,
+html:root body body input,
+html:root body body select,
+html:root body body textarea,
+html:root body body .nav-inner a,
+html:root body body .language-switch,
+html:root body body .project-filters button {
+  font-family: var(--font-main) !important;
+}
+
+/* Waiting for the Sunrise solo en acentos manuscritos breves */
+html:root body body .eyebrow,
+html:root body body .image-title,
+html:root body body .handwritten {
   font-family: var(--font-handwritten) !important;
   font-weight: 400 !important;
   font-size: 30px !important;
@@ -33,9 +51,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (max-width: 600px) {
-  .eyebrow,
-  .image-title,
-  .handwritten {
+  html:root body body .eyebrow,
+  html:root body body .image-title,
+  html:root body body .handwritten {
     font-size: 27px !important;
   }
 }
