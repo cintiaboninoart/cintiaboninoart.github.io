@@ -134,3 +134,48 @@ html:root body .intro-layout .services-top li a:focus-visible {
     font-size: 14px !important;
   }
 }
+
+
+/* Nombre de inicio: pequeño guiño a la pantalla de arranque DOS */
+html:root body .intro-layout header h1.title {
+  color: #080808 !important;
+  -webkit-text-fill-color: #080808 !important;
+  text-shadow: none !important;
+  letter-spacing: 0 !important;
+}
+
+html:root body .intro-layout header h1.title .dos-prompt,
+html:root body .intro-layout header h1.title .dos-cursor {
+  color: #9cff2e !important;
+  -webkit-text-fill-color: #9cff2e !important;
+}
+
+html:root body .intro-layout header h1.title .dos-prompt {
+  font-size: .48em;
+  vertical-align: .18em;
+  margin-right: .28em;
+}
+
+html:root body .intro-layout header h1.title .dos-cursor {
+  display: inline-block;
+  margin-left: .12em;
+  font-size: .72em;
+  vertical-align: .04em;
+  animation: dos-cursor-blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes dos-cursor-blink {
+  to { visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:root body .intro-layout header h1.title .dos-cursor {
+    animation: none;
+  }
+}
+
+/* En las páginas de servicio, el nombre pequeño conserva solo la sombra verde */
+html:root body .nav .brand {
+  text-shadow: 2px 2px 0 #9cff2e !important;
+  -webkit-text-stroke: 0 !important;
+}
