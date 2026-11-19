@@ -20,11 +20,15 @@ html:root body *::after {
   font-family: var(--font-main) !important;
 }
 
-/* Helvetica Neue también en marca, títulos, navegación y botones */
+/* IBM VGA para el nombre CINTIA BONINO en todas las páginas */
 html:root body .nav .brand,
 html:root body header .title,
 html:root body header .name-title,
-html:root body header h1,
+html:root body header h1 {
+  font-family: var(--font-handwritten) !important;
+}
+
+/* Helvetica Neue para títulos generales, navegación y controles */
 html:root body h1,
 html:root body h2,
 html:root body h3,
