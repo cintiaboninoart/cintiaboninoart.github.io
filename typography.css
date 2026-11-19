@@ -173,13 +173,13 @@ html:root body .intro-layout header h1.title .dos-cursor {
   }
 }
 
-/* Botones de servicios: fondo blanco, tipografía DOS blanca con sombra negra */
+/* Botones de servicios: fondo blanco y tipografía DOS negra, sin sombra */
 html:root body .intro-layout .services-top li a,
 html:root body .intro-layout .services-top li a:link,
 html:root body .intro-layout .services-top li a:visited {
   background: #fff !important;
-  color: #fff !important;
-  -webkit-text-fill-color: #fff !important;
+  color: #080808 !important;
+  -webkit-text-fill-color: #080808 !important;
   border: 1px solid #111 !important;
   border-radius: 0 !important;
   box-shadow: 2px 2px 0 #111 !important;
@@ -188,7 +188,7 @@ html:root body .intro-layout .services-top li a:visited {
   font-weight: 400 !important;
   line-height: 1.35 !important;
   letter-spacing: 0 !important;
-  text-shadow: 1px 1px 0 #111, 2px 2px 0 #111 !important;
+  text-shadow: none !important;
   text-decoration: none !important;
   text-transform: none !important;
 }
