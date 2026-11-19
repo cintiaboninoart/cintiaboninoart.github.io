@@ -793,7 +793,17 @@ View the second page ↗
  box-shadow:4px 4px 0 #b7f52a!important;
 }
 </style>
+<style>
+/* Mobile: keep navigation in document flow so it cannot cover the name or intro. */
+@media (max-width:768px){
+  .nav{
+    position:relative !important;
+  }
+  header{
+    padding-top:32px !important;
+  }
+}
+</style>
 
 </body>
-
 </html>
