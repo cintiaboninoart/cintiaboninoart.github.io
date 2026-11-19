@@ -2724,5 +2724,66 @@ html:root body .project-filters button[aria-pressed="true"]{
   }
 }
 </style>
+
+<style>
+/* Mobile: put the top navigation on its own row, above the category filters. */
+@media screen and (max-width:760px){
+  html body nav.nav{
+    position:relative !important;
+    top:auto !important; right:auto !important; bottom:auto !important; left:auto !important;
+    width:100% !important; max-width:100% !important;
+    margin:0 !important; padding:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    transform:none !important;
+    z-index:2 !important;
+    box-sizing:border-box !important;
+  }
+  html body nav.nav .nav-inner{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:wrap !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    width:100% !important; max-width:100% !important;
+    margin:0 auto !important;
+    padding:10px 10px 8px !important;
+    box-sizing:border-box !important;
+  }
+  html body nav.nav .nav-inner > a{
+    position:relative !important;
+    display:inline-flex !important;
+    flex:0 1 auto !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:auto !important; min-width:0 !important; max-width:100% !important;
+    margin:0 !important;
+    padding:7px 8px !important;
+    font-size:clamp(8px,2.5vw,10px) !important;
+    line-height:1.2 !important;
+    letter-spacing:0 !important;
+    white-space:normal !important;
+    text-align:center !important;
+    transform:none !important;
+    box-sizing:border-box !important;
+  }
+  html body nav.nav .nav-inner .language-switch{
+    display:inline-flex !important;
+    position:relative !important;
+    flex:0 0 auto !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:4px !important;
+    width:auto !important;
+    margin:0 !important;
+    white-space:nowrap !important;
+  }
+  html body .project-filters{
+    position:static !important;
+    margin:8px 0 18px !important;
+  }
+}
+</style>
 </body>
 </html>
