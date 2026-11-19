@@ -3037,5 +3037,58 @@ html:root body .services-top .services-details > ul > li > a:hover{
 }
 </style>
 
+<style>
+/* Desktop: the four service links are always visible, never collapsed. */
+@media screen and (min-width:761px){
+  html body .services-top details.services-details,
+  html body .services-top details.services-details:not([open]){
+    display:block !important;
+  }
+  html body .services-top details.services-details > ul,
+  html body .services-top details.services-details:not([open]) > ul{
+    display:grid !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    height:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+    clip:auto !important;
+    position:static !important;
+  }
+  html body .services-top details.services-details > summary{
+    pointer-events:none !important;
+    cursor:default !important;
+    border:0 !important;
+    outline:0 !important;
+    box-shadow:none !important;
+    background:transparent !important;
+    background-image:none !important;
+  }
+  html body .services-top details.services-details > summary::before,
+  html body .services-top details.services-details > summary::after{
+    content:none !important;
+    display:none !important;
+  }
+}
+</style>
+<script>
+/* Keep the disclosure open on desktop even if the summary receives a click. */
+(function(){
+  const details=document.querySelector(".services-top details.services-details");
+  if(!details) return;
+  const desktop=window.matchMedia("(min-width: 761px)");
+  function enforce(){
+    if(desktop.matches) details.open=true;
+  }
+  details.addEventListener("click",function(event){
+    if(desktop.matches){event.preventDefault();details.open=true;}
+  },true);
+  details.addEventListener("toggle",enforce);
+  enforce();
+  if(desktop.addEventListener) desktop.addEventListener("change",enforce);
+  else desktop.addListener(enforce);
+})();
+</script>
+
 </body>
 </html>
