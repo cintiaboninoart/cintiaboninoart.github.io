@@ -235,3 +235,23 @@ html:root body .project-filters button[aria-pressed="false"] {
   font-weight: 400 !important;
   font-stretch: normal !important;
 }
+
+/* Mobile category filters: larger DOS lettering and tighter vertical rhythm. */
+@media screen and (max-width: 760px) {
+  html:root body .project-filters {
+    gap: 4px !important;
+  }
+  html:root body .project-filters button,
+  html:root body .project-filters button:hover,
+  html:root body .project-filters button:focus,
+  html:root body .project-filters button:focus-visible,
+  html:root body .project-filters button:active,
+  html:root body .project-filters button[aria-pressed="true"],
+  html:root body .project-filters button[aria-pressed="false"] {
+    font-family: "IBM VGA", monospace !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+  }
+}
