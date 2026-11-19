@@ -34,6 +34,17 @@ html:root body .project-filters button {
   font-family: var(--font-main) !important;
 }
 
+/* El listado de servicios es el lugar principal para mostrar la tipografía manuscrita */
+html:root body .services-top li,
+html:root body .services-top li a {
+  font-family: var(--font-handwritten) !important;
+  font-size: 22px !important;
+  font-weight: 400 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
 /* Waiting for the Sunrise solo en detalles manuscritos breves */
 html:root body .eyebrow,
 html:root body .image-title,
@@ -46,7 +57,7 @@ html:root body .handwritten {
   text-transform: none !important;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) {\n  html:root body .services-top li,\n  html:root body .services-top li a {\n    font-size: 19px !important;\n  }
   html:root body .eyebrow,
   html:root body .image-title,
   html:root body .handwritten {
