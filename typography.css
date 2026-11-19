@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 /* Únicas tipografías visibles del sitio */
 :root {
   --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-handwritten: "Waiting for the Sunrise", cursive;
+  --font-handwritten: "Permanent Marker", cursive;
 }
 
 /* Selector válido y con prioridad sobre las reglas antiguas de cada página */
@@ -45,7 +45,7 @@ html:root body .services-top li a {
   text-transform: none !important;
 }
 
-/* Waiting for the Sunrise solo en detalles manuscritos breves */
+/* Permanent Marker solo en detalles gráficos breves */
 html:root body .eyebrow,
 html:root body .image-title,
 html:root body .handwritten {
