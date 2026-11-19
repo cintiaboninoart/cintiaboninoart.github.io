@@ -3360,5 +3360,87 @@ html body .intro-layout aside.services-top .services-details > ul > li > a {
 }
 </style>
 
+
+
+<style>
+/* Mobile category links: clear tap cue, generous spacing, no rectangular buttons. */
+@media screen and (max-width:760px){
+  html:root body .project-filters{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-auto-rows:minmax(42px,auto) !important;
+    align-items:center !important;
+    justify-items:stretch !important;
+    column-gap:14px !important;
+    row-gap:12px !important;
+    margin:10px 0 16px !important;
+    padding:0 12px !important;
+    height:auto !important;
+    min-height:0 !important;
+    overflow:visible !important;
+    box-sizing:border-box !important;
+  }
+  html:root body .project-filters > button,
+  html:root body .project-filters > button:hover,
+  html:root body .project-filters > button:focus,
+  html:root body .project-filters > button:focus-visible,
+  html:root body .project-filters > button:active,
+  html:root body .project-filters > button[aria-pressed="true"],
+  html:root body .project-filters > button[aria-pressed="false"]{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    align-self:stretch !important;
+    justify-self:stretch !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    min-height:42px !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:5px 2px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    background-color:transparent !important;
+    background-image:none !important;
+    box-shadow:none !important;
+    transform:none !important;
+    color:#111 !important;
+    font-family:"IBM VGA",monospace !important;
+    font-size:16px !important;
+    line-height:1.3 !important;
+    letter-spacing:0 !important;
+    white-space:normal !important;
+    text-align:center !important;
+    overflow-wrap:normal !important;
+    cursor:pointer !important;
+    text-decoration:none !important;
+    -webkit-tap-highlight-color:rgba(239,226,91,.35) !important;
+    box-sizing:border-box !important;
+  }
+  html:root body .project-filters > button::after{
+    content:" +" !important;
+    display:inline !important;
+    margin-left:4px !important;
+    color:#9CFF2E !important;
+    font-family:Arial,sans-serif !important;
+    font-size:1.05em !important;
+    font-weight:800 !important;
+  }
+  html:root body .project-filters > button[aria-pressed="true"]{
+    background:linear-gradient(transparent 70%, rgba(239,226,91,.9) 70%) !important;
+    font-weight:700 !important;
+  }
+  html:root body .project-filters > button:active{
+    background:linear-gradient(transparent 62%, rgba(239,226,91,.65) 62%) !important;
+  }
+  html:root body .project-filters > button:focus-visible{
+    outline:1px dotted #111 !important;
+    outline-offset:3px !important;
+  }
+}
+</style>
+
 </body>
 </html>
