@@ -2976,5 +2976,40 @@ html:root body .intro-layout header h1{
 }
 </style>
 
+
+<style>
+/* Services: remove every box/fill; keep only typography and a fine underline accent. */
+html:root body .services-top,
+html:root body .services-top .services-details,
+html:root body .services-top .services-details > summary,
+html:root body .services-top .services-details > ul,
+html:root body .services-top .services-details > ul > li,
+html:root body .services-top .services-details > ul > li > a{
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background-color:transparent !important;
+}
+html:root body .services-top .services-details > summary{
+  background-image:none !important;
+  padding:0 !important;
+  text-decoration:underline !important;
+  text-decoration-color:#efe25b !important;
+  text-decoration-thickness:4px !important;
+  text-underline-offset:-2px !important;
+}
+html:root body .services-top .services-details > ul > li > a{
+  background-image:none !important;
+  text-decoration:underline !important;
+  text-decoration-color:#efe25b !important;
+  text-decoration-thickness:2px !important;
+  text-underline-offset:3px !important;
+}
+html:root body .services-top .services-details > ul > li > a:hover{
+  background:transparent !important;
+  background-image:none !important;
+}
+</style>
+
 </body>
 </html>
