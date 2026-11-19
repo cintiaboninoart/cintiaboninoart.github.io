@@ -2504,5 +2504,50 @@ header .title, header .name-title, header h1 {
 }
 </style>
 
+<style>
+/* Category buttons use the same IBM VGA typeface as the Cintia Bonino heading. */
+html:root body .project-filters button,
+html:root body .project-filters button:hover,
+html:root body .project-filters button:focus-visible,
+html:root body .project-filters button[aria-pressed="true"]{
+  font-family:"IBM VGA",monospace !important;
+  font-size:16px !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+}
+/* Mobile: contain the full category menu within the viewport. */
+@media(max-width:760px){
+  html:root body .project-filters{
+    position:relative !important; inset:auto !important;
+    left:auto !important; right:auto !important;
+    width:100% !important; max-width:100% !important; min-width:0 !important;
+    box-sizing:border-box !important;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    justify-content:stretch !important; align-items:stretch !important;
+    gap:8px !important;
+    margin:16px 0 24px !important; padding:0 12px !important;
+    overflow:visible !important; transform:none !important;
+  }
+  html:root body .project-filters button,
+  html:root body .project-filters button:nth-child(2n),
+  html:root body .project-filters button:nth-child(3n),
+  html:root body .project-filters button:last-child{
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    width:100% !important; min-width:0 !important; max-width:100% !important;
+    min-height:40px !important; box-sizing:border-box !important;
+    padding:8px 5px !important; margin:0 !important;
+    font-family:"IBM VGA",monospace !important; font-size:13px !important;
+    line-height:1.25 !important; letter-spacing:0 !important;
+    white-space:normal !important; overflow-wrap:anywhere !important;
+    word-break:normal !important; text-align:center !important; transform:none !important;
+  }
+}
+@media(max-width:360px){
+  html:root body .project-filters{padding-left:8px !important;padding-right:8px !important;gap:6px !important}
+  html:root body .project-filters button{font-size:12px !important;padding:7px 3px !important}
+}
+</style>
 </body>
 </html>
