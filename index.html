@@ -3552,5 +3552,28 @@ html body .intro-layout aside.services-top .services-details > ul > li > a {
 }
 </style>
 
+
+
+<style>
+/* Desktop: keep the category bar above decorative layers and fully clickable. */
+@media screen and (min-width:761px){
+  html:root body .project-filters{
+    position:fixed !important;
+    top:45px !important;
+    left:0 !important;
+    right:0 !important;
+    z-index:11000 !important;
+    transform:none !important;
+    pointer-events:auto !important;
+  }
+  html:root body .project-filters > button{
+    position:relative !important;
+    z-index:11001 !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+  }
+}
+</style>
+
 </body>
 </html>
