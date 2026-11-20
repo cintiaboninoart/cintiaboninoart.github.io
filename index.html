@@ -3191,7 +3191,7 @@ html:root body .services-top .services-details > ul > li > a:hover{
     if(desktop.matches) details.open=true;
   }
   details.addEventListener("click",function(event){
-    if(desktop.matches){event.preventDefault();details.open=true;}
+    if(desktop.matches && event.target.closest("summary")){event.preventDefault();details.open=true;}
   },true);
   details.addEventListener("toggle",enforce);
   enforce();
